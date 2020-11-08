@@ -44,23 +44,18 @@ analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=b
 (with John Horton)\
 *Big Data*, 2015.
 
-[Big data, skills, and firm
-value](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2014.1899)\
+[Big data, skills, and firm value](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2014.1899)\
 *Management Science*, 2014.
 
-[Measuring Information Technology
-Spillovers](https://pubsonline.informs.org/doi/10.1287/isre.2013.0498)\
+[Measuring Information Technology Spillovers](https://pubsonline.informs.org/doi/10.1287/isre.2013.0498)\
 (with Lorin Hitt)\
 *Information Systems Research*, 2013.
 
-[Job hopping, information technology spillovers, and productivity
-growth](https://pubsonline.informs.org/doi/10.1287/mnsc.2013.1764) (with
-Lorin Hitt)\
+[Job hopping, information technology spillovers, and productivity growth](https://pubsonline.informs.org/doi/10.1287/mnsc.2013.1764)\
+(with Lorin Hitt)\
 *Management Science*, 2013.
 
-[The productivity of information technology investments: New evidence
-from IT labor
-data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398)\ 
+[The productivity of information technology investments: New evidence from IT labor data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398)\ 
 (with Lorin Hitt)\
 *Information Systems Research*, 2012.
 
