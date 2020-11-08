@@ -14,7 +14,3 @@ He focuses on two primary streams of [research](papers):
 - **Algorithms and hiring**: I study how new, digital algorithms and data signals are being used for hiring.
 
 He [teaches](teaching) courses to a variety of audiences on how digitization and AI technologies impact businesses.
-
-# Contact
-
-**Questions**? email [tambe@wharton.upenn.edu](mailto:tambe@wharton.upenn.edu).
