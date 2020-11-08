@@ -16,19 +16,17 @@ title: Papers
 # Published papers
 
 Paying to program? Engineering Brand and High-Tech Wages (with X. Ye and
-P. Cappelli)\
-[NBER Working Paper \#25552](https://www.nber.org/papers/w25552).\
+P. Cappelli)
+[NBER Working Paper \#25552](https://www.nber.org/papers/w25552).
 *Management Science*. 2020.
 
-- [Artificial Intelligence in Human Resources Management: Challenges and a
-Path Forward]
+[Artificial Intelligence in Human Resources Management: Challenges and a
+Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)
 (with Peter Cappelli and Valery Yakubovich)
 *California Management Review*. 2019.
 
-[Built to learn: How work practices affect employee learning during
-healthcare IT
-implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)
-(with A Avgar and LM Hitt)\
+[Built to learn: How work practices affect employee learning during healthcare IT implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)
+(with A Avgar and LM Hitt)
 *MIS Quarterly*, 2018.
 
 [Private equity and career paths: The role of technological
@@ -69,22 +67,22 @@ LM Hitt)\
 [Now IT\'s personal: Offshoring and the shifting skill composition of
 the US information technology
 workforce](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1445)
-(with LM Hitt)\
+(with LM Hitt)
 *Management Science*, 2012.
 
 [The extroverted firm: How external information practices affect
 innovation and
 productivity](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1446)
-(with LM Hitt and E Brynjolfsson)\
+(with LM Hitt and E Brynjolfsson)
 *Management Science*, 2012.
 
 [How offshoring affects IT
 workers](https://cacm.acm.org/magazines/2010/10/99489-how-offshoring-affects-it-workers/abstract)
-(with LM Hitt)\
+(with LM Hitt)
 *Communications of the ACM*, 2010.
 
 [Broadband adoption and content
 consumption](https://www.sciencedirect.com/science/article/pii/S0167624507000297)
-(with LM Hitt)\
-*Information Economics and Policy*, 2007.\
+(with LM Hitt)
+*Information Economics and Policy*, 2007.
 
