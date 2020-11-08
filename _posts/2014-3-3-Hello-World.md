@@ -7,7 +7,7 @@ I am an Associate Professor in the [OID group](http://oidd.wharton.upenn.edu) at
 
 [My official Wharton website](https://oid.wharton.upenn.edu/profile/tambe/).
 
-I have two primary streams of research:
+I have two primary streams of [research](papers):
 
 - **Economics of technical (IT) labor markets**: I am interested in the market for software developers, and how characteristics of this market affect employment and innovation outcomes.
 
