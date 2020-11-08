@@ -1,10 +1,23 @@
 ---
 layout: post
-title: You're up and running!
+title: Welcome!
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+I am an Associate Professor at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu).
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+[Official Wharton website](https://oid.wharton.upenn.edu/profile/tambe/)
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+I have two primary streams of research.
+
+- **Economics of IT labor**: I am interested in the market for developers, and how frictions in this market affect employers and innovation.
+
+- **Algorithms and hiring**: I study how new, digital algorithms and data signals are being used for hiring.
+
+# Teaching for Spring 2021
+
+**OIDD 245**: MW, Analytics & the Digital Economy<br>
+**OIDD 255X**: TR (Q4 onlly), AI, Data, and Society<br>
+
+# Contact
+
+**Questions**? email [tambe@wharton.upenn.edu](mailto:tambe@wharton.upenn.edu).
