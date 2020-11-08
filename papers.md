@@ -25,7 +25,7 @@ After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?\
 *Management Science*. 2020.
 
 [AI in Human Resources Management: Challenges and a
-Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)
+Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)\
 (with [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/) and [Valery Yakubovich](https://www.essec.edu/en/staff/faculty/valery-yakubovich))\
 *California Management Review*. 2019.
 
