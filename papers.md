@@ -1,9 +1,7 @@
 ---
 layout: post
-title: Papers
+title: Working papers
 ---
-
-# Working papers
 
 [Digital Capital and Superstar Firms](https://8a034064-c022-4d38-bd2a-4b69bfbd81b5.filesusr.com/ugd/3f53fa_0e9575623b7c42f9817a34e5240cfce0.pdf)\
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))
