@@ -55,7 +55,7 @@ analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=b
 (with Lorin Hitt)\
 *Management Science*, 2013.
 
-[The productivity of information technology investments: New evidence from IT labor data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398)\ 
+[The productivity of information technology investments: New evidence from IT labor data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398)\
 (with Lorin Hitt)\
 *Information Systems Research*, 2012.
 
