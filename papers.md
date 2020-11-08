@@ -6,7 +6,7 @@ title: Papers
 # Working papers
 
 Digital Capital and Superstar Firms\
-(with [Lorin Hitt](http://www.iecon.net), Daniel Rock, and Erik Brynjolfsson)
+(with [Lorin Hitt](http://www.iecon.net), Daniel Rock, and [Erik Brynjolfsson](https://www.brynjolfsson.com))
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
@@ -14,7 +14,7 @@ Digital Capital and Superstar Firms\
 Algorithmic Literacy and the Labor Market
 
 Deep Learning, Text, and Patent Value\
-(with Po-Hsuan Hsu, Dokyun Lee, and David Hsu)
+(with Po-Hsuan Hsu, Dokyun Lee, and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
 
@@ -29,12 +29,12 @@ Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa
 *California Management Review*. 2019.
 
 [Built to learn: How work practices affect employee learning during healthcare IT implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)\
-(with Ariel Avgar and [Lorin Hitt](http://www.iecon.net))\
+(with [Ariel Avgar](https://www.ilr.cornell.edu/people/ariel-avgar) and [Lorin Hitt](http://www.iecon.net))\
 *MIS Quarterly*, 2018.
 
 [Private equity and career paths: The role of technological
 change](https://academic.oup.com/rfs/article-abstract/29/9/2455/2583670)\
-(with Ashwini Agrawal)\
+(with [Ashwini Agrawal](https://www.lse.ac.uk/finance/people/faculty/Agrawal))\
 *Review of Financial Studies*, 2016.
 
 [Health care information technology, work organization, and nursing home
@@ -44,7 +44,7 @@ performance](https://journals.sagepub.com/doi/abs/10.1177/0019793916640493?casa_
 
 [Labor economists get their microscope: big data and labor market
 analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=big)\
-(with John Horton)\
+(with [John Horton](https://john-joseph-horton.com))\
 *Big Data*, 2015.
 
 [Big data, skills, and firm value](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2014.1899)\
@@ -69,7 +69,7 @@ the US information technology workforce](https://pubsonline.informs.org/doi/10.1
 
 [The extroverted firm: How external information practices affect
 innovation and productivity](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1446)\
-(with [Lorin Hitt](http://www.iecon.net) and Erik Brynjolfsson)\
+(with [Lorin Hitt](http://www.iecon.net) and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 *Management Science*, 2012.
 
 [How offshoring affects IT workers](https://cacm.acm.org/magazines/2010/10/99489-how-offshoring-affects-it-workers/abstract)\
