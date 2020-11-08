@@ -12,7 +12,7 @@ title: Working papers
 Deep Learning, Text, and Patent Value\
 (with [Po-Hsuan Hsu](http://oir.ctm.nthu.edu.tw/p/404-1487-164292.php), [Dokyun Lee](https://www.leedokyun.com), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
-Algorithmic Literacy and the Labor Market
+Algorithmic Literacy in the Labor Market
 
 After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
