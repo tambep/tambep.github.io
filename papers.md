@@ -25,22 +25,22 @@ Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa
 (with Peter Cappelli and Valery Yakubovich)\
 *California Management Review*. 2019.
 
-[Built to learn: How work practices affect employee learning during healthcare IT implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)
+[Built to learn: How work practices affect employee learning during healthcare IT implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)\
 (with Ariel Avgar and Lorin Hitt)\
 *MIS Quarterly*, 2018.
 
 [Private equity and career paths: The role of technological
-change](https://academic.oup.com/rfs/article-abstract/29/9/2455/2583670)
+change](https://academic.oup.com/rfs/article-abstract/29/9/2455/2583670)\
 (with Ashwini Agrawal)\
 *Review of Financial Studies*, 2016.
 
 [Health care information technology, work organization, and nursing home
-performance](https://journals.sagepub.com/doi/abs/10.1177/0019793916640493?casa_token=fjlf5fF0Pf0AAAAA:4rQGQ2HwhXqRSzPM4JZV0jE4ts9J0H1IPCG4Ul1fOT5FSaXtc9iMMfon8mY_Nufm-YyrdGhUur1Jsw)
+performance](https://journals.sagepub.com/doi/abs/10.1177/0019793916640493?casa_token=fjlf5fF0Pf0AAAAA:4rQGQ2HwhXqRSzPM4JZV0jE4ts9J0H1IPCG4Ul1fOT5FSaXtc9iMMfon8mY_Nufm-YyrdGhUur1Jsw)\
 (with Lorin Hitt)\
 *Industrial Relations and Labor Review*, 2016.
 
 [Labor economists get their microscope: big data and labor market
-analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=big)
+analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=big)\
 (with John Horton)\
 *Big Data*, 2015.
 
@@ -49,7 +49,7 @@ value](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2014.1899)\
 *Management Science*, 2014.
 
 [Measuring Information Technology
-Spillovers](https://pubsonline.informs.org/doi/10.1287/isre.2013.0498)
+Spillovers](https://pubsonline.informs.org/doi/10.1287/isre.2013.0498)\
 (with Lorin Hitt)\
 *Information Systems Research*, 2013.
 
@@ -60,29 +60,25 @@ Lorin Hitt)\
 
 [The productivity of information technology investments: New evidence
 from IT labor
-data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398) (with
-Lorin Hitt)\
+data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398)\ 
+(with Lorin Hitt)\
 *Information Systems Research*, 2012.
 
 [Now IT\'s personal: Offshoring and the shifting skill composition of
-the US information technology
-workforce](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1445)
-(with Lorin Hitt)
+the US information technology workforce](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1445)\
+(with Lorin Hitt)\
 *Management Science*, 2012.
 
 [The extroverted firm: How external information practices affect
-innovation and
-productivity](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1446)
-(with Lorin Hitt and Erik Brynjolfsson)
+innovation and productivity](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1446)\
+(with Lorin Hitt and Erik Brynjolfsson)\
 *Management Science*, 2012.
 
-[How offshoring affects IT
-workers](https://cacm.acm.org/magazines/2010/10/99489-how-offshoring-affects-it-workers/abstract)
-(with Lorin Hitt)
+[How offshoring affects IT workers](https://cacm.acm.org/magazines/2010/10/99489-how-offshoring-affects-it-workers/abstract)\
+(with Lorin Hitt)\
 *Communications of the ACM*, 2010.
 
-[Broadband adoption and content
-consumption](https://www.sciencedirect.com/science/article/pii/S0167624507000297)
-(with Lorin Hitt)
+[Broadband adoption and content consumption](https://www.sciencedirect.com/science/article/pii/S0167624507000297)\
+(with Lorin Hitt)\
 *Information Economics and Policy*, 2007.
 
