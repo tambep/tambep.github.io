@@ -13,6 +13,9 @@ The Death of a Technical Skill\
 
 Algorithmic Literacy and the Labor Market
 
+Deep Learning, Text, and Patent Value\
+(with Po-Hsuan Hsu, Dokyun Lee, and David Hsu)
+
 # Published papers
 
 Paying to program? Engineering Brand and High-Tech Wages\
