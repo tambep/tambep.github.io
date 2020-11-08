@@ -16,6 +16,9 @@ Deep Learning, Text, and Patent Value\
 
 Algorithmic Literacy and the Labor Market
 
+After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?
+(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
 # Published papers
 
 Paying to program? Engineering Brand and High-Tech Wages\
