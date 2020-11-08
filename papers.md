@@ -6,20 +6,20 @@ title: Papers
 # Working papers
 
 Digital Capital and Superstar Firms\
-(with [Lorin Hitt](http://www.iecon.net), Daniel Rock, and [Erik Brynjolfsson](https://www.brynjolfsson.com))
+(with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
 
-Algorithmic Literacy and the Labor Market
-
 Deep Learning, Text, and Patent Value\
-(with Po-Hsuan Hsu, Dokyun Lee, and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+(with [Po-Hsuan Hsu](http://oir.ctm.nthu.edu.tw/p/404-1487-164292.php), [Dokyun Lee](https://www.leedokyun.com), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
+Algorithmic Literacy and the Labor Market
 
 # Published papers
 
 Paying to program? Engineering Brand and High-Tech Wages\
-(with Xuan Ye and [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/))\
+(with [Xuan Ye](https://www.bc.edu/bc-web/schools/carroll-school/faculty-research/faculty-directory/xuan-ye.html) and [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/))\
 [NBER Working Paper \#25552](https://www.nber.org/papers/w25552).\
 *Management Science*. 2020.
 
