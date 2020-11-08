@@ -5,13 +5,11 @@ title: Papers
 
 # Working papers
 
-- Algorithmic Literacy and the Labor Market
+Digital Capital and Superstar Firms (with Lorin Hitt, Daniel Rock, and Erik Brynjolfsson)
 
-- Digital Capital and Superstar Firms (with Lorin Hitt, Daniel Rock, and Erik Brynjolfsson)
+The Death of a Technical Skill (with John Horton)
 
-- The Death of a Technical Skill (with John Horton)
-
-- An Inside Job? Gender, Job Search, and the IT Pay Gap
+Algorithmic Literacy and the Labor Market
 
 # Published papers
 
