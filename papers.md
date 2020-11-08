@@ -5,7 +5,7 @@ title: Papers
 
 # Working papers
 
-Digital Capital and Superstar Firms\
+[Digital Capital and Superstar Firms](https://8a034064-c022-4d38-bd2a-4b69bfbd81b5.filesusr.com/ugd/3f53fa_0e9575623b7c42f9817a34e5240cfce0.pdf)\
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
@@ -16,7 +16,7 @@ Deep Learning, Text, and Patent Value\
 
 Algorithmic Literacy and the Labor Market
 
-After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?
+After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
