@@ -3,9 +3,9 @@ layout: post
 title: Welcome to my site!
 ---
 
-I am an Associate Professor at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu).
+I am an Associate Professor in the [OID group](http://oidd.wharton.upenn.edu) at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu).
 
-[Official Wharton website](https://oid.wharton.upenn.edu/profile/tambe/)
+[My Official Wharton website](https://oid.wharton.upenn.edu/profile/tambe/)
 
 I have two primary streams of research.
 
