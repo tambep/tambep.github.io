@@ -8,7 +8,7 @@ title: Papers
 Digital Capital and Superstar Firms\
 (with [Lorin Hitt](http://www.iecon.net), Daniel Rock, and Erik Brynjolfsson)
 
-The Death of a Technical Skill\
+[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
 
 Algorithmic Literacy and the Labor Market
@@ -19,13 +19,13 @@ Deep Learning, Text, and Patent Value\
 # Published papers
 
 Paying to program? Engineering Brand and High-Tech Wages\
-(with Xuan Ye and Peter Cappelli)\
+(with Xuan Ye and [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/))\
 [NBER Working Paper \#25552](https://www.nber.org/papers/w25552).\
 *Management Science*. 2020.
 
 [Artificial Intelligence in Human Resources Management: Challenges and a
 Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)
-(with Peter Cappelli and Valery Yakubovich)\
+(with [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/) and Valery Yakubovich)\
 *California Management Review*. 2019.
 
 [Built to learn: How work practices affect employee learning during healthcare IT implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)\
