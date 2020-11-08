@@ -1,23 +1,90 @@
 ---
 layout: post
-title: Welcome to my site!
+title: Papers
 ---
 
-I am an Associate Professor in the [OID group](http://oidd.wharton.upenn.edu) at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu).
+# Working papers
 
-[My official Wharton website](https://oid.wharton.upenn.edu/profile/tambe/).
+- Algorithmic Literacy and the Labor Market
 
-I have two primary streams of research:
+- Digital Capital and Superstar Firms (with Lorin Hitt, Daniel Rock, and Erik Brynjolfsson)
 
-- **Economics of technical (IT) labor markets**: I am interested in the market for software developers, and how characteristics of this market affect employment and innovation outcomes.
+- The Death of a Technical Skill (with John Horton)
 
-- **Algorithms and hiring**: I study how new, digital algorithms and data signals are being used for hiring.
+- An Inside Job? Gender, Job Search, and the IT Pay Gap
 
-# Teaching, Spring 2021
+# Published papers
 
-**OIDD 245**: Analytics & the Digital Economy (MW)<br>
-**OIDD 255X**: AI, Data, and Society (TR, Q4 only)<br>
+Paying to program? Engineering Brand and High-Tech Wages (with X. Ye and
+P. Cappelli)\
+[NBER Working Paper \#25552](https://www.nber.org/papers/w25552).\
+*Management Science*. 2020.
 
-# Contact
+- [Artificial Intelligence in Human Resources Management: Challenges and a
+Path Forward]
+(with Peter Cappelli and Valery Yakubovich)
+*California Management Review*. 2019.
 
-**Questions**? email [tambe@wharton.upenn.edu](mailto:tambe@wharton.upenn.edu).
+[Built to learn: How work practices affect employee learning during
+healthcare IT
+implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)
+(with A Avgar and LM Hitt)\
+*MIS Quarterly*, 2018.
+
+[Private equity and career paths: The role of technological
+change](https://academic.oup.com/rfs/article-abstract/29/9/2455/2583670)
+(with A. Agrawal)\
+*Review of Financial Studies*, 2016.
+
+[Health care information technology, work organization, and nursing home
+performance](https://journals.sagepub.com/doi/abs/10.1177/0019793916640493?casa_token=fjlf5fF0Pf0AAAAA:4rQGQ2HwhXqRSzPM4JZV0jE4ts9J0H1IPCG4Ul1fOT5FSaXtc9iMMfon8mY_Nufm-YyrdGhUur1Jsw)
+(with LM Hitt)\
+*Industrial Relations and Labor Review*, 2016.
+
+[Labor economists get their microscope: big data and labor market
+analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=big)
+(with J. Horton)\
+*Big Data*, 2015.
+
+[Big data, skills, and firm
+value](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2014.1899)\
+*Management Science*, 2014.
+
+[Measuring Information Technology
+Spillovers](https://pubsonline.informs.org/doi/10.1287/isre.2013.0498)
+(with LM Hitt)\
+*Information Systems Research*, 2013.
+
+[Job hopping, information technology spillovers, and productivity
+growth](https://pubsonline.informs.org/doi/10.1287/mnsc.2013.1764) (with
+LM Hitt)\
+*Management Science*, 2013.
+
+[The productivity of information technology investments: New evidence
+from IT labor
+data](https://pubsonline.informs.org/doi/10.1287/isre.1110.0398) (with
+LM Hitt)\
+*Information Systems Research*, 2012.
+
+[Now IT\'s personal: Offshoring and the shifting skill composition of
+the US information technology
+workforce](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1445)
+(with LM Hitt)\
+*Management Science*, 2012.
+
+[The extroverted firm: How external information practices affect
+innovation and
+productivity](https://pubsonline.informs.org/doi/10.1287/mnsc.1110.1446)
+(with LM Hitt and E Brynjolfsson)\
+*Management Science*, 2012.
+
+[How offshoring affects IT
+workers](https://cacm.acm.org/magazines/2010/10/99489-how-offshoring-affects-it-workers/abstract)
+(with LM Hitt)\
+*Communications of the ACM*, 2010.
+
+[Broadband adoption and content
+consumption](https://www.sciencedirect.com/science/article/pii/S0167624507000297)
+(with LM Hitt)\
+*Information Economics and Policy*, 2007.\
+
