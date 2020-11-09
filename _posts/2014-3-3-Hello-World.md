@@ -11,6 +11,11 @@ He is a co-author of “The Talent Equation: Big Data Lessons for Navigating the
 
 [Official Wharton website](https://oid.wharton.upenn.edu/profile/tambe/).
 
+My full list of papers can be found [here](papers). Some recent papers:
+- [Digital Capital and Superstar Firms](https://8a034064-c022-4d38-bd2a-4b69bfbd81b5.filesusr.com/ugd/3f53fa_0e9575623b7c42f9817a34e5240cfce0.pdf)
+- [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)
+- [AI in Human Resources Management](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)
+
 He focuses on two primary streams of [research](papers):
 
 - **Economics of technical (IT) labor markets**: I am interested in the market for software developers, and how characteristics of this market affect employment and innovation outcomes.
