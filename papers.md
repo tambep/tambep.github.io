@@ -17,6 +17,8 @@ Algorithmic Literacy in the Labor Market
 After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
+An Inside Job? Gender, Tech Careers, and the IT Earnings Gap
+
 # Published papers
 
 [Paying to program? Engineering Brand and High-Tech Wages](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2019.3343?casa_token=Udx1OUAMUr8AAAAA:1J7l-iF8OtVJJrz05cehvlkwv7lh9xHPsrTyI388T-pjrrpy46BsqhjObtpqq7MQX4yl5rd75Eg)\
