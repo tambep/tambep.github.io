@@ -9,6 +9,8 @@ title: Teaching
 
 A 1 CU class that covers some foundations of data science as applied to emerging sources of digital trace data in different industries, including data visualization, web scraping, text analytics, and introductory machine learning. The class is focused on application, with a significant amount of time dedicated to labs and projects.
 
+***
+
 # OIDD 255X
 
 ## AI, data, and society
