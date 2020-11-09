@@ -3,7 +3,7 @@ layout: post
 title: Teaching
 ---
 
-# OIDD 245
+# OIDD 245 (Spring 2021)
 
 ## Analytics & the digital economy
 
@@ -11,7 +11,7 @@ A 1 CU class that covers some foundations of data science as applied to emerging
 
 ***
 
-# OIDD 255X
+# OIDD 255X (Spring 2021, Q4 only)
 
 ## AI, data, and society
 
