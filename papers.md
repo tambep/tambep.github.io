@@ -14,10 +14,8 @@ Deep Learning, Text, and Patent Value\
 
 Algorithmic Literacy in the Labor Market
 
-After COVID-19: Is Region Still an Advantage for Entrepreneurial Ventures?\
+Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
-
-An Inside Job? Gender, Tech Careers, and the IT Earnings Gap
 
 # Published papers
 
