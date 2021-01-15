@@ -11,6 +11,9 @@ title: Working papers
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
 
+[Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
+(with Atiye Cansu Erol and [Lorin Hitt](http://www.iecon.net))
+
 Deep Learning, Text, and Patent Value\
 (with [Po-Hsuan Hsu](http://oir.ctm.nthu.edu.tw/p/404-1487-164292.php), [Dokyun Lee](https://www.leedokyun.com), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
@@ -18,9 +21,6 @@ Algorithmic Literacy in the Labor Market
 
 Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
-
-[Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
-(with Atiye Cansu Erol and [Lorin Hitt](http://www.iecon.net))
 
 # Published papers
 
