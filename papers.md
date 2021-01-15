@@ -19,7 +19,7 @@ Algorithmic Literacy in the Labor Market
 Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
-Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?\
+[Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with Atiye Cansu Erol and [Lorin Hitt](http://www.iecon.net))
 
 # Published papers
