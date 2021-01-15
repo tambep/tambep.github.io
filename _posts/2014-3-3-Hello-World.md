@@ -5,9 +5,9 @@ title: Welcome!
 
 # Biography
 
-**Prasanna (Sonny) Tambe** is an Associate Professor in the [OID group](http://oid.wharton.upenn.edu) at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu).\
+**Prasanna (Sonny) Tambe** is an Associate Professor in the [OID group](http://oid.wharton.upenn.edu) at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu).
 
-His official Wharton website can be found [here](https://oid.wharton.upenn.edu/profile/tambe/).\
+His official Wharton website can be found [here](https://oid.wharton.upenn.edu/profile/tambe/).
 
 His [research](papers) is focused in two key areas:
 
