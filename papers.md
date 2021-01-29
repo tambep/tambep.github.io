@@ -14,10 +14,10 @@ title: Working papers
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with Atiye Cansu Erol and [Lorin Hitt](http://www.iecon.net))
 
+Algorithmic Literacy in the Workforce
+
 Deep Learning, Text, and Patent Value\
 (with [Po-Hsuan Hsu](http://oir.ctm.nthu.edu.tw/p/404-1487-164292.php), [Dokyun Lee](https://www.leedokyun.com), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
-
-Algorithmic Literacy in the Workforce
 
 Is Region Still an Advantage for Entrepreneurial Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
