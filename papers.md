@@ -19,7 +19,7 @@ Algorithmic Literacy in the Workforce
 Generative Models, Patents, and Innovation Frontiers\
 (with [Dokyun Lee](https://www.leedokyun.com) and [Zhaoqi Cheng](https://zhao-qi.com))
 
-Is Region Still an Advantage for Entrepreneurial Ventures?\
+Is Region Still an Advantage for Technology Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
