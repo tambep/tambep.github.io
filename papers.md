@@ -12,7 +12,7 @@ title: Working papers
 (with [John Horton](https://john-joseph-horton.com))
 
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
-(with Atiye Cansu Erol and [Lorin Hitt](http://www.iecon.net))
+(with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
 Algorithmic Literacy in the Workforce
 
