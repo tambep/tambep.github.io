@@ -16,7 +16,7 @@ title: Working papers
 
 Algorithmic Literacy in the Workforce
 
-Generative Models, Patents, and Innovation Frontiers
+Generative Models, Patents, and Innovation Frontiers\
 (with [Dokyun Lee](https://www.leedokyun.com) and [Zhaoqi Cheng](https://zhao-qi.com))
 
 Deep Learning, Text, and Patent Value\
