@@ -12,14 +12,14 @@ title: Working papers
 (with [John Horton](https://john-joseph-horton.com))
 
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
-(with Atiye Cansu Erol and [Lorin Hitt](http://www.iecon.net))
+(with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-Deep Learning, Text, and Patent Value\
-(with [Po-Hsuan Hsu](http://oir.ctm.nthu.edu.tw/p/404-1487-164292.php), [Dokyun Lee](https://www.leedokyun.com), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+The Rising Importance of Algorithmic Literacy
 
-Algorithmic Literacy in the Labor Market
+Generative Models, Patents, and Innovation Frontiers\
+(with [Dokyun Lee](https://www.leedokyun.com) and [Zhaoqi Cheng](https://zhao-qi.com))
 
-Is Region Still an Advantage for Entrepreneurial Ventures?\
+Is Region Still an Advantage for Technology Ventures?\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
