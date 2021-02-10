@@ -1066,7 +1066,7 @@ body .markdown-body
 instrumentation, such as digital tracking of the basketballs used during
 games, has made this easier, and many NBA coaches now have access to a
 wealth of data which can be used to study, analyze, and improve what
-happens on the court. As a result, the NBA has begun to fully incorporate analytics. In one interesting example of how analytics is changing coaching
+happens on the court. As a result, the NBA has gone all-in on analytics. In one interesting example of how analytics is changing coaching
 strategy, the <em>Wall Street Journal</em> profiled a <a href="https://www.wsj.com/articles/the-basketball-team-that-never-takes-a-bad-shot-1485788165">high school
 team in Minnesota that "never takes a bad shot"</a>.</p>
 <p><br></p>
@@ -1082,11 +1082,9 @@ based on their financial resources.</p>
 <p>For example, the following graph illustrates both a) how important a
 factor a Major League Baseball team&rsquo;s budget is for predicting team
 performance, and b) how far beyond expectations the Oakland A&rsquo;s were
-able to perform given their limited budget. This lab asks you to perform
-an analysis of how in the NBA, the dollar to performance ratio varies
-with draft position, college, and other variables. Such an analysis
-should help inform the question of where <a href="https://www.cnn.com/2017/04/27/sport/nba-draft-steals/index.html">hidden value can be found for
-NBA teams</a>.</p>
+able to perform given their limited budget. These types of analyses
+inform the question of where <a href="https://www.cnn.com/2017/04/27/sport/nba-draft-steals/index.html">hidden value can be found for
+professional sports teams</a>.</p>
 <p><center>
 <img src="img/oakland.png" width="450px">
 </center>
@@ -1101,7 +1099,7 @@ This has historically been true of marketing and finance (e.g. quant vs
 discretionary trading) and is now becoming true in domains such as HR,
 sports, entertainment, and so on.</p>
 <p>In these industries, many senior decision-makers remain skeptical of the
-value of data for informing decisions (although fewer every year), partly because data-driven processes can be flawed, and partly because it threatens their power within the organization. This tension plays out in one of my <a href="https://www.youtube.com/watch?v=ugN5aD5p2NU">favorite scenes from Moneyball</a>.</p>
+value of data for informing decisions (although they are growing fewer in number each year), partly because data-driven processes can be flawed, and partly because it threatens their power within the organization. This tension plays out in one of my <a href="https://www.youtube.com/watch?v=ugN5aD5p2NU">favorite scenes from Moneyball</a>.</p>
 <p>Charles Barkley, a famous and outspoken NBA basketball player who is now
 retired, captures the sentiments of many in his quote below. (More
 background on the Barkley interview along with a response from Mark
@@ -1134,12 +1132,12 @@ want to get in the game.<br>
 </blockquote>
 
 <p>As a generation of workers entering an increasingly data-driven
-workforce in the next few years, it is important to be aware of the
+economy, it is important to be aware of the
 kinds of turf battles around data-driven decision making happening in
-organizations.</p>
+industries from healthcare to strategy to finance.</p>
 <p><br></p>
 <h1 id="2-objective-who-benefitted-from-the-nba-bubble">2. <span style="color:tomato;">Objective:</span> Who benefitted from the NBA Bubble?<a class="headerlink" href="#2-objective-who-benefitted-from-the-nba-bubble" title="Permanent link"></a></h1>
-<p>For this assignment, you are asked to prepare an analysis of how player performance changed in the NBA &ldquo;bubble&rdquo; (more information below). It is hard to summarize all of the value a basketball player provides to a team into one performance number, but people have tried. For this assignment, we will use <a href="https://en.wikipedia.org/wiki/Plus–minus">plus-minus ratio</a> as a metric. A higher number here indicates better performance. Beyond this, feel free to explore the details of this number if you are interested, but it is not necessary for this lab.</p>
+<p>For this assignment, you are asked to prepare an analysis of how player performance changed in the NBA &ldquo;bubble&rdquo; (more information on this below). It is hard to summarize all of the value a basketball player provides to a team in one performance number, but people try. For this assignment, we will use <a href="https://en.wikipedia.org/wiki/Plus–minus">plus-minus ratio</a> as a metric. A higher number indicates better performance. Feel free to explore the details of this number if you are interested, but it is not necessary for this lab.</p>
 <p>Unlike with the last assignment, for this assignment you will have to
 collect the player data to analyze. This lab requires you to
 <strong>execute the entire data pipeline</strong>. This can be considered a fairly complete,
@@ -1150,7 +1148,7 @@ end-to-end data project. It requires you to:</p>
 <li>Prep data using Tableau Prep, Excel, or another tool</li>
 <li>Use Tableau Desktop to create visual summaries of the data</li>
 </ol>
-<p>The specific deliverables are described in detail further below. The specific context we will use is the natural experiment that was the NBA &ldquo;bubble&rdquo;.</p>
+<p>The specific deliverables are described in detail further below.</p>
 <p><br></p>
 <h1 id="3-data-context-what-was-the-nba-bubble">3. Data context: What was the NBA Bubble?<a class="headerlink" href="#3-data-context-what-was-the-nba-bubble" title="Permanent link"></a></h1>
 <p>From <a href="https://en.wikipedia.org/wiki/2020_NBA_Bubble">Wikipedia</a>:</p>
@@ -1160,74 +1158,70 @@ The 2020 NBA Bubble, also referred to as the Disney Bubble or Orlando Bubble, wa
 The bubble was a $190 million investment by the NBA to protect its 2019–20 season, which was initially suspended by the pandemic on March 11, 2020. The bubble recouped an estimated $1.5 billion in revenue. In June, the NBA approved the plan to resume the season at Disney World, inviting the 22 teams that were within six games of a playoff spot when the season was suspended. Although initially receiving a mixed reaction from players and coaches, the teams worked together to use the bubble as a platform for the Black Lives Matter movement.
 </blockquote>
 
-<p>The NBA Bubble can be viewed as a natural experiment that changed some aspects of the game but leaving others the same. For example, it removes home court advantage, eliminates the physical burden of having to travel to other cities before a game, and restricts players movements and access to family and friends while in the bubble. As such, some <a href="https://www.si.com/nba/grizzlies/news/the-bubble-effect-how-has-the-nba-bubble-campus-affected-play-on-the-court">players may have thrived more under these new conditions than others</a>.</p>
+<p>The NBA Bubble can be viewed as a natural experiment that changed some aspects of the game while leaving others the same. For example, it removes home court advantage, eliminates the physical burden of having to travel to other cities before a game, and restricts players movements and access to family and friends while in the bubble. As such, some <a href="https://www.si.com/nba/grizzlies/news/the-bubble-effect-how-has-the-nba-bubble-campus-affected-play-on-the-court">players may have thrived more under these new conditions than others</a>.</p>
 <p><br></p>
 <h1 id="4-deliverables">4. Deliverables<a class="headerlink" href="#4-deliverables" title="Permanent link"></a></h1>
-<p>You are encouraged to work with others, but <strong>must submit your own assignment and list the names of anyone you work with</strong>. Through Canvas, submit a .pdf document that includes visualizations or charts that
-satisfy the following four objectives:</p>
+<p>You are encouraged to work with others, but <strong>must submit your own assignment and list the names of anyone you work with</strong>. Through Canvas, submit a .pdf document that includes visualizations or charts satisfying the following four objectives:</p>
 <h2 id="a-salary-and-performance-before-the-shutdown">A. Salary and performance before the shutdown<a class="headerlink" href="#a-salary-and-performance-before-the-shutdown" title="Permanent link"></a></h2>
-<p>Create a <strong>chart</strong> (scatterplot) that plots 2019-2020 salary against players&rsquo; <em>plus-minus ratio</em> for the regular season games <u>before</u> teams entered the bubble. </p>
+<p>Create a <strong>scatterplot</strong> that plots 2019-2020 salary against players&rsquo; <em>plus-minus</em> for the 2019-2020 regular season games that took place <u>before</u> teams entered the bubble. </p>
 <ul>
-<li>Color code the marks by whether or not the player is a free agent in the coming year. </li>
-<li>Provide the names of any two current NBA players who appear, according to your analysis, to have a salary that is low relative to their plus-minus figure, and who are free agents in the coming year.</li>
+<li>Color code the marks on the plot according to whether or not the player is a free agent in the coming season.</li>
+<li>Fit a line to your scatter plot that illustrates the trend between salary and plus-minus.</li>
+<li>Provide the names of any two players who appear, according to your analysis, to have a salary that is low relative to their plus-minus figure, and who are free agents in the coming year. Depending on how you have structured your chart, this could be players who lie above or below the trend line you created.</li>
 </ul>
 <h2 id="b-regular-season-performance-vs-bubble-performance">B. Regular season performance vs bubble performance<a class="headerlink" href="#b-regular-season-performance-vs-bubble-performance" title="Permanent link"></a></h2>
-<p>Create a <strong>chart</strong> (scatterplot) that allows a coach or manager to visualize the plus-minus ratio for players in the regular season and in the bubble.</p>
+<p>Create a <strong>scatterplot</strong> that would allow a coach or manager to visualize, for NBA players in the data, their plus-minus statistic for games played before the shutdown along one axis and the plus-minus statistic for games played in the bubble on the other axis.</p>
 <ul>
-<li>Identify one player who performed well before the shutdown, but struggled during the bubble.</li>
-<li>Identify one player who struggled before the shutdown, but excelled during the bubble.</li>
+<li>Identify one player who performed well during games before the shutdown, but struggled in games during the bubble.</li>
+<li>Identify one player who struggled in games before the shutdown, but excelled in games played during the bubble.</li>
 </ul>
 <h2 id="c-player-age-and-bubble-performance">C. Player age and bubble performance<a class="headerlink" href="#c-player-age-and-bubble-performance" title="Permanent link"></a></h2>
-<p>Given the conditions in the bubble &ndash; restricted movement, common food services, separation from family &ndash; one could argue that younger players would benefit more from the &ldquo;dorm-like&rdquo; atmosphere. Alternatively, elimination of the physical toll associated with travel and away games may have benefitted older players more. </p>
+<p>Given the conditions in the bubble &ndash; restricted movement, common food services, separation from family &ndash; one could argue that younger players would benefit more from the &ldquo;dorm-like&rdquo; atmosphere in the bubble. Alternatively, elimination of the physical toll associated with travel and away games may have benefitted older players more. </p>
 <ul>
-<li>Generate a <em>chart</em> to evaluate whether age was a factor in determining how well players performed in the bubble relative to their performance outside of the bubble. </li>
+<li>Generate any type of visualization to evaluate whether age was a factor in determining how well players performed in the bubble relative to their performance outside of the bubble. This question is purposefully left open-ended so you should decide on your own what type of visualization serves best.</li>
 </ul>
-<p>This question is purposefully left open-ended so you should decide what kind of visualization serves best.</p>
 <p><br></p>
 <h1 id="5-steps">5. Steps<a class="headerlink" href="#5-steps" title="Permanent link"></a></h1>
 <p>This lab consists of several steps, so it <strong>pays to stay
 organized, and to go step-by-step</strong>. The tools we have used in class to
 this point are sufficient to complete the assignment. The
-steps to follow are outlined below. The first and third steps should go relatively quickly but you can expect the second step to take some time.</p>
+steps to follow are outlined below.</p>
 <h2 id="step-1-collect-the-data"><font color="darkblue">Step 1: Collect the data.</font><a class="headerlink" href="#step-1-collect-the-data" title="Permanent link"></a></h2>
 <p>Some web scraping tools work better than others for different websites.
 You can choose which you like, and if one of them does not work for the
 data you are trying to retrieve, try another! Wherever possible, start
 by trying to just cut and paste the relevant data because it is fast and
 often works. For this lab, you will need data on players and their performance
-statistics, salaries, ages, and free agency status. Create .csv files from the
-following data sources:</p>
+statistics (outside and inside the bubble), salaries, ages, and free agency status. Create .csv files from the following data sources:</p>
 <ul>
 <li><a href="http://hoopshype.com/salaries/players">NBA Salaries</a><ul>
-<li>You can collect all of the data on this sheet by using Google Sheets. Or you can cut-and-paste. You will need players&rsquo; 2019-2020 contract figures.</li>
+<li>You can collect all of the data on this sheet using Google Sheets. Or you can cut-and-paste. You will need players&rsquo; 2019-2020 contract figures.</li>
 </ul>
 </li>
-<li><a href="https://hoopshype.com/lists/2021-nba-free-agent-rankings/">Players who will be free agents</a> in the coming cycle.<ul>
+<li><a href="https://hoopshype.com/lists/2021-nba-free-agent-rankings/">Players who will have free agent status</a> in the coming cycle.<ul>
 <li>Chrome Webscraper works well to collect these data.</li>
 </ul>
 </li>
-<li><a href="https://stats.nba.com/players/bio">NBA Player Performance</a><ul>
-<li>To separate these figures for players before and afer the bubble, use the <strong>Advanced Filters</strong> to create two different .csv files, corresponding to each of the two relevant date ranges. Make sure you have chosen the 2019-2020 season in the &ldquo;Season&rdquo; box. <ul>
-<li>October 22, 2019 – March 11, 2020. (regular season before suspension)</li>
-<li>July 30, 2020 – August 14, 2020. (bubble season)</li>
+<li><a href="https://stats.nba.com/players/bio">NBA Player Performance and Age</a><ul>
+<li>To separately collect performance figures for players before and afer the bubble was enacted, use the <strong>Advanced Filters</strong> to create two different data sets corresponding to each of the two relevant date ranges and then scrape each using any tool that is convenient. Make sure you have chosen the 2019-2020 season in the &ldquo;Season&rdquo; box.<ul>
+<li>October 22, 2019 – March 11, 2020. (regular season before bubble)</li>
+<li>July 30, 2020 – August 14, 2020. (games played in bubble)</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Note that for each of these files there are <strong>multiple pages</strong> of player statistics you need. A way of quickly getting all of these is to choose
-        "All" from the drop-down box that contains the years and
-        cutting and pasting the information into a spreadsheet. Then you can save this as a .csv file. This file includes player age and plus-minus ratio.
+<li>Note that for each of these two player performance data extracts there are <strong>multiple pages</strong> of player statistics you need. A way of quickly getting all of these is to choose &ldquo;All&rdquo; from the drop-down box that contains the years and cutting and pasting the information into a spreadsheet. Then you can save this as a .csv file. This file includes both player age and their plus-minus statistic.
 <br></li>
 </ul>
+</li>
+</ul>
 <h2 id="step-2-prep-and-merge-the-data"><font color="darkblue">Step 2: Prep and merge the data</font><a class="headerlink" href="#step-2-prep-and-merge-the-data" title="Permanent link"></a></h2>
-<p>You will need to clean the data files to bring them all together. You can use Tableau Prep to do this (or another tool, like Open Refine, if you prefer). The key things to focus on are removing unnecessary data from each file, giving meaningful names to the columns, and formatting field names as needed so you can match them with the corresponding name in other files. For instance, since we are merging different files on player name, you will need to make sure that the names will match across files, which requires making sure that they are the same in terms of being uppercase, lowercase, or title case, and ensuring they are in the same order (e.g. first name and then last name). If you have problems matching the two files, check for trailing or leading whitespace in the names in the problematic file.</p>
+<p>After extracting the data files, you will need to clean them and bring them together. You can use Tableau Prep to do this (or another tool, like Open Refine, if you prefer). The key things to focus on are removing unnecessary data from each file, giving meaningful names to columns to make them easier to work with, and formatting field names as needed so you can match them with the corresponding name in other files. For instance, since we are merging different files on player name, you will need to make sure that the names will match across files, which requires making sure that they are the same in terms of being uppercase, lowercase, or title case, and ensuring they are in the same order (e.g. first name and then last name). If you have problems matching the two files, check for trailing or leading whitespace in the names in the problematic file.</p>
 <p>Merge the different data sources you need for each question into a
 <strong>single Tableau sheet</strong> by joining the data sets in Tableau.
 Information on how to join two data sets in Tableau can be found
-<a href="https://onlinehelp.tableau.com/current/pro/desktop/en-us/joining_tables.html">here</a>. You will need to think carefully about how data sets should be joined to retain the right data.</p>
-<p>After the data sets are merged, you should have information on player name, plus-minus ratio in the regular season, plus-minus ratio in the bubble, salary, and age for the 350+ players who played in the bubble. <strong>Due to different choices made during the cleaning and merge, people may end up with <u>slightly</u> different numbers of players in their final data set</strong>. Normally, we would then want to go back and understand where players get lost in the process (e.g. name mismatches, first season players who are in one data set but not the other, etc.) but for the purposes of this lab, as long as the matching process yields a data set with at least 250 players, you should move on to the next step.</p>
+<a href="https://onlinehelp.tableau.com/current/pro/desktop/en-us/joining_tables.html">here</a>. You will need to think carefully about how data sets should be joined (inner join, left join, etc) to make sure you are retaining the right data.</p>
+<p>After the data sets are merged, you should have information on player name, plus-minus statistic in the regular season, plus-minus statistic in the bubble, free-agency status, salary, and age for the 350+ players who played in the bubble. <strong>Due to different choices made during the cleaning and merge, people may end up with <u>slightly</u> different numbers of players in their final data set</strong>. Normally, we would then want to go back and understand where players get lost in the process (e.g. name mismatches, first season players who are in one data set but not the other, etc.) but for the purposes of this lab, as long as the matching process yields a data set with at least 250 players, you can move to the next step.</p>
 <h2 id="step-3-analyze-the-data-in-tableau"><font color="darkblue">Step 3: Analyze the data in Tableau</font><a class="headerlink" href="#step-3-analyze-the-data-in-tableau" title="Permanent link"></a></h2>
-<p>Using Tableau, create charts to satisfy the project deliverables described earlier in this document. Then, images of these charts (screenshots or image
+<p>Using Tableau, create charts to satisfy the project deliverables described earlier in this document. Images of these charts (screenshots or image
 exports embedded into the .pdf document you will submit) will be the
 final deliverables. As with all projects in this class, it is important
 that your results are well presented. Graphs should be easy to read and
