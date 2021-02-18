@@ -26,4 +26,4 @@ Some recent papers:
 - [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)
 - [AI in Human Resources Management](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)
 
-At Wharton, he [teaches](teaching) courses on how digitization, data science, and AI are impacting business.
+He teaches [award-winning](https://poetsandquantsforundergrads.com/2020/12/01/2020-best-undergraduate-professors-prasanna-sonny-tambe-university-of-pennsylvania-wharton-school/) courses on [how digitization, data science, and AI are impacting business](teaching).
