@@ -15,7 +15,9 @@ His [research](papers) is focused in two key areas:
 
 - **Algorithms and HR**: Studies how new, digital algorithms and data signals are being used in all aspects of HR, from hiring to retention.
 
-His published papers have analyzed Internet-scale data from online job sites, career platforms, and other labor market intermediaries that collect fine-grained information on workers’ skills and career paths and on employers’ job requirements. This research has been published in a number of academic journals including _Management Science_, _Information Systems Research_, _MIS Quarterly_, _California Management Review_, _Communications of the ACM_, and _Information Economics and Policy_. Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Computer Science from [MIT](http://web.mit.edu) and his Ph.D. in Managerial Science and Applied Economics from the [Wharton School of the University of Pennsylvania](http://www.wharton.upenn.edu).
+His published papers have analyzed Internet-scale data from online job sites, career platforms, and other labor market intermediaries that collect fine-grained information on workers’ skills and career paths and on employers’ job requirements. This research has been published in a number of academic journals including _Management Science_, _Information Systems Research_, _MIS Quarterly_, _California Management Review_, _Communications of the ACM_, and _Information Economics and Policy_. 
+
+Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Computer Science from [MIT](http://web.mit.edu) and his Ph.D. in Managerial Science and Applied Economics from the [Wharton School of the University of Pennsylvania](http://www.wharton.upenn.edu).
 
 # Recent research
 
