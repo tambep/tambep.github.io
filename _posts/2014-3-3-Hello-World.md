@@ -15,7 +15,9 @@ His [research](papers) is focused in two key areas:
 
 - **Algorithms and HR**: Studies how new, digital algorithms and data signals are being used in all aspects of HR, from hiring to retention.
 
-His published papers have analyzed Internet-scale data from online job sites, career platforms, and other labor market intermediaries that collect fine-grained information on workers’ skills and career paths and on employers’ job requirements. This research has been published in a number of academic journals including _Management Science_, _Information Systems Research_, _MIS Quarterly_, _California Management Review_, _Communications of the ACM_, and _Information Economics and Policy_. Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Computer Science from [MIT](http://web.mit.edu) and his Ph.D. in Managerial Science and Applied Economics from the [Wharton School of the University of Pennsylvania](http://www.wharton.upenn.edu).
+His published papers have analyzed Internet-scale data from online job sites, career platforms, and other labor market intermediaries that collect fine-grained information on workers’ skills and career paths and on employers’ job requirements. This research has been published in a number of academic journals including _Management Science_, _Information Systems Research_, _MIS Quarterly_, _California Management Review_, _Communications of the ACM_, and _Information Economics and Policy_. 
+
+Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Computer Science from [MIT](http://web.mit.edu) and his Ph.D. in Managerial Science and Applied Economics from the [Wharton School of the University of Pennsylvania](http://www.wharton.upenn.edu).
 
 # Recent research
 
@@ -26,4 +28,4 @@ Some recent papers:
 - [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)
 - [AI in Human Resources Management](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)
 
-At Wharton, he [teaches](teaching) courses on how digitization, data science, and AI are impacting business.
+He teaches [award-winning](https://poetsandquantsforundergrads.com/2020/12/01/2020-best-undergraduate-professors-prasanna-sonny-tambe-university-of-pennsylvania-wharton-school/) courses on [how digitization, data science, and AI are impacting business](teaching).
