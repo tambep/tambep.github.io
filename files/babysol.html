@@ -1,0 +1,1284 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><title>babysol</title></head><body><article class="markdown-body"><h1 id="lab-3-baby-names-sample-solutions"><span style="color:tomato">Lab 3: Baby Names sample solutions</span><a class="headerlink" href="#lab-3-baby-names-sample-solutions" title="Permanent link"></a></h1>
+<p><center>
+<img src="img/baby.jpg" width="200px">
+</center></p>
+<h3 id="data-downloads">Data Downloads:<a class="headerlink" href="#data-downloads" title="Permanent link"></a></h3>
+<p>For this lab, you will need to download and unzip the following file.</p>
+<ul>
+<li><a href="https://upenn.box.com/s/bgo9aef8oid6366nrq53kk9tasol1rsz">Census Bureau baby names data</a></li>
+</ul>
+<h3 id="data-description">Data Description<a class="headerlink" href="#data-description" title="Permanent link"></a></h3>
+<p>The data set is a zipped folder of .csv text files that contains the Census Bureau counts of names of baby boys and girls born each year from 1880 to 2014.  These data include any name-gender combination for which there were at least five babies born in that year. There is a separate text file for each year from 1880 to 2014.  For example, the file named <em>yob1942.txt</em> contains the counts of names for all boy and girl babies born in 1942.</p>
+<p>Each row in a text file is of the format <em>[name, gender, count]</em>.  For instance, some sample lines in the text file <em>yob1942.text</em> might be</p>
+<ul>
+<li>Mary, F, 7312</li>
+<li>John, M, 6400</li>
+</ul>
+<p>The first line would indicate that 7,312 girls born in 1942 were given the name Mary.  This lab asks you to use these data, along with R, to analyze how naming patterns in America have changed over the last 150 years.  <strong>Remember to keep all of your work in R-scripts and to save frequently!</strong></p>
+<p><strong>NOTE</strong>: Many of the steps below can be <strong>combined</strong>, but I have tried to write them out to make them more clear, and I have tried to rely only on &ldquo;core&rdquo; R functions, which is what we have covered so far in class. There are also <strong>multiple ways</strong> to complete most of these objectives. Feel free to experiment with others.</p>
+<h3 id="objective-1-load-the-data-files-into-an-r-data-frame">Objective 1. Load the data files into an R data frame<a class="headerlink" href="#objective-1-load-the-data-files-into-an-r-data-frame" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p><strong>Before you begin</strong>: Although the data are available from 1880 to 2014, it may take a long time for your laptop to load in the data for all of these years! I recommend starting with a more recent window &ndash; say, from 1970 to 2014, or if that still takes more than a few minutes, an even more recent window.  However, those of you with more powerful laptops may be able to handle the entire data set, and I have made all of the files available because it is interesting to see how baby naming patterns in the US were different before the numerous waves of immigration that changed US demographics during the twentieth century.</p>
+</li>
+<li>
+<p>The data must first be read into a data frame in RStudio.  The most efficient way to do this is to use a <code>for</code> loop to loop through all of the text files in the folder, read each into RStudio, and as you read each of them in, add them to a data frame.  This is easiest if executed and tested in a series of steps (this code is provided for you below).</p>
+<ul>
+<li>
+<p>After downloading and unzipping the Census Bureau files, set your working directory to the folder where you have downloaded these files and use the <code>read.csv()</code> command to try reading a single .csv file into RStudio and assigning it to an object name.  Check that it works as expected by examining the created object in RStudio.</p>
+</li>
+<li>
+<p>Create a data frame called <em>babynames</em> and set it to NULL.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre>babynames <span class="o">=</span> <span class="kc">NULL</span>
+</pre></div>
+
+<ul>
+<li>
+<p>Create a vector containing the numbers 1880 through 2014 (or whichever years you have chosen), which are the years that you will need to loop through to read all of the files in the folder.</p>
+</li>
+<li>
+<p>Create a <code>for</code> loop that iterates through the values in the year vector from 1880 to 2014.</p>
+</li>
+<li>
+<p>Put the <code>read.csv()</code> command into the <code>for</code> loop. Use text string concatenation to create an appropriate file name to pass to the <code>read.csv()</code> command in each iteration of the loop.</p>
+</li>
+<li>
+<p>The contents of each read.csv() command should be passed to a temporary data frame.  To this temporary data frame, you should add a new column that contains the year of the file from which the data is drawn from (for all rows in the data frame). Then, $rbind$ the temporary data frame   containing only the contents of the most recent file + the new column with the year of that file to the data frame   <em>babynames</em> which contains the running total contents of all the files you have read up until that point.</p>
+</li>
+<li>
+<p>After the for loop is created, <em>babynames</em> should contain the data from all files, and each row should have an additional column containing the year of the file that the data came from. If you are using all the years from 1880 to 2014, you should end up with 1,825,433 rows.  After you have completed the steps above, assign sensible column names to your data frame using the <code>names</code> command in R.</p>
+</li>
+<li>
+<p><strong>NOTE</strong>: If you have never written a <code>for</code> loop before, or are new programming, this first step can easily take the entire first class day (and yet only produce a few lines of code), and that is okay! It is worth spending time on this to understand how it is working, and after this step is completed, the rest of the lab goes more quickly.</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span class="c1"># To get you started quickly, I have provided the initial code to load in the files.  If this works, you can begin with Objective 2.</span>
+
+<span class="c1"># Set your working directory to the folder where the name files are located.</span>
+<span class="kp">setwd</span><span class="p">(</span><span class="s">&quot;data&quot;</span><span class="p">)</span>
+babynames <span class="o">=</span> <span class="kc">NULL</span>
+
+<span class="c1"># For loop to read in the file and append it to a running total dataframe babynames</span>
+<span class="kr">for</span> <span class="p">(</span>year <span class="kr">in</span> <span class="p">(</span><span class="m">1950</span><span class="o">:</span><span class="m">2014</span><span class="p">))</span> <span class="p">{</span>
+    foo <span class="o">=</span> read.csv<span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;yob&quot;</span><span class="p">,</span> <span class="kp">toString</span><span class="p">(</span>year<span class="p">),</span> <span class="s">&quot;.txt&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">),</span> header<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+    babynames <span class="o">=</span> <span class="kp">rbind</span><span class="p">(</span>babynames<span class="p">,</span> <span class="kp">cbind</span><span class="p">(</span>foo<span class="p">,</span> year<span class="p">))</span>  
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span class="c1"># After the data frame has been created (and you have checked it to make sure it is correct), provide it with sensible column names using the `names` command.  See `help(names)` for more information on how that works.  In this case, the data frame has four columns, so you will need to pass it a column vector of four text strings to name the four columns.</span>
+
+<span class="kp">names</span><span class="p">(</span>babynames<span class="p">)</span> <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;gender&quot;</span><span class="p">,</span> <span class="s">&quot;count&quot;</span><span class="p">,</span> <span class="s">&quot;year&quot;</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="objective-2-plot-how-the-popularity-of-your-own-name-has-been-changing-over-the-years">Objective 2. Plot how the popularity of your own name has been changing over the years<a class="headerlink" href="#objective-2-plot-how-the-popularity-of-your-own-name-has-been-changing-over-the-years" title="Permanent link"></a></h3>
+<p>You should now have available in your RStudio environment a data frame containing the counts of all name-gender combinations in each year from your beginning start year to 2014. </p>
+<ul>
+<li>
+<p>Plot how the number of people in the data set that share your name and your gender varies from year to year.  If your name does not appear in the data, use the name of a lab partner (or choose your favorite)!</p>
+</li>
+<li>
+<p>To complete this objective, first create a new data frame <em>myname</em> that contains only the rows from <em>babynames</em> that match both your name and gender (use the <code>which</code> command in R to do this). Then, from <em>myname</em>, plot counts against years for the data, and don&rsquo;t forget to label the axes and give a sensible title to your plot.</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span class="c1"># Create a data frame _mynames_ which only keeps rows in _babynames_ that match your name and gender. Note the use of the &#39;&amp;&#39; which is how to do &#39;and&#39; in R.  There are syntactically shorter ways to do this in R, which we can try later in the semester.</span>
+
+mynames <span class="o">=</span> babynames<span class="p">[</span><span class="kp">which</span><span class="p">(</span>babynames<span class="o">$</span>name<span class="o">==</span><span class="s">&quot;Ishmael&quot;</span> <span class="o">&amp;</span> babynames<span class="o">$</span>gender<span class="o">==</span><span class="s">&quot;M&quot;</span><span class="p">),]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span class="c1"># Use the `plot` command to plot counts vs. year, label the axes, and give it a title.</span>
+
+plot<span class="p">(</span>mynames<span class="o">$</span>year<span class="p">,</span> mynames<span class="o">$</span>count<span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;Year&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;Counts&quot;</span><span class="p">,</span> main<span class="o">=</span><span class="s">&quot;How the popularity of my name has changed&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p><center>
+<img alt="" src="figure/unnamed-chunk-5-1.png" />
+</center></p>
+<h3 id="objective-3-visualize-the-growth-in-unique-girl-names-from-1880-2014">Objective 3. Visualize the growth in unique girl names from 1880-2014<a class="headerlink" href="#objective-3-visualize-the-growth-in-unique-girl-names-from-1880-2014" title="Permanent link"></a></h3>
+<p>Create a plot of the number of unique baby girl names in each year from 1880 to 2014.  </p>
+<ul>
+<li>First, create a data frame with only baby girl names for each year.</li>
+<li>The <code>table</code> command is a useful way to compute the number of entries for each year in your data frame.</li>
+<li>Plot the results.</li>
+</ul>
+<p>It may be interesting to compare the results with the following image.</p>
+<p><img alt="" src="img/annualimmigration.jpg" /></p>
+<div class="codehilite"><pre><span class="c1"># Create a data frame that only contains girl names.</span>
+
+female <span class="o">=</span> babynames<span class="p">[</span><span class="kp">which</span><span class="p">(</span>babynames<span class="o">$</span>gender<span class="o">==</span><span class="s">&quot;F&quot;</span><span class="p">),]</span>
+
+<span class="c1"># Generate counts of the number of rows for each year that appears in the data frame.  A fast way to do this is to use the `table` command which does exactly this - it creates counts by year (or whatever other dimension you choose).  </span>
+
+girlnamecount <span class="o">=</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>female<span class="o">$</span>year<span class="p">))</span>
+
+<span class="c1"># Plot the number of unique names by year.</span>
+
+<span class="kp">names</span><span class="p">(</span>girlnamecount<span class="p">)</span> <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">,</span> <span class="s">&quot;namecounts&quot;</span><span class="p">)</span>
+plot<span class="p">(</span>girlnamecount<span class="o">$</span>year<span class="p">,</span> girlnamecount<span class="o">$</span>namecounts<span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;Year&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;Number of unique girl names&quot;</span><span class="p">,</span> main<span class="o">=</span><span class="s">&quot;Growth in number of unique girl names by year&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p><center>
+<img alt="" src="figure/unnamed-chunk-6-1.png" />
+</center></p>
+<h3 id="objective-4-write-a-function-to-generate-the-most-popular-baby-names-for-a-given-gender-and-year">Objective 4. Write a <strong>function</strong> to generate the most popular baby names for a given gender and year<a class="headerlink" href="#objective-4-write-a-function-to-generate-the-most-popular-baby-names-for-a-given-gender-and-year" title="Permanent link"></a></h3>
+<p>Write a function <code>toptennames</code> that takes two arguments, gender and year, and returns the top ten unique names for that gender in that year.  This function should:</p>
+<ul>
+<li>Create a new data frame <code>ttn</code> containing only rows that match on gender and year.</li>
+<li>Use the <code>order</code> command to reorder \textit{ttn} so that it is decreasing by counts.</li>
+<li>Return the top 10 rows of the reordered data frame.</li>
+</ul>
+<p>After running your function, test it by calling:\</p>
+<p><code>print(toptennames(1880, "F"))</code></p>
+<p><code>print(toptennames(2014, "F"))</code></p>
+<div class="codehilite"><pre><span class="c1"># Create a function takes two arguments, the year and gender.  The function should use the values passed to this function to create a data frame _foo_ that only contains rows of that gender and year.  Order the resulting data frame by count, and then return only the top 10 rows.</span>
+
+toptennames <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>year<span class="p">,</span> gender<span class="p">)</span> <span class="p">{</span>
+  foo <span class="o">=</span> babynames<span class="p">[</span><span class="kp">which</span><span class="p">(</span>babynames<span class="o">$</span>gender<span class="o">==</span>gender <span class="o">&amp;</span> babynames<span class="o">$</span>year<span class="o">==</span>year<span class="p">),]</span>
+  top_names <span class="o">=</span> foo<span class="p">[</span><span class="kp">order</span><span class="p">(</span>foo<span class="o">$</span>count<span class="p">,</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">),]</span>
+  <span class="kr">return</span><span class="p">(</span>top_names<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">),])</span>
+<span class="p">}</span>
+
+<span class="c1"># Remember to run the function in your R-script before calling it, or it will not be recognized in the R environment. </span>
+
+<span class="c1"># Test your function by calling it to make sure it does what you think it should do!  The function should return a data frame of 10 names, so it can be printed directly.  You could also have assigned it to a new R object (e.g. `a = toptennames(&quot;2012&quot;, &quot;F&quot;)`) and then called `print(a)`.</span>
+
+<span class="kp">print</span><span class="p">(</span>toptennames<span class="p">(</span><span class="s">&quot;2012&quot;</span><span class="p">,</span> <span class="s">&quot;F&quot;</span><span class="p">))</span>
+</pre></div>
+
+<div class="codehilite"><pre>##              name gender count year
+## 1263582    Sophia      F 22267 2012
+## 1263583      Emma      F 20902 2012
+## 1263584  Isabella      F 19058 2012
+## 1263585    Olivia      F 17277 2012
+## 1263586       Ava      F 15512 2012
+## 1263587     Emily      F 13619 2012
+## 1263588   Abigail      F 12662 2012
+## 1263589       Mia      F 11998 2012
+## 1263590   Madison      F 11374 2012
+## 1263591 Elizabeth      F  9674 2012
+</pre></div>
+
+<div class="codehilite"><pre><span class="kp">print</span><span class="p">(</span>toptennames<span class="p">(</span><span class="s">&quot;2014&quot;</span><span class="p">,</span> <span class="s">&quot;F&quot;</span><span class="p">))</span>
+</pre></div>
+
+<div class="codehilite"><pre>##              name gender count year
+## 1330469      Emma      F 20799 2014
+## 1330470    Olivia      F 19674 2014
+## 1330471    Sophia      F 18490 2014
+## 1330472  Isabella      F 16950 2014
+## 1330473       Ava      F 15586 2014
+## 1330474       Mia      F 13442 2014
+## 1330475     Emily      F 12562 2014
+## 1330476   Abigail      F 11985 2014
+## 1330477   Madison      F 10247 2014
+## 1330478 Charlotte      F 10048 2014
+</pre></div>
+
+<h3 id="objective-5-compute-the-most-gender-neutral-names">Objective 5. Compute the most gender-neutral names<a class="headerlink" href="#objective-5-compute-the-most-gender-neutral-names" title="Permanent link"></a></h3>
+<p>Generate a list of the ten names that, in 2014, were relatively popular
+for both baby boys and baby girls. To do this, use the following
+condition: for names for which there are at least 1000 people in the
+year with that name (including boys or girls), compute the difference
+between boys and girls with the name. Then, we will call those names
+with the smallest magnitude difference between the two the most &ldquo;gender
+neutral&rdquo; names. This is not the best definition of gender-neutral, but it is a definition and is straightforward to implement.</p>
+<p>To complete this objective:</p>
+<ul>
+<li>Keep only rows from 2014.</li>
+<li>Create a data frame <em>male</em> with only boy names and their counts.</li>
+<li>Create a separate data frame <em>female</em> with only girl names and their
+    counts.</li>
+<li>Merge the two data frames on name.</li>
+<li>Keep only those rows where the <strong>sum</strong> of counts for boys and girls
+    is at least 1000.</li>
+<li>Compute the absolute value of the difference between counts of boys
+    with the name and counts of girls with the name.</li>
+<li>Use <code>sort</code> or <code>order</code> to sort the data frame by the absolute value
+    you just computed.</li>
+<li>Use <code>head</code> to find the top ten gender neutral names.</li>
+</ul>
+<div class="codehilite"><pre><span class="c1"># Create separate data frames that contain male and female names, merge them, and drop rows that do not have at least 1000 names.</span>
+
+male <span class="o">=</span> babynames<span class="p">[</span><span class="kp">which</span><span class="p">(</span>babynames<span class="o">$</span>gender<span class="o">==</span><span class="s">&quot;M&quot;</span> <span class="o">&amp;</span> babynames<span class="o">$</span>year<span class="o">==</span><span class="m">2014</span><span class="p">),]</span>
+female <span class="o">=</span> babynames<span class="p">[</span><span class="kp">which</span><span class="p">(</span>babynames<span class="o">$</span>gender<span class="o">==</span><span class="s">&quot;F&quot;</span>  <span class="o">&amp;</span> babynames<span class="o">$</span>year<span class="o">==</span><span class="m">2014</span><span class="p">),]</span>
+mf <span class="o">=</span> <span class="kp">merge</span><span class="p">(</span>male<span class="p">,</span> female<span class="p">,</span> by<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;year&quot;</span><span class="p">),</span> suffixes<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;.m&quot;</span><span class="p">,</span> <span class="s">&quot;.f&quot;</span><span class="p">))</span>
+mf <span class="o">=</span> mf<span class="p">[</span><span class="kp">which</span><span class="p">((</span>mf<span class="o">$</span>count.m <span class="o">+</span> mf<span class="o">$</span>count.f<span class="p">)</span><span class="o">&gt;=</span><span class="m">1000</span><span class="p">),]</span>
+
+<span class="c1"># Take the absolute value of the difference, sort, and show ten with smallest absolute difference.</span>
+
+mf<span class="o">$</span>diff <span class="o">=</span> <span class="kp">abs</span><span class="p">(</span>mf<span class="o">$</span>count.m <span class="o">-</span> mf<span class="o">$</span>count.f<span class="p">)</span>
+<span class="kp">head</span><span class="p">(</span>mf<span class="p">[</span><span class="kp">order</span><span class="p">(</span>mf<span class="o">$</span><span class="kp">diff</span><span class="p">),],</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre>        name year gender.m count.m gender.f count.f diff
+2184  Skyler 2014        M     911        F    1070  159
+514  Charlie 2014        M    1670        F    1432  238
+1217 Justice 2014        M     518        F     756  238
+605   Dakota 2014        M     876        F    1136  260
+1902 Phoenix 2014        M     901        F     629  272
+1740   Milan 2014        M     748        F     424  324
+2258   Tatum 2014        M     462        F     828  366
+109    Amari 2014        M     970        F     585  385
+2048    Rory 2014        M     741        F     326  415
+2095    Sage 2014        M     399        F     834  435
+</pre></div></article></body></html>
