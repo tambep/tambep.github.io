@@ -19,7 +19,7 @@ title: Working papers
 Generative Models, Patents, and Innovation Frontiers\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
-Is Region Still an Advantage for Technology Ventures?\
+What will remote work do to entrepreneurial regional advantage? Evidence from job applications\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
