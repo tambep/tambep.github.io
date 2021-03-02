@@ -19,7 +19,7 @@ His published papers have analyzed Internet-scale data from online job sites, ca
 
 Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Computer Science from [MIT](http://web.mit.edu) and his Ph.D. in Managerial Science and Applied Economics from the [Wharton School of the University of Pennsylvania](http://www.wharton.upenn.edu).
 
-# Recent research
+# Recent research and teaching
 
 [A full list of papers is available here.](papers)
 
