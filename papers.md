@@ -15,7 +15,7 @@ title: Working papers
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-[The Growing Importance of Algorithmic and Data Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
+[The Growing Importance of Data and Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
 Generative Models, Patents, and Innovation Frontiers\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
