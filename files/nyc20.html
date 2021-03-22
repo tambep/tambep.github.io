@@ -1128,7 +1128,7 @@ through the following links. For the 311 data, please use the link below and not
 
 <h2 id="part-2-nypd-data"><span style="color:gray">PART 2. NYPD data.</span><a class="headerlink" href="#part-2-nypd-data" title="Permanent link"></a></h2>
 <p>a. Using the NYC Arrest data, generate a chart indicating total arrest numbers for each day, and add two markers to the chart (e.g. vertical lines) indicating 1) the beginning of the COVID related shutdowns (which began on <u>Mar 13th</u>) and 2) the George Floyd protests (which began on <u>May 26th</u>).</p>
-<p>b. Create a table that, for only the arrests that took place in 2020, summarizes arrests by borough and age group. The table should look something like this.</p>
+<p>b. Create a table that, for only the arrests that took place in 2020, summarizes arrests by borough and age group. The table should look something like this. If useful, you can convert rows to columns and columns to rows by using <code>pivot_wider</code> and <code>pivot_longer</code> (or <code>spread</code> and <code>gather</code>).</p>
 <table>
 <thead>
 <tr>
@@ -1203,7 +1203,7 @@ through the following links. For the 311 data, please use the link below and not
 <p>The total number of rows in the data set you use for the regression should be about five times as large as the number of days, since there are five boroughs in NYC. </p>
 <p><strong>To answer this question, report whether you find evidence of a statistically significant relationship between any of these measures and case counts? Show your  regression results and justify your answer.</strong> The specific steps you should follow are:</p>
 <p><strong>Step 1</strong>. From the <strong>311 data set</strong>, generate a data
-set which, for each borough-day combination, contains numbers of 311 complaints for each relevant category type, transformed to the following format. If you have missing values, those should be filled in with zeroes (indicating there are no complaints of that type for that day in that borough).</p>
+set which, for each borough-day combination, contains numbers of 311 complaints for each relevant category type, transformed to the following format. If you have missing values, those should be filled in with zeroes (indicating there are no complaints of that type for that day in that borough). As mentioned earlier, if useful, you can convert rows to columns and columns to rows by using <code>pivot_wider</code> and <code>pivot_longer</code> (or <code>spread</code> and <code>gather</code>).</p>
 <table>
 <thead>
 <tr>
