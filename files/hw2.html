@@ -1125,25 +1125,24 @@ been in the TECHNOLOGY section.</p>
 </ul>
 <h2 id="step-2-retrieve-new-articles">Step 2. Retrieve new articles<a class="headerlink" href="#step-2-retrieve-new-articles" title="Permanent link"></a></h2>
 <p>Scrape the text of each of the articles that appear on the first <a href="http://www.cnbc.com/us-news/">CNBC
-News Page</a>. (i.e. about 20 articles)</p>
+News Page</a>. (i.e. about 20 articles). <strong>UPDATE</strong>: To shorten this assignment, rather than having you scrape the article headlines and URLs from the front page, we have simply provided a list of recent article URLs you can work from <a href="https://upenn.box.com/s/2uzdswlwd99fx38ifnrph5wsfic7tltw">at this link</a>. Download this file and read the contents into your session using the <code>read_lines</code> command.</p>
+<!-- -   Scrape article URLs from this following page:
+    [CNBC-NEWS](http://www.cnbc.com/us-news/).
+
+    -   Use the Web Scraper or Selector Gadget Chrome tools to determine
+        the html tags associated with the URLs you want.
+    -   Extract all the article URLs on the page. This should be about
+        20 links, keeping in mind that depending on what tag you use,
+        you may get duplicate links or blanks, so scrape as many as you
+        need to end up with slightly over 20 valid links. In class we
+        used `html_text` to extract the *text* from the html file, but
+        to extract the URLs, you will need to use `html_attr("href")`.
+ -->
+
 <ul>
-<li>
-<p>Scrape article URLs from this following page:
-    <a href="http://www.cnbc.com/us-news/">CNBC-NEWS</a>.</p>
-<ul>
-<li>Use the Web Scraper or Selector Gadget Chrome tools to determine
-    the html tags associated with the URLs you want.</li>
-<li>Extract all the article URLs on the page. This should be about
-    20 links, keeping in mind that depending on what tag you use,
-    you may get duplicate links or blanks, so scrape as many as you
-    need to end up with slightly over 20 valid links. In class we
-    used <code>html_text</code> to extract the <em>text</em> from the html file, but
-    to extract the URLs, you will need to use <code>html_attr("href")</code>.</li>
-</ul>
-</li>
 <li>
 <p>Collect and clean the text from <strong>one</strong> of these news articles. For
-    one of the URLs you collected, visit the page in a browser and
+    one of the URLs in the list, visit the page in a browser and
     gather the text on that page. Unlike with our earlier scraping
     exercises, this one requires some data cleaning outlined in the
     following steps.</p>
@@ -1164,7 +1163,7 @@ News Page</a>. (i.e. about 20 articles)</p>
 <li>
 <p>Once this is working for a single news article, create a <code>for</code> loop
     that puts the above pieces together. It should automatically scrape
-    and clean the text for each of the 20 (or more) URLs you collected.
+    and clean the text for each of the 20 URLs you collected.
     The end result should be the cleaned text from 20 articles, where
     each element is the cleaned text from one of these articles.</p>
 </li>
@@ -1202,10 +1201,6 @@ topic_probabilities = posterior(ldaOut, new_dtm)
     the highest probability of appearing.</p>
 </li>
 <li>
-<p>Finally, in a table, print the contents of any ten news articles and
-    the categories you generated for it, where you should identify the
-    category by the name you assigned to it at the end of Step 1. You
-    can do this step by hand. You do not need to write any R code to
-    generate this table.</p>
+<p>Finally, in a table, print the contents of any ten news articles (or just the first few words of each of these articles) and the categories you generated for them, where you should identify these categories by the names assigned to them at the end of Step 1. You can assemble this table by &ldquo;hand&rdquo;. You do not need to write any additional code to generate it.</p>
 </li>
 </ul></article></body></html>
