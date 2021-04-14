@@ -1127,14 +1127,14 @@ train = read_csv(&quot;~/Downloads/oidd245housinga/ames_train.csv&quot;) #train
 test = read_csv(&quot;~/Downloads/oidd245housinga/ames_test.csv&quot;) #test
 
 # Step 2: Try a basic linear regression model based on some variables
-hp = lm(SalePrice ~ `Lot Area`, data=train)
+hp = lm(SalePrice ~ `LotArea`, data=train)
 
 # Step 3: Prediction on the training data
 pred = predict(hp, newdata = test)
 
 # Step 4: Output for uploading to Kaggle
-output = data.frame(cbind(as.character(test$Order),pred)) 
-colnames(output) = c(&quot;Order&quot;,&quot;SalePrice&quot;) 
+output = data.frame(cbind(as.character(test$Id),pred)) 
+colnames(output) = c(&quot;Id&quot;,&quot;SalePrice&quot;) 
 
 #use the ouput csv and submit to Kaggle
 write_csv(output, &quot;~/Desktop/lm_submission.csv&quot;) 
