@@ -1184,9 +1184,14 @@ News Page</a>. (i.e. about 20 articles). <strong>UPDATE</strong>: To shorten thi
 were not contained in the original archival data. The code snippet below
 illustrates how to create the new Document-Term Matrix, handle this
 issue, and apply the topic model that you created earlier.</p>
-<div class="highlight"><pre>dic = Terms(dtms)
+<div class="highlight"><pre># dtms in the line below is the Document Term Matrix from Step 1
+dic = Terms(dtms)
 
-# Specify this dictionary when creating the dtm for the new articles, which will limit the dtm it creates to only the words that also appeared in the archive. In the example below, &#39;ldaOut&#39; would be the name assigned to the topic model you created in Step 1.
+# Specify this dictionary when creating the dtm for the new articles, 
+# which will limit the dtm it creates to only the words that also appeared in
+# the archive. In the example below, &#39;ldaOut&#39; would be the name assigned to 
+# the topic model you created in Step 1 and &#39;corp.foo&#39; is the cleaned corpus 
+# of news articles.
 
 new_dtm = DocumentTermMatrix(corp.foo, control=list(dictionary = dic))
 new_dtm = new_dtm[rowSums(as.matrix(new_dtm))!=0,]
