@@ -17,10 +17,10 @@ title: Working papers
 
 [The Growing Importance of Data and Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
-Generative Models, Patents, and Innovation Frontiers\
+InnoVAE: Generative AI for Identifying Breakthrough Innovation\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
-Remote work and entrepreneurial regional advantage: Evidence from job applications\
+Startup labor markets and remote work: Evidence from job applications\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
