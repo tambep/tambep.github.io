@@ -15,4 +15,4 @@ A 1 CU class that covers some foundations of data science as applied to emerging
 
 ## _AI, business, and society_ (Spring 2022)
 
-A 0.5 CU seminar-based class that covers the opportunities and challenges that arise with the use of AI and organizations. The course requires students to work through labs that provide an empirical understanding of how AI algorithms work. Additional topics covered in the course include model bias, the interpretability of algorithms, and how data assets affect market power.
+A 1 CU class that covers the opportunities and challenges that arise with the use of AI and organizations. The course requires students to work through labs that provide an empirical understanding of how AI algorithms work. Additional topics covered in the course include model bias, the interpretability of algorithms, and how data assets affect market power.
