@@ -15,13 +15,13 @@ title: Working papers
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
+Startup labor markets and remote work: Evidence from job applications\
+(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
 [The Growing Importance of Data and Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
 InnoVAE: Generative AI for Identifying Breakthrough Innovation\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
-
-Startup labor markets and remote work: Evidence from job applications\
-(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 # Published papers
 
