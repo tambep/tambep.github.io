@@ -15,7 +15,7 @@ title: Working papers
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-Startup labor markets and remote work: Evidence from job applications\
+[Startup labor markets and remote work: Evidence from job applications](https://tambep.github.io/files/SLWR_HsuTambe.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 [The Growing Importance of Data and Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
