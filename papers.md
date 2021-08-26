@@ -23,9 +23,6 @@ title: Working papers
 InnoVAE: Generative AI for Identifying Breakthrough Innovation\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
-The AI Ladder: Digital Firms, Workplace Practices, and Increasing Returns\
-(with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
-
 # Published papers
 
 [Paying to program? Engineering Brand and High-Tech Wages](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2019.3343?casa_token=Udx1OUAMUr8AAAAA:1J7l-iF8OtVJJrz05cehvlkwv7lh9xHPsrTyI388T-pjrrpy46BsqhjObtpqq7MQX4yl5rd75Eg)\
