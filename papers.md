@@ -18,7 +18,7 @@ title: Working papers
 [Startup labor markets and remote work: Evidence from job applications](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
-[The Growing Importance of Data and Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
+[The Growing Importance of Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
 InnoVAE: Generative AI for Identifying Breakthrough Innovation\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
