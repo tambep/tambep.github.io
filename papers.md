@@ -23,7 +23,7 @@ title: Working papers
 InnoVAE: Generative AI for Identifying Breakthrough Innovation\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
-Climbing the AI Ladder: Technology, Organization, and Increasing Returns\
+AI Engines of Growth: Firm Inequality on the Technological Frontier\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
 # Published papers
