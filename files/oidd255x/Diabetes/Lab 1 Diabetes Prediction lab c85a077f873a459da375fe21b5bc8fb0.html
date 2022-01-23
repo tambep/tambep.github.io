@@ -1,0 +1,667 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 1. Diabetes Prediction lab</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="274a6061-f39a-43e2-8723-e13dd0d2411f" class="page sans"><header><h1 class="page-title">Lab 1. Diabetes Prediction lab</h1></header><div class="page-body"><h2 id="a60eb79a-be00-425b-a6b9-a94266d21b68" class=""><mark class="highlight-blue">OIDD 255, Tambe</mark></h2><hr id="fffe1234-7f20-4393-baeb-ddd5928245ae"/><p id="500877fe-4dd5-4224-ad68-10b614319273" class="">
+</p><figure id="c85a077f-873a-459d-a375-fe21b5bc8fb0" class="image"><a href="Lab%201%20Diabetes%20Prediction%20lab%20c85a077f873a459da375fe21b5bc8fb0/Untitled.png"><img style="width:384px" src="Lab%201%20Diabetes%20Prediction%20lab%20c85a077f873a459da375fe21b5bc8fb0/Untitled.png"/></a></figure><p id="71f9195a-3356-476c-aabc-0f4b31c43169" class="">
+</p><hr id="8293d01d-37b8-434e-b703-c2e79c63ebc3"/><h2 id="cce50d18-8f22-467d-9ea9-6289751ef862" class=""><strong>Learning Objectives for this lab</strong>: </h2><ul id="4c45d315-25e6-46d3-8fda-d1ce236c4e33" class="bulleted-list"><li style="list-style-type:disc">A first attempt at using a familiar tool - Excel — for using data to predict a target variable.</li></ul><ul id="241639c4-e921-4028-af1d-89d0e005144c" class="bulleted-list"><li style="list-style-type:disc">Develop initial familiarity with the tradeoffs that arise when using prediction models. </li></ul><ul id="5aca35fd-9245-41d0-b17b-be0031b6f3ec" class="bulleted-list"><li style="list-style-type:disc">Understand the concept of error when using prediction models.</li></ul><h2 id="db4c67e2-3f3d-4503-bfe3-7a61baf43657" class="">Data Context: </h2><p id="aba4359c-60db-4cf7-9627-5f56c50df10b" class="">The setting for the exercise is healthcare. Machine learning models are becoming widespread in healthcare diagnostics, and using machine learning for diabetes prediction is becoming fairly common. [<a href="https://www.frontiersin.org/articles/10.3389/fgene.2018.00515/full">1</a>, <a href="https://www.sciencedirect.com/science/article/pii/S2405959521000205">2</a>]</p><p id="f77b4375-448e-4aec-a6d0-7333a401c2c3" class="">This lab uses a popular and common machine learning model — “logistic regression” — to predict outcomes from patient data. In this context, given access to <span style="border-bottom:0.05em solid">other</span> indicators of patient health (that may be readily available or easy to collect), the goal would be to predict whether or not a patient has diabetes (or will have it soon).</p><p id="6eee4971-1c49-4ebb-bc42-ffd7b17f18b2" class="">We have provided an Excel spreadsheet with a logistic regression model built into the spreadsheet for the <a href="https://www.kaggle.com/uciml/pima-indians-diabetes-database">PIMA Diabetes data</a>. For a large sample of patients, these data contain information on a variety of health indicators for patients as well as whether or not they have diabetes, denoted by a 1 or a 0. If you would like to read more about the diabetes and health issues associated with the PIMA people (a community of Native Americans from Arizona and Northwestern Mexico), <a href="https://www.washingtonpost.com/archive/lifestyle/wellness/1993/03/30/why-are-the-pima-indians-sick-studies-on-arizona-tribe-show-excessive-rates-of-diabetes-obesity-and-kidney-disease/1f978958-e73b-483a-9af9-47d9efdad534/">read here</a> (optional).</p><h2 id="bf189d3c-9349-4f23-afa4-9ce0e77fd1fa" class="">Modeling:</h2><p id="3954dd6a-c93f-40f8-b16f-8af5fb94520a" class=""><strong>It is not essential that that you understand ML concepts or the statistics behind logistic regression models for this exercise.</strong> This lab is meant to get you to go hands-on with some key concepts before we formally cover them in class.</p><h3 id="c04344c8-1564-484e-9628-484d9b303168" class="">Regression and prediction</h3><p id="d2733e2b-7cdb-4b99-a935-ca338f7741e9" class="">It is important to know, however, that regression models can be used to make predictions. You may have come across regressions in the context of fitting a line (or another shape) to a set of known data points. Once these models are fitted, they can allow you to take new data and predict the value of an outcome. In other words, we can use a set of known data points (x’s) with outcomes (y’s) to fit a regression model, and then use the fitted model to predict outcomes for data points (x’s) where we do not know the outcomes.</p><p id="3470e23c-39ee-4fce-ae5c-636f56a7236f" class="">In the diabetes context, we use data on patient indications and known diabetes outcomes to find how the patient indications can be used and combined to predict whether or not a patient is likely to have diabetes. We can then use the fitted model to predict whether new patients, for who we do not know a diabetes diagnosis, might have diabetes.</p><h3 id="b2726007-73b5-4bf4-bc61-39bba493e487" class="">Logistic regression</h3><p id="131bf744-e877-4df3-990d-b42fdec47d6d" class=""><em>Logistic</em> regression is used when the outcome variable that is to be predicted is “binary” (i.e. it takes either the value 0 or 1). For instance, you might use logistic regression to predict whether someone is likely to be approved for a home loan (which can only take the value 0 or 1), but not for predicting a house price (which can take any positive value).</p><p id="c893810e-7dee-44ee-9368-14d78b2252d7" class="">Logistic regression-based prediction in this context proceeds in several steps. </p><ul id="d91182c4-2678-4568-bf3f-00f955560a6e" class="bulleted-list"><li style="list-style-type:disc">First the logistic regression model is fitted using data on features and known outcomes for the patients. During this process, it finds the best weights to apply to the data columns to predict the outcome as best as possible. </li></ul><ul id="328f955c-2d5b-4561-b380-1ed5f02d5f2a" class="bulleted-list"><li style="list-style-type:disc">The output of the fitted logistic regression model is the <em>predicted likelihood</em> (a probability value that lies between 0 and 1) that the outcome variable takes the value 1. </li></ul><ul id="ef0a88db-4227-4948-9383-966b8e955095" class="bulleted-list"><li style="list-style-type:disc">The final step in using the prediction model to predict new outcomes is to choose a <em>threshold value</em> that the predicted likelihood value must exceed for the observations to take a predicted value of 1.</li></ul><p id="821b2fde-ce08-4db7-931d-eda5643ca0df" class="">In this lab, we use a logistic regression based prediction model to understand the tradeoffs that arise when building machine learning models. If you would like to learn more about logistic regression, there are many resources available online.</p><p id="4c91e05e-7529-4dc7-9ee7-b8a28033a78d" class="">For instance:</p><ul id="f6354f2d-e2f5-4c98-8a3a-ce90678fd2a8" class="bulleted-list"><li style="list-style-type:disc">Read here about <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a> (optional).</li></ul><ul id="ac2869df-bcd2-4856-956a-ce93235e019b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Lab-1-Diabetes-Prediction-lab-274a6061f39a43e28723e13dd0d2411f">Machine learning - logistic regression</a> (optional).</li></ul><h2 id="a433a346-c2f6-4320-bd95-fc34d6b5a8ea" class="">Spreadsheet:</h2><p id="dc5bdecb-f867-4ffd-9f20-0e189e271410" class="">In the spreadsheet you are given, you are provided with the data on the PIMA people, including the health indicators for each patient (<strong>labeled as x1 - x8 in columns A-H in the spreadsheet</strong>) as well as whether or not they have diabetes (<strong>column I</strong>).</p><p id="1e9d2343-f2d1-4dfd-9c2f-ef65ebb7f9a7" class="">You are also given a column for predictions from the fitted model (<strong>column M</strong>) and another column for the predicted value for whether or not the patient has diabetes (<strong>Column Q</strong>). </p><p id="d0266168-e819-46c3-9fbc-b9dc452ca7fe" class="">Notice that the predictions from the fitted model are all <strong><em>probabilities</em></strong> that an individual has diabetes. As described above, a threshold value is required in order to convert these probabilities into a <em><strong>binary flag</strong></em> of whether an individual is predicted to have diabetes. You can see in this spreadsheet, a threshold value of 0.5 is used (<strong>cell Q2</strong>), so using this model, all patients with a predicted probability greater than 0.5 will be predicted to have diabetes. </p><p id="d73e24b1-eff3-4ba8-a4c9-8e056a84d759" class="">
+</p><p id="89e0909b-faea-4d6c-a0fd-56decf9e3e80" class="">The data scientists/ML engineer’s challenge is to find models that fit the data well, and to adjust parameters like the threshold value to make the most accurate predictions. Here, we have given you the model (logistic regression) and will be asking you to adjust the threshold value.</p><h2 id="124ecc8b-91fa-4f2b-aa94-87fa3fad59d5" class="">Deliverables</h2><p id="e4c9c476-2c04-487e-966f-b39499fd4e94" class="">Please submit a response document (e.g. a Word or Google Doc) with answers to each of the  questions below. You do not need to submit the Excel document in which you do the work, or to paste the original question into your response document, and your answers need not be lengthy. For instance, when a question asks for a number, simply reporting the number is fine. When it asks for an explanation, one or two sentences is usually sufficient. </p><p id="04c6b914-e05f-477b-8632-86db230f4aa5" class="">Some Excel functions are recommended in the text for those that are new to Excel, but you are welcome to use other methods. Assignments are to be submitted through Canvas. See Canvas for the due date. </p><h2 id="5c8f0c98-31aa-406f-94b9-f61aa9f6a1f5" class="">Please answer the following questions:</h2><h2 id="80750865-599f-4c04-be82-bbcad58e39b2" class=""><mark class="highlight-red">Question 1.</mark> </h2><p id="b82a13ea-298d-45a3-9848-3d4e70157cb8" class="">You are already provided with the <span style="border-bottom:0.05em solid">fitted</span> logistic regression model, which was built using the PIMA people health data (<strong>see rows 1-2 in columns A-I</strong>).  In no more than a few sentences, describe in what sense during the model fitting process the machine has “learned”?  There is no need to go into the technical details behind logistic regression, but provide a high level view of what the model is “learning”, what it is using to learn, and how it is learning it.</p><h2 id="29384014-1e62-42d5-b8b2-bf78e41f4608" class=""><mark class="highlight-red">Question 2. </mark></h2><p id="d7da1d3c-3534-4485-a499-429782f0a07b" class="">What fraction of patients in the data that you are provided has a known diagnosis of the diabetes condition? The Excel function <em>AVERAGE</em> may be useful here, which generates the mean value of a column of numbers.</p><h2 id="5ed58b79-1729-4665-8660-78123db91281" class=""><mark class="highlight-red">Question 3.</mark></h2><p id="730a6ed0-d942-49e5-89aa-ad4db7e0bc40" class="">The spreadsheet that you are given allows you to adjust the threshold used to convert the logistic regression probabilities from the fitted model to predictions of whether or not a patient has diabetes. When using a threshold of <strong>0.5</strong>, what fraction of 1/0 predictions is correct (i.e. matches the patient’s actual condition)? This metric is known as “accuracy”. For this question, you will first need to generate a new column which indicates whether or not the prediction matches the patient’s condition. The <em>IF</em> function may be useful here.</p><h2 id="c9d0920c-ef72-44af-b026-36d867597ffe" class=""><mark class="highlight-red">Question 4.</mark></h2><p id="f9c0dd38-41ad-41b0-b36b-2c8ba026d806" class="">As you saw in the previous question (question 3), the model does not always predict the correct answer. Assuming we chose the best modeling technique and fit the data appropriately, why might the model still produce incorrect predictions for certain individuals?</p><h2 id="36af44b9-b6bd-48b3-99fd-fd3957bb9b01" class=""><mark class="highlight-red">Question 5.</mark> </h2><p id="73a8c3b0-e905-4a8c-8ba9-8f0d10072871" class=""><a href="https://en.wikipedia.org/wiki/False_positives_and_false_negatives">Read here about false positives and false negatives</a>. (These terms have now entered the public conversation thanks to COVID-19 tests!)  In language that might be relevant to a medical practitioner, what do these numbers mean for this diabetes diagnostic context? </p><ul id="1fa68900-2e1b-47dd-8578-ff6f6f42c1d0" class="bulleted-list"><li style="list-style-type:disc">What fraction of predictions are “false negatives” when using a 0.5 threshold?</li></ul><ul id="11948712-4e7e-4de3-9dc3-f0c9f67aae50" class="bulleted-list"><li style="list-style-type:disc">What fraction of predictions are “false positives” when using a 0.5 threshold?</li></ul><h2 id="6ab7fd6d-0f4d-46c2-ac77-341e49c84c05" class=""><mark class="highlight-red">Question 6. </mark></h2><p id="54ff2d59-8b54-4c17-b428-85494969c31c" class="">Put yourselves in the shoes of a senior healthcare manager in a hospital system that is using this prediction model for making diagnoses.</p><p id="efb611a4-883c-41db-929f-9115e7305f9b" class="">As a healthcare manager, under what conditions might you be more concerned about the <strong>false negative</strong> rate? </p><p id="cff23145-9b67-4fb0-a99b-8182f1dedad0" class="">As a healthcare manager, under what conditions might you be more concerned with the <strong>false positive</strong> rate?</p><h2 id="0b7e20b8-29a2-486b-92a9-f8c0dd3b0cb3" class=""><mark class="highlight-red">Question 7.</mark> </h2><p id="534ce3db-ebf4-4863-8358-bfccd784da09" class="">What threshold value maximizes the accuracy of the prediction model? (Excel ninjas can use “Solver” to find this value, but feel free to use trial-and-error to find this value by changing it by hand until you find which values produce the highest accuracy.) Specify this value to two digits.</p><h2 id="cb6a72c8-a89b-48d7-a942-9e29f918ad29" class=""><mark class="highlight-red">Question 8.</mark></h2><p id="6578a4cc-f3da-4ac3-8342-72dd6c0f5b0e" class="">In the previous question, you found a threshold that optimized accuracy. How did the new threshold impact false positive and false negative rates when compared to the original threshold of 0.5? Why do you think these changes occurred?</p><p id="93c89698-7a39-4a31-adab-dc27f24fda04" class="">
+</p><p id="f14bc929-ae9e-4299-8ddb-a0605540a7d8" class="">
+</p><p id="a9b2fd15-c96d-4ba9-a561-698417fb676b" class="">
+</p><p id="d5f46881-cb38-414d-aee3-14567633d5cb" class="">
+</p><p id="41af0cfb-3113-471e-904c-199e17515676" class="">
+</p><p id="6fa41bfe-9133-432a-9ea9-19a31bd3764c" class="">
+</p><p id="d10a887b-0b34-451a-8c99-886933cf7ad6" class="">
+</p></div></article></body></html>
