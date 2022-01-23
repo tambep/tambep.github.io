@@ -118,23 +118,28 @@ body .markdown-body
   padding: 0;
 }
 
-.markdown-body .codehilitetable {
+.markdown-body .codehilitetable,
+.markdown-body .highlighttable {
   border: 0;
   border-spacing: 0;
 }
 
-.markdown-body .codehilitetable tr {
+.markdown-body .codehilitetable tr,
+.markdown-body .highlighttable {
   border: 0;
 }
 
 .markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite {
+.markdown-body .codehilitetable div.codehilite,
+.markdown-body .highlighttable pre,
+.markdown-body .highlighttable div.highlight {
   margin: 0;
 }
 
 .markdown-body .linenos,
 .markdown-body .code,
-.markdown-body .codehilitetable td {
+.markdown-body .codehilitetable td,
+.markdown-body .highlighttable td {
   border: 0;
   padding: 0;
 }
@@ -517,11 +522,13 @@ body .markdown-body
   border: 0;
 }
 
-.markdown-body .codehilite {
+.markdown-body .codehilite,
+.markdown-body .highlight {
   margin-bottom: 16px;
 }
 
 .markdown-body .codehilite pre,
+.markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -531,7 +538,8 @@ body .markdown-body
   border-radius: 3px;
 }
 
-.markdown-body .codehilite pre {
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
@@ -993,68 +1001,68 @@ body .markdown-body
   }
 }
 </style><style>/*GitHub*/
-.codehilite {background-color:#fff;color:#333333;}
-.codehilite .hll {background-color:#ffffcc;}
-.codehilite .c{color:#999988;font-style:italic}
-.codehilite .err{color:#a61717;background-color:#e3d2d2}
-.codehilite .k{font-weight:bold}
-.codehilite .o{font-weight:bold}
-.codehilite .cm{color:#999988;font-style:italic}
-.codehilite .cp{color:#999999;font-weight:bold}
-.codehilite .c1{color:#999988;font-style:italic}
-.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
-.codehilite .gd{color:#000000;background-color:#ffdddd}
-.codehilite .ge{font-style:italic}
-.codehilite .gr{color:#aa0000}
-.codehilite .gh{color:#999999}
-.codehilite .gi{color:#000000;background-color:#ddffdd}
-.codehilite .go{color:#888888}
-.codehilite .gp{color:#555555}
-.codehilite .gs{font-weight:bold}
-.codehilite .gu{color:#800080;font-weight:bold}
-.codehilite .gt{color:#aa0000}
-.codehilite .kc{font-weight:bold}
-.codehilite .kd{font-weight:bold}
-.codehilite .kn{font-weight:bold}
-.codehilite .kp{font-weight:bold}
-.codehilite .kr{font-weight:bold}
-.codehilite .kt{color:#445588;font-weight:bold}
-.codehilite .m{color:#009999}
-.codehilite .s{color:#dd1144}
-.codehilite .n{color:#333333}
-.codehilite .na{color:teal}
-.codehilite .nb{color:#0086b3}
-.codehilite .nc{color:#445588;font-weight:bold}
-.codehilite .no{color:teal}
-.codehilite .ni{color:purple}
-.codehilite .ne{color:#990000;font-weight:bold}
-.codehilite .nf{color:#990000;font-weight:bold}
-.codehilite .nn{color:#555555}
-.codehilite .nt{color:navy}
-.codehilite .nv{color:teal}
-.codehilite .ow{font-weight:bold}
-.codehilite .w{color:#bbbbbb}
-.codehilite .mf{color:#009999}
-.codehilite .mh{color:#009999}
-.codehilite .mi{color:#009999}
-.codehilite .mo{color:#009999}
-.codehilite .sb{color:#dd1144}
-.codehilite .sc{color:#dd1144}
-.codehilite .sd{color:#dd1144}
-.codehilite .s2{color:#dd1144}
-.codehilite .se{color:#dd1144}
-.codehilite .sh{color:#dd1144}
-.codehilite .si{color:#dd1144}
-.codehilite .sx{color:#dd1144}
-.codehilite .sr{color:#009926}
-.codehilite .s1{color:#dd1144}
-.codehilite .ss{color:#990073}
-.codehilite .bp{color:#999999}
-.codehilite .vc{color:teal}
-.codehilite .vg{color:teal}
-.codehilite .vi{color:teal}
-.codehilite .il{color:#009999}
-.codehilite .gc{color:#999;background-color:#EAF2F5}
+.highlight {background-color:#fff;color:#333333;}
+.highlight .hll {background-color:#ffffcc;}
+.highlight .c{color:#999988;font-style:italic}
+.highlight .err{color:#a61717;background-color:#e3d2d2}
+.highlight .k{font-weight:bold}
+.highlight .o{font-weight:bold}
+.highlight .cm{color:#999988;font-style:italic}
+.highlight .cp{color:#999999;font-weight:bold}
+.highlight .c1{color:#999988;font-style:italic}
+.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
+.highlight .gd{color:#000000;background-color:#ffdddd}
+.highlight .ge{font-style:italic}
+.highlight .gr{color:#aa0000}
+.highlight .gh{color:#999999}
+.highlight .gi{color:#000000;background-color:#ddffdd}
+.highlight .go{color:#888888}
+.highlight .gp{color:#555555}
+.highlight .gs{font-weight:bold}
+.highlight .gu{color:#800080;font-weight:bold}
+.highlight .gt{color:#aa0000}
+.highlight .kc{font-weight:bold}
+.highlight .kd{font-weight:bold}
+.highlight .kn{font-weight:bold}
+.highlight .kp{font-weight:bold}
+.highlight .kr{font-weight:bold}
+.highlight .kt{color:#445588;font-weight:bold}
+.highlight .m{color:#009999}
+.highlight .s{color:#dd1144}
+.highlight .n{color:#333333}
+.highlight .na{color:teal}
+.highlight .nb{color:#0086b3}
+.highlight .nc{color:#445588;font-weight:bold}
+.highlight .no{color:teal}
+.highlight .ni{color:purple}
+.highlight .ne{color:#990000;font-weight:bold}
+.highlight .nf{color:#990000;font-weight:bold}
+.highlight .nn{color:#555555}
+.highlight .nt{color:navy}
+.highlight .nv{color:teal}
+.highlight .ow{font-weight:bold}
+.highlight .w{color:#bbbbbb}
+.highlight .mf{color:#009999}
+.highlight .mh{color:#009999}
+.highlight .mi{color:#009999}
+.highlight .mo{color:#009999}
+.highlight .sb{color:#dd1144}
+.highlight .sc{color:#dd1144}
+.highlight .sd{color:#dd1144}
+.highlight .s2{color:#dd1144}
+.highlight .se{color:#dd1144}
+.highlight .sh{color:#dd1144}
+.highlight .si{color:#dd1144}
+.highlight .sx{color:#dd1144}
+.highlight .sr{color:#009926}
+.highlight .s1{color:#dd1144}
+.highlight .ss{color:#990073}
+.highlight .bp{color:#999999}
+.highlight .vc{color:teal}
+.highlight .vg{color:teal}
+.highlight .vi{color:teal}
+.highlight .il{color:#009999}
+.highlight .gc{color:#999;background-color:#EAF2F5}
 </style><title>Lab 1</title></head><body><article class="markdown-body"><h1 id="lab-1-citi-bike"><span style="color:tomato;">Lab 1: Citi Bike</span><a class="headerlink" href="#lab-1-citi-bike" title="Permanent link"></a></h1>
 <h4 id="oidd-245-tambe">OIDD 245 Tambe<a class="headerlink" href="#oidd-245-tambe" title="Permanent link"></a></h4>
 <p><center>
@@ -1085,6 +1093,7 @@ body .markdown-body
 <ul>
 <li><a href="http://www.nytimes.com/2013/08/15/nyregion/the-balancing-act-that-bike-share-riders-just-watch.html">Balancing bikes across stations</a></li>
 <li><a href="http://www.nytimes.com/2015/07/08/nyregion/a-mission-for-citi-bike-recruiting-more-female-cyclists.html?_r=0">Gender balance</a></li>
+<li><a href="https://nextcity.org/urbanist-news/how-new-york-and-paris-got-women-into-the-bike-saddle">How New York and Paris Got Women Into the Bike Saddle</a></li>
 </ul>
 <h4 id="data-can-be-useful-for-addressing-these-issues-and-citi-bike-affiliate-motivate-has-been-analyzing-data-in-this-area-motivate-has-since-been-acquired-by-lyft">Data can be useful for addressing these issues. And Citi Bike affiliate Motivate has been analyzing data in this area! (Motivate has since been acquired by Lyft)<a class="headerlink" href="#data-can-be-useful-for-addressing-these-issues-and-citi-bike-affiliate-motivate-has-been-analyzing-data-in-this-area-motivate-has-since-been-acquired-by-lyft" title="Permanent link"></a></h4>
 <p><center>
@@ -1101,7 +1110,7 @@ as a series of <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CS
 <li>There is a <a href="https://upenn.box.com/s/w78cvlts0pfe02v19g5lhhoawz1efn1w">500,000 row, 95 MB</a> extract of the Oct 2019 ridership data.</li>
 <li>There is a <a href="https://upenn.box.com/s/qxcgoyvblvo6q0v15rg8klrclijtpao3">500,000 row, 95 MB</a> extract of the Oct 2020 ridership data.</li>
 </ul>
-<p>Take not of the <a href="https://en.wikipedia.org/wiki/Data_dictionary">data dictionary</a> for the operational data collected by Citi Bike. Please note the coding for gender (0/1/2) and subscriber type!</p>
+<p>Take note of the <a href="https://en.wikipedia.org/wiki/Data_dictionary">data dictionary</a> for the operational data collected by Citi Bike. Please note the coding for gender (0/1/2) and subscriber type!</p>
 <p><img alt="" src="img/citibike_fields.png" /></p>
 <hr />
 <h2 id="3-lab-objectives-and-deliverables"><span style="color:gray">3. Lab Objectives and Deliverables</span><a class="headerlink" href="#3-lab-objectives-and-deliverables" title="Permanent link"></a></h2>
@@ -1148,7 +1157,7 @@ clearly illustrates the comparison. Please drop (e.g. filter out) the
 <p>The COVID-19 related changes to city life created a natural experiment that appear to have <a href="https://www.nytimes.com/2020/10/07/nyregion/nyc-biking-covid-women.html">increased gender balance</a> in the Citi Bike network. This provides an opportunity to derive insights into policies that could shift gender balance in service usage on a more long-term basis.</p>
 <ol>
 <li>By comparing the aggregate activity in the October 2019 and October 2020 data sets, provide visual evidence on the extent of this shift in usage by gender. You do not need to combine the data sets for this exercise, you can analyze each month separately and conduct a visual comparison of any charts you make for the two different months.</li>
-<li>Using the more detailed activity data, provide evidence for an <em>actionable</em> recommendation as to changes policy makers can make to ensure this shift persists after a return to normal. <strong>Alternatively</strong>, you can choose to provide evidence that you believe that this shift is likely to be only temporary and that no investments should be made. In either case, generate a visualization or a set of visualizations from the data that tells a story to Citi Bike decision makers about what might be driving these changes. To do this, you will need to go beyond using the aggregate data, and examine shifts in gender usage in the two different time periods by location, time, age, or other attributes. Examples of investments you suggest could be adding new features to the bike or stations or roads. Be as creative as you like but your recommendation should be evidence-based. The data are unlikely to provide iron-clad evidence for any intervention, but they should support it.</li>
+<li>Using the more detailed activity data, provide evidence for an <em>actionable</em> recommendation as to changes that either policy makers (e.g. NYC local government) or Citibike managers can make to ensure this shift persists after a return to normal. <strong>Alternatively</strong>, you can choose to provide evidence that you believe that this shift is likely to be only temporary and that no investments should be made. In either case, generate a visualization or a set of visualizations from the data that tells a story to Citi Bike decision makers about what might be driving these changes. To do this, you will need to go beyond using the aggregate data, and examine shifts in gender usage in the two different time periods by location, time, age, or other attributes. Examples of investments you suggest could be adding new features to the bike or stations or roads. Be as creative as you like but your recommendation should be evidence-based. The data are unlikely to provide iron-clad evidence for any intervention, but they should support it.</li>
 <li>Provide a brief description (no more than a paragraph) describing your visualization and what it suggests. (As you work on this exercise, consider how large data sets such as these may be shifting decision-making behaviors inside organizations, setting up a battle between the intuition of experts and the analyses produced by data scientists. This will be a recurring theme in this course.) </li>
 <li>It is important that this exercise provide a <strong>sharp</strong> recommendation or answer to the above question. For instance, if your suggestion is how to improve the product or service, you should suggest a <u>specific</u> improvement to their roads or bikes or pricing, based on the data you can analyze.</li>
 </ol>
@@ -1162,19 +1171,19 @@ investment into Citi Bike</a>. Citi Bike planned to use this money to add thousa
 <ul>
 <li>Imagine they plan to kick off this initiative by targeting the
     placement of their e-bikes to stations that have users with the
-    longest trip durations. Using the October 2019 data, create a map indicating which stations they should they target.</li>
+    longest trip durations. <b>Using the October 2019 data, create a map indicating which stations they should they target.</b></li>
 <li>Citi Bike currently does not allow its bicycles to be taken on the
     NYC subway trains. Their bicycles, and especially their electric
     bikes, are also extremely heavy, making it difficult to move them
     around. Suppose Citi Bike changes their policy to allow customers to
     take electric bikes on the subway train to further
     encourage range expansion, but they need to understand where these
-    bikes can be easily rolled into and out of stations. Using data on
+    bikes can be easily rolled into and out of stations. <b>Using data on
     <a href="https://data.ny.gov/Transportation/NYC-Transit-Subway-Entrance-And-Exit-Data/i9wp-a4ja">NYC subway station
     locations</a>,
     create a map of subway station locations in the city, where stations
     are <strong>color coded</strong> by whether the stations are "e-Bike
-    accessible". <ul>
+    accessible".</b><ul>
 <li><strong>Please note</strong>, for this part, you only need to use
 the data on NYC subway station locations. You <strong>do not</strong> need to
 connect it to the Citi Bike data or otherwise use the Citi Bike data
