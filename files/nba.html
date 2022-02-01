@@ -118,23 +118,28 @@ body .markdown-body
   padding: 0;
 }
 
-.markdown-body .codehilitetable {
+.markdown-body .codehilitetable,
+.markdown-body .highlighttable {
   border: 0;
   border-spacing: 0;
 }
 
-.markdown-body .codehilitetable tr {
+.markdown-body .codehilitetable tr,
+.markdown-body .highlighttable {
   border: 0;
 }
 
 .markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite {
+.markdown-body .codehilitetable div.codehilite,
+.markdown-body .highlighttable pre,
+.markdown-body .highlighttable div.highlight {
   margin: 0;
 }
 
 .markdown-body .linenos,
 .markdown-body .code,
-.markdown-body .codehilitetable td {
+.markdown-body .codehilitetable td,
+.markdown-body .highlighttable td {
   border: 0;
   padding: 0;
 }
@@ -517,11 +522,13 @@ body .markdown-body
   border: 0;
 }
 
-.markdown-body .codehilite {
+.markdown-body .codehilite,
+.markdown-body .highlight {
   margin-bottom: 16px;
 }
 
 .markdown-body .codehilite pre,
+.markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -531,7 +538,8 @@ body .markdown-body
   border-radius: 3px;
 }
 
-.markdown-body .codehilite pre {
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
@@ -993,68 +1001,68 @@ body .markdown-body
   }
 }
 </style><style>/*GitHub*/
-.codehilite {background-color:#fff;color:#333333;}
-.codehilite .hll {background-color:#ffffcc;}
-.codehilite .c{color:#999988;font-style:italic}
-.codehilite .err{color:#a61717;background-color:#e3d2d2}
-.codehilite .k{font-weight:bold}
-.codehilite .o{font-weight:bold}
-.codehilite .cm{color:#999988;font-style:italic}
-.codehilite .cp{color:#999999;font-weight:bold}
-.codehilite .c1{color:#999988;font-style:italic}
-.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
-.codehilite .gd{color:#000000;background-color:#ffdddd}
-.codehilite .ge{font-style:italic}
-.codehilite .gr{color:#aa0000}
-.codehilite .gh{color:#999999}
-.codehilite .gi{color:#000000;background-color:#ddffdd}
-.codehilite .go{color:#888888}
-.codehilite .gp{color:#555555}
-.codehilite .gs{font-weight:bold}
-.codehilite .gu{color:#800080;font-weight:bold}
-.codehilite .gt{color:#aa0000}
-.codehilite .kc{font-weight:bold}
-.codehilite .kd{font-weight:bold}
-.codehilite .kn{font-weight:bold}
-.codehilite .kp{font-weight:bold}
-.codehilite .kr{font-weight:bold}
-.codehilite .kt{color:#445588;font-weight:bold}
-.codehilite .m{color:#009999}
-.codehilite .s{color:#dd1144}
-.codehilite .n{color:#333333}
-.codehilite .na{color:teal}
-.codehilite .nb{color:#0086b3}
-.codehilite .nc{color:#445588;font-weight:bold}
-.codehilite .no{color:teal}
-.codehilite .ni{color:purple}
-.codehilite .ne{color:#990000;font-weight:bold}
-.codehilite .nf{color:#990000;font-weight:bold}
-.codehilite .nn{color:#555555}
-.codehilite .nt{color:navy}
-.codehilite .nv{color:teal}
-.codehilite .ow{font-weight:bold}
-.codehilite .w{color:#bbbbbb}
-.codehilite .mf{color:#009999}
-.codehilite .mh{color:#009999}
-.codehilite .mi{color:#009999}
-.codehilite .mo{color:#009999}
-.codehilite .sb{color:#dd1144}
-.codehilite .sc{color:#dd1144}
-.codehilite .sd{color:#dd1144}
-.codehilite .s2{color:#dd1144}
-.codehilite .se{color:#dd1144}
-.codehilite .sh{color:#dd1144}
-.codehilite .si{color:#dd1144}
-.codehilite .sx{color:#dd1144}
-.codehilite .sr{color:#009926}
-.codehilite .s1{color:#dd1144}
-.codehilite .ss{color:#990073}
-.codehilite .bp{color:#999999}
-.codehilite .vc{color:teal}
-.codehilite .vg{color:teal}
-.codehilite .vi{color:teal}
-.codehilite .il{color:#009999}
-.codehilite .gc{color:#999;background-color:#EAF2F5}
+.highlight {background-color:#fff;color:#333333;}
+.highlight .hll {background-color:#ffffcc;}
+.highlight .c{color:#999988;font-style:italic}
+.highlight .err{color:#a61717;background-color:#e3d2d2}
+.highlight .k{font-weight:bold}
+.highlight .o{font-weight:bold}
+.highlight .cm{color:#999988;font-style:italic}
+.highlight .cp{color:#999999;font-weight:bold}
+.highlight .c1{color:#999988;font-style:italic}
+.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
+.highlight .gd{color:#000000;background-color:#ffdddd}
+.highlight .ge{font-style:italic}
+.highlight .gr{color:#aa0000}
+.highlight .gh{color:#999999}
+.highlight .gi{color:#000000;background-color:#ddffdd}
+.highlight .go{color:#888888}
+.highlight .gp{color:#555555}
+.highlight .gs{font-weight:bold}
+.highlight .gu{color:#800080;font-weight:bold}
+.highlight .gt{color:#aa0000}
+.highlight .kc{font-weight:bold}
+.highlight .kd{font-weight:bold}
+.highlight .kn{font-weight:bold}
+.highlight .kp{font-weight:bold}
+.highlight .kr{font-weight:bold}
+.highlight .kt{color:#445588;font-weight:bold}
+.highlight .m{color:#009999}
+.highlight .s{color:#dd1144}
+.highlight .n{color:#333333}
+.highlight .na{color:teal}
+.highlight .nb{color:#0086b3}
+.highlight .nc{color:#445588;font-weight:bold}
+.highlight .no{color:teal}
+.highlight .ni{color:purple}
+.highlight .ne{color:#990000;font-weight:bold}
+.highlight .nf{color:#990000;font-weight:bold}
+.highlight .nn{color:#555555}
+.highlight .nt{color:navy}
+.highlight .nv{color:teal}
+.highlight .ow{font-weight:bold}
+.highlight .w{color:#bbbbbb}
+.highlight .mf{color:#009999}
+.highlight .mh{color:#009999}
+.highlight .mi{color:#009999}
+.highlight .mo{color:#009999}
+.highlight .sb{color:#dd1144}
+.highlight .sc{color:#dd1144}
+.highlight .sd{color:#dd1144}
+.highlight .s2{color:#dd1144}
+.highlight .se{color:#dd1144}
+.highlight .sh{color:#dd1144}
+.highlight .si{color:#dd1144}
+.highlight .sx{color:#dd1144}
+.highlight .sr{color:#009926}
+.highlight .s1{color:#dd1144}
+.highlight .ss{color:#990073}
+.highlight .bp{color:#999999}
+.highlight .vc{color:teal}
+.highlight .vg{color:teal}
+.highlight .vi{color:teal}
+.highlight .il{color:#009999}
+.highlight .gc{color:#999;background-color:#EAF2F5}
 </style><title>nba</title></head><body><article class="markdown-body"><h1 id="lab-2-the-nba-bubble"><span style="color:tomato;">Lab 2: The NBA Bubble</span><a class="headerlink" href="#lab-2-the-nba-bubble" title="Permanent link"></a></h1>
 <h4 id="oidd-245-tambe">OIDD 245 Tambe<a class="headerlink" href="#oidd-245-tambe" title="Permanent link"></a></h4>
 <p><center>
@@ -1166,9 +1174,9 @@ The bubble was a $190 million investment by the NBA to protect its 2019–20 sea
 <h2 id="a-salary-and-performance-before-the-shutdown">A. Salary and performance before the shutdown<a class="headerlink" href="#a-salary-and-performance-before-the-shutdown" title="Permanent link"></a></h2>
 <p>Create a <strong>scatterplot</strong> that plots 2019-2020 salary against players&rsquo; <em>plus-minus</em> for the 2019-2020 regular season games that took place <u>before</u> teams entered the bubble. </p>
 <ul>
-<li>Color code the marks on the plot according to whether or not the player is a free agent in the coming season. An <a href="https://www.nba.com/free-agency-explained">NBA free agent</a> is a player who is available to sign with other teams.</li>
+<li>Color code the marks on the plot according to whether or not the player was expected to be a free agent in the following year. An <a href="https://www.nba.com/free-agency-explained">NBA free agent</a> is a player who is available to sign with other teams.</li>
 <li>Fit a line to your scatter plot that illustrates the trend between salary and plus-minus.</li>
-<li>Provide the names of any two players who appear, according to your analysis, to have a salary that is low relative to their plus-minus figure, and who are free agents in the coming year. Depending on how you have structured your chart, this could be players who lie above or below the trend line you created.</li>
+<li>Provide the names of any two players who appear, according to your analysis, to have a salary that is low relative to their plus-minus figure, and who are expected to be free agents in the following year. Depending on how you have structured your chart, this could be players who lie above or below the trend line you created.</li>
 </ul>
 <h2 id="b-regular-season-performance-vs-bubble-performance">B. Regular season performance vs bubble performance<a class="headerlink" href="#b-regular-season-performance-vs-bubble-performance" title="Permanent link"></a></h2>
 <p>Create a <strong>scatterplot</strong> that would allow a coach or manager to visualize, for NBA players in the data, their plus-minus statistic for games played before the shutdown along one axis and the plus-minus statistic for games played in the bubble on the other axis.</p>
@@ -1196,10 +1204,10 @@ often works. For this lab, you will need data on players and their performance
 statistics (outside and inside the bubble), salaries, ages, and free agency status. Create .csv files from the following data sources:</p>
 <ul>
 <li><a href="http://hoopshype.com/salaries/players">NBA Salaries</a><ul>
-<li>You can collect all of the data on this sheet using Google Sheets. Or you can cut-and-paste. You will need players&rsquo; 2019-2020 contract figures.</li>
+<li>You can collect all of the data on this sheet through cut-and-paste. You will need players&rsquo; 2019-2020 contract figures.</li>
 </ul>
 </li>
-<li><a href="https://hoopshype.com/lists/2021-nba-free-agent-rankings/">Players who will have free agent status</a> in the coming cycle.<ul>
+<li><a href="https://hoopshype.com/lists/2021-nba-free-agent-rankings/">Players who had free agent status</a> in the year following the bubble year.<ul>
 <li>Chrome Webscraper works well to collect these data.</li>
 </ul>
 </li>
@@ -1215,7 +1223,7 @@ statistics (outside and inside the bubble), salaries, ages, and free agency stat
 </li>
 </ul>
 <h2 id="step-2-prep-and-merge-the-data"><font color="darkblue">Step 2: Prep and merge the data</font><a class="headerlink" href="#step-2-prep-and-merge-the-data" title="Permanent link"></a></h2>
-<p>After extracting the data files, you will need to clean them and bring them together. You can use Tableau Prep to do this (or another tool, like Open Refine, if you prefer). The key things to focus on are removing unnecessary data from each file, giving meaningful names to columns to make them easier to work with, and formatting field names as needed so you can match them with the corresponding name in other files. For instance, since we are merging different files on player name, you will need to make sure that the names will match across files, which requires making sure that they are the same in terms of being uppercase, lowercase, or title case, and ensuring they are in the same order (e.g. first name and then last name). If you have problems matching the two files, check for trailing or leading whitespace in the names in the problematic file.</p>
+<p>After extracting the data files, you will need to clean them and bring them together. You can use Tableau Prep to do this. The key things to focus on are removing unnecessary data from each file, giving meaningful names to columns to make them easier to work with, and formatting field names as needed so you can match them with the corresponding name in other files. For instance, since we are merging different files on player name, you will need to make sure that the names will match across files, which requires making sure that they are the same in terms of being uppercase, lowercase, or title case, and ensuring they are in the same order (e.g. first name and then last name). If you have problems matching the two files, check for trailing or leading whitespace in the names in the problematic file.</p>
 <p>Merge the different data sources you need for each question into a
 <strong>single Tableau sheet</strong> by joining the data sets in Tableau.
 Information on how to join two data sets in Tableau can be found
