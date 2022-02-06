@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 2: ML Models and Employee Flight Risk</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2e19798c-eaeb-4f76-b3a0-9e209bbc1e11" class="page sans"><header><h1 class="page-title">Lab 2: ML Models and E<strong>mployee Flight Risk</strong></h1></header><div class="page-body"><h3 id="534b2190-06e4-427b-b89a-2401d23c2cd4" class=""><mark class="highlight-blue">OIDD 255X, Tambe</mark></h3><hr id="d72aaa44-5cec-4046-a1ff-51d14aee3cae"/><p id="5ae536b8-d724-4067-a695-0254e6d2e9da" class="">
+</p><figure id="806c154e-9bf8-4c9d-aca8-587313dcdb7f" class="image"><a href="https://lh4.googleusercontent.com/Z8lyBkBzJttcfE-JLKdBGThU7kKfkOWUeaK6MPleTaZEccdSkSijBCjkn6XoPb9t6-bTAy1XWm6TgxAjMbsiS8xQNwIptt1uwbNsigzEGsSbyOjDQ0UHb4vHBuLGehMihzpPU9qm"><img style="width:480px" src="https://lh4.googleusercontent.com/Z8lyBkBzJttcfE-JLKdBGThU7kKfkOWUeaK6MPleTaZEccdSkSijBCjkn6XoPb9t6-bTAy1XWm6TgxAjMbsiS8xQNwIptt1uwbNsigzEGsSbyOjDQ0UHb4vHBuLGehMihzpPU9qm"/></a></figure><p id="846a7a23-d919-463c-8c13-e34a9a8e2ec2" class="">
+</p><h2 id="6b071af2-3e1a-4f48-adea-9ddba967eeec" class="">Deliverables</h2><p id="92087dc2-e2a3-4277-9812-2d9e93c25696" class="">For this assignment, you are encouraged to discuss with others, but please complete the assignment and submit on your own. Please submit a response document (e.g. a Word or Google Doc) with answers to each of the  questions below. You do not need to submit any documents in which you do the work, or a WEKA file, or to paste the original question into your response document, and your answers need not be lengthy. For instance, when a question asks for a number, simply reporting the number is fine. When it asks for an explanation, one or two sentences is usually sufficient. If it asks for a figure, you can take a screenshot and paste it into the document.</p><p id="960d5374-e0de-41cb-b03c-4b10def97c0f" class="">Assignments are to be submitted through Canvas. See Canvas for the due date. </p><p id="eba85e32-9c34-4132-a8f3-c28bc6c0898a" class="">
+</p><h2 id="ed879037-b772-45f8-8ba3-126cbd03596b" class=""><strong>Introduction</strong></h2><p id="9cb0c084-66e3-40f6-8004-7e2237992b21" class="">“Hyper-attrition” has plagued HR management for a number of different occupations, including for local package delivery people and software developers. In the HR analytics space, there is significant activity around building products that help companies predict <em>who</em> is likely to leave and <em>when</em>. Such tools can help considerably when engaging in future workforce planning or by allowing managers to take steps ahead of time to retain high-performers.</p><p id="567dbbe4-ec8f-4120-b301-87da1b55e802" class="">This lab asks you to build a machine learning based prediction tool and evaluate it in terms of potential for perpetuating <em>algorithmic bias</em> in promotion decisions, a subject we will talk about in more detail in the second half of the semester . It is recommended that most of the work for the lab be done in WEKA. You may need to use Excel (or if you prefer, R or Python) to answer a few simple cross-tabulation related questions in the assignment. For submission, create a new document with your name and answers to each of the questions in the assignment.</p><p id="3721a31d-a48f-4a64-90c1-0099b05a7752" class="">
+</p><h2 id="30187b9b-3b1d-4d1d-90d3-d2ff353d7385" class=""><strong>Data</strong></h2><p id="df9125b6-094d-441e-9c00-6dc91c1e3384" class="">To build the algorithm, you have access to <a href="https://upenn.box.com/s/t6opdudbjnb0f91akaneubce1bu2zoaz">historical employee attrition data</a> from a very large firm. In these data, the labeled column to be predicted is called <em>attrition</em>, and it indicates that the employee left the company within a specific time window. The purpose of the algorithm is to recommend when managers should intervene to try and retain the employee.</p><p id="0329539f-555b-4b7b-b400-bec755f4d25a" class="">
+</p><h2 id="b4d0311a-810c-4e68-afe4-c9785baaf2d9" class=""><strong>1. Building and interpreting a machine learning model</strong></h2><p id="4a2eb67e-f9ef-4bd9-b5ab-236e529283d7" class="">Using Excel, browse the data to get a sense of it and to learn what we know about each worker. There are a lot of fields, including compensation, demographic attributes, job role and many others. Take a minute to consider how challenging it would be to build an effective model with all these fields “by hand”, and how much easier it is to let machine learning techniques discover the best model when given labeled training data (i.e. examples of correct answers).</p><p id="9befe437-73c9-4ca8-8048-0dcbd5be48b2" class=""><strong>a</strong>. Using WEKA, build an algorithm that predicts whether or not an employee is likely to leave (i.e. the attrition variable takes the value ‘Yes’). For each of the classifiers in the table below, fill out the table when the algorithm is evaluated on <strong>the test sample</strong>. Use a 70-30 split when dividing the data into training and test data sets. You do not need to make any adjustments to the classifier default settings in WEKA.</p><p id="064e4e5a-62d6-42ab-9b41-d70c19e6ab27" class="">
+</p><table id="906926f7-4ebc-4e8e-8986-5a3b8624df38" class="simple-table"><thead><tr id="667d488e-60f7-49ae-a23f-bd015a072648"><th id="Co}h" class="simple-table-header">Classifier</th><th id="GQ@:" class="simple-table-header">Accuracy</th><th id="[@G`" class="simple-table-header">Precision</th><th id="&lt;vUy" class="simple-table-header">Sensitivity</th></tr></thead><tbody><tr id="2f4f3d87-e6c9-4743-8e94-ef287e55b009"><td id="Co}h">Logistic regression (<em>functions</em>)</td><td id="GQ@:"></td><td id="[@G`"></td><td id="&lt;vUy"></td></tr><tr id="de5d5d5a-a9b1-47f6-a696-c96feef7cf2f"><td id="Co}h">Random Forest (<em>trees</em>)</td><td id="GQ@:"></td><td id="[@G`"></td><td id="&lt;vUy"></td></tr><tr id="3c8694b9-5ce6-435c-87e0-7467e642532a"><td id="Co}h">Naive Bayes (<em>bayes</em>)</td><td id="GQ@:"></td><td id="[@G`"></td><td id="&lt;vUy"></td></tr></tbody></table><p id="e27e378f-3e75-43f6-9d50-acaa16afbb1c" class="">
+</p><p id="8f63346d-5958-4cd5-9688-cb33e1d88d87" class=""><strong>b. </strong>As a comparison, consider a “do-nothing” strategy (no algorithm), which is equivalent to making the prediction that nobody will leave. What is the accuracy of such a prediction on the test data?</p><p id="38c4e333-b369-4517-8b57-197904b88bb0" class="">
+</p><p id="b9ff1d0a-0bcb-4472-8883-78233deabbbf" class=""><strong>c. </strong>For the employee flight risk context, explain--in words--what is meant by “true positive”, “false positive”, “true negative”, and “false negative”.</p><p id="e071918b-d0a3-4216-afe7-f564cb2b3671" class="">
+</p><h2 id="d35554a2-f1f3-4277-9184-fc3acc516ea3" class=""><strong>2. Costs and Benefits</strong></h2><p id="76f7052d-dcf0-4733-80b9-4a91507d554f" class="">The point of a machine learning algorithm is to allow managers to intervene and potentially retain workers who might have otherwise left. Imagine that the principal way you retain such workers is to promote them, and that offering employees a promotion is 100% effective in retaining them.</p><p id="ef0dea1e-53ea-4035-b574-24ceabe571a9" class="">
+</p><p id="fc5896b3-e2e8-4414-ab4d-400fde11c97c" class=""><strong>a.</strong> You estimate it costs $20,000 to promote an employee (which includes training plus higher compensation costs), and that for employees in these data, it costs $100,000 to lose the employee. Based solely on these considerations and the recommendations of the algorithms above, which of the three algorithms discussed above would yield the highest financial returns when run on the test sample? Consider, for example, the savings from “true positives”, as well as the money wasted by promoting “false positives”. </p><p id="48428d7c-bad6-4086-9fbb-e563a79e1cab" class="">
+</p><p id="0016b686-4141-482e-a02f-9fde624e8d15" class=""><strong>b.</strong> How much would you save over a “do-nothing” strategy, which can be expected to cost the employer about 8.1 million dollars (81 employees leaving * $100,000 to lose an employee)? Please justify your answer with calculations from the test data.</p><p id="19eb8c32-c6b9-4be5-b6f1-f17738e95e42" class="">
+</p><p id="bde1e350-2b0d-4217-a4e9-302db6b67f82" class=""><strong>c.</strong> If the costs of retaining an employee had been $50,000 instead of $20,000, would your answer change? Please justify your answer with calculations from the test data.</p><p id="91bc37df-8983-4c62-b97c-1421f0e3cbeb" class="">
+</p><h2 id="4ead4c79-666e-43f5-a262-a4adf46ac688" class=""><strong>3. Algorithmic Bias</strong></h2><p id="e6f25209-2869-41cc-9464-fc598139d001" class="">
+</p><p id="80fd1cbb-6af8-441f-9a4a-7136a9294c31" class=""><strong>a.</strong> What is the fraction of women in the overall sample (training + test)? Note: This is available directly through the ‘Preprocess’ tab in WEKA.</p><p id="42ee7fdc-be62-4987-94ad-9d5839c1dd40" class="">
+</p><p id="fc5d0ef1-7b42-4525-99df-6421339897bc" class=""><strong>b.</strong> What is the rate of attrition for men and women in the overall sample, when computed separately for each gender? You can either use Excel to compute this, or you can use the ‘Preprocess’ pane in Weka, filter out each Gender one at a time, and compute statistics on the filtered samples.</p><p id="bea6fc2e-8b62-40ec-8801-9b57badf3688" class="">
+</p><p id="82e2b578-cd04-4888-a08e-26681b06a501" class=""><strong>c.</strong> According to the <em>Naive Bayes</em> algorithm used above, what fraction of the men and women in the test sample receive a promotion? One way to compute this is to download the data into Excel and use PivotTables. To download predicted values from WEKA, <a href="https://stackoverflow.com/questions/13130005/weka-predictions-to-csv">see this thread</a>. (Making this type of computation workflow easier is what companies like <strong>Weights and Biases</strong> are trying to do).</p><p id="964027f3-3e7b-4aec-9ef2-c2bd329c01ee" class="">
+</p><p id="6d91b305-963f-4b65-806e-ff2aea9f675f" class=""><strong>d</strong>. Promotion and employee selection considerations are governed by guidelines set by the Equal Employment Opportunity Commission (EEOC). Algorithms such as these are considered to be tests for being selected for promotion.<strong> </strong>Please read <a href="https://www.prevuehr.com/resources/insights/adverse-impact-analysis-four-fifths-rule/">this summary of the four-fifths rule in the EEOC guidelines</a> carefully. Does the use of your algorithm in the prior question violate employment law? Justify your answer with numerical calculations.</p><p id="1a0fcde1-b894-4611-a2e3-9838f4010187" class="">
+</p><p id="87a96114-9cd2-4187-af20-40bfcc1b6e4a" class=""><strong>e.</strong> You are advised that because many variables are correlated with <em>Gender</em>, a proper approach would be to remove <em>Gender</em> as well as its correlates. These correlates include <em>Overtime</em>, <em>NumCompaniesWorked</em>, <em>TotalWorkingYears</em>, <em>JobRole</em>, <em>BusinessTravel</em>, <em>StandardHours</em>, <em>TrainingTimesLastYear</em>, <em>JobLevel</em>, <em>MaritalStatus</em>, and <em>Department. </em>If you remove these from the NaiveBayes model, along with <em>Gender</em>, how do the financial returns of the modified algorithm change compared to the original NaiveBayes model which includes all variables?</p><p id="980da5e8-cc19-472b-9a5d-fffb3f6a7efd" class="">
+</p><p id="4076510f-09f7-4c28-bfed-bd4f4ab95e17" class=""><strong>f. </strong>If you were the head of HR for this organization, given what you’ve learned about the costs/benefits and the biases in the data, what would you recommend to company leadership (e.g. would you use one of the full models from Question 1a, a model without covariates that correlate with gender from Question 3e, or not use any algorithm at all)? There is no right or wrong answer here, but for full credit, provide support for whichever position that you take.</p><p id="d27ca00d-0f98-4ad5-9091-0040af376b45" class="">
+</p></div></article></body></html>
