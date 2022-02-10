@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 3. Deep Learning Lab (25 pts)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="150bb8be-0703-40ad-a236-794525fe37e8" class="page sans"><header><h1 class="page-title">Lab 3. Deep Learning Lab (25 pts)</h1></header><div class="page-body"><h3 id="9fd903ce-86e2-4821-bce1-cf489cdde141" class=""><mark class="highlight-blue">OIDD 255X, Tambe</mark></h3><hr id="a364bcd7-1153-4f8f-b7d2-d406ef92b7dd"/><p id="4d02f173-befa-4d12-ad1c-8b4008b88a59" class="">
+</p><figure id="1b39c200-cf2a-489a-af8f-3ba5e5a03325" class="image"><a href="https://lh4.googleusercontent.com/fJVdw_jxe74d7-oown4kAxVnLF7rjpHnnNHWNLSSRXLyTytOIdgTfX0acPsX8YRtic9NRg7ABQSaQ2pfYhhxi-pcPXvlnaiPeWyRAl_ifIj_7ShWYEis8OspyeRsmyrmFQsJVaQT"><img style="width:336px" src="https://lh4.googleusercontent.com/fJVdw_jxe74d7-oown4kAxVnLF7rjpHnnNHWNLSSRXLyTytOIdgTfX0acPsX8YRtic9NRg7ABQSaQ2pfYhhxi-pcPXvlnaiPeWyRAl_ifIj_7ShWYEis8OspyeRsmyrmFQsJVaQT"/></a></figure><p id="e684b82f-c358-441d-9b50-6d364b9df161" class="">
+</p><h2 id="5daf20be-ce7c-45e4-87f2-9e498c551e51" class=""><strong>Introduction</strong></h2><p id="9bd005db-fc1a-450a-b413-26d395a15d04" class="">This lab asks you to make use of Google’s <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a> to investigate the capabilities and tradeoffs of deep learning algorithms, and to further understand how data fits into the machine learning pipeline. It is recommended that you use the Chrome Browser for these exercises, as things seem to work a little better there. The lab is composed of several different parts.</p><p id="622ef41d-6fa4-408d-9692-6a7ba250e3ee" class="">
+</p><h2 id="88b6ff63-3725-4c88-abe8-13501875e1a4" class=""><mark class="highlight-blue"><strong>Part 1.</strong></mark><mark class="highlight-blue"> Building c</mark><mark class="highlight-blue"><strong>lassifiers (6 pts)</strong></mark></h2><h3 id="47c51636-0fb2-40d4-af07-79f78c1cc027" class=""><mark class="highlight-red">Question 1A</mark></h3><p id="4e47e105-9dd4-46e0-ba99-8b54d16627be" class="">Using the pose detection option, build a classifier that indicates if you are correctly holding <a href="https://www.google.com/search?q=warrior+2+yoga&amp;tbm=isch&amp;ved=2ahUKEwi7oLOLwPX1AhX5gnIEHRRyCvkQ2-cCegQIABAA&amp;oq=warrior+2+yoga&amp;gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBggAEAgQHjIGCAAQCBAeMgYIABAIEB4yBggAEAgQHjIGCAAQCBAeMgYIABAIEB46BwgjEO8DECc6CwgAEIAEELEDEIMBOgQIABBDUL8GWPEJYOYKaABwAHgAgAFIiAHXApIBATaYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&amp;sclient=img&amp;ei=4TUFYvurMfmFytMPlOSpyA8&amp;bih=667&amp;biw=1418&amp;client=safari">Warrior II</a> (or choose <a href="https://www.google.com/search?q=popular+yoga+poses&amp;client=safari&amp;rls=en&amp;sxsrf=APq-WBsK2SWruz3YMrKpBfJAne3YAa-K9Q:1644509402881&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=2ahUKEwiy9Kb2wvX1AhUQjYkEHRf8ApMQ_AUoAXoECAEQAw&amp;biw=1418&amp;bih=667&amp;dpr=2">another pose</a>, if you like, but please specify this in your answer). For this assignment, submit screenshots of the classifier output when holding a correctly and incorrectly held pose. You may need to ask for a friend’s help so that one person can hold the pose and another can take a screenshot (3 pts).</p><p id="6479d6f5-6aa6-4e52-a38c-5505ac2fcf00" class="">
+</p><h3 id="1bf5a812-40a7-4d17-9a5b-a307ead68faf" class=""><mark class="highlight-red">Question 1B</mark> </h3><p id="0f3324ea-5af3-4817-afe4-6f6f53deaa72" class="">With the image classifier option, use <a href="https://upenn.box.com/s/pbwv558mbg92g239ind9wv4ihsh9szo8">this image folder</a> to create a cat/dog identifier model. The folder includes both training and test data. As a testing alternative, you could also choose to test the performance of the deep learner by simply downloading pictures from the web.  For the assignment, submit screenshots of classifier output for a cat and dog. (3 pts)</p><p id="61656188-3b63-4ec1-8958-a82db2594060" class="">
+</p><h2 id="acbceedb-d9f0-4dba-a5d6-d9ae5359dcdc" class=""><mark class="highlight-blue"><strong>Part 2.</strong></mark><mark class="highlight-blue"> </mark><mark class="highlight-blue"><strong>Data and bias (7 pts)</strong></mark></h2><h3 id="6850e429-40fe-40b1-a164-a12667f8e105" class=""><mark class="highlight-red">Question 2A</mark></h3><p id="40846f75-0fbf-4d22-93b5-479ab6c939f0" class="">Later in this semester, we will discuss the issue of AI and bias. For example, Google’s facial recognition has been shown to <a href="https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html">work less accurately on minorities</a> because less training data is available, and <a href="https://www.cnbc.com/2019/10/03/google-contractor-reportedly-tricked-homeless-people-into-face-scans.html">Google has used controversial methods to try to fix this problem</a>. Try to replicate this effect using the cat and dog image data set from the previous section. To do this, first adjust the input data and provide an example of an image that is poorly classified from the minority class (hint: start with fairly small numbers of samples from both classes and then adjust). Then add more data to the minority class, and show that the classification accuracy rises. (3 pts)</p><p id="dcb2ccf3-429d-4e24-9c05-28730a9f8ea8" class="">
+</p><h3 id="21f89320-fb0f-4386-9f81-b414b8d691a7" class=""><mark class="highlight-red">Question 2B </mark></h3><p id="e08add30-f027-4070-85a0-76c547ce5a4e" class="">Provide an example of where this specific type of image classification bias could have negative social implications for an AI system in practice. (2 pts)</p><p id="1696a807-e585-4b34-9d3f-4775e7fbbaf1" class="">
+</p><p id="c4a06956-f67c-45e8-b227-12d0ff33f746" class="">
+</p><h3 id="be4807ae-0898-424b-a349-9d0a72e3d835" class="block-color-orange"><mark class="highlight-red">Question 2C </mark></h3><p id="42876f27-d7ae-451b-957a-79883e54a9dc" class="">Once the cat/dog identifier accuracy has improved, try your classifier out on a few images that are not examples of the classes used during training (e.g. you could test out any non-cat/dog images such as spiders, humans, or landscapes). What happens to the prediction results? Why do you think that is? Does this change how or if you’d deploy the model in the wild? Does it impact what use cases you think are ethical versus potentially harmful?  (2 pts)</p><p id="188e7dc4-c435-4271-8db3-f72322903d62" class="">
+</p><h2 id="12a03726-64e7-4bd4-9725-d687739fb7a5" class=""><mark class="highlight-blue"><strong>Part 3.</strong></mark><mark class="highlight-blue"> </mark><mark class="highlight-blue"><strong>Identifying pneumonia in chest x-ray data (6 pts)</strong></mark></h2><h3 id="38a5a826-609b-4428-b3b7-3fb4fe3022b1" class=""><mark class="highlight-red">Question 3A </mark></h3><p id="ec3e57cb-9307-448a-b217-b41358297ce1" class="">Use <a href="https://upenn.box.com/s/3fj6bfvobr2wm8ya49fvaogkf16e4cze">this data source</a> to train a deep learning engine that can <strong>identify pneumonia in x-ray data</strong>. The data source contains training images for normal and diseased lungs as well as test images for normal and diseased lungs. I have already cut the available x-ray data down but you may need to cut it down further still depending on the capabilities of your computer. Work with the largest set of images that your laptop will allow for the model training. For this assignment, submit a screenshot of classifier output for a diseased x-ray and another screenshot for a normal x-ray. (4 pts)</p><p id="9881c3e0-dee4-4a1a-8d13-78c5c330aa5b" class="">
+</p><h3 id="ef9b5beb-51d3-46e8-8317-4db12665a511" class=""><mark class="highlight-red">Question 3B </mark></h3><p id="50522327-e56e-4219-8487-bd46cc165f1d" class="">Briefly discuss (no more than a few sentences) what attributes of this pneumonia x-ray task might make it well suited for using a deep learning approach. (2 pts)</p><p id="79cadb87-0c5a-41c0-8c01-318f0c9cc4d2" class="">
+</p><h2 id="831bbd55-98ac-414d-9254-6ded26089ddd" class=""><mark class="highlight-blue"><strong>Part 4.</strong></mark><mark class="highlight-blue"> </mark><mark class="highlight-blue"><strong>Build a deep-learning tool for your own purposes (6 pts)</strong></mark></h2><h3 id="1a407223-d089-4055-b38a-62a49836e52f" class=""><mark class="highlight-red">Question 4A</mark> </h3><p id="3d1fba9d-9eb6-4b31-93dc-a278f133d0da" class="">Using the Teachable Machine, build something that would be useful for any day-to-day tasks that are part of your life or work. This is an open ended question but you may receive extra credit for ideas that are especially creative! Then, publish it to an “endpoint URL”. Below, paste the endpoint URL and provide a short description of what it does and how it should be used. (4 pts)</p><p id="698e1c75-96e6-4a38-acec-f9d458f57e5c" class="">
+</p><h3 id="59d95da9-2e57-416b-958b-1d059b53858d" class="block-color-orange"><mark class="highlight-red">Question 4B</mark></h3><p id="51e4864b-0416-473d-967b-2764e0346f41" class="">What are the advantages and disadvantages to having access to tools like Teachable Machine? The impact may vary by stakeholder, but explain how no-code tools like these can have both positive and negative impacts on society. Are there use cases in which you would think that using Teachable Machine or other no-code tools would be unethical? Explain your reasoning. (2 pts)</p><p id="56e2cee3-860b-41a1-9f93-cff1e1d17c9b" class="">
+</p></div></article></body></html>
