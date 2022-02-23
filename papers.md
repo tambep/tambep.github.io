@@ -20,7 +20,7 @@ title: Working papers
 
 [The Growing Importance of Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
-[InnoVAE: Generative AI for Identifying Breakthrough Innovation](https://ssrn.com/abstract=3868599)\
+[InnoVAE: Generative AI for Understanding Patents and Innovation](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
 AI Engines of Growth: Firm Inequality on the Technological Frontier\
