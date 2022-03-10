@@ -1087,7 +1087,7 @@ You should complete the entire assignment using either R scripts or an R
 notebook. If you use an R-script, please also create a separate document
 (which you should ultimately convert to a pdf) that includes answers to
 the questions that being asked, including any relevant charts, and
-submit both documents to Canvas. </p>
+submit both documents to Canvas.</p>
 <p>If you are using an R notebook, you
 can try to <code>knit</code> the notebook to create a Word
 document (which you should convert to a pdf) or .html file that you can
@@ -1199,7 +1199,7 @@ through the following links. For the 311 data, please use the link below and not
 <li>&ldquo;NonCompliance with Phased Reopening&rdquo;</li>
 <li>&ldquo;Outdoor Dining&rdquo;</li>
 </ul>
-<p>We would like to use a <b>linear regression</b> to investigate if there is a statistically significant relationship between any of these four complaint category counts <u>from 14 days ago</u> and the current case count numbers. For the purposes of this assignment, we will estimate a simple linear model where each row corresponds to a <strong>borough-day combination</strong>. The value to be predicted is current case count 7 day average and the predictor variables are the 311 complaint counts from 14 days prior. Note that using the 7 day average 14 days ahead means that the predictions are for the window starting 7 days ahead and then extending onwards for a week.</p>
+<p>We would like to use a <b>linear regression</b> to investigate if there is a statistically significant relationship between any of these four complaint category counts <u>from 14 days prior</u> and the current case count numbers. For the purposes of this assignment, we will estimate a simple linear model where each row corresponds to a <strong>borough-day combination</strong>. The value to be predicted is current case count 7 day average and the predictor variables are the 311 complaint counts from 14 days prior. Note that using the 7 day average 14 days ahead means that the predictions are for the window starting 7 days ahead and then extending onwards for a week.</p>
 <p>The total number of rows in the data set you use for the regression should be about five times as large as the number of days, since there are five boroughs in NYC. </p>
 <p><strong>To answer this question, report whether you find evidence of a statistically significant relationship between any of these measures and case counts? Show your  regression results and justify your answer.</strong> The specific steps you should follow are:</p>
 <p><strong>Step 1</strong>. From the <strong>311 data set</strong>, generate a data
@@ -1334,16 +1334,11 @@ set which, for each borough-day combination, contains numbers of 311 complaints 
 <br></p>
 <p>BOROUGH should be included into the regression as a dummy variable (i.e. convert them to factor variables, like the one-hot encoding example from class). You should have four dummy variables in your regression output because one borough is omitted to serve as the baseline.</p>
 <h2 id="part-4-beyond-open-data"><span style="color:gray">PART 4. Beyond open data</span><a class="headerlink" href="#part-4-beyond-open-data" title="Permanent link"></a></h2>
-<p>Provide <strong>one example</strong> of a data set you might be able to use to predict COVID activity in New York that we did NOT use here. For example, you might think about incorporating data sets on retail activity, urban transportation, housing information, demographics, or many other possibilities. You do NOT have
-to implement the idea, but your answer should include the following
-two things:</p>
+<p><strong>Find a new data set</strong> to predict COVID activity in New York (i.e. one that we have NOT used here). You can use it to try to predict case counts at the borough level, or you can use it to predict case count numbers for all of New York City. For example, you might think about incorporating data on retail activity, urban transportation, housing information, demographics, or other possibilities, but you will need to be imaginative, and to figure out how to join the new data set to the existing data source through the columns available in the COVID data. Your answer should include the following things:</p>
 <ul>
-<li>Pointers to a <em>specific</em> data set you would use and the variables
-    you would use to join it with any of the health data described
-    above. This can be a URL link that points to a data set or you can
-    describe how you might collect the data using web scraping or an
-    API.</li>
-<li>A short description of the type of hypothetical analysis (e.g. chart, regression) you might conduct. This should be no more than a couple of sentences.</li>
+<li>A pointer to the <em>specific</em> data set you use. This can be a URL link that points to a data set or you can
+    describe how you collect the data using web scraping or an API.</li>
+<li>An analysis (e.g. a regression) that reports the results of your analysis using the data set you found to predict COVID case numbers either in New York City as a whole or at the borough level.</li>
 </ul>
 <div class="footnote">
 <hr />
