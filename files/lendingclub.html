@@ -1069,16 +1069,14 @@ body .markdown-body
 <img src="img/sixty_peerlending.jpg">
 </center></p>
 <h1 id="objective-and-background">Objective and Background<a class="headerlink" href="#objective-and-background" title="Permanent link"></a></h1>
-<p>One industry in which machine learning has been having a significant
-impact is financial lending. In this lab, you will use data from
-<a href="http://www.lendingclub.com"><strong>LendingClub</strong></a>, a well-known peer-to-peer
-lending platform based in San Francisco, California, to build
-statistical models that use debtor attributes to predict the grades
-given to loan applications by the Lending Club. This is an
-application/data set that many of you may have seen before, for example
-in a finance or statistics class, and it is a particularly good context
-to try some of the prediction concepts we have covered in the last few
-sessions.</p>
+<p>One industry in which machine learning has been having a significant impact is
+financial lending. In this lab, you will use data from <a href="http://www.lendingclub.com"><strong>LendingClub</strong></a>, a well-known peer-to-peer lending platform
+based in San Francisco, California, to build statistical models that use
+debtor attributes to predict the grades given to loan applications by the
+Lending Club. This is an application/data set that you may have seen before,
+for example in a finance or statistics class, and it is a particularly good
+context to try some of the prediction concepts we have covered in the last
+few sessions.</p>
 <p>You will be exploring how to build prediction models for this industry.
 To accomplish this objective, you are asked to <em>build</em> models using
 historical data from 2013 to 2014 (which will be used as the training
@@ -1086,11 +1084,7 @@ data) and <em>test</em> the quality of your prediction model using new loan
 requests that came in during 2015 (the test data) to evaluate how well
 it performs.</p>
 <h1 id="deliverables">Deliverables<a class="headerlink" href="#deliverables" title="Permanent link"></a></h1>
-<p>You are required to complete and submit the lab, but grading will be
-based on completion (as opposed to grading of individual questions). The
-lab looks long, but much of it is explanation and if working with
-others, it is certainly possible to complete the lab in a single class
-period.</p>
+<p>Please submit both your R code and the answers to the questions posed below. You can choose to submit a notebook file that contains both code and answers or you can submit an R-script and a separate .pdf file that contains answers.</p>
 <h1 id="data">Data<a class="headerlink" href="#data" title="Permanent link"></a></h1>
 <ul>
 <li>The <strong>training data</strong> is the LendingClub <a href="https://upenn.box.com/s/nns46gbc0jzljnlc4ggu1o5f6xo0sldf">historical data on loans
@@ -1141,13 +1135,13 @@ period.</p>
     you will try to predict. What is the proportion of loans in the
     training data that receive either an "A" or "B" grade?</li>
 </ul>
-<h2 id="build-a-logistic-classifier-on-the-training-data.">3. Build a logistic regression based classifier using the training data.<a class="headerlink" href="#build-a-logistic-classifier-on-the-training-data." title="Permanent link"></a></h2>
+<h2 id="3-build-a-logistic-regression-classifier-using-the-training-data">3. Build a logistic regression classifier using the training data.<a class="headerlink" href="#3-build-a-logistic-regression-classifier-using-the-training-data" title="Permanent link"></a></h2>
 <ul>
-<li>Using the <code>glm</code> command as discussed in the class session, perform a
-    logistic regression that predicts the <code>highgrade</code> outcome variable
-    using annual income, home ownership, loan amount, verification
-    status, and purpose as the predictors. Use the <code>summary</code> command to
-    view the output of your regression.</li>
+<li>Using the <code>glm</code> command as discussed in an earlier class session, perform
+    a logistic regression that predicts the <code>highgrade</code> outcome variable
+    using the variables: annual income, home ownership, loan amount,
+    verification status, and purpose. Use the <code>summary</code> command to view the
+    output of your regression.</li>
 </ul>
 <!-- -->
 
@@ -1226,13 +1220,21 @@ in the same way as with regression, using the <code>predict</code> command. The
 result (in this case, stored in the vector <em>z</em>) will hold the binary
 values that indicate whether your classification tree predicts whether
 or not a loan will be high grade.</p>
-<div class="highlight"><pre>z <span class="o">=</span> predict<span class="p">(</span>fit<span class="p">,</span> type<span class="o">=</span><span class="s">&quot;class&quot;</span><span class="p">)</span>
+<div class="highlight"><pre>z = predict(fit, type=&quot;class&quot;)
 </pre></div>
 
-<p>Using the accuracy metric described above, is this machine learning
-based classifier more or less accurate than the one based in logistic
-regression?</p>
-<h2 id="5-compute-performance-on-the-test-data">5. Compute performance on the test data.<a class="headerlink" href="#5-compute-performance-on-the-test-data" title="Permanent link"></a></h2>
+<p>Using the accuracy metric described above, is this decision tree classifier more or less accurate than the one using logistic regression?</p>
+<h2 id="5-build-a-naive-bayes-model-on-the-training-data">5. Build a Naive Bayes model on the training data.<a class="headerlink" href="#5-build-a-naive-bayes-model-on-the-training-data" title="Permanent link"></a></h2>
+<p>As another alternative, we can use a [&ldquo;Naive bayes&rdquo;]
+(<a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a>) algorithm to classify
+loans according whether or not they are likely to have an "A" or "B"
+grade. A widely used implementation of Naive Bayes in R is the <code>naivebayes</code>
+library in R. Install the package and don't forget to use the <code>library</code>
+command to include the library wherever you are executing your code. In this
+question, the functions to use are purposefully left unspecified. You are
+expected to look up the appropriate documentation to learn which functions
+from the library to use, and how to call them.</p>
+<h2 id="6-compute-predictor-performance-on-the-test-data">6. Compute predictor performance on the test data.<a class="headerlink" href="#6-compute-predictor-performance-on-the-test-data" title="Permanent link"></a></h2>
 <p>Classifiers such as the ones described above are built on <em>training</em>
 data (e.g. historical data), where the &ldquo;correct&rdquo; answers are available
 so that the model can be calibrated. Once you are happy with their
@@ -1242,15 +1244,33 @@ general, the classifier will not perform as well on the test data as it
 did on the training data, because it was calibrated for optimal
 performance on the training data.</p>
 <ul>
-<li>Evaluate the accuracy of both of the classifiers you built above
-    (logistic regression &amp; classification tree) on the <strong>test</strong> data.
-    Note that there is an extra <code>purpose</code> category in the test data
-    called &ldquo;educational&rdquo;. You should remove those rows from the test
-    data to get your models to fit the new data set.</li>
+<li>Evaluate the accuracy of all three of the classifiers you built above
+    (logistic regression, classification tree, and naive bayes) on
+    the <strong>test</strong> data. Note that there is an extra <code>purpose</code> category in the
+    test data called &ldquo;educational&rdquo;. You should remove those rows from the
+    test data to get your models to fit the new data set. To report your
+    results, create a table reporting accuracy for each algorithm. Which
+    algorithm generates the highest <strong>test data</strong> accuracy for this data context?</li>
 </ul>
 <!-- -->
 
 <ul>
-<li>As a benchmark, what is the accuracy of a classifier that simply
-    assigns a value of 0 to all rows of the <strong>test</strong> data?</li>
-</ul></article></body></html>
+<li>As a benchmark to use as a comparison, what is the accuracy of a
+    classifier that simply assigns a value of 0 to all rows of the <strong>test</strong>
+    data?</li>
+</ul>
+<h2 id="7-beyond-accuracy-as-a-performance-metric">7. Beyond accuracy as a performance metric.<a class="headerlink" href="#7-beyond-accuracy-as-a-performance-metric" title="Permanent link"></a></h2>
+<p>The accuracy metric described above is the fraction of responses the algorithm
+correctly predicts. Suppose, instead, that the lending organization is able
+to quantify the different returns to originating good and bad loans and
+decides to focus on which algorithms generate the highest overall returns
+given these figures.</p>
+<p>a. Suppose that highgrade loans that are highgrade and are <strong>correctly</strong>
+identified as such earn the lender $40, but that loans that
+are <strong>incorrectly</strong> predicted to be highgrade cost them $15. Based on test
+data performance, which classifier would the lender want to use?</p>
+<p>b. What if these numbers were reversed - i.e. a highgrade loan that
+is <strong>correctly</strong> identified as highgrade earns the lender $15,
+but <strong>incorrectly</strong> classifying a loan as highgrade costs $40. Under these
+circumstances, based on test data performance, which classifier would the
+lender want to use?</p></article></body></html>
