@@ -23,7 +23,10 @@ title: Working papers
 
 [The Growing Importance of Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
-AI Engines of Growth: Firm Inequality on the Technological Frontier\
+Gender, Tech Bubbles, and the IT Earnings Gap
+(with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
+
+Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
 # Published papers
