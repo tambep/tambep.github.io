@@ -12,18 +12,18 @@ title: Working papers
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
 
-[InnoVAE: Generative AI for Understanding Patents and Innovation](https://ssrn.com/abstract=3868599)\
+[InnoVAE: Generative AI for Patents and Innovation](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-[Remote work and job applicant diversity: Evidence from startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
+[How Does Offering Remote Work Affect the Diversity of the Labor Pool? Evidence from Startup Hiring](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 [The Growing Importance of Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
-Gender, Tech Bubbles, and the IT Earnings Gap\
+Tech Bubbles and the Gender Wage Gap among IT Workers\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
 Deep Capital for Deep Learning\
