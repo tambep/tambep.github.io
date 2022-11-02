@@ -18,7 +18,7 @@ title: Working papers
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-[How Does Offering Remote Work Affect the Diversity of the Labor Pool? Evidence from Startup Hiring](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
+[How Does Offering Remote Work Affect the Diversity of the Labor Pool? Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 [Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
