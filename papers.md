@@ -21,7 +21,7 @@ title: Working papers
 [How Does Offering Remote Work Affect the Diversity of the Labor Pool? Evidence from Startup Hiring](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
-[The Growing Importance of Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
+[Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
 Tech Bubbles and the Gender Wage Gap among IT Workers\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
