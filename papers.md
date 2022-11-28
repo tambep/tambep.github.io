@@ -23,7 +23,7 @@ title: Working papers
 
 [Algorithmic Literacy](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
 
-Tech Bubbles and the Gender Wage Gap among IT Workers\
+Emerging Technologies and the Gender Wage Gap among IT Workers\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
 Deep Capital for Deep Learning\
