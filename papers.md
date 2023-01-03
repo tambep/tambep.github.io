@@ -5,6 +5,9 @@ title: Working papers
 
 # Working papers
 
+Emerging Technologies and the IT Gender Wage Gap\
+(with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
+
 [Digital Capital and Superstar Firms](https://8a034064-c022-4d38-bd2a-4b69bfbd81b5.filesusr.com/ugd/3f53fa_0e9575623b7c42f9817a34e5240cfce0.pdf)\
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 [[Brookings Institute Working Paper Version](https://www.brookings.edu/research/digital-capital-and-superstar-firms/)]
@@ -22,9 +25,6 @@ title: Working papers
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 [Algorithmic Bilinguals](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
-
-Emerging Technologies and the IT Gender Wage Gap\
-(with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
