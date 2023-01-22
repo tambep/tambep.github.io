@@ -1,1207 +1,672 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="header-includes" content="\usepackage[sfdefault]{roboto}"><style>body {
-  max-width: 980px;
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 16px auto;
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 1: Bike Sharing</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
 }
-
-body .markdown-body
-{
-  padding: 45px;
-}
-
-@font-face {
-  font-family: fontawesome-mini;
-  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAABE0AA8AAAAAHWwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABWAAAADsAAABUIIslek9TLzIAAAGUAAAAQwAAAFY3d1HZY21hcAAAAdgAAACqAAACOvWLi0FjdnQgAAAChAAAABMAAAAgBtX/BGZwZ20AAAKYAAAFkAAAC3CKkZBZZ2FzcAAACCgAAAAIAAAACAAAABBnbHlmAAAIMAAABdQAAAjkYT9TNWhlYWQAAA4EAAAAMwAAADYQ6WvNaGhlYQAADjgAAAAfAAAAJAc6A1pobXR4AAAOWAAAACAAAAA0Kmz/7mxvY2EAAA54AAAAHAAAABwQPBJubWF4cAAADpQAAAAgAAAAIAEHC/NuYW1lAAAOtAAAAYQAAALxhQT4h3Bvc3QAABA4AAAAfgAAAMS3SYh9cHJlcAAAELgAAAB6AAAAhuVBK7x4nGNgZGBg4GIwYLBjYHJx8wlh4MtJLMljkGJgYYAAkDwymzEnMz2RgQPGA8qxgGkOIGaDiAIAJjsFSAB4nGNgZHZmnMDAysDAVMW0h4GBoQdCMz5gMGRkAooysDIzYAUBaa4pDA4Pwz+yMwf9z2KIYg5imAYUZgTJAQDcoQvQAHic7ZHNDYJAFIRnBXf94cDRIiyCKkCpwFCPJ092RcKNDoYKcN4+EmMPvpdvk539zQyAPYBCXEUJhBcCrJ5SQ9YLnLJe4qF5rdb+uWPDngNHTkta101pNyWa8lMhn6xx2dqUnW4q9YOIhAOOeueMSgsR/6ry+P7O5s6xVNg4chBsHUuFnWNJ8uZYwrw7chrsHXkODo7cB0dHOYCTY8kv0VE2WJKD6gOlWjsxAAB4nGNgQAMSEMgc9D8LhAESbAPdAHicrVZpd9NGFB15SZyELCULLWphxMRpsEYmbMGACUGyYyBdnK2VoIsUO+m+8Ynf4F/zZNpz6Dd+Wu8bLySQtOdwmpOjd+fN1czbZRJaktgL65GUmy/F1NYmjew8CemGTctRfCg7eyFlisnfBVEQrZbatx2HREQiULWusEQQ+x5ZmmR86FFGy7akV03KLT3pLlvjQb1V334aOsqxO6GkZjN0aD2yJVUYVaJIpj1S0qZlqPorSSu8v8LMV81QwohOImm8GcbQSN4bZ7TKaDW24yiKbLLcKFIkmuFBFHmU1RLn5IoJDMoHzZDyyqcR5cP8iKzYo5xWsEu20/y+L3mndzk/sV9vUbbkQB/Ijuzg7HQlX4RbW2HctJPtKFQRdtd3QmzZ7FT/Zo/ymkYDtysyvdCMYKl8hRArP6HM/iFZLZxP+ZJHo1qykRNB62VO7Es+gdbjiClxzRhZ0N3RCRHU/ZIzDPaYPh788d4plgsTAngcy3pHJZwIEylhczRJ2jByYCVliyqp9a6YOOV1WsRbwn7t2tGXzmjjUHdiPFsPHVs5UcnxaFKnmUyd2knNoykNopR0JnjMrwMoP6JJXm1jNYmVR9M4ZsaERCICLdxLU0EsO7GkKQTNoxm9uRumuXYtWqTJA/Xco/f05la4udNT2g70s0Z/VqdiOtgL0+lp5C/xadrlIkXp+ukZfkziQdYCMpEtNsOUgwdv/Q7Sy9eWHIXXBtju7fMrqH3WRPCkAfsb0B5P1SkJTIWYVYhWQGKta1mWydWsFqnI1HdDmla+rNMEinIcF8e+jHH9XzMzlpgSvt+J07MjLj1z7UsI0xx8m3U9mtepxXIBcWZ5TqdZlu/rNMfyA53mWZ7X6QhLW6ejLD/UaYHlRzodY3lBC5p038GQizDkAg6QMISlA0NYXoIhLBUMYbkIQ1gWYQjLJRjC8mMYwnIZhrC8rGXV1FNJ49qZWAZsQmBijh65zEXlaiq5VEK7aFRqQ54SbpVUFM+qf2WgXjzyhjmwFkiXyJpfMc6Vj0bl+NYVLW8aO1fAsepvH472OfFS1ouFPwX/1dZUJb1izcOTq/Abhp5sJ6o2qXh0TZfPVT26/l9UVFgL9BtIhVgoyrJscGcihI86nYZqoJVDzGzMPLTrdcuan8P9NzFCFlD9+DcUGgvcg05ZSVnt4KzV19uy3DuDcjgTLEkxN/P6VvgiI7PSfpFZyp6PfB5wBYxKZdhqA60VvNknMQ+Z3iTPBHFbUTZI2tjOBIkNHPOAefOdBCZh6qoN5E7hhg34BWFuwXknXKJ6oyyH7kXs8yik/Fun4kT2qGiMwLPZG2Gv70LKb3EMJDT5pX4MVBWhqRg1FdA0Um6oBl/G2bptQsYO9CMqdsOyrOLDxxb3lZJtGYR8pIjVo6Of1l6iTqrcfmYUl++dvgXBIDUxf3vfdHGQyrtayTJHbQNTtxqVU9eaQ+NVh+rmUfW94+wTOWuabronHnpf06rbwcVcLLD2bQ7SUiYX1PVhhQ2iy8WlUOplNEnvuAcYFhjQ71CKjf+r+th8nitVhdFxJN9O1LfR52AM/A/Yf0f1A9D3Y+hyDS7P95oTn2704WyZrqIX66foNzBrrblZugbc0HQD4iFHrY64yg18pwZxeqS5HOkh4GPdFeIBwCaAxeAT3bWM5lMAo/mMOT7A58xh0GQOgy3mMNhmzhrADnMY7DKHwR5zGHzBnHWAL5nDIGQOg4g5DJ4wJwB4yhwGXzGHwdfMYfANc+4DfMscBjFzGCTMYbCv6dYwzC1e0F2gtkFVoANTT1jcw+JQU2XI/o4Xhv29Qcz+wSCm/qjp9pD6Ey8M9WeDmPqLQUz9VdOdIfU3Xhjq7wYx9Q+DmPpMvxjLZQa/jHyXCgeUXWw+5++J9w/bxUC5AAEAAf//AA94nIVVX2hbZRQ/5/t7893s5ja9f7ouzdZ0TTqz3bRJmogbWya6bG6Cq0VbSV2ddIJjFtfIQHEig80Hda8yUN/0YQz8AyriiyD+xQd92R4HCnaCb3samnpumrpsCsLlfPf7zvedc37nL3CAtc/5W/wQZGA3tOBSY/g+TMjHmwzEoM1Q8+ZjRZY4oJhmBw5/YB6Za0yC5AkhlwA1A1yCBIBOwCII0Cj0U8BAMdUCzq05sKwkP7SlUY6fcJk4Fb/RyE79/6P5hjM/F4aZiXBoeMgzcqQ4Xi1hPqfDLG5FT+lchCVU3lYMyvuwhl1mqndQL0RsuloLywHtthLXI06OblTrhfWVnpSJ5+mwu/JdbtuN3IAnkW0LLMcRwaC7ktrlzridM6kVdyf9uO1UNBByI7JhwtG2sEwab07ORBeilWhqavJCqV0qzZTOl/7ZXQ5TbTcdcFelyGhhRDAQpdqp1FEX3w3cFTc1k9pJQkmm4ySCbSikxRP2QOfN+0tHS5MrpQuTU1Mk5nw0E5Xa0WvrOwDyGax9yB9ma6DAg82wHc43SAGTI4GjBWebOePAERFE8/AHaQpZASSTy8A4WwZiLQMQ82mFKATO0ILicRAoDm9p5P99E5b/fXG+kQYY3TYUuqmERWYoT0u/GNYL2q/4WB3LaVS+VynXsVYIcWw6DkCh3nX1D+VzlYN4LClF5yexSQos8exqZ3KVP+wtrC54u4Nznq6cq+xpMpUUnZ8FUYzE86ud0g28NOIv3Gj5/rmA3ABs7S/ywzFuQ4qyd6QxfNtiQIaEgp3w/entQg4Vcbqa16M5FfpeUB8t1+qeg7mI7cUyOe79wOk86gSxkVec4KPTX69++5x68Yubn5/F+w52z7u08sJX7fZXv8ekT/d2mILJxq6sn+SC6qEJknzLJCxyZEKwWVqYmAPBxBE/9DLeZiWHu7lcr/VytrCRuHojncNuTt9h46tmacmYisnSamdN2bZptcsmSysdVsy1PrOvOzF3xN64Rb937t/og9KHxYdcjIUqFAmIAHGHNzlns+RTPgeUYAQm9DwpNxfxbhhBHPaw3/gfTcXO2L+eJVIx5nsyGkvm9X4/f+bGkH45G0PaSjcMXTjcZyTvi3UdHoCDjQd3IDUVsgwYmUoJK/gp4JJxeRI0MKHZIkgynyIBqBTOUs6rOVCojvjZ4mCQz49ZMlMcp8QoYk6NoBfsxnJtsBohpa8iGJS+ZH7gU7NxME6cmF+t7cO9vB8d3jTWSct0ycW9ranXmolNDwmVkNnxe+8JtoztwS5rKJ0xWS95tQ/1zMYzg69MzUZnNtl1ofNbsml/OJm6f9wjRjpnu2o4MzHzn77IQkRd+1DjwMQ2pqSjGMMhyjrgTbBAKksuUm0iU7hI0aN2wOKOq7WYBSH0HGihj/jkiPxAfmwsEbfYrjMG+j3ij932Db/LV7I/xruNrhnroxjR9HRMb2nTvO0ZXOoHPk8H2ZhDPx93qcE/53sH5np/dkIP7zzhTVKdR/BAY/9ElkkR+A6lJGsqpJ4oQcTxpvBT3Kn58VkaJjgHyPEIws57xkaHh9KuVpDEpJZeMbZ5w/zBHi5NMQ4r5VphsFqID7TyB9eR4pX216c3AHxpdAwoqU9qg0ZJ6yVLKmMSz1iG2z27ifx18NkY0LPx1W/wCc2l5LrznrIsiKsqbmB78A9wIGx4tI8rjihVHJyY9pgMirenVq0yWg7Iw7eogG7ZgYM3qR9959A/fZkg6MnD/exlkmc+jWV4SB15XUR+eqC6l6ZmgPtN9z5JMfik05OV8ljylunJ4J+wA/FUaQSSKotsYsCWqaPBidBLcxkWx7XKFRIb45TGaEhjlF9uUVPqXOtcIwsXbBvfoZXIyRYFdkfnqjExH98xpnPczqzjX/uNdO1Y17Wpi5+6Ts8BXtjVFasp9KZ1mOiNbH65c5w6HgmyF2jFCZywM8mWjRc7T5Pmt0lRy7Y71+jYbpGyvwG4sH0XeJxjYGRgYADiwBB/53h+m68M3MwvgCIM1z5N/g6j///9v5H5BbMnkMvBwAQSBQCIcA9gAHicY2BkYGAO+p8FJF/8//v/F/MLBqAICuAFALYQB5kAeJxjfsHAwLwAiCNB+P9fbJjJmoGBMRUo/wKCAfO2EnQAAAAAANoBXgGcAgICVALaA1IDvAPkBAYEPARyAAEAAAANAF0ABAAAAAAAAgAUACQAcwAAAG4LcAAAAAB4nHWRzWrCQBSFT+pPqUIXLXTTzayKUohGKIibCoLuhbrrYtTRxCYZmYyKyz5Fd32HvlDfoO/QkziIFJtw9bvnnpl7ZwLgBt/wcHieGAf2UGd24Atcou+4RH3kuEweO66QXx1XyaHjGh6ROa7jFp/cwStfMVvhy7GHO+/e8QWuvcBxifqz4zL5xXGF/Oa4Sn53XMPE+3Bcx4P3M9DrvYmWoRWNQVN02kFXTPdCU4pSGQu5saE2meiLhU6timPtz3SSs9ypTCdqrJabWJoT5QQnymSRTkXgt0/UkUqVkVbN807ZdtmxdiEWRidi6HqItdErNbN+aO2612qd9sYAGmvsYRBhyUu0EGhQbfK/gzYCdElTOgSdB1eEFBIxFYkNV4RFJWPeZyyYpVQVHTHZx4y/yVGX2LGWFZri51TccUOn5B7nPefVCSPvGhVVwUl9znveO2KkhV8Wk82PZ8qwZf8OVcu1+fSmWCMw/HMOwXvKaysqM+p+cVuWag8tvv+c+xdd+4+teJxtjUEOwiAURJla24KliQfhUA2g/Sl+CKXx+loNrpzVezOLEY34Ron/0WhwQoszOvQYIKFwwQiNSbSBeO2SZ0tBP4j3zVjKNng32ZmtD1VVXCuOiw/pJ8S3WOU6l+K5UOTaDC4+2TjKMtN9KQf1ezLx/Sg/00FCvABHhjDjAAB4nGPw3sFwIihiIyNjX+QGxp0cDBwMyQUbGVidNjEwMmiBGJu5mBg5ICw+BjCLzWkX0wGgNCeQze60i8EBwmZmcNmowtgRGLHBoSNiI3OKy0Y1EG8XRwMDI4tDR3JIBEhJJBBs5mFi5NHawfi/dQNL70YmBhcADHYj9AAA) format('woff');
-}
-
-.markdown-body {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  color: #333333;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-.markdown-body a {
-  background: transparent;
-}
-
-.markdown-body a:active,
-.markdown-body a:hover {
-  outline: 0;
-}
-
-.markdown-body b,
-.markdown-body strong {
-  font-weight: bold;
-}
-
-.markdown-body mark {
-  background: #ff0;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body sub,
-.markdown-body sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-.markdown-body sup {
-  top: -0.5em;
-}
-.markdown-body sub {
-  bottom: -0.25em;
-}
-
-.markdown-body h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-.markdown-body img {
-  border: 0;
-}
-
-.markdown-body hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
 }
 
-.markdown-body pre {
-  overflow: auto;
+html,
+body {
+	margin: 0;
+	padding: 0;
 }
-
-.markdown-body code,
-.markdown-body kbd,
-.markdown-body pre,
-.markdown-body samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-.markdown-body input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-.markdown-body html input[disabled] {
-  cursor: default;
-}
-
-.markdown-body input {
-  line-height: normal;
-}
-
-.markdown-body input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.markdown-body table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.markdown-body td,
-.markdown-body th {
-  padding: 0;
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
 }
 
-.markdown-body .codehilitetable,
-.markdown-body .highlighttable {
-  border: 0;
-  border-spacing: 0;
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
 }
 
-.markdown-body .codehilitetable tr,
-.markdown-body .highlighttable {
-  border: 0;
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
 }
 
-.markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite,
-.markdown-body .highlighttable pre,
-.markdown-body .highlighttable div.highlight {
-  margin: 0;
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
 }
 
-.markdown-body .linenos,
-.markdown-body .code,
-.markdown-body .codehilitetable td,
-.markdown-body .highlighttable td {
-  border: 0;
-  padding: 0;
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
 }
 
-.markdown-body td:not(.linenos) .linenodiv {
-  padding: 0 !important;
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
 }
 
-.markdown-body .code {
-  width: 100%;
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
 }
 
-.markdown-body .linenos div pre,
-.markdown-body .linenodiv pre,
-.markdown-body .linenodiv {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
 }
 
-.markdown-body .code div pre,
-.markdown-body .code div {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
 }
 
-.markdown-body * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
 }
 
-.markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.4;
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
 }
 
-.markdown-body a {
-  color: #4183c4;
-  text-decoration: none;
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
 }
 
-.markdown-body a:hover,
-.markdown-body a:focus,
-.markdown-body a:active {
-  text-decoration: underline;
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
 }
 
-.markdown-body hr {
-  height: 0;
-  margin: 15px 0;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #ddd;
+mark {
+	background-color: transparent;
 }
 
-.markdown-body hr:before,
-.markdown-body hr:after {
-  display: table;
-  content: " ";
+.indented {
+	padding-left: 1.5em;
 }
 
-.markdown-body hr:after {
-  clear: both;
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
 }
 
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 1.1;
+img {
+	max-width: 100%;
 }
 
-.markdown-body h1 {
-  font-size: 30px;
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
 }
 
-.markdown-body h2 {
-  font-size: 21px;
+@page {
+	margin: 1in;
 }
 
-.markdown-body h3 {
-  font-size: 16px;
+.collection-content {
+	font-size: 0.875rem;
 }
 
-.markdown-body h4 {
-  font-size: 14px;
+.column-list {
+	display: flex;
+	justify-content: space-between;
 }
 
-.markdown-body h5 {
-  font-size: 12px;
+.column {
+	padding: 0 1em;
 }
 
-.markdown-body h6 {
-  font-size: 11px;
+.column:first-child {
+	padding-left: 0;
 }
 
-.markdown-body blockquote {
-  margin: 0;
+.column:last-child {
+	padding-right: 0;
 }
 
-.markdown-body ul,
-.markdown-body ol {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
 }
 
-.markdown-body ol ol,
-.markdown-body ul ol {
-  list-style-type: lower-roman;
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
 }
 
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
-.markdown-body ol ul ol,
-.markdown-body ol ol ol {
-  list-style-type: lower-alpha;
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
 }
 
-.markdown-body dd {
-  margin-left: 0;
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
 }
 
-.markdown-body code,
-.markdown-body pre,
-.markdown-body samp {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
 }
 
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 0;
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
 }
 
-.markdown-body kbd {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-  background-image: linear-gradient(#fefefe, #e7e7e7);
-  background-repeat: repeat-x;
-  border-radius: 2px;
-  border: 1px solid #cfcfcf;
-  color: #000;
-  padding: 3px 5px;
-  line-height: 10px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  display: inline-block;
+table {
+	border-left: none;
+	border-right: none;
 }
 
-.markdown-body>*:first-child {
-  margin-top: 0 !important;
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
 }
 
-.markdown-body>*:last-child {
-  margin-bottom: 0 !important;
+th {
+	color: rgba(55, 53, 47, 0.6);
 }
 
-.markdown-body .headerlink {
-  font: normal 400 16px fontawesome-mini;
-  vertical-align: middle;
-  margin-left: -16px;
-  float: left;
-  display: inline-block;
-  text-decoration: none;
-  opacity: 0;
-  color: #333;
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
 }
 
-.markdown-body .headerlink:focus {
-  outline: none;
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
 }
 
-.markdown-body h1 .headerlink {
-  margin-top: 0.8rem;
+ul > li {
+	list-style: disc;
 }
 
-.markdown-body h2 .headerlink,
-.markdown-body h3 .headerlink {
-  margin-top: 0.6rem;
+ul.to-do-list {
+	text-indent: -1.7em;
 }
 
-.markdown-body h4 .headerlink {
-  margin-top: 0.2rem;
+ul.to-do-list > li {
+	list-style: none;
 }
 
-.markdown-body h5 .headerlink,
-.markdown-body h6 .headerlink {
-  margin-top: 0;
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
 }
 
-.markdown-body .headerlink:hover,
-.markdown-body h1:hover .headerlink,
-.markdown-body h2:hover .headerlink,
-.markdown-body h3:hover .headerlink,
-.markdown-body h4:hover .headerlink,
-.markdown-body h5:hover .headerlink,
-.markdown-body h6:hover .headerlink {
-  opacity: 1;
-  text-decoration: none;
+ul.toggle > li {
+	list-style: none;
 }
 
-.markdown-body h1 {
-  padding-bottom: 0.3em;
-  font-size: 2.25em;
-  line-height: 1.2;
-  border-bottom: 1px solid #eee;
+ul {
+	padding-inline-start: 1.7em;
 }
 
-.markdown-body h2 {
-  padding-bottom: 0.3em;
-  font-size: 1.75em;
-  line-height: 1.225;
-  border-bottom: 1px solid #eee;
+ul > li {
+	padding-left: 0.1em;
 }
 
-.markdown-body h3 {
-  font-size: 1.5em;
-  line-height: 1.43;
+ol {
+	padding-inline-start: 1.6em;
 }
 
-.markdown-body h4 {
-  font-size: 1.25em;
+ol > li {
+	padding-left: 0.2em;
 }
 
-.markdown-body h5 {
-  font-size: 1em;
+.mono ol {
+	padding-inline-start: 2em;
 }
 
-.markdown-body h6 {
-  font-size: 1em;
-  color: #777;
+.mono ol > li {
+	text-indent: -0.4em;
 }
 
-.markdown-body p,
-.markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body dl,
-.markdown-body table,
-.markdown-body pre,
-.markdown-body .admonition {
-  margin-top: 0;
-  margin-bottom: 16px;
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
 }
 
-.markdown-body hr {
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border: 0 none;
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
 }
 
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 2em;
+.toggle > li > details > summary {
+	margin-left: -1.1em;
 }
 
-.markdown-body ul ul,
-.markdown-body ul ol,
-.markdown-body ol ol,
-.markdown-body ol ul {
-  margin-top: 0;
-  margin-bottom: 0;
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
 }
 
-.markdown-body li>p {
-  margin-top: 16px;
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
 }
 
-.markdown-body dl {
-  padding: 0;
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
 }
-
-.markdown-body dl dt {
-  padding: 0;
-  margin-top: 16px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
 }
 
-.markdown-body dl dd {
-  padding: 0 16px;
-  margin-bottom: 16px;
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
 }
 
-.markdown-body blockquote {
-  padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
 }
-
-.markdown-body blockquote>:first-child {
-  margin-top: 0;
+.simple-table-header {
+	font-weight: 500;
 }
 
-.markdown-body blockquote>:last-child {
-  margin-bottom: 0;
+time {
+	opacity: 0.5;
 }
 
-.markdown-body table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
 }
 
-.markdown-body table th {
-  font-weight: bold;
+img.icon {
+	border-radius: 3px;
 }
 
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
 }
 
-.markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+.user-icon-inner {
+	font-size: 0.8em;
 }
 
-.markdown-body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
 }
 
-.markdown-body img {
-  max-width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
 }
 
-.markdown-body code,
-.markdown-body samp {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 3px;
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
 }
 
-.markdown-body code:before,
-.markdown-body code:after {
-  letter-spacing: -0.2em;
-  content: "\00a0";
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
 }
 
-.markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
+.page-header-icon img {
+	border-radius: 3px;
 }
 
-.markdown-body .codehilite,
-.markdown-body .highlight {
-  margin-bottom: 16px;
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
 }
 
-.markdown-body .codehilite pre,
-.markdown-body .highlight pre,
-.markdown-body pre {
-  padding: 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f7f7f7;
-  border-radius: 3px;
+p > .user {
+	opacity: 0.5;
 }
 
-.markdown-body .codehilite pre,
-.markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
+td > .user,
+td > time {
+	white-space: nowrap;
 }
 
-.markdown-body pre {
-  word-wrap: normal;
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
 }
 
-.markdown-body pre code {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
-.markdown-body pre code:before,
-.markdown-body pre code:after {
-  content: normal;
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
 }
 
-/* Admonition */
-.markdown-body .admonition {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  position: relative;
-  border-radius: 3px;
-  border: 1px solid #e0e0e0;
-  border-left: 6px solid #333;
-  padding: 10px 10px 10px 30px;
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
 }
 
-.markdown-body .admonition table {
-  color: #333;
+code {
+	color: #eb5757;
 }
 
-.markdown-body .admonition p {
-  padding: 0;
+.code {
+	padding: 1.5em 1em;
 }
 
-.markdown-body .admonition-title {
-  font-weight: bold;
-  margin: 0;
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
 }
 
-.markdown-body .admonition>.admonition-title {
-  color: #333;
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
 }
 
-.markdown-body .attention>.admonition-title {
-  color: #a6d796;
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
 }
 
-.markdown-body .caution>.admonition-title {
-  color: #d7a796;
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
 }
 
-.markdown-body .hint>.admonition-title {
-  color: #96c6d7;
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
 }
 
-.markdown-body .danger>.admonition-title {
-  color: #c25f77;
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
 }
 
-.markdown-body .question>.admonition-title {
-  color: #96a6d7;
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.markdown-body .note>.admonition-title {
-  color: #d7c896;
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
 }
 
-.markdown-body .admonition:before,
-.markdown-body .attention:before,
-.markdown-body .caution:before,
-.markdown-body .hint:before,
-.markdown-body .danger:before,
-.markdown-body .question:before,
-.markdown-body .note:before {
-  font: normal normal 16px fontawesome-mini;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  line-height: 1.5;
-  color: #333;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 10px;
-  padding-left: 10px;
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
 }
 
-.markdown-body .admonition:before {
-  content: "\f056\00a0";
-  color: 333;
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
 }
 
-.markdown-body .attention:before {
-  content: "\f058\00a0";
-  color: #a6d796;
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
 }
-
-.markdown-body .caution:before {
-  content: "\f06a\00a0";
-  color: #d7a796;
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
 }
-
-.markdown-body .hint:before {
-  content: "\f05a\00a0";
-  color: #96c6d7;
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
 }
-
-.markdown-body .danger:before {
-  content: "\f057\00a0";
-  color: #c25f77;
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
 }
-
-.markdown-body .question:before {
-  content: "\f059\00a0";
-  color: #96a6d7;
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
 }
-
-.markdown-body .note:before {
-  content: "\f040\00a0";
-  color: #d7c896;
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
 }
-
-.markdown-body .admonition::after {
-  content: normal;
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
 }
-
-.markdown-body .attention {
-  border-left: 6px solid #a6d796;
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
 }
-
-.markdown-body .caution {
-  border-left: 6px solid #d7a796;
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
 }
-
-.markdown-body .hint {
-  border-left: 6px solid #96c6d7;
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
 }
-
-.markdown-body .danger {
-  border-left: 6px solid #c25f77;
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
 }
-
-.markdown-body .question {
-  border-left: 6px solid #96a6d7;
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
 }
-
-.markdown-body .note {
-  border-left: 6px solid #d7c896;
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
 }
-
-.markdown-body .admonition>*:first-child {
-  margin-top: 0 !important;
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
 }
-
-.markdown-body .admonition>*:last-child {
-  margin-bottom: 0 !important;
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
 }
-
-/* progress bar*/
-.markdown-body .progress {
-  display: block;
-  width: 300px;
-  margin: 10px 0;
-  height: 24px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #ededed;
-  position: relative;
-  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
 }
-
-.markdown-body .progress-label {
-  position: absolute;
-  text-align: center;
-  font-weight: bold;
-  width: 100%; margin: 0;
-  line-height: 24px;
-  color: #333;
-  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
-  -webkit-font-smoothing: antialiased !important;
-  white-space: nowrap;
-  overflow: hidden;
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
 }
-
-.markdown-body .progress-bar {
-  height: 24px;
-  float: left;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #96c6d7;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
-  background-size: 30px 30px;
-  background-image: -webkit-linear-gradient(
-    135deg, rgba(255, 255, 255, .4) 27%,
-    transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%,
-    transparent 77%, transparent
-  );
-  background-image: -moz-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -ms-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -o-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
 }
-
-.markdown-body .progress-100plus .progress-bar {
-  background-color: #a6d796;
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
 }
-
-.markdown-body .progress-80plus .progress-bar {
-  background-color: #c6d796;
+.block-color-default {
+	color: inherit;
+	fill: inherit;
 }
-
-.markdown-body .progress-60plus .progress-bar {
-  background-color: #d7c896;
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
 }
-
-.markdown-body .progress-40plus .progress-bar {
-  background-color: #d7a796;
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
 }
-
-.markdown-body .progress-20plus .progress-bar {
-  background-color: #d796a6;
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
 }
-
-.markdown-body .progress-0plus .progress-bar {
-  background-color: #c25f77;
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
 }
-
-.markdown-body .candystripe-animate .progress-bar{
-  -webkit-animation: animate-stripes 3s linear infinite;
-  -moz-animation: animate-stripes 3s linear infinite;
-  animation: animate-stripes 3s linear infinite;
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
 }
-
-@-webkit-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
 }
-
-@-moz-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
 }
-
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
 }
-
-.markdown-body .gloss .progress-bar {
-  box-shadow:
-    inset 0 4px 12px rgba(255, 255, 255, .7),
-    inset 0 -12px 0 rgba(0, 0, 0, .05);
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
 }
-
-/* MultiMarkdown Critic Blocks */
-.markdown-body .critic_mark {
-  background: #ff0;
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
 }
-
-.markdown-body .critic_delete {
-  color: #c82829;
-  text-decoration: line-through;
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
 }
-
-.markdown-body .critic_insert {
-  color: #718c00 ;
-  text-decoration: underline;
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
 }
-
-.markdown-body .critic_comment {
-  color: #8e908c;
-  font-style: italic;
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
 }
-
-.markdown-body .headeranchor {
-  font: normal normal 16px fontawesome-mini;
-  line-height: 1;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
 }
-
-.headeranchor:before {
-  content: '\e157';
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
 }
-
-.markdown-body .task-list-item {
-  list-style-type: none;
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
 }
-
-.markdown-body .task-list-item+.task-list-item {
-  margin-top: 3px;
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
 }
-
-.markdown-body .task-list-item input {
-  margin: 0 4px 0.25em -20px;
-  vertical-align: middle;
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
 }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
 
-/* Media */
-@media only screen and (min-width: 480px) {
-  .markdown-body {
-    font-size:14px;
-  }
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
 }
 
-@media only screen and (min-width: 768px) {
-  .markdown-body {
-    font-size:16px;
-  }
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
 }
-
-@media print {
-  .markdown-body * {
-    background: transparent !important;
-    color: black !important;
-    filter:none !important;
-    -ms-filter: none !important;
-  }
-
-  .markdown-body {
-    font-size:12pt;
-    max-width:100%;
-    outline:none;
-    border: 0;
-  }
-
-  .markdown-body a,
-  .markdown-body a:visited {
-    text-decoration: underline;
-  }
-
-  .markdown-body .headeranchor-link {
-    display: none;
-  }
 
-  .markdown-body a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  .markdown-body abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  .markdown-body .ir a:after,
-  .markdown-body a[href^="javascript:"]:after,
-  .markdown-body a[href^="#"]:after {
-    content: "";
-  }
-
-  .markdown-body pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  .markdown-body pre,
-  .markdown-body blockquote {
-    border: 1px solid #999;
-    padding-right: 1em;
-    page-break-inside: avoid;
-  }
-
-  .markdown-body .progress,
-  .markdown-body .progress-bar {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-
-  .markdown-body .progress {
-    border: 1px solid #ddd;
-  }
-
-  .markdown-body .progress-bar {
-    height: 22px;
-    border-right: 1px solid #ddd;
-  }
-
-  .markdown-body tr,
-  .markdown-body img {
-    page-break-inside: avoid;
-  }
-
-  .markdown-body img {
-    max-width: 100% !important;
-  }
-
-  .markdown-body p,
-  .markdown-body h2,
-  .markdown-body h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  .markdown-body h2,
-  .markdown-body h3 {
-    page-break-after: avoid;
-  }
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
-</style><style>/*GitHub*/
-.highlight {background-color:#fff;color:#333333;}
-.highlight .hll {background-color:#ffffcc;}
-.highlight .c{color:#999988;font-style:italic}
-.highlight .err{color:#a61717;background-color:#e3d2d2}
-.highlight .k{font-weight:bold}
-.highlight .o{font-weight:bold}
-.highlight .cm{color:#999988;font-style:italic}
-.highlight .cp{color:#999999;font-weight:bold}
-.highlight .c1{color:#999988;font-style:italic}
-.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
-.highlight .gd{color:#000000;background-color:#ffdddd}
-.highlight .ge{font-style:italic}
-.highlight .gr{color:#aa0000}
-.highlight .gh{color:#999999}
-.highlight .gi{color:#000000;background-color:#ddffdd}
-.highlight .go{color:#888888}
-.highlight .gp{color:#555555}
-.highlight .gs{font-weight:bold}
-.highlight .gu{color:#800080;font-weight:bold}
-.highlight .gt{color:#aa0000}
-.highlight .kc{font-weight:bold}
-.highlight .kd{font-weight:bold}
-.highlight .kn{font-weight:bold}
-.highlight .kp{font-weight:bold}
-.highlight .kr{font-weight:bold}
-.highlight .kt{color:#445588;font-weight:bold}
-.highlight .m{color:#009999}
-.highlight .s{color:#dd1144}
-.highlight .n{color:#333333}
-.highlight .na{color:teal}
-.highlight .nb{color:#0086b3}
-.highlight .nc{color:#445588;font-weight:bold}
-.highlight .no{color:teal}
-.highlight .ni{color:purple}
-.highlight .ne{color:#990000;font-weight:bold}
-.highlight .nf{color:#990000;font-weight:bold}
-.highlight .nn{color:#555555}
-.highlight .nt{color:navy}
-.highlight .nv{color:teal}
-.highlight .ow{font-weight:bold}
-.highlight .w{color:#bbbbbb}
-.highlight .mf{color:#009999}
-.highlight .mh{color:#009999}
-.highlight .mi{color:#009999}
-.highlight .mo{color:#009999}
-.highlight .sb{color:#dd1144}
-.highlight .sc{color:#dd1144}
-.highlight .sd{color:#dd1144}
-.highlight .s2{color:#dd1144}
-.highlight .se{color:#dd1144}
-.highlight .sh{color:#dd1144}
-.highlight .si{color:#dd1144}
-.highlight .sx{color:#dd1144}
-.highlight .sr{color:#009926}
-.highlight .s1{color:#dd1144}
-.highlight .ss{color:#990073}
-.highlight .bp{color:#999999}
-.highlight .vc{color:teal}
-.highlight .vg{color:teal}
-.highlight .vi{color:teal}
-.highlight .il{color:#009999}
-.highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>Lab 1</title></head><body><article class="markdown-body"><h1 id="lab-1-citi-bike"><span style="color:tomato;">Lab 1: Citi Bike</span><a class="headerlink" href="#lab-1-citi-bike" title="Permanent link"></a></h1>
-<h4 id="oidd-245-tambe">OIDD 245 Tambe<a class="headerlink" href="#oidd-245-tambe" title="Permanent link"></a></h4>
-<p><center>
-<img src="img/citibike.png" width="300">
-</center></p>
-<h2 id="1-project-background"><span style="color:gray">1. Project background</span><a class="headerlink" href="#1-project-background" title="Permanent link"></a></h2>
-<h3 id="goal-to-familiarize-yourself-with-tableau-as-a-tool-for-data-analysis-and-visualization"><span style="color:#0047ab">GOAL</span>: To familiarize yourself with Tableau as a tool for data analysis and visualization.<a class="headerlink" href="#goal-to-familiarize-yourself-with-tableau-as-a-tool-for-data-analysis-and-visualization" title="Permanent link"></a></h3>
-<hr>
-
-<h4 id="an-important-application-area-for-big-data-analysis-is-transportation-and-logistics-systems">An important application area for big data analysis is transportation and logistics systems.<a class="headerlink" href="#an-important-application-area-for-big-data-analysis-is-transportation-and-logistics-systems" title="Permanent link"></a></h4>
-<ul>
-<li><a href="http://www.flightradar24.com">Flight tracking</a></li>
-<li><a href="https://www.youtube.com/watch?v=MTwsdOQ87ec">FedEx flight
-    scheduling</a></li>
-<li>One of the original big data systems was
-    <a href="https://en.wikipedia.org/wiki/Sabre_Corporation">SABRE</a> which
-    handles airline scheduling.</li>
-</ul>
-<h4 id="some-of-the-largest-data-science-investments-are-in-the-transport-and-logistics-industries-eg-uber-lyft-fedex-amazon-a-sample-job-listing-from-this-industry">Some of the largest data science investments are in the transport and logistics industries: e.g. Uber, Lyft, FedEx, &amp; Amazon. A sample job listing from this industry:<br><a class="headerlink" href="#some-of-the-largest-data-science-investments-are-in-the-transport-and-logistics-industries-eg-uber-lyft-fedex-amazon-a-sample-job-listing-from-this-industry" title="Permanent link"></a></h4>
-<p><br>
-<center>
-<img src="img/samedaydelivery.png" width="400px"><br>
-<img src="img/samedaydeliveryreqs.png" width="400px">
-</center>
-<br></p>
-<h4 id="citi-bike-has-been-a-controversial-initative-that-has-faced-operational-issues-such-as">Citi Bike has been a <a href="http://www.cc.com/video-clips/2432gv/the-daily-show-with-jon-stewart-full-pedal-racket---citi-bike">controversial initative</a> that has faced operational issues such as:<a class="headerlink" href="#citi-bike-has-been-a-controversial-initative-that-has-faced-operational-issues-such-as" title="Permanent link"></a></h4>
-<ul>
-<li><a href="http://www.nytimes.com/2013/08/15/nyregion/the-balancing-act-that-bike-share-riders-just-watch.html">Balancing bikes across stations</a></li>
-<li><a href="http://www.nytimes.com/2015/07/08/nyregion/a-mission-for-citi-bike-recruiting-more-female-cyclists.html?_r=0">Gender balance</a></li>
-<li><a href="https://nextcity.org/urbanist-news/how-new-york-and-paris-got-women-into-the-bike-saddle">How New York and Paris Got Women Into the Bike Saddle</a></li>
-</ul>
-<h4 id="data-can-be-useful-for-addressing-these-issues-and-citi-bike-affiliate-motivate-has-been-analyzing-data-in-this-area-motivate-has-since-been-acquired-by-lyft">Data can be useful for addressing these issues. And Citi Bike affiliate Motivate has been analyzing data in this area! (Motivate has since been acquired by Lyft)<a class="headerlink" href="#data-can-be-useful-for-addressing-these-issues-and-citi-bike-affiliate-motivate-has-been-analyzing-data-in-this-area-motivate-has-since-been-acquired-by-lyft" title="Permanent link"></a></h4>
-<p><center>
-<img src="img/motivatejobheader.png" width="700px"><br>
-<img src="img/motivatejobdesc.png" width="700px">
-</center></p>
-<hr />
-<h2 id="2-the-citi-bike-data"><span style="color:gray">2. The Citi Bike data</span><a class="headerlink" href="#2-the-citi-bike-data" title="Permanent link"></a></h2>
-<p>Monthly Citi Bike usage data are available
-<a href="https://s3.amazonaws.com/tripdata/index.html">here</a>. The data are organized
-as a series of <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV files</a>. Excel, Access, Tableau and other popular data packages can automatically deal with data in .csv formats.</p>
-<p>I have generated smaller version of these files to make them slightly easier and quicker to work with. Data files for this session:</p>
-<ul>
-<li>There is a <a href="https://upenn.box.com/s/w78cvlts0pfe02v19g5lhhoawz1efn1w">500,000 row, 95 MB</a> extract of the Oct 2019 ridership data.</li>
-<li>There is a <a href="https://upenn.box.com/s/qxcgoyvblvo6q0v15rg8klrclijtpao3">500,000 row, 95 MB</a> extract of the Oct 2020 ridership data.</li>
-</ul>
-<p>Take note of the <a href="https://en.wikipedia.org/wiki/Data_dictionary">data dictionary</a> for the operational data collected by Citi Bike. Please note the coding for gender (0/1/2) and subscriber type!</p>
-<p><img alt="" src="img/citibike_fields.png" /></p>
-<hr />
-<h2 id="3-lab-objectives-and-deliverables"><span style="color:gray">3. Lab Objectives and Deliverables</span><a class="headerlink" href="#3-lab-objectives-and-deliverables" title="Permanent link"></a></h2>
-<h3 id="guidelines-for-deliverables"><span style="color:#0047ab">Guidelines for deliverables:</span><a class="headerlink" href="#guidelines-for-deliverables" title="Permanent link"></a></h3>
-<ul>
-<li>Submit your lab through the Canvas site.</li>
-<li>Create a document (e.g. using MS Word, MS Powerpoint, or
-    equivalents) that includes the answers to the three questions below as well as any charts or visualizations needed to support your answer. You can
-    &ldquo;Export&rdquo; charts from Tableau to include in your submission. If you
-    have trouble with the export process, you can also take a screenshot
-    and import it into a document. Your final document should include
-    charts and answers for parts A, B, and C.</li>
-<li><strong>Your final submission should be a .pdf. Please
-    convert your documents to .pdf before submitting.</strong></li>
-<li>There are <strong>several ways</strong> you can answer each question. Use your
-    imagination to judge how to use the data to uncover a relationship
-    or support an argument. It is important that your submissions be
-    well organized and that your charts be clear, readable, and well labeled. Part of what makes tools like Tableau valuable is that it allows you to not
-    only efficiently generate visual summaries of data, but also to make
-    them attractive.</li>
-<li>You are encouraged to work with others, but <u>it is not a team
-    project</u>. You are welcome to work in groups, but everyone should do the lab themselves and complete their own submissions. One submission is required <strong>per person</strong> (not one per team!) and must be uploaded by the deadline, which is listed on the Canvas assignment submission page. Include on your submission the names of any people with whom you worked.</li>
-</ul>
-<hr />
-<h3 id="a-create-charts-describing-gender-and-citi-bike-use">A. Create charts describing gender and Citi Bike use<a class="headerlink" href="#a-create-charts-describing-gender-and-citi-bike-use" title="Permanent link"></a></h3>
-<p>A key business imperative for sharing ride-sharing companies is having a broad
-demographic customer base. For example, <a href="https://www.sfexaminer.com/the-city/sf-will-allow-e-scooter-fleet-to-double-if-scoot-skip-recruit-more-low-income-customers/">SF has said that it will limit
-permits for scooter sharing companies unless they become more inclusive,
-by gender and
-race</a>.
-For Citi Bike usage in the 2019 data file, create visualizations illustrating how women differ from men along the following four dimensions. For the choice of visualization, you should use <strong>your best judgment</strong> as to what most
-clearly illustrates the comparison. Please drop (e.g. filter out) the
-"unknown" category in gender.</p>
-<ul>
-<li>Fraction of total bike rides taken.</li>
-<li>Total time utilization of bikes by day of week (i.e. Monday, Tuesday &hellip;).
-    This requires the <code>trip duration</code> of bikes are used, not how
-    many times they are used. You can compare either total or averaged trip duration.</li>
-<li>Hour of day bikes are checked out.</li>
-<li>The locations of the stations at which the bikes are picked up.</li>
-</ul>
-<hr />
-<h3 id="b-build-a-data-product-that-advises-decision-makers-on-how-to-improve-gender-balance-for-citi-bike">B. Build a &ldquo;data product&rdquo; that advises decision-makers on how to improve gender balance for Citi Bike.<a class="headerlink" href="#b-build-a-data-product-that-advises-decision-makers-on-how-to-improve-gender-balance-for-citi-bike" title="Permanent link"></a></h3>
-<p>The COVID-19 related changes to city life created a natural experiment that appear to have <a href="https://www.nytimes.com/2020/10/07/nyregion/nyc-biking-covid-women.html">increased gender balance</a> in the Citi Bike network. This provides an opportunity to derive insights into policies that could shift gender balance in service usage on a more long-term basis.</p>
-<ol>
-<li>By comparing the aggregate activity in the October 2019 and October 2020 data sets, provide visual evidence on the extent of this shift in usage by gender. You do not need to combine the data sets for this exercise, you can analyze each month separately and conduct a visual comparison of any charts you make for the two different months.</li>
-<li>Using the more detailed activity data, provide evidence for an <em>actionable</em> recommendation as to changes that either policy makers (e.g. NYC local government) or Citibike managers can make to ensure this shift persists after a return to normal. <strong>Alternatively</strong>, you can choose to provide evidence that you believe that this shift is likely to be only temporary and that no investments should be made. In either case, generate a visualization or a set of visualizations from the data that tells a story to Citi Bike decision makers about what might be driving these changes. To do this, you will need to go beyond using the aggregate data, and examine shifts in gender usage in the two different time periods by location, time, age, or other attributes. Examples of investments you suggest could be adding new features to the bike or stations or roads. Be as creative as you like but your recommendation should be evidence-based. The data are unlikely to provide iron-clad evidence for any intervention, but they should support it.</li>
-<li>Provide a brief description (no more than a paragraph) describing your visualization and what it suggests. (As you work on this exercise, consider how large data sets such as these may be shifting decision-making behaviors inside organizations, setting up a battle between the intuition of experts and the analyses produced by data scientists. This will be a recurring theme in this course.) </li>
-<li>It is important that this exercise provide a <strong>sharp</strong> recommendation or answer to the above question. For instance, if your suggestion is how to improve the product or service, you should suggest a <u>specific</u> improvement to their roads or bikes or pricing, based on the data you can analyze.</li>
-</ol>
-<hr />
-<h3 id="c-data-driven-operations-the-case-of-lyft">C. Data-driven operations: The case of <a href="https://www.lyft.com">Lyft</a><a class="headerlink" href="#c-data-driven-operations-the-case-of-lyft" title="Permanent link"></a></h3>
-<p><center>
-<img src="img/lyftbike.jpg" width="400">
-</center></p>
-<p>Towards the end of 2018, <a href="https://www.wsj.com/articles/lyft-to-add-28-000-citi-bikes-and-expand-service-1543508558">Lyft made an approximately $100 million
-investment into Citi Bike</a>. Citi Bike planned to use this money to add thousands of bikes to their network. <a href="https://nyc.streetsblog.org/2018/08/20/citi-bikes-new-electric-bike-is-a-bolt-of-excitement-for-riders-if-they-live-in-a-citi-bike-area-of-course/">Some of these were to be e-assist bikes</a> that are electrically boosted and will allow for "range expansion", which means that it will allow riders to bike longer distances more easily.</p>
-<ul>
-<li>Imagine they plan to kick off this initiative by targeting the
-    placement of their e-bikes to stations that have users with the
-    longest trip durations. <b>Using the October 2019 data, create a map indicating which stations they should they target.</b></li>
-<li>Citi Bike currently does not allow its bicycles to be taken on the
-    NYC subway trains. Their bicycles, and especially their electric
-    bikes, are also extremely heavy, making it difficult to move them
-    around. Suppose Citi Bike changes their policy to allow customers to
-    take electric bikes on the subway train to further
-    encourage range expansion, but they need to understand where these
-    bikes can be easily rolled into and out of stations. <b>Using data on
-    <a href="https://data.ny.gov/Transportation/NYC-Transit-Subway-Entrance-And-Exit-Data/i9wp-a4ja">NYC subway station
-    locations</a>,
-    create a map of subway station locations in the city, where stations
-    are <strong>color coded</strong> by whether the stations are "e-Bike
-    accessible".</b><ul>
-<li><strong>Please note</strong>, for this part, you only need to use
-the data on NYC subway station locations. You <strong>do not</strong> need to
-connect it to the Citi Bike data or otherwise use the Citi Bike data
-in any way, so you can remove that data source from your workspace.
-The data needed for creating such a measure from the subway data are
-contained in the <code>Entrance Type</code> field. </li>
-<li>To create two categories out of the many different types of entrances in this field, use the <code>GROUP</code> function under Create (in the options when you click the down arrow next to the variable name), generate a new grouped variable which takes the value "e-Bike Accessible" for stations
-where the entrance is an <em>elevator</em>, <em>ramp</em>, or <em>walkway</em> and has
-the value "Not e-Bike Accessible" for other entrance types.</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2 id="getting-started"><span style="color:#0047ab">Getting started:</span><a class="headerlink" href="#getting-started" title="Permanent link"></a></h2>
-<ul>
-<li>Download the text files (.csv) to your computer.</li>
-<li>Load the data into Tableau. It will likely make sense to analyze one data set at a time.</li>
-<li>Create a 'new worksheet'.</li>
-<li>Start by converting <code>starting longitude</code> and <code>starting latitude</code>
-    into <em>dimensions</em> and dragging them into the Row and Column shelves.</li>
-<li>Add <code>number of records</code> to the sheet.</li>
-</ul></article></body></html>
+	
+</style></head><body><article id="12e6890e-9fe4-45a0-ae48-5d9a62eaedd0" class="page sans"><header><h1 class="page-title">Lab 1: Bike Sharing</h1></header><div class="page-body"><h3 id="7e97af1e-bc7a-4a23-a41a-ef14a1e01cfe" class=""><mark class="highlight-blue">OIDD 2450 Tambe</mark></h3><p id="b60b3072-8b4d-42e0-9cc4-532d8aec1874" class="">
+</p><figure id="44382369-6a2a-4f42-a952-ef737ec716fe" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/citibike.png"><img style="width:569px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/citibike.png"/></a></figure><h1 id="02d1f49a-12f4-4b6b-aac8-1cabe2c3b0b5" class=""><mark class="highlight-orange">1. Project background</mark></h1><h3 id="50ceb8a3-f5d8-493f-89e4-5c34a8a985e1" class=""><mark class="highlight-blue">GOAL</mark>: To familiarize yourself with Tableau as a tool for data analysis and visualization.</h3><hr id="d22a44f1-2254-4633-a697-1521ba97d4fd"/><h3 id="8fea1700-029d-4245-a94b-735f189b54fc" class="">An important application area for big data analysis is transportation and logistics systems.</h3><ul id="ab1c347a-502e-43de-8ea5-82d64b2f3a26" class="bulleted-list"><li style="list-style-type:disc"><a href="http://www.flightradar24.com/">Flight tracking</a></li></ul><ul id="54057e96-b105-450c-af77-bb4df3d96694" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=MTwsdOQ87ec">FedEx flight scheduling</a></li></ul><ul id="a7a1c7e2-692b-4225-bda1-ff3a5fce8f78" class="bulleted-list"><li style="list-style-type:disc">One of the original big data systems was <a href="https://en.wikipedia.org/wiki/Sabre_Corporation">SABRE</a> which handles airline scheduling.</li></ul><h3 id="4627818c-c28f-4ea6-8c9a-b9461296642f" class="">Some of the largest data science investments are in the transport and logistics industries: e.g. Uber, Lyft, FedEx, &amp; Amazon. A sample job listing from this industry:</h3><figure id="9e097819-2851-463e-be9b-3f02fd1bd16b" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/samedaydelivery.png"><img style="width:552px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/samedaydelivery.png"/></a></figure><figure id="a9f8fe69-b5b8-4fd8-8da9-f8643b46dcf1" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/samedaydeliveryreqs.png"><img style="width:567px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/samedaydeliveryreqs.png"/></a></figure><h3 id="e2e995fc-09b6-4509-ad73-0dcbe277f61c" class="">Citi Bike has been a <a href="http://www.cc.com/video-clips/2432gv/the-daily-show-with-jon-stewart-full-pedal-racket---citi-bike">controversial initative</a> that has faced operational issues such as:</h3><ul id="7ef0dd38-f7e8-44f3-a91e-535644dde791" class="bulleted-list"><li style="list-style-type:disc"><a href="http://www.nytimes.com/2013/08/15/nyregion/the-balancing-act-that-bike-share-riders-just-watch.html">Balancing bikes across stations</a></li></ul><ul id="73d58c9b-2330-4ea9-9b6f-883e3cb54c0e" class="bulleted-list"><li style="list-style-type:disc"><a href="http://www.nytimes.com/2015/07/08/nyregion/a-mission-for-citi-bike-recruiting-more-female-cyclists.html?_r=0">Gender balance</a></li></ul><ul id="e48cd224-0db0-4a0b-b791-5decc9bf8625" class="bulleted-list"><li style="list-style-type:disc"><a href="https://nextcity.org/urbanist-news/how-new-york-and-paris-got-women-into-the-bike-saddle">How New York and Paris Got Women Into the Bike Saddle</a></li></ul><h3 id="1a4ea0a3-5be6-4725-ace5-faf6ebbb262f" class="">Data can be useful for addressing these issues. And Citi Bike affiliate Motivate has been analyzing data in this area! (Motivate has since been acquired by Lyft)</h3><figure id="79f5ea81-ad7e-4314-9de0-cf3e24824247" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/motivatejobheader.png"><img style="width:996px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/motivatejobheader.png"/></a></figure><figure id="72276e8b-6ef7-4605-b67a-04a5500a0d31" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/motivatejobdesc.png"><img style="width:1156px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/motivatejobdesc.png"/></a></figure><p id="902eda91-cc5c-41cc-95b1-6506271219df" class="">
+</p><hr id="c5b99ec8-d865-46b3-9e93-7ebd1949588c"/><h1 id="c0f2d2de-f541-41bb-ac74-d64f0f01f29d" class=""><mark class="highlight-orange">2. The Citi Bike data</mark></h1><p id="f71fa360-fdd8-4856-b86f-2b8b6e15cc85" class="">Monthly Citi Bike usage data are available <a href="https://s3.amazonaws.com/tripdata/index.html">here</a>. The data are organized as a series of <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV files</a>. Excel, Access, Tableau and other popular data packages can automatically deal with data in .csv formats.</p><p id="577bde01-7774-4ffc-b95a-ae6d66f0b7ea" class="">Begin by working with the ridership files from Oct 2019 and Oct 2020 from the link above. If your computer struggles with the larger files, I have generated smaller version of these files to make them slightly easier and quicker to work with. Data files for this session:</p><ul id="d81d18ab-7e38-4fb0-b51d-3d83b8437a63" class="bulleted-list"><li style="list-style-type:disc">There is a <a href="https://upenn.box.com/s/w78cvlts0pfe02v19g5lhhoawz1efn1w">500,000 row, 95 MB</a> extract of the Oct 2019 ridership data.</li></ul><ul id="68c8fc34-6850-4ffa-883f-7921e6b946cf" class="bulleted-list"><li style="list-style-type:disc">There is a <a href="https://upenn.box.com/s/qxcgoyvblvo6q0v15rg8klrclijtpao3">500,000 row, 95 MB</a> extract of the Oct 2020 ridership data.</li></ul><p id="3c986cd5-7320-4bd5-8db5-d83558db0461" class="">Take note of the <a href="https://en.wikipedia.org/wiki/Data_dictionary">data dictionary</a> for the operational data collected by Citi Bike. Please note the coding for gender (0/1/2) and subscriber type!</p><figure id="ce6482d1-9c54-402e-95fe-7c63bffe249d" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/citibike_fields.png"><img style="width:576px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/citibike_fields.png"/></a></figure><hr id="3034ea7e-cca0-4efa-9d89-924f8bb8303c"/><h1 id="9c7f65f8-2071-43f0-a2d3-1ac9d51a0b09" class=""><mark class="highlight-orange">3. Lab Objectives and Deliverables</mark></h1><h2 id="e7108ad5-a760-40e6-999d-3613afe2ae73" class="">Guidelines for deliverables:</h2><ul id="751394ba-32da-4413-bb81-aea29b527209" class="bulleted-list"><li style="list-style-type:disc">Submit your lab through the Canvas site.</li></ul><ul id="a4353f8a-77e9-46fb-bbc0-6f96676a400d" class="bulleted-list"><li style="list-style-type:disc">Create a document (e.g. using MS Word, MS Powerpoint, or equivalents) that includes the answers to the four questions below as well as any charts or visualizations needed to support your answer. You can “Export” charts from Tableau to include in your submission. If you have trouble with the export process, you can also take a screenshot and import it into a document. Your final document should include charts and answers for parts A, B, C, and D.</li></ul><ul id="bd10ca42-74bd-48b1-a49b-6c7cd2315dee" class="bulleted-list"><li style="list-style-type:disc"><strong>Your final submission should be a .pdf. Please convert your documents to .pdf before submitting.</strong></li></ul><ul id="fc4b4b8f-181c-47ec-ad61-4bf2ad349c02" class="bulleted-list"><li style="list-style-type:disc">There are <strong>several ways</strong> you can answer each question. Use your imagination to judge how to use the data to uncover a relationship or support an argument. It is important that your submissions be well organized and that your charts be clear, readable, and well labeled. Part of what makes tools like Tableau valuable is that it allows you to not only efficiently generate visual summaries of data, but also to make them attractive.</li></ul><ul id="a85fbc7e-1d32-4763-b9b9-8cf2e113806d" class="bulleted-list"><li style="list-style-type:disc">You are encouraged to work with others, but it is not a team project. You are welcome to work in groups, but everyone should do the lab themselves and complete their own submissions. One submission is required <strong>per person</strong> (not one per team!) , should include only your original work, and must be uploaded by the deadline, which is listed on the Canvas assignment submission page. Please include on your submission the names of any people with whom you worked.</li></ul><hr id="51ad804f-af3e-4575-b364-da2d994b5c71"/><h2 id="9f3dc3ce-d1a7-4638-8e1f-e713c69a0bf6" class="">A. Create charts describing gender and Citi Bike usage</h2><p id="0fcb6fca-7029-4de8-9a8e-1ca77ca413ad" class="">A key business imperative for sharing ride-sharing companies is having a broad demographic customer base. For example, <a href="https://www.sfexaminer.com/the-city/sf-will-allow-e-scooter-fleet-to-double-if-scoot-skip-recruit-more-low-income-customers/">SF has said that it will limit permits for scooter sharing companies unless they become more inclusive, by gender and race</a>. For Citi Bike usage in the 2019 data file, create visualizations illustrating how women differ from men along the following four dimensions. For the choice of visualization, you should use <strong>your best judgment</strong> as to what most clearly illustrates the comparison. Please drop (e.g. filter out) the &quot;unknown&quot; category in gender.</p><ul id="0d49b5f2-a4af-42b7-b251-db8bb7f25f40" class="bulleted-list"><li style="list-style-type:disc">Fraction of total bike rides taken.</li></ul><ul id="daacc64e-d345-4a46-914c-508389b151df" class="bulleted-list"><li style="list-style-type:disc">Total time utilization of bikes by day of week (i.e. Monday, Tuesday …). This requires the <code>trip duration</code> of bikes are used, not how many times they are used. You can compare either total or averaged trip duration.</li></ul><ul id="12deb01a-e260-473f-920d-f384a87528a2" class="bulleted-list"><li style="list-style-type:disc">Hour of day bikes are checked out.</li></ul><ul id="2fb0567b-303e-4f2f-abce-b39b91287b16" class="bulleted-list"><li style="list-style-type:disc">The locations of the stations at which the bikes are picked up.</li></ul><hr id="221b35b3-4221-45fc-87db-299f5fea19fa"/><h2 id="d4896ed1-15d0-4e29-822e-83bc8391ad0f" class=""><strong>B. Build a “data product” that advises decision-makers on how to improve gender balance for Citi Bike.</strong></h2><p id="22de8ef2-ed17-4eec-91c6-58b1540652c8" class="">The COVID-19 related changes to city life created a natural experiment that appear to have <a href="https://www.nytimes.com/2020/10/07/nyregion/nyc-biking-covid-women.html">increased gender balance</a> in the Citi Bike network. This provides an opportunity to derive insights into policies that could shift gender balance in service usage on a more long-term basis.</p><ol type="1" id="2f50204b-07db-4f44-bd82-41c2c710fe62" class="numbered-list" start="1"><li>By comparing the aggregate activity in the October 2019 and October 2020 data sets, provide visual evidence on the extent of this shift in usage by gender. You do not need to combine the data sets for this exercise, you can analyze each month separately and conduct a visual comparison of any charts you make for the two different months.</li></ol><ol type="1" id="59928948-5b7b-4782-bd37-d1719dca4f7d" class="numbered-list" start="2"><li>Using the more detailed activity data, provide evidence for an <em>actionable</em> recommendation as to changes that either policy makers (e.g. NYC local government) or Citibike managers can make to ensure this shift persists after a return to normal. <strong>Alternatively</strong>, you can choose to provide evidence that you believe that this shift is likely to be only temporary and that no investments should be made. In either case, generate a visualization or a set of visualizations from the data that tells a story to Citi Bike decision makers about what might be driving these changes. To do this, you will need to go beyond using the aggregate data, and examine shifts in gender usage in the two different time periods by location, time, age, or other attributes. Examples of investments you suggest could be adding new features to the bike or stations or roads. Be as creative as you like but your recommendation should be evidence-based. The data are unlikely to provide iron-clad evidence for any intervention, but they should support it.</li></ol><ol type="1" id="cc213e6f-9816-4c78-a67a-e406b565b0f8" class="numbered-list" start="3"><li>Provide a brief description (no more than a paragraph) describing your visualization and what it suggests. (As you work on this exercise, consider how large data sets such as these may be shifting decision-making behaviors inside organizations, setting up a battle between the intuition of experts and the analyses produced by data scientists. This will be a recurring theme in this course.)</li></ol><ol type="1" id="b642f349-1f8e-4f86-a3b2-06807fc65e64" class="numbered-list" start="4"><li>It is important that this exercise provide a <strong>sharp</strong> recommendation or answer to the above question. For instance, if your suggestion is how to improve the product or service, you should suggest a specific improvement to their roads or bikes or pricing, based on the data you can analyze.</li></ol><hr id="e2f956f9-acdd-45b4-89bc-c417253ad140"/><h2 id="ee503021-2761-4779-a8a8-d1df5e682d9f" class="">C. Data-driven operations: The case of <a href="https://www.lyft.com/">Lyft</a></h2><figure id="8121f0f4-440b-4ef6-9d71-9fc1fb5dfc6e" class="image"><a href="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/lyftbike.jpg"><img style="width:5000px" src="Lab%201%20Bike%20Sharing%2012e6890e9fe445a0ae485d9a62eaedd0/lyftbike.jpg"/></a></figure><p id="23c2826f-12dd-4427-96da-f262e623d323" class="">Towards the end of 2018, <a href="https://www.wsj.com/articles/lyft-to-add-28-000-citi-bikes-and-expand-service-1543508558">Lyft made an approximately $100 million investment into Citi Bike</a>. Citi Bike planned to use this money to add thousands of bikes to their network. <a href="https://nyc.streetsblog.org/2018/08/20/citi-bikes-new-electric-bike-is-a-bolt-of-excitement-for-riders-if-they-live-in-a-citi-bike-area-of-course/">Some of these were to be e-assist bikes</a> that are electrically boosted and will allow for &quot;range expansion&quot;, which means that it will allow riders to bike longer distances more easily.</p><ul id="e981974e-d7a2-4a19-8688-c23a55013a95" class="bulleted-list"><li style="list-style-type:disc">Imagine they plan to kick off this initiative by targeting the placement of their e-bikes to stations that have users with the longest trip durations. <strong>Using the October 2019 data, create a map indicating which stations should be targeted.</strong></li></ul><ul id="a674b786-a314-47f0-8189-b69d7ad9f0de" class="bulleted-list"><li style="list-style-type:disc">Citi Bike currently does not allow its bicycles to be taken on the NYC subway trains. Their bicycles, and especially their electric bikes, are also extremely heavy, making it difficult to move them around. Suppose Citi Bike changes their policy to allow customers to take electric bikes on the subway train to further encourage range expansion, but they need to understand where these bikes can be easily rolled into and out of stations. <strong>Using data on </strong><a href="https://data.ny.gov/Transportation/NYC-Transit-Subway-Entrance-And-Exit-Data/i9wp-a4ja"><strong>NYC subway station locations</strong></a><strong>, create a map of subway station locations in the city, where stations are </strong><strong>color coded</strong><strong> by whether the stations are &quot;e-Bike accessible&quot;.</strong><ul id="68147d3e-8662-4f0c-9f80-2e67b8235384" class="bulleted-list"><li style="list-style-type:circle"><strong>Please note</strong>, for this part, you only need to use the data on NYC subway station locations. You <strong>do not</strong> need to connect it to the Citi Bike data or otherwise use the Citi Bike data in any way, so you can remove that data source from your workspace. The data needed for creating such a measure from the subway data are contained in the <code>Entrance Type</code> field.</li></ul><ul id="cde9c2eb-ff51-46cb-ab0c-69d7c1187d7c" class="bulleted-list"><li style="list-style-type:circle">To create two categories out of the many different types of entrances in this field, use the <code>GROUP</code> function under Create (in the options when you click the down arrow next to the variable name), generate a new grouped variable which takes the value &quot;e-Bike Accessible&quot; for stations where the entrance is an <em>elevator</em>, <em>ramp</em>, or <em>walkway</em> and has the value &quot;Not e-Bike Accessible&quot; for other entrance types.</li></ul></li></ul><h2 id="707e32c5-4a2b-48cd-99f7-050025f84c81" class="">D. Digital footprints and the pandemic</h2><p id="8a43ea43-5fd1-49a6-b088-9c410f671ffa" class="">This question asks you to use digital trace data (i.e., the Citibike data) to learn something about the effects of the COVID-19 pandemic.</p><p id="13e28f99-1b7b-466c-a48f-70a3f310456b" class="">Using the Citibike data, provide a <strong>data-driven argument</strong> about how patterns of human activity (along any dimension except for gender) changed after the pandemic. To do so, use a set of Tableau visualizations from time periods before and after the pandemic (e.g. Oct 2019 and Oct 2022) to support a specific story you choose to tell about how usage patterns (i.e., rider behaviors) might have changed in NYC over this period. As above, you can try to use the full Oct 2022 file from the <a href="https://s3.amazonaws.com/tripdata/index.html">Citibike repo</a> if your computer can handle it (the file labeled <em>202210-citibike-tripdata.csv.zip</em>), but otherwise I have <a href="https://upenn.box.com/s/er5cfteb3vt24tu97chcjbd02t9p24qf">created a smaller extract</a> from that time period.</p><p id="b1e8f4ad-a74f-4537-b051-ad27e75f8b0e" class="">This question is meant to be flexible: you can tell a story about any aspect of rider behavior related to time of day, geography, or demographic attributes EXCEPT for gender.</p><p id="6cee1866-bb95-4794-8df6-c984d717630b" class="">
+</p><hr id="9d071cad-e293-4d2a-9da9-f480d4c88d39"/><h2 id="3a553eac-2af9-42ff-9341-a43d8fd3cc82" class=""><mark class="highlight-orange">Getting started:</mark></h2><ul id="088a724b-925e-4134-b742-3834f6938255" class="bulleted-list"><li style="list-style-type:disc">Download the text files (.csv) to your computer.</li></ul><ul id="ea09fd32-ec21-4492-a547-38f506cde2eb" class="bulleted-list"><li style="list-style-type:disc">Load the data into Tableau. It will likely make sense to analyze one data set at a time.</li></ul><ul id="a5673bcd-cd16-4ce2-87c3-8fdf24fabb7e" class="bulleted-list"><li style="list-style-type:disc">Create a &#x27;new worksheet&#x27;.</li></ul><ul id="b6e72627-4df0-4709-8c9e-9ca1536711c9" class="bulleted-list"><li style="list-style-type:disc">Start by converting <code>starting longitude</code> and <code>starting latitude</code> into <em>dimensions</em> and dragging them into the Row and Column shelves.</li></ul><ul id="731cf442-db04-4902-b5ec-3125cd5ac468" class="bulleted-list"><li style="list-style-type:disc">Add <code>number of records</code> to the sheet.</li></ul></div></article></body></html>
