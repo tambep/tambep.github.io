@@ -1,0 +1,673 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 2: The NBA Bubble</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="99f8d3d4-0978-4883-8051-fb94e7cede1f" class="page sans"><header><h1 class="page-title">Lab 2: The NBA Bubble</h1></header><div class="page-body"><h3 id="4b111993-af75-4cd2-b835-4f250f5b1279" class="">OIDD 2450 Tambe</h3><p id="64c4d3e2-21f7-4c37-985e-401527f42c8a" class="">
+</p><figure id="e45ea146-36c4-40a1-a1e5-56d27d004c93" class="image"><a href="Lab%202%20The%20NBA%20Bubble%2099f8d3d4097848838051fb94e7cede1f/nbabubble.jpg"><img style="width:672px" src="Lab%202%20The%20NBA%20Bubble%2099f8d3d4097848838051fb94e7cede1f/nbabubble.jpg"/></a></figure><p id="8194d165-a3d7-4d13-b794-af036516edd2" class="">
+</p><h1 id="d8c6447d-12ee-4206-98c0-3c5191fecd3c" class=""><mark class="highlight-orange">1. Overview</mark></h1><h2 id="aafc27ef-ce51-4746-8426-ed778b3c26ef" class="">A. NBA Analytics</h2><p id="05fa453b-35d8-40ad-a7e7-113bbd6cf7a4" class="">Compared with other sports, such as baseball, it has been difficult to “quantify” and study what happens during basketball games. Superior instrumentation, such as digital tracking of the basketballs used during games, has made this easier, and many NBA coaches now have access to a wealth of data which can be used to study, analyze, and improve what happens on the court. As a result, the NBA has gone all-in on analytics. In one interesting example of how analytics is changing coaching strategy, the <em>Wall Street Journal</em> profiled a <a href="https://www.wsj.com/articles/the-basketball-team-that-never-takes-a-bad-shot-1485788165">high school team in Minnesota that &quot;never takes a bad shot&quot;</a>.</p><h2 id="d870ab05-4121-49d4-887e-2cc8283d3e82" class="">B. What do managers want?</h2><p id="14a6b3d7-5f16-408b-86e1-9ac0b394b32a" class="">Like all managers, NBA general managers want value; they want the best <em>performance to dollar ratio</em>. An example of using data to improve performance to dollar ratio with which some of you are probably familar is the <strong>Moneyball</strong> example (made famous through books by Michael Lewis and later, by a movie starring Brad Pitt and Jonah Hill), in which the budget-constrained Oakland A’s, led by GM Billy Beane, used statistics to perform better than what would have been predicted for their team based on their financial resources.</p><p id="2ec6ce8b-4f65-46ba-8f6d-42f2eeebb876" class="">For example, the following graph illustrates both a) how important a factor a Major League Baseball team’s budget is for predicting team performance, and b) how far beyond expectations the Oakland A’s were able to perform given their limited budget. These types of analyses inform the question of where <a href="https://www.cnn.com/2017/04/27/sport/nba-draft-steals/index.html">hidden value can be found for professional sports teams</a>.</p><p id="2ee6e2ad-db0e-4656-a970-ac34c995ff6a" class="">
+</p><figure id="77f60b4b-7952-4cab-b17f-291f9aeab245" class="image"><a href="Lab%202%20The%20NBA%20Bubble%2099f8d3d4097848838051fb94e7cede1f/oakland.png"><img style="width:480px" src="Lab%202%20The%20NBA%20Bubble%2099f8d3d4097848838051fb94e7cede1f/oakland.png"/></a></figure><h2 id="708c2d7f-f6ea-4451-adca-2bc04bb8228b" class="">C. Data analytics and organizational change</h2><p id="36bde01f-2310-476b-b925-2270adf9c2f6" class="">As a side note, sports analytics is a good place to think about one of the biggest impediments to data-driven decision making in modern business, which is <strong>organizational change</strong>. In organizations moving towards data collection and analysis, there is a “battle” being waged between the “quants” and those who make decisions based on intuition. This has historically been true of marketing and finance (e.g. quant vs discretionary trading) and is now becoming true in domains such as HR, sports, entertainment, and so on.</p><p id="0eaac2bf-8e24-4f25-945d-67c8eab5e3c3" class="">In these industries, many senior decision-makers remain skeptical of the value of data for informing decisions (although they are growing fewer in number each year), partly because data-driven processes can be flawed, and partly because it threatens their power within the organization. This tension plays out in one of my <a href="https://www.youtube.com/watch?v=ugN5aD5p2NU">favorite scenes from Moneyball</a>.</p><p id="9c89d9f6-fcf5-440e-9d55-78ed9033305b" class="">Charles Barkley, a famous and outspoken NBA basketball player who is now retired, captures the sentiments of many in his quote below. (More background on the Barkley interview along with a response from Mark Cuban is available <a href="https://www.google.com/#q=barkley+analytics">online</a>).</p><figure id="0456f6e7-7883-4810-aa95-edfa9f04ef55" class="image"><a href="Lab%202%20The%20NBA%20Bubble%2099f8d3d4097848838051fb94e7cede1f/barkley.jpg"><img style="width:480px" src="Lab%202%20The%20NBA%20Bubble%2099f8d3d4097848838051fb94e7cede1f/barkley.jpg"/></a></figure><p id="622ca4da-94dd-4901-9e34-6400854819a9" class="">
+</p><blockquote id="c33332b3-7ff2-4e62-9a59-37d103a3bb7b" class="">Analytics don&#x27;t work at all. It&#x27;s just some crap that people who were really smart made up to try to get in the game because they had no talent. Because they had no talent to be able to play, so smart guys wanted to fit in, so they made up a term called analytics. Analytics don&#x27;t work.</blockquote><p id="5a28d0ac-e802-475e-85d3-7109172c967e" class="">As a generation of workers entering an increasingly data-driven economy, it is important to be aware of the kinds of turf battles around data-driven decision making happening in industries from healthcare to strategy to finance.</p><h1 id="7bf52399-0e89-44f0-8910-00cafb71d5ef" class=""><mark class="highlight-orange">2. Objective:Who benefited from the NBA Bubble?</mark></h1><p id="1263ee99-e702-4315-8f99-faafb23b4c38" class="">For this assignment, you are asked to prepare an analysis of how player performance changed in the NBA “bubble” (more information on this below). It is hard to summarize all of the value a basketball player provides to a team in one performance number, but people try. For this assignment, we will use <a href="https://en.wikipedia.org/wiki/Plus%E2%80%93minus">plus-minus ratio</a> as a metric. A higher number indicates better performance. Feel free to explore the details of this number if you are interested, but it is not necessary for this lab.</p><p id="bbd354b2-dff0-491e-90d6-68129606bf9f" class="">Unlike with the last assignment, for this assignment you will have to collect the player data to analyze. This lab requires you to <strong>execute the entire data pipeline</strong>. This can be considered a fairly complete, end-to-end data project. It requires you to:</p><ol type="1" id="8796b264-5e66-41fb-9b1a-b49093723b85" class="numbered-list" start="1"><li>Collect data from online sources</li></ol><ol type="1" id="62d5ec7d-5c20-4736-ae3f-a87e6ea8ee86" class="numbered-list" start="2"><li>Merge data sources using Tableau Prep</li></ol><ol type="1" id="87fdaa51-b491-4577-98c3-6f18a4b83adb" class="numbered-list" start="3"><li>Prep data using Tableau Prep, Excel, or another tool</li></ol><ol type="1" id="b234e076-b448-4c19-bb95-69d32ed587f9" class="numbered-list" start="4"><li>Use Tableau Desktop to create visual summaries of the data</li></ol><p id="5f8d7a7b-f50b-48ae-9b65-ada11452f7a9" class="">The specific deliverables are described in detail further below.</p><h1 id="d653842c-7d5b-4ccc-8601-8a7f4031f170" class=""><mark class="highlight-orange">3. Data context: What was the NBA Bubble?</mark></h1><p id="90bb4352-f102-4b30-a6c6-f46c69d98193" class="">From <a href="https://en.wikipedia.org/wiki/2020_NBA_Bubble">Wikipedia</a>:</p><blockquote id="40b774f9-2236-4351-b138-68b945630d76" class="">The 2020 NBA Bubble, also referred to as the Disney Bubble or Orlando Bubble, was the isolation zone at Walt Disney World in Bay Lake, Florida, near Orlando, that was created by the National Basketball Association (NBA) to protect its players from the COVID-19 pandemic during the final eight games of the 2019–20 regular season and throughout the 2020 NBA playoffs. Twenty-two of the thirty NBA teams were invited to participate, with games being held behind closed doors at the ESPN Wide World of Sports Complex and the teams staying at Disney World hotels.</blockquote><p id="cac33ce8-8787-4fee-bf4b-22f11e82fa8e" class="">The NBA Bubble can be viewed as a natural experiment that changed aspects of the game while leaving others the same. For example, it removes home court advantage, eliminates the physical burden of having to travel to other cities before a game, and restricts players movements and access to family and friends while in the bubble. As such, some <a href="https://www.si.com/nba/grizzlies/news/the-bubble-effect-how-has-the-nba-bubble-campus-affected-play-on-the-court">players may have thrived more under these new conditions than others</a>.</p><h1 id="83883e93-dbca-4e24-a3be-d562a413765b" class=""><mark class="highlight-orange">4. Deliverables</mark></h1><p id="25db9149-9785-47e1-a36c-6b0c739d1f96" class="">You are encouraged to work with others, but you <strong>must submit your own assignment and list the names of anyone you work with</strong>. Through Canvas, submit a .pdf document that includes visualizations or charts satisfying the following four objectives:</p><h2 id="c976f09d-e47a-43df-a26e-e27225db597f" class="">A. Salary and performance before the shutdown</h2><p id="4bef1c79-7e82-46e2-a9dc-c5383559d624" class="">Create a <strong>scatterplot</strong> that plots 2019-2020 salary against players’ <em>plus-minus</em> for the 2019-2020 regular season games that took place <em>before</em> teams entered the bubble.</p><ul id="869e3421-b821-4114-bddc-728d610d2524" class="bulleted-list"><li style="list-style-type:disc">Color code the marks on the plot according to whether or not the player was expected to be a free agent in the following year. An <a href="https://www.nba.com/free-agency-explained">NBA free agent</a> is a player who is available to sign with other teams.</li></ul><ul id="07338fb9-09be-4c0b-b085-01f30ba8ce79" class="bulleted-list"><li style="list-style-type:disc">Fit a line to your scatter plot that illustrates the linear trend between salary and plus-minus.</li></ul><ul id="6d1e7b47-5fca-4e01-82d7-3b3c9a7385f7" class="bulleted-list"><li style="list-style-type:disc">Provide the names of any two players who appear, according to your analysis, to have a salary that is low relative to their plus-minus figure, and who are expected to be free agents in the following year. Depending on how you have structured your chart, this could be players who lie above or below the trend line you created.</li></ul><h2 id="2f32fa88-db6f-4ff4-80f6-83ff83a8e084" class="">B. Regular season performance vs bubble performance</h2><p id="45e7cf48-e72f-4431-9628-f93dd4ede145" class="">Create a <strong>scatterplot</strong> that would allow a coach or manager to visualize, for NBA players in the data, their plus-minus statistic for games played before the shutdown along one axis and the plus-minus statistic for games played in the bubble on the other axis.</p><ul id="7251a1eb-2991-4764-af72-208e17810449" class="bulleted-list"><li style="list-style-type:disc">Identify one player who performed well during games before the shutdown, but struggled in games during the bubble.</li></ul><ul id="f88d6d03-d231-47ba-8dbb-c6e04426b4bc" class="bulleted-list"><li style="list-style-type:disc">Identify one player who struggled in games before the shutdown, but excelled in games played during the bubble.</li></ul><h2 id="16c564ad-4c71-4199-8f9c-92f4e415f254" class="">C. Player age and bubble performance</h2><p id="33b29b5b-12b8-437a-b145-6d6b2d2d5065" class="">Given the conditions in the bubble – restricted movement, common food services, separation from family – one might argue that younger players would benefit more from the “dorm-like” atmosphere in the bubble. Alternatively, elimination of the physical toll associated with travel and away games may have benefitted older players more.</p><ul id="4d2b62e0-367c-43df-aff0-39c0c9b44735" class="bulleted-list"><li style="list-style-type:disc">Generate any type of visualization to evaluate whether age was a factor in determining how well players performed in the bubble relative to their performance outside of the bubble. This question is purposefully left open-ended so you should decide on your own what type of visualization serves best.</li></ul><h2 id="336e28bd-4d18-4091-b9c6-547a1c70a014" class="">D. Did the rich get richer?</h2><ul id="410f00df-2362-4fca-a420-d1f356db085a" class="bulleted-list"><li style="list-style-type:disc">Provide one or more visualizations to answer the following question: did entering the bubble increase or decrease the performance gap between “stars” and other players? This question is left purposely open-ended and you can use your discretion to determine what a “star” means in this context.</li></ul><h1 id="40617dc7-a54f-415f-a726-75f2ace5a8fd" class=""><mark class="highlight-orange">5. Steps</mark></h1><p id="89df04cf-ad49-44fd-aab7-0e90b678bffa" class="">This lab consists of several steps, so it <strong>pays to stay organized, and to go step-by-step</strong>. The tools we have used in class to this point are sufficient to complete the assignment. The steps to follow are outlined below.</p><h2 id="05619dce-459f-457d-8e28-5e320f05a032" class=""><mark class="highlight-blue">Step 1: Collect the data.</mark></h2><p id="011cf83d-41bd-48b3-8bd0-39895a17805e" class="">Some web scraping tools work better than others for different websites. You can choose which you like, and if one of them does not work for the data you are trying to retrieve, try another! Wherever possible, start by trying to just cut and paste the relevant data because it is fastest and often works. For this lab, you will need data on players and their performance statistics (outside and inside the bubble), salaries, ages, and free agency status. Create .csv files from the following data sources:</p><ul id="88362f37-6274-4b75-a27b-265facb15b69" class="bulleted-list"><li style="list-style-type:disc"><a href="http://hoopshype.com/salaries/players">NBA Salaries</a><ul id="071ca90f-e64f-4d30-b98d-9bbef6f553bb" class="bulleted-list"><li style="list-style-type:circle">You can collect all of the data on this sheet through cut-and-paste. You will need players’ 2019-2020 contract figures.</li></ul></li></ul><ul id="0de088e2-ee85-4627-848b-81df40912bde" class="bulleted-list"><li style="list-style-type:disc"><a href="https://hoopshype.com/lists/2021-nba-free-agent-rankings/">Players who had free agent status</a> in the year following the bubble year.<ul id="3d4bbcca-26cd-4e67-9d90-a985fa660940" class="bulleted-list"><li style="list-style-type:circle">Chrome Webscraper works well to collect these data.</li></ul></li></ul><ul id="8724810d-48ac-4178-8069-a2fbca12abbd" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.nba.com/stats/players/traditional/">NBA Player Performance and Age</a><ul id="7612fbc1-6cdb-4eca-82dc-82bed35a5fbc" class="bulleted-list"><li style="list-style-type:circle">To separately collect performance figures for players before and after the bubble was enacted, use the <strong>Advanced Filters</strong> to create two different data sets corresponding to each of the two relevant date ranges and then scrape each using any tool that is convenient. Make sure you have chosen the 2019-2020 season in the “Season” box.<ul id="96668b08-86ed-4b67-b6f5-281476147892" class="bulleted-list"><li style="list-style-type:square">October 22, 2019 – March 11, 2020. (regular season before bubble)</li></ul><ul id="ed3b7b01-2044-4662-8db3-f6c6b4e7d804" class="bulleted-list"><li style="list-style-type:square">July 30, 2020 – August 14, 2020. (games played in bubble)</li></ul></li></ul><ul id="38b755ec-b764-4a3a-b823-9bfa1c26afbe" class="bulleted-list"><li style="list-style-type:circle">Note that for each of these two player performance data extracts there are <strong>multiple pages</strong> of player statistics you need. A way of quickly getting all of these is to choose “All” from the drop-down box that contains the years and cutting and pasting the information into a spreadsheet. Then you can save this as a .csv file. This file includes both player age and their plus-minus statistic.</li></ul></li></ul><h2 id="fa7f88e3-af33-4eb6-abe1-70b5bebd7b08" class=""><mark class="highlight-blue">Step 2: Prep and merge the data</mark></h2><p id="f2d65816-99d4-488f-a2f7-67fe8da716f8" class="">After extracting the data files, you will need to clean them and bring them together. You can use Tableau Prep to do this. The key things to focus on are removing unnecessary data from each file, giving meaningful names to columns to make them easier to work with, and formatting field names as needed so you can match them with the corresponding name in other files. For instance, since we are merging different files on player name, you will need to make sure that the names will match across files, which requires making sure that they are the same in terms of being uppercase, lowercase, or title case, and ensuring they are in the same order (e.g. first name and then last name). If you have problems matching the two files, check for trailing or leading whitespace in the names in the problematic file.</p><p id="641df479-cb22-4cf7-b54a-7c1be46e6a83" class="">Merge the different data sources you need for each question into a <strong>single Tableau sheet</strong> by joining the data sets in Tableau. Information on how to join two data sets in Tableau can be found <a href="https://onlinehelp.tableau.com/current/pro/desktop/en-us/joining_tables.html">here</a>. You will need to think carefully about how data sets should be joined (inner join, left join, etc) to make sure you are retaining the right data.</p><p id="f2e91ee4-c199-4f94-b06b-4b8dc6a0e8f8" class="">After the data sets are merged, you should have information on player name, plus-minus statistic in the regular season, plus-minus statistic in the bubble, free-agency status, salary, and age for the 350+ players who played in the bubble. <strong>Due to different choices made during the cleaning and merge, people may end up with slightly different numbers of players in their final data set</strong>. Normally, we would then want to go back and understand where players get lost in the process (e.g. name mismatches, first season players who are in one data set but not the other, etc.) but for the purposes of this lab, as long as the matching process yields a data set with at least 250 players, you can move to the next step.</p><h2 id="db77c8fe-3342-4c63-ad49-729238fb9a38" class=""><mark class="highlight-blue">Step 3: Analyze the data in Tableau</mark></h2><p id="c649e5a5-ceb5-46e5-8dd3-d78c22a7dbd0" class="">Using Tableau, create charts to satisfy the project deliverables described earlier in this document. Images of these charts (screenshots or image exports embedded into the .pdf document you will submit) will be the final deliverables. As with all projects in this class, it is important that your results are well presented. Graphs should be easy to read and well labeled. Format them on the page so that they are well spaced out. Points will be deducted for sloppy submissions or results that are difficult to read or understand.</p></div></article></body></html>
