@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 3: Baby Names</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="69d678e9-3aa2-4a0b-a73a-fb1631baa6fa" class="page sans"><header><h1 class="page-title">Lab 3: Baby Names</h1></header><div class="page-body"><figure id="a70f2003-2911-4b40-ab73-812c644465c8" class="image"><a href="Lab%203%20Baby%20Names%2069d678e93aa24a0ba73afb1631baa6fa/baby.jpg"><img style="width:192px" src="Lab%203%20Baby%20Names%2069d678e93aa24a0ba73afb1631baa6fa/baby.jpg"/></a></figure><p id="0dce3997-87ab-43a3-b61f-823c89e1ca2d" class="">Each year after the Census Bureau releases its list of the names given to the babies born in the most recent year, it is common for the press to release a series of stories on <a href="http://time.com/5040377/top-baby-names-trends-2017/">baby names or trends in baby names</a>. It has also recently become a popular data set for <a href="https://news.ycombinator.com/item?id=9750795">teaching introductory data science</a>. In fact, one year after I created the original version of this lab in 2016, a <a href="https://cran.r-project.org/web/packages/babynames/babynames.pdf"><code>babynames</code></a> package was introduced to R which has the data pre-loaded for you. However, it is good practice for us to try loading these files on our own.</p><p id="52ad9019-c69e-4b54-bce3-068445164bd3" class="">This lab is meant for you to practice using R. You must submit it, but sample solutions will be provided on the second day of the lab, so completing and submitting the lab should be straightforward. You should focus in this lab on becoming more comfortable with R.</p><h2 id="cf3764b9-509d-4b34-94e2-7a26d018d303" class="">Data Downloads:</h2><p id="d2dec391-6d7d-423b-9ea3-f20cb072e3b6" class="">For this lab, you will need to download and unzip a file containing the <a href="https://upenn.box.com/s/bgo9aef8oid6366nrq53kk9tasol1rsz">Census Bureau baby names data</a>.</p><h2 id="7d7bffa1-72b9-4c58-9c60-abf7e828e768" class="">Data Description</h2><p id="a734d72e-db3a-47cc-b6f9-42d8cbeea8e1" class="">The data set is a zipped folder of .csv text files that contains the Census Bureau counts of names of baby boys and girls born each year from 1880 to 2014. These data include any name-gender combination for which there were at least five babies born in that year. There is a separate text file for each year from 1880 to 2014. For example, the file named <em>yob1942.txt</em> contains the counts of names for all boy and girl babies born in 1942.</p><p id="df94ca31-dc64-4762-b366-26b610c0cc3a" class="">Each row in a text file is of the format <em>[name, gender, count]</em>. For instance, some sample lines in the text file <em>yob1942.text</em> might be:</p><ul id="e5c3633c-4e35-4429-97e4-77a027070cc9" class="bulleted-list"><li style="list-style-type:disc">Mary, F, 7312</li></ul><ul id="bf9759c3-7838-4811-b6ac-54f7c78a0adb" class="bulleted-list"><li style="list-style-type:disc">John, M, 6400</li></ul><p id="97bddea6-70fb-4005-8951-cb963d1d1779" class="">The first line would indicate that 7,312 girls born in 1942 were given the name Mary. This lab asks you to use these data, along with R, to analyze how naming patterns in America have changed over the last 150 years.</p><p id="a4be782f-5fcd-499e-9543-2b099f69b68f" class=""><strong>Remember to keep all of your work in R-notebooks or R-scripts and to save frequently!</strong> <strong>NOTE</strong>: Many of the steps below can be <strong>combined</strong>, but I have tried to write them out to make them more clear, and I have tried to rely only on &quot;core&quot; R functions, which is what we have covered so far in class. There are also <strong>multiple ways</strong> to complete most of these objectives. Feel free to experiment with others.</p><hr id="ad4f82e2-962b-4973-b2f5-fca316d225af"/><h2 id="86ed2439-3a78-44e3-8c42-eda52a66e7e6" class=""><strong>Objective 1</strong>. Load the data files into an R data frame</h2><ul id="6840a0f3-795f-4d95-bb3d-ca814b8ccf03" class="bulleted-list"><li style="list-style-type:disc"><strong>Before you begin</strong>: Although the data are available from 1880 to 2014, it may take a long time for your laptop to load in the data for all of these years! I recommend starting with a more recent window – say, from 1970 to 2014 – or if that still takes more than a few minutes, an even more recent window. However, those of you with more powerful laptops may be able to handle the entire data set, and I have made all of the files available because it is interesting to see how baby naming patterns in the US were different before the numerous waves of immigration that changed US demographics during the twentieth century.</li></ul><ul id="7ccde5e1-93fa-4176-8eb9-b51738f15f4c" class="bulleted-list"><li style="list-style-type:disc">The data must first be read into a data frame in RStudio. The most efficient way to do this is to use a <code>for</code> loop to loop through all of the text files in the folder, read each into RStudio, and as you read each of them in, add them to a data frame. This is easiest if executed and tested in a series of steps. <strong>Note, although the steps are outlined below, the actual code for this Objective is provided for you after the steps are described.</strong><ul id="8039ade2-45b9-41bb-9556-9951a762ff14" class="bulleted-list"><li style="list-style-type:circle">Download and unzip the Census Bureau files, set your working directory to the folder where you have downloaded these files and use the <code>read.csv()</code> command to try reading a single .csv file into RStudio and assigning it to an object name. Check that it works as expected by examining the created object in RStudio.</li></ul><ul id="a60a051f-5186-44cf-8d4c-32e95d0e3b97" class="bulleted-list"><li style="list-style-type:circle">Create a data frame called <em>babynames</em> and set it to NULL.<p id="7e5364ff-1043-41a6-a388-420e80d6c051" class=""><code>babynames = NULL</code></p></li></ul><ul id="771284e6-818c-4cb5-b651-275a3fc00354" class="bulleted-list"><li style="list-style-type:circle">Create a vector containing the numbers 1880 through 2014 (or whichever years you have chosen), which are the years that you will need to loop through to read all of the files in the folder.</li></ul><ul id="f67f3a79-f6e4-4afa-9d73-e381db12e94a" class="bulleted-list"><li style="list-style-type:circle">Create a <code>for</code> loop that iterates through the values in the year vector from 1880 to 2014. As mentioned in class, there are very few reasons to use a <code>for</code> loop in R, but for our purposes it is clear in this context, you can use a function called <code>lapply</code> to skip the for loop.</li></ul><ul id="ab429d10-b352-4082-a1f4-72c474ad6238" class="bulleted-list"><li style="list-style-type:circle">Put the <code>read.csv()</code> command into the <code>for</code> loop. Use text string concatenation to create an appropriate file name to pass to the <code>read.csv()</code> command in each iteration of the loop.</li></ul><ul id="302123c6-0261-4e9c-a3d1-7618908e088a" class="bulleted-list"><li style="list-style-type:circle">The contents of each <code>read.csv()</code> command should be passed to a temporary data frame. To this temporary data frame, you should add a new column that contains the year of the file from which the data is drawn from (for all rows in the data frame). Then, $rbind$ the temporary data frame containing only the contents of the most recent file + the new column with the year of that file to the data frame <em>babynames</em> which contains the running total contents of all the files you have read up until that point.</li></ul><ul id="c777366a-f504-4300-a695-1e2c60e775b3" class="bulleted-list"><li style="list-style-type:circle">After the for loop is created, <em>babynames</em> should contain the data from all files, and each row should have an additional column containing the year of the file that the data came from. If you are using all the years from 1880 to 2014, you should end up with 1,825,433 rows. After you have completed the steps above, assign sensible column names to your data frame using the <code>names</code> command in R.</li></ul></li></ul><h3 id="8bb04ccf-7486-466a-a3d0-2207f4f1270f" class="">To get you started quickly, I have provided the code to load in the files. If this works and makes sense, you can begin with Objective 2.</h3><p id="4d2a49ba-6844-40f1-b1a4-6cac933d76fe" class="">Set your working directory to the folder where the name files are located on YOUR computer.</p><p id="c29a884e-d8a0-4bc5-9de0-e4e479058d0f" class=""><code>setwd(&quot;~/Dropbox/Teaching/oidd245/labs/baby/data/&quot;)</code></p><p id="a137db3f-e973-4ada-abb0-37b85a3a71fd" class="">Because we are going to append rows to this dataframe, we need to start with an empty initial dataframe.</p><p id="6c279e6a-44b5-46bf-afea-27f1020a736d" class=""><code>babynames = NULL</code></p><p id="7b97edc9-697e-452b-8049-1eb0ff7a9eb4" class="">For loop to read in the file and append it to a “running total dataframe” called babynames. If loading in the data set is taking too long, you may want to change 1950 to something more recent.</p><p id="90db1a07-e5e8-472a-a73a-1f3c762442ae" class=""><code>for (year in (1970:2014)) {
+    foo = read.csv(paste(&quot;yob&quot;, toString(year), &quot;.txt&quot;, sep=&#x27;&#x27;), header=FALSE)
+    babynames = rbind(babynames, cbind(foo, year))  
+}</code></p><ul id="d8dc4fb1-1249-4056-a544-baf149d37436" class="bulleted-list"><li style="list-style-type:disc"><strong>NOTE</strong>: If you have never written a <code>for</code> loop before, or are new to programming, this first step can easily take a large portion of the first class day (and yet only produce a few lines of code), and that is okay! It is worth spending time on this to understand how it is working, and after this step is completed, the rest of the lab goes more quickly. If it is still not clear to you what is happening in the <code>for</code> loop, <a href="http://tambep.github.io/files/loop.html">you can find a more thorough explanation here</a>.</li></ul><hr id="966edf01-edcb-421c-809f-82cc1cd1061a"/><h2 id="e059c96f-6d20-4bf0-a15a-49c046b850e9" class=""><strong>Objective 2</strong>. Plot how the popularity of your own name has been changing over the years</h2><p id="8de3b6cd-bd65-478a-a114-da6de429367a" class="">You should now have available in your RStudio environment a data frame containing the counts of all name-gender combinations in each year from your beginning start year to 2014.</p><ul id="c63550b0-3af0-442a-8891-0a866910a670" class="bulleted-list"><li style="list-style-type:disc">Plot how the number of people in the data set that share your name and your gender varies from year to year. If your name does not appear in the data, use the name of a lab partner (or choose your favorite)!</li></ul><ul id="35b7c14b-daf1-4fc3-9eb7-40b9f47ca0ba" class="bulleted-list"><li style="list-style-type:disc">To complete this objective, first create a new data frame <em>myname</em> that contains only the rows from <em>babynames</em> that match both your name and gender (use the <code>which</code> command in R to do this). Then, from <em>myname</em>, plot counts against years for the data, and don&#x27;t forget to label the axes and give a sensible title to your plot.</li></ul><hr id="da405bd1-0e90-4e5e-99c4-d95dab1f4bf3"/><h2 id="c61d415e-88ed-4cdc-b060-7a0023d8e283" class=""><strong>Objective 3</strong>. Visualize the growth in girl names from 1880-2014</h2><p id="8de78dba-6d77-4649-9855-b50a8151eb77" class="">Create a plot of the number of different baby girl names in each year from 1880 (or whatever you have chosen as the initial year in your data set) to 2014. Plot the number of different names there are for girls reported by the Census Bureau in the data each year. In other words, no matter how many girls have a given name, it should only count as one name.</p><ul id="617f60ed-cb45-4ffb-965e-8e7378987467" class="bulleted-list"><li style="list-style-type:disc">First, create a data frame that only includes baby girl names for each year.</li></ul><ul id="4330bb76-6d6c-4346-a300-5a693623ee69" class="bulleted-list"><li style="list-style-type:disc">Then, the <code>table</code> command is a useful way to compute the number of names for each year in your data frame.</li></ul><ul id="f00062fc-687f-49c2-bed8-2ce81570257b" class="bulleted-list"><li style="list-style-type:disc">Plot the results.</li></ul><p id="c416a2aa-974a-4dd6-83b3-7cc50795c755" class="">It may be interesting to visually compare the results with the following image.</p><p id="a45b0073-1c05-4f1e-a963-f78aa731909f" class="">
+</p><figure id="f2c64da4-b5a0-410f-8873-a584b14defd8" class="image"><a href="Lab%203%20Baby%20Names%2069d678e93aa24a0ba73afb1631baa6fa/annualimmigration.jpg"><img style="width:961px" src="Lab%203%20Baby%20Names%2069d678e93aa24a0ba73afb1631baa6fa/annualimmigration.jpg"/></a></figure><p id="5df3a952-596b-47be-9cd1-f6edbc03fea4" class="">
+</p><hr id="ff6df66d-b45a-4c86-a2cd-4e0f4d54aaa0"/><h2 id="b0d61450-3922-4caf-af50-9a05446689d6" class=""><strong>Objective 4</strong>. Write a <strong>function</strong> to generate the most popular names for a given gender and year</h2><p id="a76509f3-eed6-4870-9fd4-9f0956827927" class="">Write a function <code>toptennames</code> that takes two arguments, gender and year, and returns the top ten names for that gender in that year. This function should:</p><ul id="b0b6df01-5d4f-48c6-a679-08a2d783c10d" class="bulleted-list"><li style="list-style-type:disc">Create a new data frame <code>ttn</code> containing only rows that match on gender and year.</li></ul><ul id="241e9f08-dec0-4625-934d-eb1c453536c0" class="bulleted-list"><li style="list-style-type:disc">Use the <code>order</code> command to reorder <em>ttn</em> so that it is decreasing by counts.</li></ul><ul id="2c762c1b-1176-4cd6-a843-968a77b757c3" class="bulleted-list"><li style="list-style-type:disc">Return the top ten rows of the reordered data frame.</li></ul><p id="403c5cfd-b72c-491d-b312-01b27bccaeae" class="">After running your function, test it by calling it on girl names for the first and last years that appear in your data set:\</p><p id="d0b94c36-1730-4b08-83c0-0ee729811f6b" class=""><code>&gt; print(toptennames(1880, &quot;F&quot;))
+&gt; print(toptennames(2014, &quot;F&quot;))</code></p><hr id="e92c85cb-96cc-415b-8f29-fc700c1f2067"/><h2 id="f7158b15-8b8a-4ab1-b60d-77af0025cab0" class=""><strong>Objective 5</strong>. Compute the most gender-neutral names</h2><p id="fe2b488e-7fe8-4ec6-944d-7e053f0db915" class="">Generate a list of the ten names that, in 2014, were relatively popular for both baby boys and baby girls. To do this, use the following condition: for names for which there are at least 1000 people in the year with that name (including boys or girls), compute the difference between boys and girls with the name. Then, we will call those names with the smallest magnitude difference between the two the most “gender neutral” names. This is not the best definition of gender-neutral, but it is a definition and is straightforward to implement.</p><p id="8fe687dd-39e5-4467-b3ff-739f55705647" class="">To complete this objective:</p><ul id="01ec0e4a-63d8-4d4e-9350-1b4743330650" class="bulleted-list"><li style="list-style-type:disc">Keep only rows from 2014.</li></ul><ul id="78cd4a0f-6100-47a2-bf2d-1c6b7536529b" class="bulleted-list"><li style="list-style-type:disc">Create a data frame <em>male</em> with only boy names and their counts.</li></ul><ul id="b045c4d7-d631-4bd0-9d4e-7f889193bf67" class="bulleted-list"><li style="list-style-type:disc">Create a separate data frame <em>female</em> with only girl names and their counts.</li></ul><ul id="fdaaefa8-84ee-457d-b73a-c2d8b2c19481" class="bulleted-list"><li style="list-style-type:disc">Merge the two data frames on name.</li></ul><ul id="15ff0735-0cfb-47fa-8a06-2824001399e0" class="bulleted-list"><li style="list-style-type:disc">Keep only those rows where the <strong>sum</strong> of counts for boys and girls is at least 1000.</li></ul><ul id="4fb40682-041a-41cd-b5e6-2b24ef7986d9" class="bulleted-list"><li style="list-style-type:disc">Compute the absolute value of the difference between counts of boys with the name and counts of girls with the name.</li></ul><ul id="d5a202f9-92ba-4c24-8ca5-b5fb6a239923" class="bulleted-list"><li style="list-style-type:disc">Use <code>sort</code> or <code>order</code> to sort the data frame by the absolute value you just computed.</li></ul><ul id="4dbcb9a2-d5c1-4fd8-b605-c0744695de31" class="bulleted-list"><li style="list-style-type:disc">Use <code>head</code> to find the top ten gender neutral names.</li></ul><hr id="8939dde7-1d46-4249-89a0-80f5e71a6d79"/><h2 id="30079432-02d7-4cf0-95b1-67ae6c5f99e9" class=""><strong>Objective 6</strong>. Convert your code into Python</h2><p id="fcd4d8d5-e2ce-4e0c-a04b-669ef64ef7cb" class="">Ask <a href="https://chat.openai.com/chat">ChatGPT</a> to take the code you developed for Objective 1 — including setting your directory path to the proper place and running through the for loop — and convert it into Python. Then, put it in a Python script file in RStudio as will be demonstrated in class, and test the output to ensure that it works. You can check the length of a list in Python using the len() command.</p><p id="c35166c5-6b0a-4629-ad7b-6a6cc5684530" class="">Now, for fun (!), use ChatGPT to <a href="https://julialang.org">convert your code into Julia</a> and into <a href="https://www.scala-lang.org">Scala</a>, which are other popular data science languages (but there is no need to test if they work).</p><ul id="a8e10c78-2630-427d-945a-67f29f08dc68" class="bulleted-list"><li style="list-style-type:disc">How do you think the emergence of large-language models like ChatGPT will impact the demand for what we refer to as “coding” skills?</li></ul><ul id="acab4b55-530c-4e5e-a9fa-ef1c676065c8" class="bulleted-list"><li style="list-style-type:disc">As these tools become increasingly widespread, which skills do you think will become less valued in the technical community and which skills will become more valued?</li></ul><hr id="61a61ef2-bd3d-4a2b-bef3-c73b223aa8cd"/><h2 id="78e3ad76-4ec5-4eda-ba0f-b27bd99d3f01" class="">EXTRA CREDIT.</h2><p id="2ead9392-6d62-46d7-8161-f5faf7d7525d" class="">Now, turning back to R, attempt to “prompt engineer” ChatGPT to aid you in creating the R-based solutions for Objectives 1 through 5 above from scratch (i.e. without asking it to convert existing code). For credit, provide screenshots of the prompts you use and the R-based output it generates, and demonstrate that the code — or an edited version of it — works.</p><ul id="bbc3bab3-c39b-4549-a3e2-20fe0f283444" class="bulleted-list"><li style="list-style-type:disc">When creating code from scratch in this way, which tasks become faster?</li></ul><ul id="853eb6e4-130b-4241-90a9-568fff7600dc" class="bulleted-list"><li style="list-style-type:disc">On which tasks do you find yourself spending time instead?</li></ul><p id="9bfb890a-eabe-49a3-a081-be414eec829c" class="">
+</p><p id="79f722d5-8bcb-46e5-8346-1d6a512a828f" class="">
+</p><p id="fea3a2d1-f683-4c45-98aa-c7eacd67b631" class="">
+</p></div></article></body></html>
