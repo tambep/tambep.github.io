@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Datathon 1. Speed Dating</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1e093f1d-09ef-4aa5-a3dc-99635a9e186f" class="page sans"><header><h1 class="page-title">Datathon 1. Speed Dating</h1></header><div class="page-body"><h3 id="4dd84c8c-87ed-47ad-9f96-8185123f4768" class="">OIDD 2450 Tambe</h3><p id="e2e76dff-b424-4287-a0e7-28f8b0db8863" class="">
+</p><figure id="c3034992-43e2-4c0e-8dbf-bf7086dc8396" class="image"><a href="Datathon%201%20Speed%20Dating%201e093f1d09ef4aa5a3dc99635a9e186f/SpeedDating.jpg"><img style="width:770px" src="Datathon%201%20Speed%20Dating%201e093f1d09ef4aa5a3dc99635a9e186f/SpeedDating.jpg"/></a></figure><h2 id="47708b8c-2ea4-42de-8f79-ac27f78a68ab" class="">What is a datathon?</h2><p id="23561c09-3ed0-40ee-8cdc-b169e8b6e580" class="">A datathon is a timed workshop that asks researchers to turn information into knowledge. It’s a format modeled after hackathons. The difference is that datathons use research questions and datasets to advance knowledge, not to launch apps or new software. At a datathon, participants work in teams to frame a research question, create and implement a research design, mobilize data resources and present their findings.</p><p id="4d864bf1-b3ea-4c77-822d-2a88c79f2c90" class="">They are becoming increasingly common for the following reasons:</p><ol type="1" id="9d6133ea-3e11-499f-8734-42906f130528" class="numbered-list" start="1"><li>Companies want to get people to work on their data and data problems</li></ol><ol type="1" id="3cb7ff94-352e-4d33-b0bc-70f39c55db0e" class="numbered-list" start="2"><li>Companies want to find smart people to hire</li></ol><ol type="1" id="9daf65b5-cbab-4a2e-bc2a-8f6abd690d83" class="numbered-list" start="3"><li>Companies want to brand themselves as having interesting data and problems on which to work</li></ol><ol type="1" id="571806c1-e0c7-422b-a987-a29c2a277470" class="numbered-list" start="4"><li>They are a good learning and community building exercise</li></ol><h2 id="9af72f80-e67e-4358-97da-e201b1c85041" class="">Key objectives of our datathons</h2><ul id="d279fefd-9bb7-4fd3-a429-225448c21fd2" class="bulleted-list"><li style="list-style-type:disc">To reinforce technical skills in a realistic setting.</li></ul><ul id="8ecbea72-6717-418a-8e73-ff47500199e9" class="bulleted-list"><li style="list-style-type:disc">An <em>open*</em> question format that simulates a data interview. (see below)</li></ul><ul id="14607a93-7056-42d0-b68b-21bf3c21bdad" class="bulleted-list"><li style="list-style-type:disc">To consider the mix of skills required for data science work.</li></ul><h2 id="f1d4bf00-1656-4271-b826-3be85db4ed5d" class="">Data-driven interviews</h2><p id="ce50d48d-2d48-40c9-9d50-295d902372d8" class="">The data-driven interview is an interview format that is becoming increasingly common. In such contexts, or in data consulting exercises in general, you are not given structured goals. Rather, you are given data sets, and asked to do something with it. Deciding what to do can be as hard or harder than the technical data work and often draws heavily on your <strong>domain expertise</strong>.</p><blockquote id="69b88f48-3c52-4ea4-8c0b-0defecef488f" class="">At Jawbone, Rogati said each applicant for data science jobs at Jawbone gets three hours to make sense of mixed-up company data sets. The test can reveal if candidates possess “applied skills,” she said, not just statistical know-how.</blockquote><p id="71b15220-62b8-4f4f-a8eb-9e5c432e6807" class="">Applied skills are becoming increasingly important. The following <a href="http://datascopeanalytics.com/blog/six-qualities-of-a-great-data-scientist/">article</a> (read it outside of class, if you are interested) lists the following important skills for a data scientist.</p><ol type="1" id="708574bf-c7f8-47fb-b34c-f48a341e3817" class="numbered-list" start="1"><li>Statistical thinking</li></ol><ol type="1" id="974b763d-d624-4556-b7ba-05bbae658bef" class="numbered-list" start="2"><li>Technical acumen</li></ol><ol type="1" id="9641beb7-a056-4442-a5f7-55d25c6d56c5" class="numbered-list" start="3"><li>Multi-modal communication skills</li></ol><ol type="1" id="246e6833-5a3d-465b-803d-ffdd318d8679" class="numbered-list" start="4"><li>Curiosity</li></ol><ol type="1" id="20662c07-38cf-488b-b5f4-1be5dc720c4c" class="numbered-list" start="5"><li>Creativity</li></ol><ol type="1" id="4c7069aa-3f47-4b50-ad26-834446e63eda" class="numbered-list" start="6"><li>Grit</li></ol><p id="b05b4efc-0463-4967-a9bb-49bfcf2a7c90" class="">Note the importance of non-technical skills on this list. The answers come from the data, but the questions have to be formulated by the data scientist, and that requires some knowledge or expertise about the domain.</p><h2 id="cb512f55-19de-4f26-a9c9-be3b0e66d166" class="">Ground Rules</h2><ul id="e09a9d8d-60c6-470d-aa0b-2617c3573a1f" class="bulleted-list"><li style="list-style-type:disc">Use only the data sets you are given.</li></ul><ul id="6e1a3cd5-e637-4542-92e8-fe3134277c0b" class="bulleted-list"><li style="list-style-type:disc"><strong>It is recommended that you use Tableau for this exercise</strong>. Future datathons will be focused on R, but this exercise was designed to get you accustomed to the datathon idea. It is about conducting exploratory data analysis; it does not require any statistical tests or data modeling.</li></ul><h2 id="c3cc77ae-8a62-4f4f-96d3-a648eb24f811" class="">Data Context</h2><p id="3c62cedd-a7c4-47cd-b94a-ace4775cbeba" class="">The data set for this exercise was generated from “speed dating” events conducted at Columbia University. In general, data on dating has provided significant raw material for data analysis. For instance, a leading data science team, <strong>OK Cupid</strong>, <a href="http://oktrends.okcupid.com/">maintains a widely read blog of what it finds in its data</a>. Obviously, people are interested.</p><h2 id="da48ca98-229d-40f1-bae2-f6d3dca7b23c" class="">Deliverable</h2><p id="92c72597-1fe4-48da-b44f-81901e3581eb" class="">In this exercise, you are asked to generate and illustrate a finding that others might find interesting. In other words, generate a finding (i.e. a story and supporting visualization) that might be &quot;blog-worthy&quot;. The output should be <strong>single</strong>, well-labeled image or set of images (collected into one graphic) and a brief description of what it shows.</p><p id="cd914355-d415-4ab4-970f-d3f90a09b311" class="">Please submit your entry sharp by the time listed on the board. You should submit your visualization by uploading a screen shot of your image to a slide at the appropriate link (will be announced in class) and you include a brief title and the names of the people you worked with on your slide. Alternatively, you can “export” the image from Tableau and upload it.</p><p id="a788f5cb-b5cf-41b8-b984-50ef8930b8f6" class="">You will likely be asked to do an informal, <strong>less than 60 second presentation</strong> of your entry at the beginning of the next class session. A winning entry will be chosen from the presentations through an anonymous class poll.</p><h2 id="f1269acd-5e88-44db-9744-dc37da7c8a31" class="">Data Sources</h2><p id="6926847c-47a2-4ec1-a753-d3507fa351ed" class="">There is only one data source to be used for this exercise, which is the <a href="https://upenn.box.com/s/88eese67e3wwwk3blq9g6qyqpvv0js3f">speed dating data</a>. However you will also need an additional word document which contains <a href="https://upenn.box.com/s/l8fks2dl902zozq0llgimeviir39b39o">information about the fields in the data</a>.</p><p id="2833065b-72f8-4bb9-8002-e0e8c2c7608c" class="">Participants in these speed dating trials engaged in four-minute conversations to determine whether or not they would be interested in meeting one other again. There is a row for each meeting between two individuals, partner ratings, correlation in interests between the two people, as well as information about whether a match was made, and what order the meeting was in the sequence. Moroever, the participants were surveyed so there is data about their major, their hobbies, their preferences, hometown, race, and so on as well as how they rate themselves in terms of attractiveness, how often they go out on dates, what they value in a date, and other similar assessments.</p><h2 id="d8b4c7f2-4739-4af3-abc2-6c8eee3c30d7" class="">Teams</h2><p id="54848ec3-57de-40ce-917e-6980adbd0153" class="">For this exercise, working in teams is required, and you will be assigned to groups!</p><h2 id="0ef515ec-963e-4b02-a6bc-c788f14ae8b8" class="">Tips</h2><ul id="12511d17-fc85-4618-9947-4e8a0aa83db1" class="bulleted-list"><li style="list-style-type:disc">There is too much data here to evaluate all the possibilities, given the time constraints. A good strategy is, along with your team, to settle on two or three “stories” in the data that seem promising. Narrow your focus to the few fields required to support those stories and ignore everything else.</li></ul><ul id="cb5ab086-21a9-4980-aac3-8317e41ba0b4" class="bulleted-list"><li style="list-style-type:disc">Start with simple ideas, try to execute it in the data, and progressively add complexity as time permits.</li></ul><ul id="4c054383-78f7-4717-9caa-766987f33f6b" class="bulleted-list"><li style="list-style-type:disc"><strong>Good stories matter</strong>. In general, a clever idea and a little bit of “domain expertise” is at least as important as data skills, and probably much more so!</li></ul><ul id="3cd139c8-14d6-4b55-81bd-119dbd7c0039" class="bulleted-list"><li style="list-style-type:disc">Some say that effective data science teams require a journalist, a data scientist, and a data visualization expert. For efficiency, you may want to think about having some of these tasks done in parallel (to the extent possible) by members of your team.</li></ul><ul id="b65ac7d8-4652-4aa2-84a2-2efc444bc579" class="bulleted-list"><li style="list-style-type:disc">Good visualization matters! Try to leave yourself time to present your findings in an attractive and compelling way.</li></ul><h2 id="e769bd96-2291-4218-91d0-6493d1b418b8" class="">Have fun!</h2></div></article></body></html>
