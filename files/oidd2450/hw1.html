@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Homework 1: Rats!</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="db8058c4-c125-4102-8c3d-cc899b860846" class="page sans"><header><h1 class="page-title">Homework 1: Rats!</h1></header><div class="page-body"><h3 id="212c9c49-4c48-4a2c-9852-a8bc6c01c328" class="">OIDD 2450 Tambe</h3><figure id="fe879b2b-621c-4443-bdfe-382854b335fc" class="image"><a href="Homework%201%20Rats!%20db8058c4c12541028c3dcc899b860846/rats.jpg"><img style="width:315px" src="Homework%201%20Rats!%20db8058c4c12541028c3dcc899b860846/rats.jpg"/></a></figure><h2 id="3b406fc6-ada7-4c18-880a-ce987efdde73" class="">Due Dates</h2><p id="5b28af6b-1946-4aa2-a095-cacb106ad114" class="">This assignment should be submitted through Canvas.</p><p id="e9cc99ea-9f51-4f34-9bae-f0abcd205705" class="">You may <strong>NOT</strong> work with others on this assignment. However, you can ask the TAs or I for help as needed. <strong>If using Slack, directly message us rather than posting to a public channel</strong>. It is best <strong>not</strong> to put this assignment off until very close to the due date. These data sets are large, so it can sometimes take more time than anticipated to process and work through them.</p><p id="f3a68ed5-e11f-4310-8e42-5cd3b5844156" class="">This is a good assignment on which to use R scripts or R notebooks, and a good opportunity to learn about them if you have not been using them already. You should complete the entire assignment using either R scripts or an R notebook. If you use an R-script, please also create a separate document (which you should ultimately convert to a pdf) that includes answers to the questions that are being asked, including any relevant charts, and submit both documents to Canvas. If you are using an R notebook, you have the option of trying to <code>knit</code> the notebook to create a Word document (which you should convert to a pdf) or .html file that you can submit along with your R notebook. You are encouraged to use <em>any and all R</em> packages that you think might be useful for completing this assignment, even if we have not covered them in class.</p><p id="5ab01227-d154-4d5b-8510-914a35e155be" class="">As you read through the assignment, I would recommend following each of the links (i.e, clicking on them). They provide important background context.</p><h2 id="8e85686a-816c-4cfc-a472-5b4600b3cb7f" class="">Data Context</h2><p id="069d13d3-b6aa-4f73-8053-472cdb5856ac" class="">An interesting application of big data in the public sector is for optimizing the use of constrained government resources.</p><p id="50905b47-976f-40db-8f7f-e7d107863051" class="">A recent example of this from NYC was a Department of Health initiative to target restaurant inspections by data mining <a href="http://www.fastcompany.com/3031043/fast-feed/new-york-city-is-using-your-yelp-reviews-to-find-health-code-violations">Yelp reviews to find which ones mentioned roaches</a>. More generally, government agencies and corporations are realizing that bottom-up, crowd-sourced data collection is a good way to gather some types of important data that were previously difficult or too expensive to collect accurately.</p><p id="5951613b-10dc-494d-ab68-3d8900bbd60c" class=""><strong>A more recent </strong><a href="http://www.cbsnews.com/news/in-battle-of-nyc-vs-rats-the-rats-appear-to-be-winning/"><strong>scourge on cities has been RATS</strong></a><strong>.</strong> Surprisingly, NYC is NOT the most rat-infested city in the US. Perhaps you can <a href="http://www.dailymail.co.uk/news/article-4169476/Philadelphia-rat-infested-city-US.html%250A">guess which one is</a>. For this exercise, however, we will use data from NYC, simply because it collects particularly good city data through their open data initiatives. In NYC, rodents have commanded attention from government offices and from the press and the community (in part fueled by viral videos like <a href="https://www.youtube.com/watch?v=UPXUG8q4jKU">pizza rat</a>; more recently <a href="https://www.buzzfeednews.com/article/laurenstrapagiel/fat-rat-germany-sewer">chubby sewer rat</a>). In New York, the resurgence of rats in the city has been a result of many forces, including population growth, construction, and trash pickup problems, and even global warming, as many would argue, that a major <a href="http://www.nytimes.com/2013/02/07/nyregion/after-storm-rats-creep-inland.html?_r=0">redistribution of water rats that occurred as a result of Hurricane Sandy</a>, which hit New York City on October 29th, 2012. (In Philadelphia, some have argued that gentrification-related rebuilding is having a similar effect in terms of displacing rats around the city).</p><p id="3a197890-1256-43da-92f1-d9877d20674d" class="">Like other vermin, rats are difficult to detect and they vastly outnumber rodent inspectors and the resources that the city has available for monitoring. In fact, some estimates have put the number of rats in New York city at about one per person (i.e. slightly over 8 million) <a href="http://www.nytimes.com/2014/11/06/nyregion/8-million-rats-in-new-york-data-suggest-that-legend-is-flawed.html?mtrref=www.google.com&amp;gwh=8215B7A7A8033E6386A29E6C0F5F6AC8&amp;gwt=pay&amp;assetType=nyt_now">although these estimates are controversial</a>. Nevertheless, there is little debate that rats remain a significant problem for residents of the five boroughs. As in the Yelp-roach-restaurant inspection example provided above, the goal of this assignment is uncover some temporal patterns in rat problems in the city, and to use prediction based techniques to investigate if the city&#x27;s <em>restaurant</em> inspection activities (which are separate from their rodent inspection activities) can be useful for targeting rodent inspections. <a href="https://www.atlasobscura.com/articles/paris-rat-map">Other major cities</a> are also using crowd-sourcing efforts to fight this menace.</p><p id="ab1197b2-271c-4e73-a5e8-a71a440527c8" class="">In addition to the NYC rodent inspection data, we will use data on <a href="http://www.wired.com/2010/11/ff_311_new_york/">NYC 311 calls, which are a fascinating source of information on New York City</a> as well as the NYC restaurant health inspection data. All of these stakeholders–rodent inspectors, restaurant inspectors, and citizens–can be valuable sources of information about which parts of the city have rat problems. Note that these data sources are not &quot;independent&quot;. Many of the inspections in the rodent inspection database are initially undertaken due to 311 complaints.</p><h2 id="378add52-f1d0-4b05-aa0e-026669a5c45f" class="">Deliverables</h2><p id="b4a184d1-9e92-4c5b-99d5-6c7bfff4074c" class="">There are two deliverables for this assignment. You should submit an R-script or R-notebook with the R code that you used to complete the project. You should also <code>knit</code> the output of the code into a report in .html format or if using an R-script, create a Word document with your answers and supporting figures. The R files should be well-documented with comments so that it is clear what you are trying to do. Although you will not be graded on the efficiency of your code, this project is an opportunity to spend a few extra minutes to think about how to keep your code organized and easy to follow. This includes choosing good variable and file names, which will ultimately save you time in a project such as this one. A key learning objective of this homework is gaining experience building and managing a larger R-based project.</p><h2 id="30050b14-ae42-447a-a232-5281f6b699e3" class="">Data sources</h2><p id="2b26a720-b558-4a62-b909-6398259aab51" class="">You will need to use the following <strong>three</strong> data sources to complete this homework. These data sources are all available through <a href="https://nycopendata.socrata.com/">NYC Open Data</a>, but are also made available through the following links.</p><ol type="1" id="05ae116c-0cc5-4b58-a399-3dab594d71c6" class="numbered-list" start="1"><li><a href="https://upenn.box.com/s/ev3q1fn8i5upfc7uqgx6jalria5z1agq">NYC Rodent Inspection Results</a> (211 MB). This is the main data source and there is <a href="https://data.ny.gov/Health/Rodent-Inspection/p937-wjvj/about">information about these data</a> located here.</li></ol><ol type="1" id="88c0e433-1d1a-4879-acd8-cac1b43a3dd5" class="numbered-list" start="2"><li><a href="https://upenn.box.com/s/nlu1qpebak05h0w7e1a74phf05jkjiow">311 calls that occurred around the time of Hurricane Sandy</a> (38 MB).</li></ol><p id="56369da1-1b10-4123-bc1a-b0ad0ade7e08" class="">3a. If you are using a <strong>Mac</strong>, use these <a href="https://upenn.box.com/s/4yomginsuuwx0ja2mncvs96zcv9zfhtq">NYC Restaurant Inspection Results</a> (169 MB). If you are using a <strong>PC</strong>, use these <a href="https://upenn.box.com/s/sucpilouqv4eoxv4lq9g1nypfg92lesv">NYC Restaurant Inspection Results</a> (102 MB).</p><h1 id="d6425dad-6a46-40ec-bb41-df27d4db9e88" class="">Objectives</h1><h2 id="0142f0ba-2b6c-4dda-ae16-3cdb551f7a17" class="">Part 0: File setup</h2><p id="691b1b83-adcc-45af-bc64-9b79aa4d10cf" class="">You should begin by running the following code snippet.</p><p id="866df47f-df10-4479-aab9-2f7deb7754d0" class=""><code>install.packages(TeachingDemos)
+library(TeachingDemos)
+library(dplyr)
+library(readr)
+
+rod.inspection = read_csv(&quot;&lt;put in location of the rodent inspection data file on your computer here&gt;&quot;)
+
+# In the line below, change &quot;Jack Black&quot; to your own name
+myname = &quot;Jack Black&quot;
+
+# Then run the following lines
+set.seed(char2seed(myname))
+rod.inspection = sample_frac(rod.inspection, .8)
+rod.inspection = rod.inspection[, sample(1:ncol(rod.inspection))]</code></p><p id="211f7236-250a-4af0-9771-5faf679a6df0" class="">Now you are ready to begin the assignment. Please use the <code>rod.inspection</code> data frame for the parts below. Feel free to rename it if it is convenient.</p><h2 id="9a4f07d4-a635-475c-b7a6-2ecf3f905903" class="">PART 1. Descriptive Statistics and Figures.</h2><p id="38f18ddb-03df-42e4-ae75-d18c8db57826" class="">a. Using the rodent inspection data frame that you just generated, create a line chart illustrating, for each of the five NYC boroughs, how rat sightings (inspections yielding Active Rat Signs) have been changing from <strong>month to month</strong> over the most recent five years that are available in the data set (i.e. each tick mark on the x-axis should be a single month for a single year, so with five years of data, there will be sixty ticks on the x-axis). (The <code>lubridate</code> and <code>zoo</code> packages in R are useful for working with dates. <code>stringr</code> can help when working with strings). You can create one line chart with a different line for each borough, or you can create five different line charts, one for each borough.</p><p id="96cd010f-f248-44e5-ac45-47b5185e6c55" class="">b. In general, have rat sightings been increasing, decreasing, or remained steady over this five year window? No need for analysis for this question. Just eyeball the charts you created and provide your answer.</p><p id="ba769a5c-10ba-49ca-9796-780d921a803e" class="">c. Are there seasonal trends in rat sightings? Are there more rat sightings in some months than others? Again, just eyeball the charts you created in part (a) to provide this answer.</p><p id="86b68933-8dda-4431-bb76-b8a6e138ee7f" class="">d. Generate a similar plot illustrating “efficiency” of rat inspections where efficiency for any given month is computed as the number of inspections yielding “Active Rat Signs” in that month divided by the total number of inspections that take place in that month. Again, you can create a line chart for each borough or you can put the lines for all five boroughs on the same chart.</p><p id="98d6eb50-319b-44c8-9ad4-20fa18fde224" class="">e. Generate a list of the top ten zip codes with the largest number of inspections yielding active rat signs. You do NOT need to create a chart or map, but you are welcome to try. If you want to do so, there are a number of R packages that enable mapping, including <code>ggmaps</code>, <code>rmaps</code>, <code>leaflet</code>, and <code>maps</code>.</p><h2 id="3611651f-fcc1-4d12-b425-0d99923653f5" class="">PART 2. The 311 data.</h2><p id="cbb50a91-acf5-47bf-a488-fa3ef36d4b63" class="">a. Create a chart of phone calls about rat/vermin sightings in the weeks before and after Hurricane Sandy (Oct 29, 2012). To identify these, use the ‘Complaint Type’ tag “Rodent”. There is not a lot of data from the before period, but based on what you have, do these data suggest that Hurricane Sandy led to an increase in the daily numbers of rodent sightings on the island? No formal statistics are needed in your answer to this part.</p><p id="45701d23-9568-4d14-be8b-85f3b965abe3" class="">b. Now we will begin to explore the idea of using other “proxy” indicators as a predictor of Rodent problems.</p><p id="818862dc-671c-49fb-a807-cfafc8a1bca2" class="">Imagine that it would be useful, to know what <em>other</em> types of complaints are most highly correlated with Rodent complaints. This would allow us to identify which other complaint types are the best predictors of Rodent sightings when the Rodent data are unavailable. Using the 311 data, report a table of correlations between Rodent complaints and the <strong>top fifteen</strong> types of non-Rodent related complaint types, where the correlations of interest are between the counts of complaints of each type across the different zip codes in the data set (and where top fifteen is according to total counts of complaint types in the 311 data set). <strong>Across all zip codes, what two types of other complaints are most highly correlated with Rodent sightings?</strong> Although you can approach this question anyway you like, some suggested steps are shown below if you are having trouble.</p><p id="6b45ce8f-c2ef-4059-afec-3d05ba755941" class=""><strong>Step 1</strong>. Identify the top 15 non-rodent complaint types by the number of complaints.</p><p id="d385e3fd-597a-406f-88e7-c84f025173d1" class=""><strong>Step 2</strong>. Using the 311 data, for the top 15 complaint types as well as the Rodent complaint type, create a data frame of counts by complaint type and zip code. The top few rows of such a data frame are shown below.</p><table id="9e2a2452-d5b6-40a6-84f3-1e9606eda655" class="simple-table"><tbody><tr id="f4e61854-965c-49fe-aa0f-691d7bc6ab8a"><td id="tCCu" class="">Zip code</td><td id="@^kT" class="">Complaint type</td><td id="d`pE" class="">Counts</td></tr><tr id="e217ad6d-0c16-46fb-9a2f-dc9985773341"><td id="tCCu" class="">10001</td><td id="@^kT" class="">NONCONST</td><td id="d`pE" class=""># Counts</td></tr><tr id="3df6e9c4-4f59-40a9-b8e2-271b1fb119d1"><td id="tCCu" class="">10001</td><td id="@^kT" class="">SEWER</td><td id="d`pE" class=""># Counts</td></tr><tr id="754d2073-c026-41e9-b5ae-d63709ea3f01"><td id="tCCu" class="">10001</td><td id="@^kT" class="">PLUMBING</td><td id="d`pE" class=""># Counts</td></tr><tr id="2cc9113e-2dc2-45d5-9a51-790ac0fc28f6"><td id="tCCu" class="">10001</td><td id="@^kT" class="">RODENT</td><td id="d`pE" class=""># Counts</td></tr></tbody></table><p id="82a8891c-e7d4-4902-a5a0-dba2b61d13b1" class=""><strong>Step 3</strong>. Convert your data into the type of format shown in the table below (of course, with all fifteen complaint types and a longer list of zip codes). The <code>spread</code> function in the <code>tidyr</code> library can be useful here.</p><table id="c79eb3ed-e842-43d6-b7cd-2042ad48d82a" class="simple-table"><tbody><tr id="67d02a9b-39a8-4e14-8749-680e2e4c6b7d"><td id="?I~\" class=""></td><td id="U@V=" class="">NONCONST</td><td id="Q=xx" class="">SEWER</td><td id="GToP" class="">PLUMBING</td><td id="ry~W" class="">RODENT</td></tr><tr id="a87c2e79-f6f9-440c-ae0a-741d2eaf4dd3"><td id="?I~\" class="">Zip code 1</td><td id="U@V=" class=""># Counts</td><td id="Q=xx" class=""># Counts</td><td id="GToP" class=""># Counts</td><td id="ry~W" class=""># Counts</td></tr><tr id="c3e5e881-98db-4c49-8789-249babd4c105"><td id="?I~\" class="">Zip code 2</td><td id="U@V=" class=""># Counts</td><td id="Q=xx" class=""># Counts</td><td id="GToP" class=""># Counts</td><td id="ry~W" class=""># Counts</td></tr><tr id="19282c97-2e4d-41e2-bd23-2ff056b88bf3"><td id="?I~\" class="">Zip code 3</td><td id="U@V=" class=""># Counts</td><td id="Q=xx" class=""># Counts</td><td id="GToP" class=""># Counts</td><td id="ry~W" class=""># Counts</td></tr></tbody></table><p id="7a9c2ed0-f376-4c81-a0ec-77c744d5f427" class=""><strong>Step 4</strong>. Then, remove the zip code column and convert any missing values to zeroes and make sure you have columns full of numbers. Finally, use <code>cor</code> or a similar function to compute correlations across each of the columns. The column we are interested in is the one between Rodent sightings and all the other Complaint types. From these correlations, you can answer the question posed above, i.e. what two other complaint types are most highly correlated with Rodent sightings?</p><h2 id="ed62d07d-f246-4fef-ba2e-02d1d079c04d" class="">PART 3. Rodent and Restaurant Inspection.</h2><p id="583a5126-5a8a-40d4-a8d2-438f0fae294d" class="">Imagine that the NYC Department of Pest Control has been experiencing budget cuts, and thinks it may be useful to predict which 311 calls they receive are most likely to yield “Active Rat Signs”. They ask you to investigate whether the <em>restaurant</em> violation database, which is created and maintained by a different agency, can be useful for predicting which property inspections are most likely to yield Active Rat Signs. For the purposes of this assignment, we will estimate a simple predictive model of the following form:</p><p id="be3e51dc-f8a9-4967-9dbf-df3965f2a1b5" class="">$ActiveRatSigns = log(RestaurantRatViolations+1) + month + year +\epsilon$</p><p id="16aa4479-9508-4064-9e0f-1009cad15387" class="">To do this, you will need to use both the Restaurant Violation and Rodent Inspection databases. In this regression, each row corresponds to an entry in the Rodent Inspection database. <em>RestaurantRatViolations</em> is a new variable you should create from the restaurant inspection database which is the number of rodent-related restaurant violations in that zip code, year, and month (The relevant inspection codes for a restaurant rat violation are: 04L, 04K, and 08A). The dependent variable, <em>ActiveRatSightings</em>, is a <strong>binary</strong> measure you create from the rodent inspection database that should be computed as a 1 or 0 depending on whether an inspection yielded Active Rat Signs. Month and year should be included into the regression as dummy variables (i.e. convert them to factor variables, like the example in class). The specific steps you should follow are:</p><p id="72f8b753-30c1-4a3e-b851-88b1bcb8353c" class=""><strong>Step 1</strong>. From the <strong>restaurant inspection database</strong>, generate a data set which, for each month-year-zip code combination, contains the total number of rodent-related inspection violations.</p><p id="073f9a3c-fa3b-490c-9fbd-82cf801c6c3c" class=""><strong>Step 2</strong>. Once you have created this data set, join the measure with the rodent inspection data so that there is a row for each rodent inspection that also contains a measure of the number of restaurant violations for the zip code, month, and year in which the inspection occurred. For example, if a property in 10012 was inspected in June 2013, you would merge into that row the total number of rodent related restaurant violations for the zip code 10012 in June 2013 computed from the data set generated in Step 1. Depending on the type of join you did, you may wish at this point to convert any missing restaurant violation numbers to zero.<a href="about:blank#fn:1">1</a> Add one to this restaurant violation measure and log it. Adding one accounts for zero values, which would otherwise yield the value negative Infinity. Adding one to all the values you are logging offsets this potential issue.</p><p id="cba251e2-fe2e-47c8-9125-138ca8f9a608" class=""><strong>Step 3</strong>. In this new data set, create a binary variable that takes the value 1 or 0 depending on whether an inspection yields Active Rat Signs.</p><p id="6cf56a3b-a646-4e3e-b537-b516082b1c90" class=""><strong>Step 4</strong>. Run a <em>logistic</em> regression on the new data set to test whether the estimated coefficient on the restaurant sightings variable has a statistically significant relationship with whether or not an inspection yields Active Rat Signs and–if it is significant–whether the relationship is positive or negative. Include month and year in your regression as factor (dummy) variables. You should include a single dummy variable for each month (Jan, Feb, etc) and for each year, not for each month-year combination. This should leave you with about 15 or 16 dummy variables in your regression output.</p><p id="ffd0e45e-4288-4926-a404-c35807375fbe" class=""><strong>Does this evidence indicate that there is a statistically significant relationship between the restaurant inspection based measures and whether a rodent inspection yields Active Rat Signs? Show the regression statistics and justify your answer.</strong></p><p id="9817d773-a347-4488-a1d5-4aaf28386250" class="">If you need, there are a number of resources <a href="https://www.displayr.com/how-to-interpret-logistic-regression-coefficients/">available online</a> to help you understand how to interpret logistic regression coefficients.</p><h2 id="11fc54d8-2310-4076-86ce-4567e156db25" class="">PART 4. Beyond inspections</h2><p id="bfb4936d-6b32-4657-887e-1498e247a69b" class="">Provide <strong>one example</strong> of a story you might be able to tell by connecting the NYC rats data with one or more data sources that we did NOT use here. For example, you might think about connecting the rats data to data sets on disease and health, urban transportation, housing information, demographics, or many other possibilities. You do NOT have to implement the idea, but your answer should include the following three things:</p><ul id="4f41e3e0-aada-408c-8947-ca2bb855c619" class="bulleted-list"><li style="list-style-type:disc">An overview of the question you might like to answer in your data analysis – no more than one or two sentences.</li></ul><ul id="dbd543e0-bf2c-4d08-a539-b0aead708dad" class="bulleted-list"><li style="list-style-type:disc">Pointers to a <em>specific</em> data set you would use and the variables you would use to join it with any of the rats data sets described above. This can be a URL link that points to a data set or you can describe how you might collect the data using web scraping or an API.</li></ul><ul id="c23a99b2-ec15-4e58-bcfd-9593cf39fdfd" class="bulleted-list"><li style="list-style-type:disc">A short description of the type of supporting analysis you might conduct (one or two sentences). This hypothetical analysis can be a chart, a graph, or a regression.</li></ul><hr id="6ca2b258-a846-4a7e-9124-a97bca50656e"/><ol type="1" id="438dc5c3-fbeb-4fd8-a5f0-0f6c0f08a034" class="numbered-list" start="1"><li>Doing a left join and converting missing values to zero is a more correct approach, but for this exercise, doing an inner join that drops missing values is also okay. <a href="about:blank#fnref:1">↩</a></li></ol></div></article></body></html>
