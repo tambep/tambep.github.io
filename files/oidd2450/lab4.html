@@ -1,0 +1,671 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lab 4: Lending Club</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0053c495-b566-4bc8-8565-ca130b62c3f3" class="page sans"><header><h1 class="page-title">Lab 4: Lending Club</h1></header><div class="page-body"><h3 id="0ff8db75-02ff-4fa2-b15f-aa66cb7dc390" class="">OIDD 2450 Tambe</h3><figure id="1ae9b7e1-5da9-4341-a33f-ad2f98f7b2eb" class="image"><a href="Lab%204%20Lending%20Club%200053c495b5664bc88565ca130b62c3f3/sixty_peerlending.jpg"><img style="width:528px" src="Lab%204%20Lending%20Club%200053c495b5664bc88565ca130b62c3f3/sixty_peerlending.jpg"/></a></figure><h1 id="a9a34804-6fb4-4a5d-8ddd-37ff435d0bc8" class="">Objective and Background</h1><p id="3b7f2976-a38a-4530-8b8c-351134483e61" class="">
+</p><p id="e3cd71c7-e99f-4136-9ed8-496d524b105b" class="">One industry in which machine learning has been having a significant impact is financial lending (e.g. credit-scoring models). In this lab, you will use data from <a href="http://www.lendingclub.com/"><strong>LendingClub</strong></a>, a well-known peer-to-peer lending platform based in San Francisco, California, to build statistical models that use debtor attributes to predict the grades given to loan applications by the Lending Club. This is a data set that may be familiar, for example from a finance or statistics class, and it is a particularly good context to try some of the prediction concepts we have covered in the last few sessions.</p><p id="51ed245a-9502-4f00-b022-d7359a5af868" class="">You will be exploring how to build prediction models for this industry. To accomplish this objective, you are asked to <em>build</em> models using historical data from 2013 to 2014 (which will be used as the training data) and <em>test</em> the quality of your prediction model using new loan requests that came in during 2015 (the test data) to evaluate how well it performs.</p><h1 id="fda93858-f491-4ef0-ada6-9bbe642dfd11" class="">Deliverables</h1><p id="de83fad4-9ef2-4e40-a2a1-1975075ee812" class="">Please submit both your R code and the answers to the questions posed below. You can choose to submit a notebook file that contains both code and answers or you can submit an R-script and a separate .pdf file that contains answers.</p><h1 id="36323f2a-7603-4c30-b787-82d72c74f85c" class="">Data</h1><ul id="8eb201dd-0b8e-4d60-8319-21d0f97fc65e" class="bulleted-list"><li style="list-style-type:disc">The <strong>training data</strong> is the LendingClub <a href="https://upenn.box.com/s/nns46gbc0jzljnlc4ggu1o5f6xo0sldf">historical data on loans and chargeoffs from 2013 through 2014</a>. (175 MB)</li></ul><ul id="5905fdd7-a9e7-4317-97c2-adab40692164" class="bulleted-list"><li style="list-style-type:disc">The <strong>test data</strong> is LendingClub applications that were <a href="https://upenn.box.com/s/zc1m24z0p6cn26bc7jyvkk6uey6dk7ob">received in 2015</a>. (309 MB) (this data set is only required for Parts E and F)</li></ul><ul id="8846ca4d-da14-48de-adb0-3df99117c8f8" class="bulleted-list"><li style="list-style-type:disc">You will also need the <a href="https://upenn.box.com/s/pc0updeabxas60jtsf5zl86xczgi3rzm">data dictionary</a> which explains the meanings of the different fields in the files.</li></ul><h1 id="36c486ca-7e0f-4538-8e76-0154b457c1ca" class="">Exercises</h1><h2 id="dd2bfdc9-7d9b-45da-a319-39498db622db" class="">1. Data loading and cleanup.</h2><ul id="96a017ab-7e3f-44b3-b46c-fae1a99bb5bb" class="bulleted-list"><li style="list-style-type:disc">The data have a messy first row that will cause errors when you read in the file. To discard the first row, use the &quot;skip=1&quot; option in <code>read.csv()</code> to tell it to skip the first row when reading the file. There is a similar option you can use if using the <code>read_csv</code> command. Given the size of these files, I would recommend using the <code>read_csv</code> function, because it is much faster.</li></ul><ul id="156ef130-61d8-4ae5-8cb1-099d7242fd6c" class="bulleted-list"><li style="list-style-type:disc">Note that there are two empty rows at the end of each file. This messy data will cause you problems if you run regressions that try to use these rows. Remove the last two rows from each data set before getting started.</li></ul><ul id="a7e6437f-0ac8-432f-b670-3a062026b6eb" class="bulleted-list"><li style="list-style-type:disc">Finally, since we will be running models that rely on random number generation, somewhere near the top of your file, add the <code>set.seed()</code> command using any number you choose as the argument. This will ensure you get the same results every time you run your code. If you are working with others, using the same seed value should assure that your models produce the same results, assuming everything else you do is also the same.</li></ul><h2 id="ae6b3272-6012-40a1-972e-c355cb884744" class="">2. Descriptive statistics.</h2><ul id="185dd5f7-9ea1-4209-b440-ed5d0925b3c1" class="bulleted-list"><li style="list-style-type:disc">Using the training data, create a new binary variable called <code>highgrade</code> that takes the value 1 when a loan has received an &quot;A&quot; or &quot;B&quot; grade and 0 otherwise. This is the response variable that you will try to predict. What is the proportion of loans in the training data that receive either an &quot;A&quot; or &quot;B&quot; grade?</li></ul><h2 id="6bea4632-2598-44c6-bc6c-4a34a58aeb93" class="">3. Build a logistic regression classifier using the training data.</h2><ul id="558f35a7-411a-4c0e-8ca7-957fba3626aa" class="bulleted-list"><li style="list-style-type:disc">Using the <code>glm</code> command as discussed in an earlier class session, perform a logistic regression that predicts the <code>highgrade</code> outcome variable using the variables: annual income, home ownership, loan amount, verification status, and purpose. Use the <code>summary</code> command to view the output of your regression.</li></ul><ul id="3ddd6c8d-d6e6-44d5-a34e-66907fb14c54" class="bulleted-list"><li style="list-style-type:disc">Next, use the <code>predict</code> command to generate a vector of the probabilities predicted by your logistic regression. This probability can be interpreted as the likelihood that <code>highgrade</code> is a &quot;1&quot; for that row. When using the <code>predict</code> function, remember to use <code>type=&#x27;response&#x27;</code> when calling your predict function so that its output can be interpreted as probabilities between 0 and 1. If you forget to do that, <code>predict</code> will produce log-odd ratios, which can be negative values.</li></ul><ul id="510cff8e-8c12-40b9-93c8-ef3159e1fc09" class="bulleted-list"><li style="list-style-type:disc">Create a new column that contains your predictions that classifies loans as being highgrade or not (1 or 0), based on your predicted probabilities. To do this, you will need to choose a probability threshold above which to classify loans as being high grade. Although – as we discussed in class – there are a variety of criteria to use when choosing this value, for now, try different values to select one that roughly optimizes the <em>accuracy</em> of the classifier (you do not need to go beyond the two-digit level), where accuracy is defined in the next bullet.</li></ul><ul id="26769713-5947-4ba4-b60b-733e987be70e" class="bulleted-list"><li style="list-style-type:disc">To evaluate how well this logistic regression-based classifier performs, we can measure its accuracy, defined as the proportion of answers in the training data that it gets correct. In other words, this would be the proportion of rows in which the classifer prediction is equal to its actual <code>highgrade</code> value, as assessed by the original loan officers.<ul id="308d3000-eedf-4c56-a23f-c622460131b0" class="bulleted-list"><li style="list-style-type:circle">What is the accuracy of this classifer on the training data?</li></ul><ul id="6c58837c-857b-40f5-b368-cdb01f5a1334" class="bulleted-list"><li style="list-style-type:circle">For comparison, what is the accuracy of a classifier that assigns a value of 0 to all rows for the predicted class?</li></ul></li></ul><h2 id="5446afbf-a01b-4632-bcfa-460adda3edee" class="">4. Build a classification tree on the training data.</h2><p id="a443790e-cd08-4fa6-b50b-49a8ac5c7ce3" class="">As an alternative to logistic regression, we can use a <a href="https://en.wikipedia.org/wiki/Decision_tree_learning">&quot;classification tree&quot;</a> to classify loans according whether or not they are likely to have an &quot;A&quot; or &quot;B&quot; grade. A widely used implementation of decision trees in R is the <code>rpart</code> library in R. <code>rpart</code> stands for &quot;Recursive partitioning and regression trees&quot;. Install the rpart package and don&#x27;t forget to use the <code>library</code> command to include the library wherever you are executing your code.</p><p id="fe716cab-793d-4a81-a94a-70c9eeb77101" class=""><code>library(rpart)</code></p><p id="57872afe-411b-4a23-8335-2815ad08a859" class="">The syntax for running a classification tree using the rpart library is similar to that of a regression. For example, if your data set is called <em>loans</em> and, within that data set, you have a binary dependent variable <em>y</em> that you are trying to predict using two predictors <em>x1</em> and <em>x2</em>, the R command to build a classification model using <code>rpart</code> would have the following syntax.</p><p id="1de9aa43-462e-4991-a09e-5cf894128cf9" class=""><code>fit = rpart(y ~ x1 + x2, data = loans, method = &quot;class&quot;)</code></p><p id="3315e422-dd3b-4700-9053-0ce90ae6a0c7" class="">In this example, the <code>method</code> option in this call tells <code>rpart</code> that this is a classification tree, which has binary outcomes, not a regression tree, which has continuous outcomes. To visualize the classification tree you have built:</p><p id="2882bb0c-2ba2-45aa-ba25-c960384e6efe" class=""><code>plot(fit) 
+text(fit)</code></p><p id="8970807c-10f4-4333-8adb-85783a8f81bb" class="">If you are having trouble with the tree visualization, you may want to explore other packages, such as <code>rpart.plot</code>, that do a much better job with decision tree visualization.</p><p id="b6a50ed1-5bbd-4542-8e8d-33db5d651ce4" class="">Now that you have built this classification tree, you can predict values in the same way as with regression, using the <code>predict</code> command. The result (in this case, stored in the vector <em>z</em>) will hold the binary values that indicate whether your classification tree predicts whether or not a loan will be high grade.</p><p id="5944f3a4-1f6e-4522-9115-b53ee838a721" class=""><code>z = predict(fit, type=&quot;class&quot;)</code></p><p id="69e9ee4f-a8f8-4380-9779-a1d69c2bab5a" class="">Using the accuracy metric described above, is this decision tree classifier more or less accurate than the one using logistic regression?</p><h2 id="5b5fbfd5-d61e-42ae-9e58-5c138fbb63f4" class="">5. Build a Naive Bayes model on the training data.</h2><p id="41b3ff7d-4af7-4f37-8dcb-3e33b4edbcb4" class="">As another alternative, we can use a [“Naive bayes”] (<a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a>) algorithm to classify loans according whether or not they are likely to have an &quot;A&quot; or &quot;B&quot; grade. A widely used implementation of Naive Bayes in R is the <code>naivebayes</code> library in R. Install the package and don&#x27;t forget to use the <code>library</code> command to include the library wherever you are executing your code. In this question, the functions to use are purposefully left unspecified. You are expected to look up the appropriate documentation to learn which functions from the library to use, and how to call them.</p><h2 id="eb28fadc-8d9d-4b1f-87df-a424dbf54b02" class="">6. Compute predictor performance on the test data.</h2><p id="3ef40727-adb9-4ce5-823b-4db6a5bf9f93" class="">Classifiers such as the ones described above are built on <em>training</em> data (e.g. historical data), where the “correct” answers are available so that the model can be calibrated. Once you are happy with their performance, their performance is assessed on <em>test</em> data where the correct answers are generally not available (e.g. future data). In general, the classifier will not perform as well on the test data as it did on the training data, because it was calibrated for optimal performance on the training data.</p><ul id="dbeb30ec-741d-4a54-a387-68b6920f38c7" class="bulleted-list"><li style="list-style-type:disc">Evaluate the accuracy of all three of the classifiers you built above (logistic regression, classification tree, and naive bayes) on the <strong>test</strong> data. Note that there is an extra <code>purpose</code> category in the test data called “educational”. You should remove those rows from the test data to get your models to fit the new data set. To report your results, create a table reporting accuracy for each algorithm. Which algorithm generates the highest <strong>test data</strong> accuracy for this data context?</li></ul><ul id="3f1ba511-5314-4a12-a19c-c7e51e67b40c" class="bulleted-list"><li style="list-style-type:disc">As a benchmark to use as a comparison, what is the accuracy of a classifier that simply assigns a value of 0 to all rows of the <strong>test</strong> data?</li></ul><h2 id="170674a4-70b7-46db-bd89-4e3e06de316f" class="">7. Beyond accuracy as a performance metric.</h2><p id="2f01c55d-0660-4a8c-9173-73a2de0bfae6" class="">The accuracy metric described above is the fraction of responses the algorithm correctly predicts. Suppose, instead, that the lending organization is able to quantify the different returns to originating good and bad loans and decides to focus on which algorithms generate the highest overall returns given these figures.</p><p id="9a539553-a2c3-45af-97de-f510f05096ca" class="">a. Suppose that highgrade loans that are <strong>correctly</strong> identified as such earn the lender $40, but that loans that are <strong>incorrectly</strong> predicted to be highgrade cost them $15. Based on test data performance, which classifier would the lender want to use?</p><p id="b12e9282-4887-4e31-8966-8a0592273df5" class="">b. What if these numbers were reversed - i.e. a highgrade loan that is <strong>correctly</strong> identified as highgrade earns the lender $15, but <strong>incorrectly</strong> classifying a loan as highgrade costs $40. Under these circumstances, based on test data performance, which classifier would the lender want to use?</p></div></article></body></html>
