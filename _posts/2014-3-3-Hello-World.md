@@ -5,7 +5,7 @@ title: Welcome!
 
 # About
 
-**Prasanna (Sonny) Tambe** is an Associate Professor in the [OID group](http://oid.wharton.upenn.edu) at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu) and Faculty Co-Lead of the [Wharton AI for Business Initiative](https://ai.wharton.upenn.edu).
+**Prasanna (Sonny) Tambe** is an Associate Professor in the [OID group](http://oid.wharton.upenn.edu) at the [Wharton School](http://www.wharton.upenn.edu) at the [University of Pennsylvania](http://www.upenn.edu) and Faculty Co-Director of the [AI at Wharton](https://ai.wharton.upenn.edu).
 
 His official Wharton website can be found [here](https://oid.wharton.upenn.edu/profile/tambe/).
 
