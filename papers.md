@@ -5,29 +5,29 @@ title: Working papers
 
 # Working papers
 
+[Remote Work and Labor Pool Diversity: Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
+(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
 Emerging Technologies and the IT Gender Wage Gap\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
+
+[Algorithmic Bilinguals](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
+
+[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
+(with [John Horton](https://john-joseph-horton.com))
 
 [Digital Capital and Superstar Firms](https://8a034064-c022-4d38-bd2a-4b69bfbd81b5.filesusr.com/ugd/3f53fa_0e9575623b7c42f9817a34e5240cfce0.pdf)\
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 [[Brookings Institute Working Paper Version](https://www.brookings.edu/research/digital-capital-and-superstar-firms/)]
 
-[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
-(with [John Horton](https://john-joseph-horton.com))
-
 [InnoVAE: Generative AI for Patents and Innovation](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
-[Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
-(with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
-
-[Remote Work and Labor Pool Diversity: Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
-(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
-
-[Algorithmic Bilinguals](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
-
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
+
+[Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
+(with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
 # Published papers
 
