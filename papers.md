@@ -5,9 +5,6 @@ title: Working papers
 
 # Working papers
 
-[Remote Work and Labor Pool Diversity: Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
-(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
-
 Emerging Technologies and the IT Gender Wage Gap\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
@@ -30,6 +27,10 @@ Deep Capital for Deep Learning\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
 # Published papers
+
+[Remote Work and Labor Pool Diversity: Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
+(with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
+*Management Science*. Forthcoming.
 
 [Paying to program? Engineering Brand and High-Tech Wages](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2019.3343?casa_token=Udx1OUAMUr8AAAAA:1J7l-iF8OtVJJrz05cehvlkwv7lh9xHPsrTyI388T-pjrrpy46BsqhjObtpqq7MQX4yl5rd75Eg)\
 (with [Xuan Ye](https://www.bc.edu/bc-web/schools/carroll-school/faculty-research/faculty-directory/xuan-ye.html) and [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/))\
