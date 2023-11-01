@@ -28,7 +28,7 @@ Deep Capital for Deep Learning\
 
 # Published papers
 
-[Remote Work and Labor Pool Diversity: Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
+[Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/SLRW_HsuTambe.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
 *Management Science*. Forthcoming.
 
