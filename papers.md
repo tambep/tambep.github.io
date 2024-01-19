@@ -28,6 +28,10 @@ Deep Capital for Deep Learning\
 
 # Published papers
 
+Will ChatGPT Really Change the Way We Work?\
+(with Peter Cappelli and Valery Yakubovich)\
+*Sloan Management Review*. Forthcoming.
+
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
 *Management Science*. Forthcoming.
