@@ -28,7 +28,7 @@ Deep Capital for Deep Learning\
 
 # Published papers
 
-Will ChatGPT Really Change the Way We Work?\
+Will ChatGPT Really Change How Work is Done?\
 (with Peter Cappelli and Valery Yakubovich)\
 *Sloan Management Review*. Forthcoming.
 
