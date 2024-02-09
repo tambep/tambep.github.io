@@ -8,7 +8,7 @@ title: Working papers
 Emerging Technologies and the IT Gender Wage Gap\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
-[Algorithmic Bilinguals](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3776492)
+[Algorithmic Bilinguals](http://tambep.github.io/files/Bilinguals.pdf)
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
