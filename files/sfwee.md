@@ -1,5 +1,6 @@
 - [Teachable Machine](https://teachablemachine.withgoogle.com)
 - [ORGGPT](https://chat.openai.com/g/g-p5EpONr2O-orggpt)
+- Build your own
 - [Data analyst](https://chat.openai.com/g/g-HMNcP6w7d-data-analyst)
   - [Netflix data](netflix.csv)
   - [Squirrel data](squirrels.csv) 
