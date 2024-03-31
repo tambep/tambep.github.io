@@ -5,7 +5,7 @@ title: Working papers
 
 # Working papers
 
-Tech Migration and the Gender Wage Divide: The Hidden Cost of Innovation for Women in Tech\
+Tech Migration and the Gender Wage Gap: The Hidden Cost of Innovation for Women in Tech\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
 [Algorithmic Bilinguals](http://tambep.github.io/files/Bilinguals.pdf)
