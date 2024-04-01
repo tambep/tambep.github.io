@@ -27,7 +27,7 @@ Deep Capital for Deep Learning\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
 Auditing the Use of Language Models to Guide Hiring Decisions\
-(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Hug](https://www.law.uchicago.edu/faculty/huq))
+(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))
 
 # Published papers
 
