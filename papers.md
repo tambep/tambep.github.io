@@ -3,7 +3,9 @@ layout: post
 title: Working papers
 ---
 
-# Working papers
+# Papers
+
+## Working papers
 
 Emerging Technologies and the Gender Wage Gap\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
@@ -29,7 +31,7 @@ Deep Capital for Deep Learning\
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-# Published papers
+## Published papers
 
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
