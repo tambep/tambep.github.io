@@ -3,9 +3,11 @@ layout: post
 title: Working papers
 ---
 
-# Working papers
+# Papers
 
-Emerging Technologies and the IT Gender Wage Gap\
+## Working papers
+
+Emerging Technologies and the Gender Wage Gap\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
 
 [Algorithmic Bilinguals](http://tambep.github.io/files/Bilinguals.pdf)
@@ -20,17 +22,16 @@ Emerging Technologies and the IT Gender Wage Gap\
 [InnoVAE: Generative AI for Patents and Innovation](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
+Auditing the Use of Language Models to Guide Hiring Decisions\
+(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))
+
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
-# Published papers
-
-Will ChatGPT Really Change How Work is Done?\
-(with Peter Cappelli and Valery Yakubovich)\
-*Sloan Management Review*. Forthcoming.
+## Published papers
 
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
