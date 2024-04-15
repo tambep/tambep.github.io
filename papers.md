@@ -22,7 +22,7 @@ Emerging Technologies and the Gender Wage Gap\
 [InnoVAE: Generative AI for Patents and Innovation](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
-Auditing the Use of Language Models to Guide Hiring Decisions\
+[Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))
 
 Deep Capital for Deep Learning\
