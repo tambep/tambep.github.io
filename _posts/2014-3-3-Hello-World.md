@@ -26,7 +26,7 @@ Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Compu
 Some recent writing:
 - [Remote Work and Job Applicant Diversity](https://pubsonline.informs.org/doi/full/10.1287/mnsc.2022.03391?casa_token=3GHLcK35pMMAAAAA%3A2_UR5fYIZBjWZxwWS4kyQqccxAXkQ188Br_0akPotzqykhTh_4GKewdP8QbHvqhMXIohq4P4I2yo), _Management Science_.
 - [Will AI Be a Job Killer? Call Us Skeptical](https://www.wsj.com/tech/ai/will-ai-be-a-job-killer-call-us-skeptical-9b4199bd), _Wall Street Journal_.
-- [Will Large Language Models Really Change How Work is Done?](https://sloanreview.mit.edu/article/will-large-language-models-really-change-how-work-is-done/), _Sloan Management Review_.
-- [Digital Capital and Superstar Firms](https://8a034064-c022-4d38-bd2a-4b69bfbd81b5.filesusr.com/ugd/3f53fa_0e9575623b7c42f9817a34e5240cfce0.pdf), _NBER Working Paper_.
+- [Will Large Language Models Really Change How Work is Done?](https://sloanreview.mit.edu/article/will-large-language-models-really-change-how-work-is-done/) _Sloan Management Review_.
+- [Digital Capital and Superstar Firms](https://www.brookings.edu/articles/digital-capital-and-superstar-firms/), _Brookings Institute Working Paper_.
 
 He teaches [award-winning](https://poetsandquantsforundergrads.com/2020/12/01/2020-best-undergraduate-professors-prasanna-sonny-tambe-university-of-pennsylvania-wharton-school/) courses on [how digitization, data science, and AI are impacting business](teaching).
