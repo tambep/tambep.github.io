@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+        .quiz-options li {
+            margin-bottom: 10px;
+        }
+        .quiz-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .quiz-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .quiz-button:disabled {
+            background-color: #cccccc;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Prompt Engineering Quiz</h1>
+        </div>
+        <div class="quiz-question" id="question-container">
+            <h2 id="question">Question text</h2>
+            <ul class="quiz-options" id="options">
+                <!-- Options will be inserted here -->
+            </ul>
+        </div>
+        <div class="quiz-footer">
+            <button class="quiz-button" id="next-button" disabled>Next</button>
+        </div>
+        <div class="result" id="result" style="display: none;">
+            You scored <span id="score"></span> out of <span id="total"></span>.
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is prompt engineering?",
+                options: [
+                    "A) The process of designing prompts to effectively interact with language models.",
+                    "B) The process of building physical prompts for engineering projects.",
+                    "C) The study of linguistic patterns in engineering texts.",
+                    "D) None of the above."
+                ],
+                answer: 0
+            },
+            {
+                question: "Why is prompt engineering important?",
+                options: [
+                    "A) It helps in maximizing the accuracy of responses from language models.",
+                    "B) It ensures physical safety in engineering environments.",
+                    "C) It improves the efficiency of manual engineering tasks.",
+                    "D) It has no significant importance."
+                ],
+                answer: 0
+            },
+            {
+                question: "Which of the following is a good practice in prompt engineering?",
+                options: [
+                    "A) Being vague to allow flexibility.",
+                    "B) Using clear and specific instructions.",
+                    "C) Overloading the prompt with excessive information.",
+                    "D) None of the above."
+                ],
+                answer: 1
+            },
+            {
+                question: "What can be a consequence of poorly designed prompts?",
+                options: [
+                    "A) Highly accurate responses.",
+                    "B) Inaccurate or irrelevant outputs.",
+                    "C) Enhanced performance of the model.",
+                    "D) Increased computational efficiency."
+                ],
+                answer: 1
+            },
+            {
+                question: "Which technique can be used to improve prompt effectiveness?",
+                options: [
+                    "A) Adding irrelevant details.",
+                    "B) Using examples within the prompt.",
+                    "C) Making the prompt as short as possible without context.",
+                    "D) Avoiding any changes once the prompt is created."
+                ],
+                answer: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionContainer = document.getElementById('question-container');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('next-button');
+        const resultElement = document.getElementById('result');
+        const scoreElement = document.getElementById('score');
+        const totalElement = document.getElementById('total');
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach((option, index) => {
+                const li = document.createElement('li');
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add('quiz-button');
+                button.style.backgroundColor = '#007BFF';
+                button.style.marginBottom = '10px';
+                button.onclick = () => selectOption(index);
+                li.appendChild(button);
+                optionsElement.appendChild(li);
+            });
+            nextButton.disabled = true;
+        }
+
+        function selectOption(index) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            if (index === currentQuestion.answer) {
+                score++;
+            }
+            currentQuestionIndex++;
+            nextButton.disabled = false;
+        }
+
+        nextButton.onclick = () => {
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        };
+
+        function showResult() {
+            questionContainer.style.display = 'none';
+            resultElement.style.display = 'block';
+            scoreElement.textContent = score;
+            totalElement.textContent = quizData.length;
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
