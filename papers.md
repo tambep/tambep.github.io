@@ -31,7 +31,7 @@ Deep Capital for Deep Learning\
 ## Peer-reviewed papers
 
 The Hidden Cost of Innovation for Women in Tech\
-(with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))
+(with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*. Conditionally accepted.
 
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
