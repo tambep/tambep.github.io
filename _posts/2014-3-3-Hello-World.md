@@ -9,9 +9,11 @@ title: Welcome!
 
 His official Wharton website can be found [here](https://oid.wharton.upenn.edu/profile/tambe/).
 
-His [research](papers) is focused in two key areas:
+His [research](papers) is focused in three key areas:
 
 - **Economics of technical (IT) labor markets**: Studies the market for software developers, as well as how competition in these markets affect employment and innovation outcomes.
+
+- **AI and work**: How emerging technologies, like AI-based innovations, impact work, skills, and competition.
 
 - **Algorithms and HR**: Studies how new, digital algorithms and data signals are being used in all aspects of HR, from hiring to retention.
 
