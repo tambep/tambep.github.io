@@ -20,7 +20,7 @@ title: Working papers
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
 The New Digital Divide\
-(with [Shane Greenstein](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917), [Mayana Pereira](https://www.mayanapereira.com), [Rafaella Sadun](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712), and others) 
+(with [Mayana Pereira](https://www.mayanapereira.com), [Shane Greenstein](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917), [Raffaella Sadun](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712), Lucia Ronchi Darre, Tammy Glazer, Allen Kim, Rahul Dodhia, and Juan La Vista Ferres) 
 
 [Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))
