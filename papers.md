@@ -25,6 +25,9 @@ title: Working papers
 [Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))
 
+Political Polarization and Technology Talent\
+(with [Elaine Pak](https://mgmt.wharton.upenn.edu/profile/elainesp/#research) and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
