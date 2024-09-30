@@ -22,9 +22,6 @@ title: Working papers
 [The New Digital Divide](https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26)\
 (with [Mayana Pereira](https://www.mayanapereira.com), [Shane Greenstein](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917), [Raffaella Sadun](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712), Lucia Ronchi Darre, Tammy Glazer, Allen Kim, Rahul Dodhia, and Juan La Vista Ferres) 
 
-[Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
-(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))
-
 Political Polarization and Technology Talent\
 (with [Elaine Pak](https://mgmt.wharton.upenn.edu/profile/elainesp/#research) and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
@@ -39,6 +36,10 @@ Deep Capital for Deep Learning\
 The Hidden Cost of Innovation for Women in Tech\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*. Conditionally accepted.
+
+[Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
+(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
+*Behavioral Science & Policy*. Forthcoming.
 
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
