@@ -35,7 +35,7 @@ Deep Capital for Deep Learning\
 
 The Hidden Cost of Innovation for Women in Tech\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
-*MIS Quarterly*. Conditionally accepted.
+*MIS Quarterly*. Forthcoming.
 
 [Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
