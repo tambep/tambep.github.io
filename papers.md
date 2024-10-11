@@ -22,7 +22,7 @@ title: Working papers
 [The New Digital Divide](https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26)\
 (with [Mayana Pereira](https://www.mayanapereira.com), [Shane Greenstein](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917), [Raffaella Sadun](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712), Lucia Ronchi Darre, Tammy Glazer, Allen Kim, Rahul Dodhia, and Juan La Vista Ferres) 
 
-Political Polarization and Technology Talent\
+Politics and Startup Job Applicant Behavior\
 (with [Elaine Pak](https://mgmt.wharton.upenn.edu/profile/elainesp/#research) and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
 Deep Capital for Deep Learning\
