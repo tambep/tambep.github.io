@@ -33,7 +33,7 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-The Hidden Cost of Innovation for Women in Tech\
+The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*. Forthcoming.
 
