@@ -10,7 +10,7 @@ title: Working papers
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))
 
-[Algorithmic Bilinguals](http://tambep.github.io/files/Bilinguals.pdf)
+[Reskilling for the AI Age: How Firms Transform Work for Algorithmic Decision-Making](http://tambep.github.io/files/Bilinguals.pdf)
 
 [Digital Capital and Superstar Firms](https://www.nber.org/papers/w28285)\
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
