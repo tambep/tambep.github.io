@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditing Fairness for AI-based Court Recommendations: Strategies for Accountable AI</title>
-    
+    <title>Auditing Fairness for AI-based Court Recommendations</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px;
+            background-color: #f5f5f5;
             color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
         h1 {
             color: #2c3e50;
-            text-align: center;
-            border-bottom: 2px solid #eee;
+            border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
         }
         h2 {
@@ -27,112 +32,128 @@
         h3 {
             color: #2980b9;
         }
-        .objective {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-        .question-section {
-            margin: 30px 0;
-        }
-        .excel-info {
+        .emphasis {
             background-color: #e8f4f8;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
         }
-        strong {
-            color: #2c3e50;
+        ul {
+            list-style-type: none;
+        }
+        ul li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
         a {
-            color: #3498db;
+            color: #2980b9;
             text-decoration: none;
+            border-bottom: 1px dotted #2980b9;
         }
         a:hover {
-            text-decoration: underline;
+            color: #3498db;
+            border-bottom: 1px solid #3498db;
+        }
+        .question-block {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        code {
+            background-color: #f7f9fb;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e74c3c;
         }
         hr {
             border: none;
-            border-top: 1px solid #eee;
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
             margin: 30px 0;
         }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin: 10px 0;
+        .italic {
+            font-style: italic;
+            color: #7f8c8d;
         }
     </style>
 </head>
 <body>
-    <h1>Auditing Fairness for AI-based Court Recommendations</h1>
+    <div class="container">
+        <h1>Auditing Fairness for AI-based Court Recommendations</h1>
+        <h2>Strategies for Accountable AI</h2>
 
-    <div class="objective">
-        <h2>Objective:</h2>
-        <p>Put yourself in the shoes of an <strong>AUDITOR</strong>, assigned by New York City, whose role it is to evaluate the fairness implications of a machine learning system used in the NYC court systems to recommend whether defendants should be Released on Recognizance (ROR). A <strong>Release on Recognizance</strong> ruling allows defendants to be released from custody without posting bail, based on their promise to appear at future court proceedings.</p>
-        
+        <div class="question-block">
+            <h2>Objective:</h2>
+            <p>Put yourself in the shoes of an <span class="emphasis">AUDITOR</span>, assigned by New York City, whose role it is to evaluate the fairness implications of a machine learning system used in the NYC court systems to recommend whether defendants should be Released on Recognizance (ROR). A <span class="emphasis">Release on Recognizance</span> ruling allows defendants to be released from custody without posting bail, based on their promise to appear at future court proceedings.</p>
+        </div>
+
         <p>The Machine Learning (ML)-based AI system, developed by an external technology vendor, generates recommendations, based on historical data provided by the court system, on whether defendants who appear before a judge should be released on recognizance. These recommendations are used by judges to make decisions about whether to grant ROR. Judges may choose to ignore the AI system's recommendations.</p>
-    </div>
 
-    <div class="excel-info">
-        <p>The provided <a href="Fairness_Assignment_Data.xlsx">Excel workbook</a> has only two sheets:</p>
+        <p>Your task is to audit this AI system for fairness. You are asked to rule on whether the system is delivering equitable outcomes across demographic groups. When you ask the courts for data, they provide you with two sheets of data. The purpose of this exercise is to help surface some of the significant and open conceptual and operational challenges of auditing machine learning systems.</p>
+
+        <p>The provided <a href="Fairness_Assignment_Data.xlsx">Excel workbook</a> has the two sheets the court chooses to share with you:</p>
         <ul>
-            <li>The <em>first</em> summarizes the output from the AI system -- it reports pivot tables that summarize the ROR recommendations that the algorithm makes by demographic group (Gender, Race, and Ethnicity).</li>
-            <li>The <em>second</em> illustrates the historical data that was used to train the AI system. It contains records and attributes of defendants who appeared before judges in NYC, as well the judge's ROR ruling.</li>
+            <li>The <span class="italic">first</span> summarizes the output from the AI system over the past twelve months -- it reports pivot tables that summarize the ROR recommendations (rates) that the algorithm makes by demographic group (Gender, Race, and Ethnicity).</li>
+            <li>The <span class="italic">second</span> illustrates the historical data that was sent to the vendor to train the AI system. It contains records and attributes of defendants who appeared before judges in NYC, as well the judge's ROR ruling.</li>
         </ul>
-    </div>
 
-    <p>Your task is to audit this AI system for fairness. You are asked to rule on whether the system is delivering equitable outcomes across demographic groups. The purpose of this exercise is to help surface some of the significant and open conceptual and operational challenges of auditing machine learning systems.</p>
+        <hr>
 
-    <hr>
+        <h2>Please consider how you might answer the following three sets of questions:</h2>
 
-    <h2>Please consider how you might answer the following three sets of questions:</h2>
+        <div class="question-block">
+            <h3>1. Consider the Baseline Fairness of the System:</h3>
+            <ul>
+                <li>Review the ML-recommended <code>ROR_at_Arraign</code> rates by Gender, Race, and Ethnicity that are summarized in the pivot tables.</li>
+                <li>Answer the following questions:
+                    <ul>
+                        <li>Are these numbers good metrics for evaluating fairness in this context? If not, what might other metrics take into account that these don't?</li>
+                        <li>Beyond just the raw numbers, what contextual factors might need to be considered when evaluating fairness in this high-stakes criminal justice application?</li>
+                        <li>For this assessment, should it matter if the model's recommendations are more or less unequal than the historical judicial decisions (made without the benefit of the AI system)?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-    <div class="question-section">
-        <h3>1. Consider the Baseline Fairness of the System:</h3>
-        <ul>
-            <li>Review the ML-recommended <code>ROR_at_Arraign</code> rates by Gender, Race, and Ethnicity that are summarized in the pivot tables.</li>
-            <li>Answer the following questions:
-                <ul>
-                    <li>Are these numbers good metrics for evaluating fairness in this context? If not, what might other metrics take into account that these don't?</li>
-                    <li>Beyond just the raw numbers, what contextual factors might need to be considered when evaluating fairness in this high-stakes criminal justice application?</li>
-                    <li>For this assessment, should it matter if the model's recommendations are more or less unequal than the historical judicial decisions?</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+        <div class="question-block">
+            <h3>2. Identify Additional Data Needs for Determining Fairness:</h3>
+            <ul>
+                <li>Consider what additional data and information you might need to help you decide if this is a truly biased AI system or not.
+                    <ul>
+                        <li>What types of data or information, if any, would you want the COURTS to provide?</li>
+                        <li>What types of data or information, if any, would you want the VENDOR to provide?</li>
+                        <li>Data privacy laws are <a href="https://www.nytimes.com/wirecutter/blog/state-of-privacy-laws-in-us/">implemented at the state level</a>. If the technology vendor is located in another state (e.g. California), how might this complicate your work?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-    <div class="question-section">
-        <h3>2. Identify Additional Data Needs for Determining Fairness:</h3>
-        <ul>
-            <li>Consider what additional data and information you might need to help you decide if this is a truly biased AI system or not.
-                <ul>
-                    <li>What types of data or information, if any, would you want the COURTS to provide?</li>
-                    <li>What types of data or information, if any, would you want the VENDOR to provide?</li>
-                    <li>Data privacy laws are <a href="https://www.nytimes.com/wirecutter/blog/state-of-privacy-laws-in-us/">implemented at the state level</a>. If the technology vendor is located in another state (e.g. California), how might this complicate your work?</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div class="question-section">
-        <h3>3. Where Should Accountability Lie?</h3>
-        <ul>
-            <li>Assume you deem this system to be unfair, WHO in this chain do you think should be penalized?
-                <ul>
-                    <li><strong>The Vendor?</strong> They developed the algorithm and trained it using historical data.</li>
-                    <li><strong>The Court System?</strong> They selected and implemented the vendor's technology. They also generated the historical data on which the model was trained.</li>
-                    <li><strong>The Judges?</strong> They use the model's biased recommendations to make decisions.</li>
-                </ul>
-            </li>
-            <li>Provide an argument for your choice, including:
-                <ul>
-                    <li>Who has the greatest influence over the fairness of the outcome?</li>
-                    <li>Who should bear the responsibility for how the system is used and why?</li>
-                </ul>
-            </li>
-        </ul>
+        <div class="question-block">
+            <h3>3. Where Should Accountability Lie?</h3>
+            <ul>
+                <li>Assume you deem this system to be unfair, WHO in this chain do you think should be penalized?
+                    <ul>
+                        <li><span class="emphasis">The Vendor?</span> They developed the algorithm and trained it using historical data.</li>
+                        <li><span class="emphasis">The Court System?</span> They selected and implemented the vendor's technology. They also generated the historical data on which the model was trained.</li>
+                        <li><span class="emphasis">The Judges?</span> They use the model's biased recommendations to make decisions.</li>
+                    </ul>
+                </li>
+                <li>Provide an argument for your choice, including:
+                    <ul>
+                        <li>Who has the greatest influence over the fairness of the outcome?</li>
+                        <li>Who should bear the responsibility for how the system is used and why?</li>
+                    </ul>
+                </li>
+                <li>What types of remedies might you recommend, and to which party?</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
