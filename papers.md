@@ -37,7 +37,7 @@ Deep Capital for Deep Learning\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*. Forthcoming.
 
-[Auditing the Use of Language Models to Guide Hiring Decisions](https://arxiv.org/abs/2404.03086)\
+[Auditing Large Language Models for Race and Gender Disparities: Implications for AI-Based Hiring](https://arxiv.org/abs/2404.03086)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
 *Behavioral Science & Policy*. Forthcoming.
 
