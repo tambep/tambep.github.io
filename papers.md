@@ -31,7 +31,7 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-[Reskilling for the AI Age: How Firms Transform Work for Algorithmic Decision-Making]\
+Reskilling for the AI Age: How Firms Transform Work for Algorithmic Decision-Making\
 *Management Science*. Forthcoming.
 
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
