@@ -7,9 +7,6 @@ title: Working papers
 
 ## Working papers
 
-[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
-(with [John Horton](https://john-joseph-horton.com))
-
 [Digital Capital and Superstar Firms](https://www.nber.org/papers/w28285)\
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 [[Brookings Institute Working Paper Version](https://www.brookings.edu/research/digital-capital-and-superstar-firms/)]
@@ -30,6 +27,10 @@ Deep Capital for Deep Learning\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
 ## Peer-reviewed papers
+
+[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
+(with [John Horton](https://john-joseph-horton.com))\
+*Information Systems Research*. Forthcoming.
 
 Reskilling for the AI Age: How Firms Transform Work for Algorithmic Decision-Making\
 *Management Science*. Forthcoming.
