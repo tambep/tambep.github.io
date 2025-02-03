@@ -28,7 +28,8 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-Reskilling for AI: How Algorithmic Bilinguals Drive the Value of Human-Algorithm Collaboration\
+[Reskilling for AI: How Algorithmic Bilinguals Drive the Value of Human-Algorithm Collaboration]
+(https://tambep.github.io/files/Bilinguals.pdf)\
 *Management Science*. Forthcoming.
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
