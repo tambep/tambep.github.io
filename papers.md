@@ -11,7 +11,7 @@ title: Working papers
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 [[Brookings Institute Working Paper Version](https://www.brookings.edu/research/digital-capital-and-superstar-firms/)]
 
-[InnoVAE: Generative AI for Patents and Innovation](https://ssrn.com/abstract=3868599)\
+[Generative AI for Patents and Innovation](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com) and [Dokyun Lee](https://www.leedokyun.com))
 
 [The New Digital Divide](https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26)\
