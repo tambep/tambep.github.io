@@ -28,7 +28,7 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-[Workforce Reskilling for AI: How Algorithmic Bilinguals Drive Organizational Value](https://tambep.github.io/files/Bilinguals.pdf)\
+[Workforce Reskilling for AI: How Algorithmic Bilinguals Drive Organizational Value](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*. Forthcoming.
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
