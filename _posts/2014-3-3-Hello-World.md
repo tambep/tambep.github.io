@@ -26,7 +26,7 @@ Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Compu
 [A full list of papers is available here.](papers)
 
 Some recent writing:
-- [America's Digital Divide](https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind) (summary of work from HBS Working Knowledge)
+- [America's Digital Divide](https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind) (summary of work from _HBS Working Knowledge_).
 - [Remote Work and Job Applicant Diversity](https://pubsonline.informs.org/doi/full/10.1287/mnsc.2022.03391?casa_token=3GHLcK35pMMAAAAA%3A2_UR5fYIZBjWZxwWS4kyQqccxAXkQ188Br_0akPotzqykhTh_4GKewdP8QbHvqhMXIohq4P4I2yo), _Management Science_.
 - [Will AI Be a Job Killer? Call Us Skeptical](https://www.wsj.com/tech/ai/will-ai-be-a-job-killer-call-us-skeptical-9b4199bd), _Wall Street Journal_.
 - [Will Large Language Models Really Change How Work is Done?](https://sloanreview.mit.edu/article/will-large-language-models-really-change-how-work-is-done/) _Sloan Management Review_.
