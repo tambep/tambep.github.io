@@ -29,7 +29,7 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-A Brave New World of HR Research: Identifying Grand Challenges of the GenAI Revolution.\
+A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution.\
 with Anthony Nyberg., Deidra Schleicher, [and 14 others].\
 *Journal of Management*. Forthcoming.
  
