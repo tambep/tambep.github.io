@@ -29,6 +29,10 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
+A Brave New World of HR Research: Identifying Grand Challenges of the GenAI Revolution.
+with Anthony Nyberg., Deidra Schleicher, [and 14 others].
+*Journal of Management*. Forthcoming.
+ 
 [Workforce Reskilling for AI: How Algorithmic Bilinguals Drive Organizational Value](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*. Forthcoming.
 
