@@ -33,7 +33,7 @@ A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Rev
 with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 *Journal of Management*. Forthcoming.
  
-[Reskilling the AI-Driven Workforce: How Algorithmic Bilinguals Drive Organizational Value](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
+[Workforce Reskilling for AI: How Algorithmic Bilinguals Drive Organizational Value](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*. Forthcoming.
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
