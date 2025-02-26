@@ -31,36 +31,36 @@ Deep Capital for Deep Learning\
 
 A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution.\
 with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
-*Journal of Management*. Forthcoming.
+*Journal of Management*, Forthcoming.
  
 [Workforce Reskilling for AI: How Algorithmic Bilinguals Drive Organizational Value](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
-*Management Science*. Forthcoming.
+*Management Science*, Forthcoming.
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))\
-*Information Systems Research*. Forthcoming.
+*Information Systems Research*, Forthcoming.
 
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
-*MIS Quarterly*. Forthcoming.
+*MIS Quarterly*, Forthcoming.
 
 [Auditing Large Language Models for Race and Gender Disparities: Implications for AI-Based Hiring](https://arxiv.org/abs/2404.03086)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
-*Behavioral Science & Policy*. Forthcoming.
+*Behavioral Science & Policy*, Forthcoming.
 
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
-*Management Science*. 2024.
+*Management Science*, 2024.
 
 [Paying to program? Engineering Brand and High-Tech Wages](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2019.3343?casa_token=Udx1OUAMUr8AAAAA:1J7l-iF8OtVJJrz05cehvlkwv7lh9xHPsrTyI388T-pjrrpy46BsqhjObtpqq7MQX4yl5rd75Eg)\
 (with [Xuan Ye](https://www.bc.edu/bc-web/schools/carroll-school/faculty-research/faculty-directory/xuan-ye.html) and [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/))\
 [NBER Working Paper \#25552](https://www.nber.org/papers/w25552).\
-*Management Science*. 2020.
+*Management Science*, 2020.
 
 [AI in Human Resources Management: Challenges and a
 Path Forward](https://journals.sagepub.com/doi/abs/10.1177/0008125619867910?casa_token=HOZLxfaKrXoAAAAA:hovoN-JE_hFQLRv4RGuCG0fgaIDUROTki0OTgdv4Sa_baWcvv24YWZUnriRdmJF6wHtHgeG0k8x0mw)\
 (with [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/) and [Valery Yakubovich](https://www.essec.edu/en/staff/faculty/valery-yakubovich))\
-*California Management Review*. 2019.
+*California Management Review*, 2019.
 
 [Built to learn: How work practices affect employee learning during healthcare IT implementation](https://www.misq.org/built-to-learn-how-work-practices-affect-employee-learning-during-healthcare-information-technology-implementation.html)\
 (with [Ariel Avgar](https://www.ilr.cornell.edu/people/ariel-avgar) and [Lorin Hitt](http://www.iecon.net))\
