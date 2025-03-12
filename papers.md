@@ -44,7 +44,7 @@ with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*, Forthcoming.
 
-[Auditing Large Language Models for Race and Gender Disparities: Implications for AI-Based Hiring](https://journals.sagepub.com/doi/10.1177/23794607251320229)\
+[Auditing Large Language Models for Race & Gender Disparities: Implications for Artificial Intelligence Based Hiring](https://journals.sagepub.com/doi/10.1177/23794607251320229)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
 *Behavioral Science & Policy*, 2025.
 
