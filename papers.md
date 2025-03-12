@@ -36,13 +36,13 @@ with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 [Workforce Reskilling for AI: How Algorithmic Bilinguals Drive Organizational Value](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*, Forthcoming.
 
-[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
-(with [John Horton](https://john-joseph-horton.com))\
-*Information Systems Research*, Forthcoming.
-
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*, Forthcoming.
+
+[The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
+(with [John Horton](https://john-joseph-horton.com))\
+*Information Systems Research*, Forthcoming.
 
 [Auditing Large Language Models for Race & Gender Disparities: Implications for Artificial Intelligence Based Hiring](https://journals.sagepub.com/doi/10.1177/23794607251320229)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
