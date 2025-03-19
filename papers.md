@@ -42,7 +42,7 @@ with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))\
-*Information Systems Research*, Forthcoming.
+*Information Systems Research*, 2025.
 
 [Auditing Large Language Models for Race & Gender Disparities: Implications for Artificial Intelligence Based Hiring](https://journals.sagepub.com/doi/10.1177/23794607251320229)\
 (with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
