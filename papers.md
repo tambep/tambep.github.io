@@ -33,7 +33,7 @@ A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Rev
 with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 *Journal of Management*, Forthcoming.
  
-[Reskilling the Workforce for AI: How Algorithms Augment Domain Expertise](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
+[Reskilling the Workforce for AI: Decentralizing Algorithmic Expertise to Drive Organizational Performance](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*, Forthcoming.
 
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
