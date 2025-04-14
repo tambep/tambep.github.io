@@ -36,7 +36,7 @@ Deep Capital for Deep Learning\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*, Forthcoming.
 
-[A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution](https://journals.sagepub.com/doi/full/10.1177/01492063251325188).\
+[A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution](https://journals.sagepub.com/doi/full/10.1177/01492063251325188)\
 with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 *Journal of Management*, 2025.
  
