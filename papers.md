@@ -29,10 +29,6 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution.\
-with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
-*Journal of Management*, Forthcoming.
- 
 [Reskilling the Workforce for AI: Domain Experts, Algorithms, and Organizational Performance](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*, Forthcoming.
 
@@ -40,6 +36,10 @@ with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
 *MIS Quarterly*, Forthcoming.
 
+[A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution](https://journals.sagepub.com/doi/full/10.1177/01492063251325188).\
+with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
+*Journal of Management*, 2025.
+ 
 [The Death of a Technical Skill](https://john-joseph-horton.com/papers/schumpeter.pdf)\
 (with [John Horton](https://john-joseph-horton.com))\
 *Information Systems Research*, 2025.
