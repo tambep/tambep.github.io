@@ -11,7 +11,7 @@ title: Working papers
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 [[Brookings Institute Working Paper Version](https://www.brookings.edu/research/digital-capital-and-superstar-firms/)]
 
-[Out of Unstructured Data, Atlas! Generative AI for Navigating Strategic Landscapes](https://ssrn.com/abstract=3868599)\
+[Out of Unstructured Data, Atlas! Mapping Strategic Landscapes with Generative AI](https://ssrn.com/abstract=3868599)\
 (with [Zhaoqi Cheng](https://zhao-qi.com), [Dokyun Lee](https://www.leedokyun.com), and [Kunhan Wu](https://scholar.google.com/citations?user=S-Eyqn0AAAAJ&hl=en))
 
 [The New Digital Divide](https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26)\
