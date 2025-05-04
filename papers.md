@@ -29,7 +29,7 @@ Deep Capital for Deep Learning\
 
 ## Peer-reviewed papers
 
-[Reskilling the Workforce for AI: Domain Experts, Algorithms, and Organizational Performance](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
+[Reskilling the Workforce for AI: Domain Knowledge and Algorithmic Expertise](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
 *Management Science*, Forthcoming.
 
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
