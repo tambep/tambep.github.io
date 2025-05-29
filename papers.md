@@ -34,7 +34,7 @@ Deep Capital for Deep Learning\
 
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
-*MIS Quarterly*, Forthcoming.
+*MIS Quarterly*, 2025.
 
 [A Brave New World of HR Research: Identifying Grand Challenges of the Gen AI Revolution](https://journals.sagepub.com/doi/full/10.1177/01492063251325188)\
 with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
