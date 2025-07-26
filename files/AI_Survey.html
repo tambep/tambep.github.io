@@ -1076,11 +1076,71 @@
         const totalSlides = 8;
         const gameSlides = 7;
 
-        // Clear all previous players (one-time cleanup)
-        localStorage.removeItem('aiSurveyPlayers');
+        // Shared Leaderboard Configuration
+        // To set up shared leaderboard:
+        // 1. Go to jsonbin.io and create a free account
+        // 2. Create a new bin with initial data: {"players": []}
+        // 3. Replace YOUR_API_KEY_HERE with your API key
+        // 4. Replace YOUR_BIN_ID_HERE with your bin ID
+        const JSONBIN_API_KEY = '$2a$10$D2TpGhEkiy73EnzJg4K0DO/zTTA.O8LiC70iinQ6OvCCgRE6xqgSi';
+        const JSONBIN_BIN_ID = '688566057b4b8670d8a7df2c';
         
-        // Player Data Storage (using localStorage for persistence)
+        // Player Data Storage (using both localStorage and shared leaderboard)
         let playersData = JSON.parse(localStorage.getItem('aiSurveyPlayers')) || [];
+        
+        // Shared Leaderboard Functions
+        async function loadSharedLeaderboard() {
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': JSONBIN_API_KEY
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.record.players || [];
+                }
+            } catch (error) {
+                console.log('Shared leaderboard unavailable, using local data');
+            }
+            return playersData; // Fallback to local storage
+        }
+
+        async function saveToSharedLeaderboard(allPlayers) {
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_API_KEY
+                    },
+                    body: JSON.stringify({ players: allPlayers })
+                });
+                
+                if (response.ok) {
+                    console.log('Score saved to shared leaderboard');
+                }
+            } catch (error) {
+                console.log('Failed to save to shared leaderboard');
+            }
+        }
+
+        // Admin function to reset all players (call from browser console)
+        async function resetAllPlayers() {
+            if (confirm('Are you sure you want to delete ALL players from the leaderboard? This cannot be undone.')) {
+                try {
+                    await saveToSharedLeaderboard([]);
+                    localStorage.removeItem('aiSurveyPlayers');
+                    playersData = [];
+                    alert('All players have been cleared from the leaderboard!');
+                    location.reload();
+                } catch (error) {
+                    alert('Failed to reset leaderboard');
+                }
+            }
+        }
 
         document.getElementById('totalSlides').textContent = totalSlides;
 
@@ -1116,7 +1176,7 @@
             }
         });
 
-        function startGame() {
+        async function startGame() {
             currentPlayerName = document.getElementById('playerNameInput').value.trim();
             
             if (currentPlayerName.length < 2) {
@@ -1124,6 +1184,9 @@
                 return;
             }
 
+            // Load shared leaderboard data
+            playersData = await loadSharedLeaderboard();
+            
             // Check if name already exists
             const existingPlayer = playersData.find(p => p.name.toLowerCase() === currentPlayerName.toLowerCase());
             if (existingPlayer) {
@@ -1347,24 +1410,28 @@
             playersData = playersData.filter(p => p.name.toLowerCase() !== currentPlayerName.toLowerCase());
             playersData.push(playerData);
             
-            // Save to localStorage
+            // Save to both localStorage and shared leaderboard
             localStorage.setItem('aiSurveyPlayers', JSON.stringify(playersData));
+            saveToSharedLeaderboard(playersData);
 
             // Show leaderboard after a brief delay
             setTimeout(showLeaderboard, 1000);
         }
 
-        function showLeaderboard() {
+        async function showLeaderboard() {
             document.getElementById(`slide${currentSlideIndex}`).classList.remove('active');
             document.getElementById('leaderboardSlide').classList.add('active');
             document.getElementById('nextBtn').style.display = 'none';
             document.getElementById('prevBtn').style.display = 'none';
 
-            generateLeaderboard();
+            await generateLeaderboard();
         }
 
-        function generateLeaderboard() {
+        async function generateLeaderboard() {
             const container = document.getElementById('leaderboardContainer');
+            
+            // Load latest shared leaderboard data
+            playersData = await loadSharedLeaderboard();
             
             // Sort players by score (then by accuracy)
             const sortedPlayers = [...playersData].sort((a, b) => {
