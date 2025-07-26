@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Usage Survey - Multiplayer Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-container {
+            max-width: 1200px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .score-board {
+            background: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .player-info {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .player-name {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 600px;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .question {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .guess-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .guess-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .guess-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .guess-label {
+            font-weight: 500;
+            color: #495057;
+            flex: 1;
+        }
+
+        .guess-input {
+            width: 80px;
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+
+        .guess-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .result-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-label {
+            font-weight: 500;
+            color: #495057;
+            flex: 1;
+        }
+
+        .result-bar {
+            flex: 2;
+            margin: 0 20px;
+            height: 25px;
+            background: #e9ecef;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .result-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            width: 0%;
+            transition: width 1.5s ease;
+            border-radius: 12px;
+        }
+
+        .result-percentage {
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .accuracy-badge {
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .perfect { background: #d4edda; color: #155724; }
+        .excellent { background: #cce7ff; color: #004085; }
+        .good { background: #fff3cd; color: #856404; }
+        .poor { background: #f8d7da; color: #721c24; }
+
+        .buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .insight-box {
+            background: linear-gradient(45deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .insight-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: #f8f9fa;
+        }
+
+        /* Cover Slide Styles */
+        .cover-slide {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-slide h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cover-slide .company-name {
+            font-size: 2.5em;
+            color: #74b9ff;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .cover-slide .subtitle {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cover-slide .date {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .cover-slide .description {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Name Entry Styles */
+        .name-entry {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+            color: white;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .name-entry h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+
+        .name-entry .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .name-input-container {
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3em;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .name-input:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .start-button {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 30px;
+            font-size: 1.3em;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .start-button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Leaderboard Styles */
+        .leaderboard {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            min-height: 600px;
+        }
+
+        .leaderboard h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+
+        .leaderboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leaderboard-item {
+            background: rgba(255,255,255,0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .leaderboard-item.first {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .leaderboard-item.second {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+        }
+
+        .leaderboard-item.third {
+            background: linear-gradient(45deg, #cd7f32, #b8692a);
+        }
+
+        .leaderboard-rank {
+            font-size: 2em;
+            font-weight: bold;
+            min-width: 60px;
+        }
+
+        .leaderboard-name {
+            font-size: 1.5em;
+            font-weight: 500;
+            flex: 1;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .leaderboard-score {
+            font-size: 1.3em;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: right;
+        }
+
+        .leaderboard-accuracy {
+            font-size: 1.1em;
+            opacity: 0.8;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .current-player {
+            border: 3px solid #f1c40f;
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+        }
+
+        .play-again-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+        }
+
+        /* Range Selection Styles */
+        .range-option {
+            text-align: center;
+        }
+
+        .range-option input[type="radio"] {
+            display: none;
+        }
+
+        .range-label {
+            display: block;
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .range-label:hover {
+            border-color: #3498db;
+            background: #f8f9fa;
+        }
+
+        .range-option input[type="radio"]:checked + .range-label {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border-color: #2980b9;
+            transform: scale(1.02);
+        }
+
+        /* Ranking Styles */
+        .ranking-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .ranking-label {
+            font-weight: 500;
+            color: #495057;
+            flex: 1;
+        }
+
+        .ranking-select {
+            width: 200px;
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+
+        .ranking-select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        /* Range Slider Styles */
+        .range-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .range-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #e1e8ed;
+        }
+
+        .range-label {
+            flex: 1;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .range-slider {
+            flex: 2;
+            appearance: none;
+            height: 8px;
+            border-radius: 5px;
+            background: #e1e8ed;
+            outline: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+        }
+
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+            border: none;
+        }
+
+        .range-value {
+            font-weight: bold;
+            color: #3498db;
+            min-width: 50px;
+            text-align: right;
+        }
+
+
+        /* Checkbox Styles */
+        .checkbox-item {
+            text-align: left;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-label {
+            display: block;
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .checkbox-label:hover {
+            border-color: #3498db;
+            background: #f8f9fa;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked + .checkbox-label {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            border-color: #27ae60;
+            transform: scale(1.02);
+        }
+
+        .checkbox-item input[type="checkbox"]:disabled + .checkbox-label {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .question {
+                font-size: 1.5em;
+            }
+            
+            .guess-item {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .result-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .result-bar {
+                margin: 10px 0;
+                width: 100%;
+            }
+
+            .leaderboard-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .leaderboard-name {
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🎯 AI Usage Survey Challenge</h1>
+            <p>Multiplayer Knowledge Competition</p>
+        </div>
+
+        <!-- Player Info Bar (hidden initially) -->
+        <div class="player-info" id="playerInfo" style="display: none;">
+            <div class="player-name">Player: <span id="currentPlayerName"></span></div>
+            <div class="player-stats">
+                <span>Players: <span id="totalPlayers">0</span></span>
+                <span style="margin-left: 20px;">Your Rank: <span id="currentRank">-</span></span>
+            </div>
+        </div>
+
+        <!-- Score Board (hidden initially) -->
+        <div class="score-board" id="scoreBoard" style="display: none;">
+            <div class="score">Score: <span id="totalScore">0</span> / <span id="maxScore">0</span></div>
+            <div class="score">Slide: <span id="currentSlide">1</span> / <span id="totalSlides">6</span></div>
+            <div class="score">Accuracy: <span id="accuracy">0%</span></div>
+        </div>
+
+        <!-- Cover Slide -->
+        <div class="slide active" id="coverSlide">
+            <div class="cover-slide">
+                <div class="company-name">Clear Capital</div>
+                <h1>AI Usage Survey</h1>
+                <div class="subtitle">Knowledge Challenge</div>
+                <div class="date">July 28, 2025</div>
+                <div class="description">
+                    Test your knowledge of AI adoption trends and see how you rank against other players!
+                </div>
+                <button class="start-button" onclick="showNameEntry()">Join Competition</button>
+            </div>
+        </div>
+
+        <!-- Name Entry Slide -->
+        <div class="slide" id="nameEntrySlide">
+            <div class="name-entry">
+                <h1>🏆 Join the Competition</h1>
+                <div class="subtitle">Enter your name to compete on the leaderboard</div>
+                <div class="name-input-container">
+                    <input type="text" class="name-input" id="playerNameInput" placeholder="Enter your name..." maxlength="30">
+                    <button class="start-button" id="startGameBtn" onclick="startGame()" disabled>Start Game</button>
+                </div>
+                <div style="margin-top: 30px;">
+                    <p style="opacity: 0.8;">Your answers will be recorded and compared with other players</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Slide 2: Usage Frequency -->
+        <div class="slide" id="slide2">
+            <div class="question">
+                What percentage of executives use Gen AI tools daily?
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 Pick a Range</h3>
+                <div class="range-selection" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto;">
+                    <div class="range-option">
+                        <input type="radio" id="range2_1" name="dailyUsage" value="0-20">
+                        <label for="range2_1" class="range-label">0-20%</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="range2_2" name="dailyUsage" value="21-35">
+                        <label for="range2_2" class="range-label">21-35%</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="range2_3" name="dailyUsage" value="36-50">
+                        <label for="range2_3" class="range-label">36-50%</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="range2_4" name="dailyUsage" value="51-65">
+                        <label for="range2_4" class="range-label">51-65%</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="range2_5" name="dailyUsage" value="66-80">
+                        <label for="range2_5" class="range-label">66-80%</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="range2_6" name="dailyUsage" value="81-100">
+                        <label for="range2_6" class="range-label">81-100%</label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" onclick="nextSlide()">Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Department Impact -->
+        <div class="slide" id="slide3">
+            <div class="question">
+                Select the TOP 3 departments most impacted by Gen AI
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 Choose exactly 3 departments</h3>
+                <div id="deptSelectedCount" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #e74c3c;">
+                    Selected: <span id="deptCountDisplay">0</span>/3
+                </div>
+                <div class="checkbox-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_1" value="Engineering">
+                        <label for="dept3_1" class="checkbox-label">Engineering</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_2" value="Legal">
+                        <label for="dept3_2" class="checkbox-label">Legal</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_3" value="IT">
+                        <label for="dept3_3" class="checkbox-label">IT</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_4" value="Operations">
+                        <label for="dept3_4" class="checkbox-label">Operations</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_5" value="Customer Service">
+                        <label for="dept3_5" class="checkbox-label">Customer Service</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_6" value="Marketing">
+                        <label for="dept3_6" class="checkbox-label">Marketing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_7" value="HR">
+                        <label for="dept3_7" class="checkbox-label">HR</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_8" value="Business Intelligence">
+                        <label for="dept3_8" class="checkbox-label">Business Intelligence</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_9" value="Finance">
+                        <label for="dept3_9" class="checkbox-label">Finance</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dept3_10" value="Sales">
+                        <label for="dept3_10" class="checkbox-label">Sales</label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" id="nextBtn3" onclick="nextSlide()" disabled>Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Top Gen AI Use Cases -->
+        <div class="slide" id="slide4">
+            <div class="question">
+                Select the TOP 5 most adopted Gen AI use cases
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 Choose exactly 5 options</h3>
+                <div id="selectedCount" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #e74c3c;">
+                    Selected: <span id="countDisplay">0</span>/5
+                </div>
+                <div class="checkbox-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_1" value="Data analysis and analytics">
+                        <label for="usecase4_1" class="checkbox-label">Data analysis and analytics</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_2" value="Document/meeting summarization">
+                        <label for="usecase4_2" class="checkbox-label">Document/meeting summarization</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_3" value="Document writing/editing">
+                        <label for="usecase4_3" class="checkbox-label">Document writing/editing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_4" value="Presentation creation">
+                        <label for="usecase4_4" class="checkbox-label">Presentation creation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_5" value="Code writing/generation">
+                        <label for="usecase4_5" class="checkbox-label">Code writing/generation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_6" value="Customer service and support">
+                        <label for="usecase4_6" class="checkbox-label">Customer service and support</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_7" value="Marketing content creation">
+                        <label for="usecase4_7" class="checkbox-label">Marketing content creation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_8" value="Physical robot automation">
+                        <label for="usecase4_8" class="checkbox-label">Physical robot automation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_9" value="Autonomous vehicle navigation">
+                        <label for="usecase4_9" class="checkbox-label">Autonomous vehicle navigation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_10" value="Voice/speech synthesis for executives">
+                        <label for="usecase4_10" class="checkbox-label">Voice/speech synthesis for executives</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_11" value="AI-generated music/sound design">
+                        <label for="usecase4_11" class="checkbox-label">AI-generated music/sound design</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="usecase4_12" value="Quantum computing optimization">
+                        <label for="usecase4_12" class="checkbox-label">Quantum computing optimization</label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" id="nextBtn4" onclick="nextSlide()" disabled>Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Business Impact -->
+        <div class="slide" id="slide5">
+            <div class="question">
+                How strongly do executives agree that these are the key outcomes of Gen AI they are seeing?
+                <div style="font-size: 0.7em; margin-top: 10px; color: #666;">Rank by level of agreement (1 = most agree, 5 = least agree)</div>
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 Rank from 1-5</h3>
+                <div class="ranking-grid" style="display: grid; gap: 15px; max-width: 700px; margin: 0 auto;">
+                    <div class="ranking-item">
+                        <span class="ranking-label">Higher quality output with same employees</span>
+                        <select class="ranking-select" id="rank5_1">
+                            <option value="">Select Rank</option>
+                            <option value="1">1 (Most Agree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Least Agree)</option>
+                        </select>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="ranking-label">Enhances employee skills</span>
+                        <select class="ranking-select" id="rank5_2">
+                            <option value="">Select Rank</option>
+                            <option value="1">1 (Most Agree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Least Agree)</option>
+                        </select>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="ranking-label">Increases revenue overall</span>
+                        <select class="ranking-select" id="rank5_3">
+                            <option value="">Select Rank</option>
+                            <option value="1">1 (Most Agree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Least Agree)</option>
+                        </select>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="ranking-label">Decreases costs</span>
+                        <select class="ranking-select" id="rank5_4">
+                            <option value="">Select Rank</option>
+                            <option value="1">1 (Most Agree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Least Agree)</option>
+                        </select>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="ranking-label">Leads to skill proficiency decline</span>
+                        <select class="ranking-select" id="rank5_5">
+                            <option value="">Select Rank</option>
+                            <option value="1">1 (Most Agree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Least Agree)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" onclick="nextSlide()">Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Main Challenges -->
+        <div class="slide" id="slide6">
+            <div class="question">
+                Select the TOP 3 main challenges organizations face with Gen AI adoption
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 Choose exactly 3 challenges</h3>
+                <div id="challengeSelectedCount" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #e74c3c;">
+                    Selected: <span id="challengeCountDisplay">0</span>/3
+                </div>
+                <div class="checkbox-grid" style="display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_1" value="Inaccuracy of results (hallucination effect)">
+                        <label for="challenge6_1" class="checkbox-label">Inaccuracy of results (hallucination effect)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_2" value="Customer data privacy">
+                        <label for="challenge6_2" class="checkbox-label">Customer data privacy</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_3" value="Ethical considerations">
+                        <label for="challenge6_3" class="checkbox-label">Ethical considerations (biases, transparency)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_4" value="Compliance with regulations">
+                        <label for="challenge6_4" class="checkbox-label">Compliance with industry-specific regulations</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_5" value="Costs of the technology">
+                        <label for="challenge6_5" class="checkbox-label">Costs of the technology</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_6" value="Confidential information exposure">
+                        <label for="challenge6_6" class="checkbox-label">Exposure of confidential and proprietary information</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_7" value="Intellectual property rights">
+                        <label for="challenge6_7" class="checkbox-label">Intellectual property rights</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_8" value="Lack of organizational understanding">
+                        <label for="challenge6_8" class="checkbox-label">Lack of organizational understanding and expertise</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="challenge6_9" value="Employee capabilities gap">
+                        <label for="challenge6_9" class="checkbox-label">Employees not equipped with right capabilities</label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" id="nextBtn6" onclick="nextSlide()" disabled>Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: LLM Performance -->
+        <div class="slide" id="slide7">
+            <div class="question">
+                What has research shown makes LLMs perform better?
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🧠 Choose the correct answer</h3>
+                <div class="range-selection" style="display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 600px; margin: 0 auto;">
+                    <div class="range-option">
+                        <input type="radio" id="llm7_1" name="llmPerformance" value="tip">
+                        <label for="llm7_1" class="range-label">Promising to tip the LLM money for good responses</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="llm7_2" name="llmPerformance" value="longer">
+                        <label for="llm7_2" class="range-label">Using longer, more detailed prompts with examples</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="llm7_3" name="llmPerformance" value="formal">
+                        <label for="llm7_3" class="range-label">Writing prompts in formal, technical language</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="llm7_4" name="llmPerformance" value="multiple">
+                        <label for="llm7_4" class="range-label">Running the same prompt multiple times and averaging results</label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" onclick="nextSlide()">Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Hiring Impact -->
+        <div class="slide" id="slide8">
+            <div class="question">
+                Which hiring outcome do executives most commonly predict for Gen AI?
+            </div>
+            <div class="guess-section">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 Select the most common response</h3>
+                <div class="range-selection" style="display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 500px; margin: 0 auto;">
+                    <div class="range-option">
+                        <input type="radio" id="hiring8_1" name="hiringOutcome" value="fewer">
+                        <label for="hiring8_1" class="range-label">Net fewer hires</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="hiring8_2" name="hiringOutcome" value="nochange">
+                        <label for="hiring8_2" class="range-label">Net no change in hiring</label>
+                    </div>
+                    <div class="range-option">
+                        <input type="radio" id="hiring8_3" name="hiringOutcome" value="more">
+                        <label for="hiring8_3" class="range-label">Net more hires</label>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn" onclick="finishGame()">Complete Survey</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Leaderboard Slide -->
+        <div class="slide" id="leaderboardSlide">
+            <div class="leaderboard">
+                <h2>🏆 Final Leaderboard</h2>
+                <div class="leaderboard-container" id="leaderboardContainer">
+                    <!-- Leaderboard items will be populated by JavaScript -->
+                </div>
+                <div class="play-again-section">
+                    <h3>Your Performance</h3>
+                    <p id="playerPerformance" style="font-size: 1.2em; margin: 20px 0;"></p>
+                    <button class="start-button" onclick="restartGame()">Play Again</button>
+                    <button class="btn" onclick="newPlayer()" style="margin-left: 20px;">New Player</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="btn" id="prevBtn" onclick="previousSlide()" style="display: none;">Previous</button>
+            <button class="btn" id="nextBtn" onclick="nextSlide()" style="display: none;">Next Slide</button>
+        </div>
+    </div>
+
+    <script>
+        // Game State
+        let currentSlideIndex = 0;
+        let totalScore = 0;
+        let maxPossibleScore = 0;
+        let currentPlayerName = '';
+        const totalSlides = 8;
+        const gameSlides = 7;
+
+        // Clear all previous players (one-time cleanup)
+        localStorage.removeItem('aiSurveyPlayers');
+        
+        // Player Data Storage (using localStorage for persistence)
+        let playersData = JSON.parse(localStorage.getItem('aiSurveyPlayers')) || [];
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        // Name Entry Functions
+        function showNameEntry() {
+            document.getElementById('coverSlide').classList.remove('active');
+            document.getElementById('nameEntrySlide').classList.add('active');
+            
+            // Focus on name input
+            setTimeout(() => {
+                document.getElementById('playerNameInput').focus();
+            }, 300);
+        }
+
+        // Enable/disable start button based on name input
+        document.getElementById('playerNameInput').addEventListener('input', function() {
+            const name = this.value.trim();
+            const startBtn = document.getElementById('startGameBtn');
+            
+            if (name.length >= 2) {
+                startBtn.disabled = false;
+                startBtn.textContent = 'Start Game';
+            } else {
+                startBtn.disabled = true;
+                startBtn.textContent = 'Enter Name (2+ chars)';
+            }
+        });
+
+        // Allow Enter key to start game
+        document.getElementById('playerNameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !document.getElementById('startGameBtn').disabled) {
+                startGame();
+            }
+        });
+
+        function startGame() {
+            currentPlayerName = document.getElementById('playerNameInput').value.trim();
+            
+            if (currentPlayerName.length < 2) {
+                alert('Please enter a name with at least 2 characters');
+                return;
+            }
+
+            // Check if name already exists
+            const existingPlayer = playersData.find(p => p.name.toLowerCase() === currentPlayerName.toLowerCase());
+            if (existingPlayer) {
+                if (!confirm(`Player "${currentPlayerName}" already exists. Do you want to play again and update your score?`)) {
+                    return;
+                }
+            }
+
+            // Initialize game
+            totalScore = 0;
+            maxPossibleScore = 0;
+            currentSlideIndex = 2;
+
+            // Show game UI
+            document.getElementById('nameEntrySlide').classList.remove('active');
+            document.getElementById('slide2').classList.add('active');
+            document.getElementById('playerInfo').style.display = 'flex';
+            document.getElementById('scoreBoard').style.display = 'flex';
+            document.getElementById('currentPlayerName').textContent = currentPlayerName;
+            
+            updatePlayerStats();
+            updateScoreDisplay();
+        }
+
+        function updatePlayerStats() {
+            // Count total players including current player if they haven't finished yet
+            const existingPlayerNames = playersData.map(p => p.name.toLowerCase());
+            const currentPlayerExists = existingPlayerNames.includes(currentPlayerName.toLowerCase());
+            const totalCount = currentPlayerExists ? playersData.length : playersData.length + 1;
+            
+            document.getElementById('totalPlayers').textContent = totalCount;
+            
+            // Calculate current rank if player exists
+            if (playersData.length > 0) {
+                const currentPlayer = playersData.find(p => p.name.toLowerCase() === currentPlayerName.toLowerCase());
+                if (currentPlayer) {
+                    const sortedPlayers = [...playersData].sort((a, b) => {
+                        if (b.score !== a.score) return b.score - a.score;
+                        return b.accuracy - a.accuracy;
+                    });
+                    const rank = sortedPlayers.findIndex(p => p.name.toLowerCase() === currentPlayerName.toLowerCase()) + 1;
+                    document.getElementById('currentRank').textContent = rank;
+                } else {
+                    document.getElementById('currentRank').textContent = '-';
+                }
+            } else {
+                document.getElementById('currentRank').textContent = '1';
+            }
+        }
+
+        function calculateAccuracy(guess, actual) {
+            const difference = Math.abs(guess - actual);
+            if (difference === 0) return { score: 10, class: 'perfect', text: 'Perfect!' };
+            if (difference <= 3) return { score: 8, class: 'excellent', text: 'Excellent' };
+            if (difference <= 7) return { score: 5, class: 'good', text: 'Good' };
+            if (difference <= 15) return { score: 2, class: 'good', text: 'Close' };
+            return { score: 0, class: 'poor', text: 'Try again' };
+        }
+
+        function calculateScoreForSlide(slideNum) {
+            let slideScore = 0;
+            let slideMaxScore = 0;
+
+            if (slideNum === 2) {
+                // Range selection for daily usage
+                const selectedRange = document.querySelector('input[name="dailyUsage"]:checked');
+                if (selectedRange) {
+                    const rangeValue = selectedRange.value;
+                    const actualValue = 46; // 46% use AI daily
+                    
+                    // Check if actual value falls in selected range
+                    if (rangeValue === "36-50") { // Correct range for 46%
+                        slideScore = 10;
+                    } else if (rangeValue === "21-35" || rangeValue === "51-65") { // Adjacent ranges
+                        slideScore = 5;
+                    } else {
+                        slideScore = 0;
+                    }
+                }
+                slideMaxScore = 10;
+            } else if (slideNum === 3) {
+                // Top 3 departments - checkbox selection
+                const correctTop3 = [
+                    "IT", // 61%
+                    "Customer Service", // 53%
+                    "Business Intelligence" // 51%
+                ];
+                
+                const selectedOptions = [];
+                for (let i = 1; i <= 10; i++) {
+                    const checkbox = document.getElementById(`dept3_${i}`);
+                    if (checkbox && checkbox.checked) {
+                        selectedOptions.push(checkbox.value);
+                    }
+                }
+                
+                // Score based on how many correct ones were selected
+                slideMaxScore = 30; // 10 points per correct department
+                correctTop3.forEach(correct => {
+                    if (selectedOptions.includes(correct)) {
+                        slideScore += 10;
+                    }
+                });
+            } else if (slideNum === 4) {
+                // Top 5 selection
+                const correctTop5 = [
+                    "Data analysis and analytics",
+                    "Document/meeting summarization", 
+                    "Document writing/editing",
+                    "Presentation creation",
+                    "Customer service and support"
+                ];
+                
+                const selectedOptions = [];
+                for (let i = 1; i <= 12; i++) {
+                    const checkbox = document.getElementById(`usecase4_${i}`);
+                    if (checkbox && checkbox.checked) {
+                        selectedOptions.push(checkbox.value);
+                    }
+                }
+                
+                // Score based on how many correct ones were selected
+                slideMaxScore = 50;
+                correctTop5.forEach(correct => {
+                    if (selectedOptions.includes(correct)) {
+                        slideScore += 10;
+                    }
+                });
+            } else if (slideNum === 5) {
+                // Ranking for business impact (by agreement level)
+                // Correct ranking: Higher quality (90%) = 1, Enhances skills (89%) = 2, Revenue (84%) = 3, Costs (81%) = 4, Decline (43%) = 5
+                const correctRanking = [1, 2, 3, 4, 5]; // Higher quality, Enhances skills, Revenue, Costs, Decline
+                slideMaxScore = 50; // 10 points per correct ranking
+                
+                for (let i = 1; i <= 5; i++) {
+                    const selectedRank = document.getElementById(`rank5_${i}`).value;
+                    if (selectedRank && parseInt(selectedRank) === correctRanking[i-1]) {
+                        slideScore += 10;
+                    }
+                }
+            } else if (slideNum === 6) {
+                // Main challenges - Top 3 selection
+                const correctTop3 = [
+                    "Inaccuracy of results (hallucination effect)", // 23%
+                    "Customer data privacy", // 22%
+                    "Ethical considerations" // 22%
+                ];
+                
+                const selectedOptions = [];
+                for (let i = 1; i <= 9; i++) {
+                    const checkbox = document.getElementById(`challenge6_${i}`);
+                    if (checkbox && checkbox.checked) {
+                        selectedOptions.push(checkbox.value);
+                    }
+                }
+                
+                // Score based on how many correct ones were selected
+                slideMaxScore = 30; // 10 points per correct challenge
+                correctTop3.forEach(correct => {
+                    if (selectedOptions.includes(correct)) {
+                        slideScore += 10;
+                    }
+                });
+            } else if (slideNum === 7) {
+                // LLM performance - Multiple choice selection
+                const selectedOption = document.querySelector('input[name="llmPerformance"]:checked');
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    // Correct answer is "tip" (Promising to tip the LLM)
+                    if (selectedValue === "tip") {
+                        slideScore = 10;
+                    } else {
+                        slideScore = 0;
+                    }
+                }
+                slideMaxScore = 10;
+            } else if (slideNum === 8) {
+                // Hiring impact - Most common response selection
+                const selectedOption = document.querySelector('input[name="hiringOutcome"]:checked');
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    // Correct answer is "more" (Net more hires = 40%, the highest percentage)
+                    if (selectedValue === "more") {
+                        slideScore = 10;
+                    } else {
+                        slideScore = 0;
+                    }
+                }
+                slideMaxScore = 10;
+            }
+
+            return { slideScore, slideMaxScore };
+        }
+
+        function finishGame() {
+            // Calculate scores for all game slides (2-8)
+            totalScore = 0;
+            maxPossibleScore = 0;
+            
+            for (let slideNum = 2; slideNum <= 8; slideNum++) {
+                const { slideScore, slideMaxScore } = calculateScoreForSlide(slideNum);
+                totalScore += slideScore;
+                maxPossibleScore += slideMaxScore;
+            }
+            
+            // Update final score display
+            updateScoreDisplay();
+            
+            // Save player data
+            const accuracy = maxPossibleScore > 0 ? Math.round((totalScore / maxPossibleScore) * 100) : 0;
+            const playerData = {
+                name: currentPlayerName,
+                score: totalScore,
+                maxScore: maxPossibleScore,
+                accuracy: accuracy,
+                timestamp: new Date().toISOString(),
+                date: new Date().toLocaleDateString()
+            };
+
+            // Remove existing player if present and add new score
+            playersData = playersData.filter(p => p.name.toLowerCase() !== currentPlayerName.toLowerCase());
+            playersData.push(playerData);
+            
+            // Save to localStorage
+            localStorage.setItem('aiSurveyPlayers', JSON.stringify(playersData));
+
+            // Show leaderboard after a brief delay
+            setTimeout(showLeaderboard, 1000);
+        }
+
+        function showLeaderboard() {
+            document.getElementById(`slide${currentSlideIndex}`).classList.remove('active');
+            document.getElementById('leaderboardSlide').classList.add('active');
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('prevBtn').style.display = 'none';
+
+            generateLeaderboard();
+        }
+
+        function generateLeaderboard() {
+            const container = document.getElementById('leaderboardContainer');
+            
+            // Sort players by score (then by accuracy)
+            const sortedPlayers = [...playersData].sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return b.accuracy - a.accuracy;
+            });
+
+            container.innerHTML = '';
+
+            sortedPlayers.forEach((player, index) => {
+                const item = document.createElement('div');
+                item.className = 'leaderboard-item';
+                
+                // Add special styling for top 3
+                if (index === 0) item.classList.add('first');
+                else if (index === 1) item.classList.add('second');
+                else if (index === 2) item.classList.add('third');
+                
+                // Highlight current player
+                if (player.name.toLowerCase() === currentPlayerName.toLowerCase()) {
+                    item.classList.add('current-player');
+                }
+
+                const rankEmoji = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+                
+                item.innerHTML = `
+                    <div class="leaderboard-rank">${rankEmoji}</div>
+                    <div class="leaderboard-name">${player.name}</div>
+                    <div class="leaderboard-score">${player.score}/${player.maxScore}</div>
+                    <div class="leaderboard-accuracy">${player.accuracy}%</div>
+                `;
+                
+                container.appendChild(item);
+            });
+
+            // Update player performance text
+            const currentPlayerRank = sortedPlayers.findIndex(p => p.name.toLowerCase() === currentPlayerName.toLowerCase()) + 1;
+            const currentPlayerData = sortedPlayers.find(p => p.name.toLowerCase() === currentPlayerName.toLowerCase());
+            
+            let performanceText = `You ranked #${currentPlayerRank} out of ${sortedPlayers.length} players!`;
+            if (currentPlayerRank === 1) performanceText += ' 🏆 Congratulations, you\'re the AI Survey Champion!';
+            else if (currentPlayerRank <= 3) performanceText += ' 🎉 Excellent performance!';
+            else if (currentPlayerRank <= Math.ceil(sortedPlayers.length / 2)) performanceText += ' 👍 Above average!';
+            
+            document.getElementById('playerPerformance').textContent = performanceText;
+        }
+
+        function getSlideData(slideNum) {
+            const data = {
+                2: [ // Usage Frequency
+                    { percentage: 46 },
+                    { percentage: 36 },
+                    { percentage: 13 }
+                ],
+                3: [ // Department Impact
+                    { percentage: 61 },
+                    { percentage: 53 },
+                    { percentage: 48 },
+                    { percentage: 37 },
+                    { percentage: 27 }
+                ],
+                4: [ // Top Use Cases
+                    { percentage: 73 },
+                    { percentage: 70 },
+                    { percentage: 68 },
+                    { percentage: 68 },
+                    { percentage: 58 }
+                ],
+                5: [ // Business Impact
+                    { percentage: 90 },
+                    { percentage: 89 },
+                    { percentage: 84 },
+                    { percentage: 81 },
+                    { percentage: 43 }
+                ],
+                6: [ // Category Adoption
+                    { percentage: 94 },
+                    { percentage: 93 },
+                    { percentage: 92 },
+                    { percentage: 92 }
+                ]
+            };
+            return data[slideNum] || [];
+        }
+
+        function updateScoreDisplay() {
+            document.getElementById('totalScore').textContent = totalScore;
+            document.getElementById('maxScore').textContent = maxPossibleScore;
+            document.getElementById('currentSlide').textContent = currentSlideIndex;
+            
+            const accuracy = maxPossibleScore > 0 ? Math.round((totalScore / maxPossibleScore) * 100) : 0;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+        }
+
+        function nextSlide() {
+            console.log(`Current slide: ${currentSlideIndex}, Total slides: ${totalSlides}`);
+            if (currentSlideIndex < totalSlides) {
+                document.getElementById(`slide${currentSlideIndex}`).classList.remove('active');
+                currentSlideIndex++;
+                console.log(`Moving to slide: ${currentSlideIndex}`);
+                document.getElementById(`slide${currentSlideIndex}`).classList.add('active');
+                
+                // Hide navigation buttons initially for each slide
+                document.getElementById('nextBtn').style.display = 'none';
+                if (currentSlideIndex > 2) {
+                    document.getElementById('prevBtn').style.display = 'inline-block';
+                }
+                
+                updateScoreDisplay();
+            } else {
+                console.log('Cannot advance: at last slide');
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 1) {
+                document.getElementById(`slide${currentSlideIndex}`).classList.remove('active');
+                currentSlideIndex--;
+                document.getElementById(`slide${currentSlideIndex}`).classList.add('active');
+                
+                if (currentSlideIndex === 1) {
+                    document.getElementById('prevBtn').style.display = 'none';
+                }
+                
+                updateScoreDisplay();
+            }
+        }
+
+        function restartGame() {
+            // Reset game state but keep current player
+            currentSlideIndex = 0;
+            totalScore = 0;
+            maxPossibleScore = 0;
+            
+            // Reset slide 2 (radio buttons)
+            document.querySelectorAll('input[name="dailyUsage"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Reset slide 3 (department checkboxes)
+            for (let i = 1; i <= 10; i++) {
+                const checkbox = document.getElementById(`dept3_${i}`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            }
+            document.getElementById('deptCountDisplay').textContent = '0';
+            document.getElementById('nextBtn3').disabled = true;
+            
+            // Reset slide 4 (checkboxes)
+            for (let i = 1; i <= 12; i++) {
+                const checkbox = document.getElementById(`usecase4_${i}`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            }
+            document.getElementById('countDisplay').textContent = '0';
+            document.getElementById('nextBtn4').disabled = true;
+            document.getElementById('nextBtn4').style.background = '#95a5a6';
+            document.getElementById('selectedCount').style.color = '#e74c3c';
+            
+            // Reset slide 5 (ranking selects)
+            for (let i = 1; i <= 5; i++) {
+                const select = document.getElementById(`rank5_${i}`);
+                if (select) select.value = '';
+            }
+            
+            // Reset slide 6 (challenge checkboxes)
+            for (let i = 1; i <= 9; i++) {
+                const checkbox = document.getElementById(`challenge6_${i}`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            }
+            document.getElementById('challengeCountDisplay').textContent = '0';
+            document.getElementById('nextBtn6').disabled = true;
+            
+            // Reset slide 7 (LLM performance radio buttons)
+            document.querySelectorAll('input[name="llmPerformance"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Reset slide 8 (hiring radio buttons)
+            document.querySelectorAll('input[name="hiringOutcome"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            
+            // Go back to first game slide
+            document.getElementById('leaderboardSlide').classList.remove('active');
+            document.getElementById('slide2').classList.add('active');
+            currentSlideIndex = 2;
+            
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('prevBtn').style.display = 'none';
+            
+            updateScoreDisplay();
+        }
+
+        function newPlayer() {
+            // Complete reset for new player
+            currentSlideIndex = 0;
+            totalScore = 0;
+            maxPossibleScore = 0;
+            currentPlayerName = '';
+            
+            // Reset all slides  
+            for (let i = 2; i <= 8; i++) {
+                const slideElement = document.getElementById(`slide${i}`);
+                if (slideElement) slideElement.classList.remove('active');
+            }
+            
+            // Reset slide 2 (radio buttons)
+            document.querySelectorAll('input[name="dailyUsage"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Reset slide 3 (department checkboxes)
+            for (let i = 1; i <= 10; i++) {
+                const checkbox = document.getElementById(`dept3_${i}`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            }
+            document.getElementById('deptCountDisplay').textContent = '0';
+            document.getElementById('nextBtn3').disabled = true;
+            
+            // Reset slide 4 (checkboxes)
+            for (let i = 1; i <= 12; i++) {
+                const checkbox = document.getElementById(`usecase4_${i}`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            }
+            document.getElementById('countDisplay').textContent = '0';
+            document.getElementById('nextBtn4').disabled = true;
+            document.getElementById('nextBtn4').style.background = '#95a5a6';
+            document.getElementById('selectedCount').style.color = '#e74c3c';
+            
+            // Reset slide 5 (ranking selects)
+            for (let i = 1; i <= 5; i++) {
+                const select = document.getElementById(`rank5_${i}`);
+                if (select) select.value = '';
+            }
+            
+            // Reset slide 6 (challenge checkboxes)
+            for (let i = 1; i <= 9; i++) {
+                const checkbox = document.getElementById(`challenge6_${i}`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            }
+            document.getElementById('challengeCountDisplay').textContent = '0';
+            document.getElementById('nextBtn6').disabled = true;
+            
+            // Reset slide 7 (LLM performance radio buttons)
+            document.querySelectorAll('input[name="llmPerformance"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Reset slide 8 (hiring radio buttons)
+            document.querySelectorAll('input[name="hiringOutcome"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            
+            // Hide game UI
+            document.getElementById('leaderboardSlide').classList.remove('active');
+            document.getElementById('playerInfo').style.display = 'none';
+            document.getElementById('scoreBoard').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('prevBtn').style.display = 'none';
+            
+            // Go back to cover slide
+            document.getElementById('coverSlide').classList.add('active');
+            
+            // Reset name input
+            document.getElementById('playerNameInput').value = '';
+            document.getElementById('startGameBtn').disabled = true;
+            document.getElementById('startGameBtn').textContent = 'Enter Name (2+ chars)';
+            
+            updateScoreDisplay();
+        }
+
+        // Checkbox counting for slide 4
+        function setupCheckboxListeners() {
+            const checkboxes = document.querySelectorAll('#slide4 input[type="checkbox"]');
+            const countDisplay = document.getElementById('countDisplay');
+            const nextBtn = document.getElementById('nextBtn4');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checked = document.querySelectorAll('#slide4 input[type="checkbox"]:checked');
+                    const count = checked.length;
+                    
+                    countDisplay.textContent = count;
+                    
+                    // Enable/disable other checkboxes based on selection limit
+                    if (count >= 5) {
+                        checkboxes.forEach(cb => {
+                            if (!cb.checked) {
+                                cb.disabled = true;
+                            }
+                        });
+                        nextBtn.disabled = false;
+                        nextBtn.style.background = 'linear-gradient(45deg, #3498db, #2980b9)';
+                    } else {
+                        checkboxes.forEach(cb => {
+                            cb.disabled = false;
+                        });
+                        nextBtn.disabled = true;
+                        nextBtn.style.background = '#95a5a6';
+                    }
+                    
+                    // Update color based on count
+                    if (count === 5) {
+                        countDisplay.parentElement.style.color = '#27ae60';
+                    } else if (count > 5) {
+                        countDisplay.parentElement.style.color = '#e74c3c';
+                    } else {
+                        countDisplay.parentElement.style.color = '#e74c3c';
+                    }
+                });
+            });
+        }
+
+        // Setup checkbox listeners for slide 6 (challenges)
+        function setupChallengeCheckboxListeners() {
+            const checkboxes = document.querySelectorAll('#slide6 input[type="checkbox"]');
+            const countDisplay = document.getElementById('challengeCountDisplay');
+            const nextBtn = document.getElementById('nextBtn6');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkedCount = document.querySelectorAll('#slide6 input[type="checkbox"]:checked').length;
+                    countDisplay.textContent = checkedCount;
+                    
+                    // Enable/disable next button based on exactly 3 selections
+                    if (checkedCount === 3) {
+                        nextBtn.disabled = false;
+                        nextBtn.style.background = '#3498db';
+                        countDisplay.parentElement.style.color = '#27ae60';
+                    } else {
+                        nextBtn.disabled = true;
+                        nextBtn.style.background = '#95a5a6';
+                        countDisplay.parentElement.style.color = '#e74c3c';
+                    }
+                    
+                    // Disable other checkboxes if 3 are selected
+                    if (checkedCount >= 3) {
+                        checkboxes.forEach(cb => {
+                            if (!cb.checked) cb.disabled = true;
+                        });
+                    } else {
+                        checkboxes.forEach(cb => {
+                            cb.disabled = false;
+                        });
+                    }
+                });
+            });
+        }
+
+
+        // Initialize the game
+        updateScoreDisplay();
+        updatePlayerStats();
+        
+        // Setup department checkbox listeners for slide 3
+        function setupDepartmentCheckboxListeners() {
+            const checkboxes = document.querySelectorAll('#slide3 input[type="checkbox"]');
+            const countDisplay = document.getElementById('deptCountDisplay');
+            const nextBtn = document.getElementById('nextBtn3');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkedCount = document.querySelectorAll('#slide3 input[type="checkbox"]:checked').length;
+                    countDisplay.textContent = checkedCount;
+                    
+                    // Enable/disable next button based on exactly 3 selections
+                    if (checkedCount === 3) {
+                        nextBtn.disabled = false;
+                        nextBtn.style.background = '#3498db';
+                        countDisplay.parentElement.style.color = '#27ae60';
+                    } else {
+                        nextBtn.disabled = true;
+                        nextBtn.style.background = '#95a5a6';
+                        countDisplay.parentElement.style.color = '#e74c3c';
+                    }
+                    
+                    // Disable other checkboxes if 3 are selected
+                    if (checkedCount >= 3) {
+                        checkboxes.forEach(cb => {
+                            if (!cb.checked) cb.disabled = true;
+                        });
+                    } else {
+                        checkboxes.forEach(cb => {
+                            cb.disabled = false;
+                        });
+                    }
+                });
+            });
+        }
+
+        // Setup checkbox listeners when page loads
+        setupCheckboxListeners();
+        setupDepartmentCheckboxListeners();
+        setupChallengeCheckboxListeners();
+    </script>
+</body>
+</html>
