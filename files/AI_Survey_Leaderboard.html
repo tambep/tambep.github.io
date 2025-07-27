@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Survey Challenge - Live Leaderboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .leaderboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .refresh-info {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: transform 0.2s;
+        }
+
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .leaderboard {
+            padding: 40px;
+        }
+
+        .leaderboard-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 120px 100px 150px;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 5px solid #e9ecef;
+        }
+
+        .leaderboard-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .leaderboard-item.first {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            border-left-color: #ffd700;
+            font-weight: bold;
+        }
+
+        .leaderboard-item.second {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+            border-left-color: #c0c0c0;
+            font-weight: bold;
+        }
+
+        .leaderboard-item.third {
+            background: linear-gradient(135deg, #cd7f32, #deb887);
+            border-left-color: #cd7f32;
+            font-weight: bold;
+        }
+
+        .leaderboard-rank {
+            font-size: 1.8em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .leaderboard-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .leaderboard-score {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #3498db;
+            text-align: center;
+        }
+
+        .leaderboard-accuracy {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+        }
+
+        .leaderboard-date {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+
+        .no-players {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .auto-refresh {
+            background: #e7f3ff;
+            color: #0056b3;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .leaderboard-item {
+                grid-template-columns: 60px 1fr 80px 80px;
+                font-size: 0.9em;
+                padding: 15px;
+            }
+            
+            .leaderboard-date {
+                display: none;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="leaderboard-container">
+        <div class="header">
+            <h1>🏆 AI Survey Challenge</h1>
+            <p>Live Leaderboard</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalPlayers">-</span>
+                    <span class="stat-label">Total Players</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="topScore">-</span>
+                    <span class="stat-label">Top Score</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="avgAccuracy">-</span>
+                    <span class="stat-label">Avg Accuracy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="refresh-info">
+            <span>Last updated: <span id="lastUpdated">Never</span></span>
+            <button class="refresh-btn" onclick="loadLeaderboard()">🔄 Refresh Now</button>
+        </div>
+
+        <div class="auto-refresh">
+            Auto-refreshing every 30 seconds • <span id="countdown">30</span>s until next refresh
+        </div>
+
+        <div class="leaderboard">
+            <div id="loadingMessage" class="loading">
+                🔄 Loading leaderboard data...
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;">
+                ❌ Unable to load leaderboard data. Please check your internet connection and try again.
+            </div>
+
+            <div id="leaderboardContent" style="display: none;">
+                <!-- Leaderboard items will be populated here -->
+            </div>
+
+            <div id="noPlayersMessage" class="no-players" style="display: none;">
+                🎮 No players yet! Be the first to take the AI Survey Challenge!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Shared Leaderboard Configuration (same as main game)
+        const JSONBIN_API_KEY = '$2a$10$D2TpGhEkiy73EnzJg4K0DO/zTTA.O8LiC70iinQ6OvCCgRE6xqgSi';
+        const JSONBIN_BIN_ID = '688566057b4b8670d8a7df2c';
+
+        let countdownTimer = 30;
+        let countdownInterval;
+
+        async function loadLeaderboard() {
+            const loadingEl = document.getElementById('loadingMessage');
+            const errorEl = document.getElementById('errorMessage');
+            const contentEl = document.getElementById('leaderboardContent');
+            const noPlayersEl = document.getElementById('noPlayersMessage');
+
+            // Show loading
+            loadingEl.style.display = 'block';
+            errorEl.style.display = 'none';
+            contentEl.style.display = 'none';
+            noPlayersEl.style.display = 'none';
+
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': JSONBIN_API_KEY
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const players = data.record.players || [];
+                    
+                    // Hide loading
+                    loadingEl.style.display = 'none';
+                    
+                    if (players.length === 0) {
+                        noPlayersEl.style.display = 'block';
+                        updateStats([], 0, 0);
+                    } else {
+                        displayLeaderboard(players);
+                        contentEl.style.display = 'block';
+                    }
+                    
+                    // Update last updated time
+                    document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+                    
+                } else {
+                    throw new Error('Failed to fetch data');
+                }
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+            }
+
+            // Reset countdown
+            resetCountdown();
+        }
+
+        function displayLeaderboard(players) {
+            const container = document.getElementById('leaderboardContent');
+            
+            // Sort players by score (then by accuracy)
+            const sortedPlayers = [...players].sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return b.accuracy - a.accuracy;
+            });
+
+            // Calculate stats
+            const topScore = sortedPlayers.length > 0 ? sortedPlayers[0].score : 0;
+            const avgAccuracy = sortedPlayers.length > 0 
+                ? Math.round(sortedPlayers.reduce((sum, p) => sum + p.accuracy, 0) / sortedPlayers.length)
+                : 0;
+            
+            updateStats(sortedPlayers, topScore, avgAccuracy);
+
+            container.innerHTML = '';
+
+            sortedPlayers.forEach((player, index) => {
+                const item = document.createElement('div');
+                item.className = 'leaderboard-item';
+                
+                // Add special styling for top 3
+                if (index === 0) item.classList.add('first');
+                else if (index === 1) item.classList.add('second');
+                else if (index === 2) item.classList.add('third');
+
+                const rankEmoji = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+                
+                item.innerHTML = `
+                    <div class="leaderboard-rank">${rankEmoji}</div>
+                    <div class="leaderboard-name">${escapeHtml(player.name)}</div>
+                    <div class="leaderboard-score">${player.score}/${player.maxScore}</div>
+                    <div class="leaderboard-accuracy">${player.accuracy}%</div>
+                    <div class="leaderboard-date">${player.date || 'Unknown'}</div>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+
+        function updateStats(players, topScore, avgAccuracy) {
+            document.getElementById('totalPlayers').textContent = players.length;
+            document.getElementById('topScore').textContent = topScore;
+            document.getElementById('avgAccuracy').textContent = avgAccuracy + '%';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function resetCountdown() {
+            countdownTimer = 30;
+            document.getElementById('countdown').textContent = countdownTimer;
+            
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            countdownInterval = setInterval(() => {
+                countdownTimer--;
+                document.getElementById('countdown').textContent = countdownTimer;
+                
+                if (countdownTimer <= 0) {
+                    loadLeaderboard();
+                }
+            }, 1000);
+        }
+
+        // Load leaderboard on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLeaderboard();
+        });
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            loadLeaderboard();
+        }, 30000);
+    </script>
+</body>
+</html>

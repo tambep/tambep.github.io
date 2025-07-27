@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Survey Challenge - Answer Reveal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .navigation {
+            background: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 600px;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .question-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .answer-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .correct-answers {
+            margin-bottom: 30px;
+        }
+
+        .correct-answers h3 {
+            color: #27ae60;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .answer-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .answer-item {
+            background: #d4edda;
+            border: 2px solid #27ae60;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #155724;
+        }
+
+        .statistics {
+            background: #e7f3ff;
+            border: 2px solid #3498db;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .statistics h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .stat-item {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .stat-number {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .intro-slide {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-slide h2 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .intro-slide p {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        .ranking-answer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rank-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .multiple-choice-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .option {
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            background: #f8f9fa;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #27ae60;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .question-title {
+                font-size: 1.5em;
+            }
+            
+            .multiple-choice-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-slide h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="header">
+            <h1>🎯 AI Survey Challenge</h1>
+            <p>Answer Reveal Presentation</p>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="previousSlide()" id="prevBtn">⬅️ Previous</button>
+            <div class="slide-counter">
+                Slide <span id="currentSlide">1</span> of <span id="totalSlides">9</span>
+            </div>
+            <button class="nav-btn" onclick="nextSlide()" id="nextBtn">Next ➡️</button>
+        </div>
+
+        <!-- Slide 1: Introduction -->
+        <div class="slide active intro-slide">
+            <h2>🎉 Let's Reveal the Answers!</h2>
+            <p>Time to see how well everyone did on the AI Survey Challenge. Each slide will show the correct answers and some interesting statistics from the survey data.</p>
+        </div>
+
+        <!-- Slide 2: Daily Usage Frequency -->
+        <div class="slide">
+            <div class="question-title">What percentage of executives use Gen AI tools daily?</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Correct Answer</h3>
+                    <div class="answer-item">36-50% range</div>
+                </div>
+                <div class="multiple-choice-options">
+                    <div class="option incorrect">0-20%</div>
+                    <div class="option incorrect">21-35%</div>
+                    <div class="option correct">✅ 36-50%</div>
+                    <div class="option incorrect">51-65%</div>
+                    <div class="option incorrect">66-80%</div>
+                    <div class="option incorrect">81-100%</div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Survey Details</h4>
+                    <div class="stat-item">• This falls in the 36-50% range for full points</div>
+                    <div class="stat-item">• Shows significant but not universal daily adoption among executives</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Department Impact -->
+        <div class="slide">
+            <div class="question-title">Select the TOP 3 departments most impacted by Gen AI</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Top 3 Most Impacted Departments</h3>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">1</div>
+                            <div>IT</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">2</div>
+                            <div>Customer Service</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">3</div>
+                            <div>Business Intelligence</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="multiple-choice-options">
+                    <div class="option correct">✅ IT</div>
+                    <div class="option incorrect">Engineering</div>
+                    <div class="option incorrect">Legal</div>
+                    <div class="option incorrect">Operations</div>
+                    <div class="option correct">✅ Customer Service</div>
+                    <div class="option incorrect">Marketing</div>
+                    <div class="option incorrect">HR</div>
+                    <div class="option correct">✅ Business Intelligence</div>
+                    <div class="option incorrect">Finance</div>
+                    <div class="option incorrect">Sales</div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Why These Departments?</h4>
+                    <div class="stat-item">• <strong>IT:</strong> Leading implementation and infrastructure</div>
+                    <div class="stat-item">• <strong>Customer Service:</strong> Chatbots and automated support</div>
+                    <div class="stat-item">• <strong>Business Intelligence:</strong> Data analysis and insights</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Gen AI Use Cases -->
+        <div class="slide">
+            <div class="question-title">Select the TOP 5 most adopted Gen AI use cases</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Top 5 Most Adopted Use Cases</h3>
+                    <div class="answer-item">Data analysis and analytics</div>
+                    <div class="answer-item">Document/meeting summarization</div>
+                    <div class="answer-item">Document writing/editing</div>
+                    <div class="answer-item">Presentation creation</div>
+                    <div class="answer-item">Customer service and support</div>
+                </div>
+                <div class="multiple-choice-options">
+                    <div class="option correct">✅ Data analysis and analytics</div>
+                    <div class="option correct">✅ Document/meeting summarization</div>
+                    <div class="option correct">✅ Document writing/editing</div>
+                    <div class="option correct">✅ Presentation creation</div>
+                    <div class="option incorrect">Code writing/generation</div>
+                    <div class="option correct">✅ Customer service and support</div>
+                    <div class="option incorrect">Marketing content creation</div>
+                    <div class="option incorrect">Physical robot automation</div>
+                    <div class="option incorrect">Autonomous vehicle navigation</div>
+                    <div class="option incorrect">Voice/speech synthesis for executives</div>
+                    <div class="option incorrect">AI-generated music/sound design</div>
+                    <div class="option incorrect">Quantum computing optimization</div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Usage Patterns</h4>
+                    <div class="stat-item">• Document-related tasks dominate (summarization, writing, presentations)</div>
+                    <div class="stat-item">• Data analysis shows strong adoption for business intelligence</div>
+                    <div class="stat-item">• Customer service automation continues to grow</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Business Impact Rankings -->
+        <div class="slide">
+            <div class="question-title">How strongly do executives agree that these are key Gen AI outcomes? (Rank by agreement level)</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Correct Rankings (by agreement level)</h3>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">1</div>
+                            <div>Higher quality output with same employees</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">2</div>
+                            <div>Enhances employee skills</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">3</div>
+                            <div>Increases revenue overall</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">4</div>
+                            <div>Decreases costs</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">5</div>
+                            <div>Leads to skill proficiency decline</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Executive Perspectives</h4>
+                    <div class="stat-item">• Quality improvement is the top agreed outcome</div>
+                    <div class="stat-item">• Skills enhancement closely follows</div>
+                    <div class="stat-item">• Revenue and cost benefits also rank highly</div>
+                    <div class="stat-item">• Skill decline concerns are much lower</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Main Challenges -->
+        <div class="slide">
+            <div class="question-title">Select the TOP 3 main challenges organizations face with Gen AI adoption</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Top 3 Main Challenges</h3>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">1</div>
+                            <div>Inaccuracy of results (hallucination effect)</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">2</div>
+                            <div>Customer data privacy</div>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="ranking-answer">
+                            <div class="rank-number">3</div>
+                            <div>Ethical considerations (biases, transparency)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="multiple-choice-options">
+                    <div class="option correct">✅ Inaccuracy of results (hallucination effect)</div>
+                    <div class="option correct">✅ Customer data privacy</div>
+                    <div class="option correct">✅ Ethical considerations (biases, transparency)</div>
+                    <div class="option incorrect">Compliance with industry-specific regulations</div>
+                    <div class="option incorrect">Costs of the technology</div>
+                    <div class="option incorrect">Exposure of confidential and proprietary information</div>
+                    <div class="option incorrect">Intellectual property rights</div>
+                    <div class="option incorrect">Lack of organizational understanding and expertise</div>
+                    <div class="option incorrect">Employees not equipped with right capabilities</div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Challenge Analysis</h4>
+                    <div class="stat-item">• Accuracy concerns (hallucinations) top the list</div>
+                    <div class="stat-item">• Privacy and ethics are nearly tied for second place</div>
+                    <div class="stat-item">• Technical reliability remains the biggest barrier</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: LLM Performance -->
+        <div class="slide">
+            <div class="question-title">What has research shown makes LLMs perform better?</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Correct Answer</h3>
+                    <div class="answer-item">Promising to tip the LLM money for good responses</div>
+                </div>
+                <div class="multiple-choice-options">
+                    <div class="option correct">✅ Promising to tip the LLM money for good responses</div>
+                    <div class="option incorrect">❌ Using longer, more detailed prompts with examples</div>
+                    <div class="option incorrect">❌ Writing prompts in formal, technical language</div>
+                    <div class="option incorrect">❌ Running the same prompt multiple times and averaging results</div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Research Finding</h4>
+                    <div class="stat-item">• Recent studies show that mentioning tips in prompts can improve LLM reasoning</div>
+                    <div class="stat-item">• The mechanism likely relates to training data patterns rather than understanding money</div>
+                    <div class="stat-item">• This demonstrates how subtle prompt engineering can affect AI behavior</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Hiring Impact -->
+        <div class="slide">
+            <div class="question-title">Which hiring outcome do executives most commonly predict for Gen AI?</div>
+            <div class="answer-section">
+                <div class="correct-answers">
+                    <h3>✅ Correct Answer</h3>
+                    <div class="answer-item">Net more hires</div>
+                </div>
+                <div class="multiple-choice-options">
+                    <div class="option incorrect">❌ Net fewer hires</div>
+                    <div class="option incorrect">❌ Net no change in hiring</div>
+                    <div class="option correct">✅ Net more hires</div>
+                </div>
+                <div class="statistics">
+                    <h4>📊 Hiring Predictions</h4>
+                    <div class="stat-item">• This was the most common prediction among executives</div>
+                    <div class="stat-item">• Contrary to fears about job displacement</div>
+                    <div class="stat-item">• Suggests AI will create new roles and opportunities</div>
+                    <div class="stat-item">• Reflects optimism about AI augmenting rather than replacing workers</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Thank You -->
+        <div class="slide">
+            <div class="intro-slide">
+                <h2>🎉 Thank You!</h2>
+                <p>Thanks for participating in the AI Survey Challenge! These insights reflect real survey data about Gen AI adoption across companies of all sizes.</p>
+                <div class="statistics" style="margin-top: 40px; max-width: 600px;">
+                    <h4>🔗 Want to play again or share?</h4>
+                    <div class="stat-item">• Survey data based on real industry research</div>
+                    <div class="stat-item">• Share the game with colleagues to see how they compare</div>
+                    <div class="stat-item">• Check the live leaderboard for ongoing results</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const totalSlides = 9;
+
+        function updateSlideDisplay() {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Show current slide
+            slides[currentSlideIndex].classList.add('active');
+            
+            // Update counter
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').disabled = currentSlideIndex === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                updateSlideDisplay();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                updateSlideDisplay();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        updateSlideDisplay();
+    </script>
+</body>
+</html>
