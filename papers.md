@@ -18,8 +18,11 @@ title: Working papers
 (with [Mayana Pereira](https://www.mayanapereira.com), [Shane Greenstein](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917), [Raffaella Sadun](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712), Lucia Ronchi Darre, Tammy Glazer, Allen Kim, Rahul Dodhia, and Juan La Vista Ferres)\
 [HBS Working Knowledge Summary](https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind)
 
-Startup Jobs in a Polarized Era: How Dobbs v. Jackson Shifted the Geography of Remote and In-Person Applications\
+[Startup Jobs in a Polarized Era: How Dobbs v. Jackson Shifted the Geography of Remote and In-Person Applications](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5477286)\
 (with [Elaine Pak](https://mgmt.wharton.upenn.edu/profile/elainesp/#research) and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
+[Elite Talent and Firm Productivity in the Age of AI](https://conference.nber.org/conf_papers/f229312.pdf)\
+(with [Sagar Baviskar](https://www.heinz.cmu.edu/faculty-research/profiles/baviskar-sagar/), Liujie Wu, Cameron Drayton, [Lee Branstetter](https://www.heinz.cmu.edu/faculty-research/profiles/branstetter-lee), and [Eduard Hovy](https://www.cs.cmu.edu/~hovy/))
 
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
