@@ -30,6 +30,9 @@ Skill Mismatch Over the Technology Lifecycle\
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
+Generative AI and Creative Markets: Supply-side Responses to AI Disruption & Data Governance\
+(with [Eric Zhou](https://ericbzhou.github.io), [Dokyun Lee]((https://www.leedokyun.com), [Gordon Burtch](https://www.bu.edu/questrom/profiles/gordon-burtch/), and [Daniel Rock](https://www.danielianrock.com))
+
 [Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
 (with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
 
