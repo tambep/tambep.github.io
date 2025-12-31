@@ -83,7 +83,7 @@ change](https://academic.oup.com/rfs/article-abstract/29/9/2455/2583670)\
 [Health care information technology, work organization, and nursing home
 performance](https://journals.sagepub.com/doi/abs/10.1177/0019793916640493?casa_token=fjlf5fF0Pf0AAAAA:4rQGQ2HwhXqRSzPM4JZV0jE4ts9J0H1IPCG4Ul1fOT5FSaXtc9iMMfon8mY_Nufm-YyrdGhUur1Jsw)\
 (with [Lorin Hitt](http://www.iecon.net))\
-*Industrial Relations and Labor Review*, 2016.
+*Industrial and Labor Relations Review*, 2016.
 
 [Labor economists get their microscope: big data and labor market
 analysis](https://www.liebertpub.com/doi/abs/10.1089/big.2015.0017?journalCode=big)\
