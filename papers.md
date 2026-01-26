@@ -33,6 +33,9 @@ The Uneven Geography of Talent Diffusion\
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
+When Data Fades: Data Investment, Depreciation, and Firm Market Value\
+(with [Hongyuan Xia](https://hongyuan-xia.github.io/#paper))
+
 Generative AI and Creative Markets: Supply-side Responses to AI Disruption & Data Governance\
 (with [Eric Zhou](https://ericbzhou.github.io), [Dokyun Lee](https://www.leedokyun.com), [Gordon Burtch](https://www.bu.edu/questrom/profiles/gordon-burtch/), and [Daniel Rock](https://www.danielianrock.com))
 
