@@ -33,9 +33,6 @@ Deep Capital for Deep Learning\
 Generative AI and Creative Markets: Supply-side Responses to AI Disruption & Data Governance\
 (with [Eric Zhou](https://ericbzhou.github.io), [Dokyun Lee](https://www.leedokyun.com), [Gordon Burtch](https://www.bu.edu/questrom/profiles/gordon-burtch/), and [Daniel Rock](https://www.danielianrock.com))
 
-[Does EMR Adoption by Nursing Homes Decrease Hospitalization Costs?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725715)\
-(with [Atiye Cansu Erol](https://oid.wharton.upenn.edu/profile/acerol/) and [Lorin Hitt](http://www.iecon.net))
-
 ## Peer-reviewed papers
 
 [Reskilling the Workforce for AI: Domain Expertise and Algorithmic Literacy](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
