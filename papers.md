@@ -24,7 +24,7 @@ title: Working papers
 [Elite Talent and Firm Productivity in the Age of AI](https://conference.nber.org/conf_papers/f229312.pdf)\
 (with [Sagar Baviskar](https://www.heinz.cmu.edu/faculty-research/profiles/baviskar-sagar/), Liujie Wu, Cameron Drayton, [Lee Branstetter](https://www.heinz.cmu.edu/faculty-research/profiles/branstetter-lee), and [Eduard Hovy](https://www.cs.cmu.edu/~hovy/))
 
-Technology Diffusion and Skill Mismatch\
+Skill Mismatch Across the Technology Lifecycle\
 (with [Ashwini Agrawal](https://www.lse.ac.uk/people/ashwini-agrawal) and [Daniel Kim](https://sites.google.com/view/danielsangkim/home))
 
 Deep Capital for Deep Learning\
