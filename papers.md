@@ -27,6 +27,9 @@ title: Working papers
 Skill Mismatch Over the Technology Lifecycle\
 (with [Ashwini Agrawal](https://www.lse.ac.uk/people/ashwini-agrawal) and [Daniel Kim](https://sites.google.com/view/danielsangkim/home))
 
+The Uneven Geography of Talent Diffusion\
+(with [Paul Hamilton](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=1378057), [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
+
 Deep Capital for Deep Learning\
 (with [Daniel Rock](https://www.danielianrock.com) and [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/))
 
