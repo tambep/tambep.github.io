@@ -56,13 +56,13 @@ with Anthony Nyberg, Deidra Schleicher, [and 14 others].\
 (with [John Horton](https://john-joseph-horton.com))\
 *Information Systems Research*, 2025.
 
+[Auditing Large Language Models for Race & Gender Disparities: Implications for Artificial Intelligence Based Hiring](https://journals.sagepub.com/doi/10.1177/23794607251320229)\
+(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
+*Behavioral Science & Policy*, 2025.
+
 [Remote Work and Job Applicant Diversity: Evidence from Technology Startups](https://tambep.github.io/files/RemoteJobApplicants.pdf)\
 (with [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))\
 *Management Science*, 2024.
-
-[Auditing Large Language Models for Race & Gender Disparities: Implications for Artificial Intelligence Based Hiring](https://journals.sagepub.com/doi/10.1177/23794607251320229)\
-(with [Johann Gaebler](https://www.jgaeb.com), [Sharad Goel](https://5harad.com), and [Aziz Huq](https://www.law.uchicago.edu/faculty/huq))\
-*Behavioral Science & Policy*, 2024.
 
 [Paying to program? Engineering Brand and High-Tech Wages](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2019.3343?casa_token=Udx1OUAMUr8AAAAA:1J7l-iF8OtVJJrz05cehvlkwv7lh9xHPsrTyI388T-pjrrpy46BsqhjObtpqq7MQX4yl5rd75Eg)\
 (with [Xuan Ye](https://www.bc.edu/bc-web/schools/carroll-school/faculty-research/faculty-directory/xuan-ye.html) and [Peter Cappelli](https://mgmt.wharton.upenn.edu/profile/cappelli/))\
