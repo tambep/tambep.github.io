@@ -42,7 +42,7 @@ Generative AI and Creative Markets: Supply-side Responses to AI Disruption & Dat
 ## Peer-reviewed papers
 
 [Reskilling the Workforce for AI: Domain Expertise and Algorithmic Literacy](https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value)\
-*Management Science*, 2025.
+*Management Science*, 2026.
 
 [The Hidden Cost of IT Innovation: Access to Emerging Technologies and the Gender Wage Gap](https://misq.umn.edu/the-hidden-cost-of-it-innovation-access-to-emerging-technologies-and-the-gender-wage-gap.html)\
 (with [Tiantian Yang](https://mgmt.wharton.upenn.edu/profile/yangtt/))\
