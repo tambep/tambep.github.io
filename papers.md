@@ -11,7 +11,7 @@ title: Working papers
 (with [Lorin Hitt](http://www.iecon.net), [Daniel Rock](https://www.danielianrock.com), and [Erik Brynjolfsson](https://www.brynjolfsson.com))\
 [[Brookings Institute Working Paper Version](https://www.brookings.edu/research/digital-capital-and-superstar-firms/)]
 
-[The New Digital Divide](https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26)\
+[The Digital Usage Divide: Evidence and New Measures from 40 Million Windows Devices](https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26)\
 (with [Mayana Pereira](https://www.mayanapereira.com), [Shane Greenstein](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917), [Raffaella Sadun](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712), Lucia Ronchi Darre, Tammy Glazer, Allen Kim, Rahul Dodhia, and Juan La Vista Ferres)\
 [HBS Working Knowledge Summary](https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind)
 
