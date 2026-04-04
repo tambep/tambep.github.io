@@ -24,7 +24,7 @@ title: Working papers
 [Elite Talent and Firm Productivity in the Age of AI](https://conference.nber.org/conf_papers/f229312.pdf)\
 (with [Sagar Baviskar](https://www.heinz.cmu.edu/faculty-research/profiles/baviskar-sagar/), Liujie Wu, Cameron Drayton, [Lee Branstetter](https://www.heinz.cmu.edu/faculty-research/profiles/branstetter-lee), and [Eduard Hovy](https://www.cs.cmu.edu/~hovy/))
 
-From Mainframes to Machine Learning: Skill Mismatch Over the Technology Lifecycle\
+[From Mainframes to Machine Learning: Skill Mismatch Over the Technology Lifecycle](https://www.researchgate.net/publication/403500659_From_Mainframes_to_Machine_Learning_Skill_Gaps_over_the_Technology_Life_Cycle)\
 (with [Ashwini Agrawal](https://www.lse.ac.uk/people/ashwini-agrawal) and [Daniel Kim](https://sites.google.com/view/danielsangkim/home))
 
 The Uneven Geography of Talent Diffusion\
