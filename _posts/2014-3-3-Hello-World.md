@@ -26,6 +26,7 @@ Professor Tambe received his S.B. and M.Eng. in Electrical Engineering and Compu
 [A full list of papers is available here.](papers)
 
 Some recent writing:
+- [Managers and Executives Disagree on AI--and it's Costing Companies](https://hbr.org/2026/04/managers-and-executives-disagree-on-ai-and-its-costing-companies), _Harvard Business Review_.
 - [America's Digital Divide](https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind) (summary of work from _HBS Working Knowledge_).
 - [Remote Work and Job Applicant Diversity](https://pubsonline.informs.org/doi/full/10.1287/mnsc.2022.03391?casa_token=3GHLcK35pMMAAAAA%3A2_UR5fYIZBjWZxwWS4kyQqccxAXkQ188Br_0akPotzqykhTh_4GKewdP8QbHvqhMXIohq4P4I2yo), _Management Science_.
 - [Will AI Be a Job Killer? Call Us Skeptical](https://www.wsj.com/tech/ai/will-ai-be-a-job-killer-call-us-skeptical-9b4199bd), _Wall Street Journal_.
