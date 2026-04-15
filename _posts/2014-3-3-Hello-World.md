@@ -32,4 +32,4 @@ Some recent writing:
 - [Will AI Be a Job Killer? Call Us Skeptical](https://www.wsj.com/tech/ai/will-ai-be-a-job-killer-call-us-skeptical-9b4199bd), _Wall Street Journal_.
 - [Will Large Language Models Really Change How Work is Done?](https://sloanreview.mit.edu/article/will-large-language-models-really-change-how-work-is-done/) _Sloan Management Review_.
 
-He teaches [award-winning](https://poetsandquantsforundergrads.com/2020/12/01/2020-best-undergraduate-professors-prasanna-sonny-tambe-university-of-pennsylvania-wharton-school/) courses on [how digitization, data science, and AI are impacting business](teaching).
+He has taught [award-winning](https://poetsandquantsforundergrads.com/2020/12/01/2020-best-undergraduate-professors-prasanna-sonny-tambe-university-of-pennsylvania-wharton-school/) courses on [how digitization, data science, and AI are impacting business](teaching).
