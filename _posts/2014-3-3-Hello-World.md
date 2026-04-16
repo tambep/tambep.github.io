@@ -15,7 +15,7 @@ His [research](papers) is focused in three key areas:
 
 - **AI and work**: How emerging technologies, like AI-based innovations, impact work, skills, and competition.
 
-- **Algorithms and HR**: Studies how new, digital algorithms and data signals are being used in all aspects of HR, from hiring to retention.
+- **Algorithms and HR**: How new, digital algorithms and data signals are being used in all aspects of HR, from hiring to retention.
 
 His published papers have analyzed Internet-scale data from online job sites, career platforms, and other labor market intermediaries that collect fine-grained information on workers’ skills and career paths and on employers’ job requirements. This research has been published in a number of academic journals including _Management Science_, _Information Systems Research_, _Review of Financial Studies_, _MIS Quarterly_, _California Management Review_, _Communications of the ACM_, _Journal of Management_, and _Information Economics and Policy_. 
 
