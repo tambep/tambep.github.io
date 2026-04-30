@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Containment: Smallpox in the Colonies</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="masthead" aria-labelledby="game-title">
+        <div>
+          <p class="eyebrow">18th-century public health strategy</p>
+          <h1 id="game-title">Containment</h1>
+          <p class="lede">
+            Slow a smallpox outbreak across the Northern and Middle Colonies by closing roads,
+            ports, and regional borders from 1775 to 1782 before the infection outruns your authority.
+          </p>
+        </div>
+        <div class="round-panel" aria-live="polite">
+          <span class="round-label">Year</span>
+          <strong id="year">1775</strong>
+        </div>
+      </section>
+
+      <section class="status-grid" aria-label="Outbreak status">
+        <article class="metric">
+          <span>Infected regions</span>
+          <strong id="infected-count">1</strong>
+        </article>
+        <article class="metric">
+          <span>Containment points</span>
+          <strong id="points-left">6</strong>
+        </article>
+        <article class="metric">
+          <span>Public trust</span>
+          <strong id="trust">100%</strong>
+        </article>
+        <article class="metric">
+          <span>Outcome pressure</span>
+          <strong id="pressure">Rising</strong>
+        </article>
+      </section>
+
+      <section class="year-fact" aria-live="polite" aria-label="Historical smallpox fact">
+        <span id="fact-year">1775</span>
+        <p id="year-fact-copy">Smallpox was already raging in British-occupied Boston and also struck the Continental Army during the invasion of Canada.</p>
+      </section>
+
+      <section class="board-layout">
+        <div class="map-wrap" aria-label="Map of Northern and Middle Colonies">
+          <svg id="colony-map" viewBox="0 0 900 720" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">Simplified map of the Northern and Middle Colonies</title>
+            <desc id="map-desc">
+              Interactive regions for Massachusetts, New Hampshire, Rhode Island, Connecticut,
+              New York, New Jersey, Pennsylvania, and Delaware.
+            </desc>
+            <defs>
+              <linearGradient id="sea" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#7fb7c9" />
+                <stop offset="100%" stop-color="#2f6f80" />
+              </linearGradient>
+              <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#10292f" flood-opacity="0.24" />
+              </filter>
+            </defs>
+            <rect class="ocean" width="900" height="720" rx="0" />
+            <path class="coastline" d="M560 56 C622 100 651 168 640 220 C710 236 737 291 699 345 C659 404 610 421 540 438 C539 497 521 555 485 609 C447 665 395 700 331 697 C250 693 176 659 126 604 C79 551 68 486 95 431 C121 376 132 314 117 241 C106 188 154 132 240 100 C335 66 454 36 560 56 Z" />
+
+            <g id="routes" aria-hidden="true">
+              <path data-route="massachusetts-new_hampshire" d="M540 194 L523 155" />
+              <path data-route="massachusetts-rhode_island" d="M620 287 L633 323" />
+              <path data-route="connecticut-massachusetts" d="M538 303 L557 276" />
+              <path data-route="connecticut-rhode_island" d="M594 354 L615 349" />
+              <path data-route="connecticut-new_york" d="M463 347 L411 355" />
+              <path data-route="new_jersey-new_york" d="M454 447 L468 413" />
+              <path data-route="new_jersey-pennsylvania" d="M420 548 L356 539" />
+              <path data-route="delaware-new_jersey" d="M431 612 L444 585" />
+              <path data-route="delaware-pennsylvania" d="M396 637 L365 596" />
+              <path data-route="new_york-pennsylvania" d="M285 435 L250 462" />
+            </g>
+
+            <g id="regions"></g>
+            <g id="ports" aria-hidden="true"></g>
+          </svg>
+        </div>
+
+        <aside class="command-panel" aria-label="Player controls">
+          <div class="selected-region">
+            <span id="selected-label">Select a region</span>
+            <strong id="selected-name">No region selected</strong>
+            <p id="selected-detail">Click a colony on the map to inspect infection, ports, and quarantine status.</p>
+          </div>
+
+          <div class="actions">
+            <button id="quarantine-btn" type="button" disabled>Quarantine region</button>
+            <button id="cordon-btn" type="button" disabled>Close connecting roads</button>
+            <button id="port-btn" type="button" disabled>Close port</button>
+          </div>
+
+          <div class="turn-actions">
+            <button id="next-year-btn" class="primary" type="button">Advance one year</button>
+            <button id="reset-btn" type="button">New game</button>
+          </div>
+
+          <div class="log" aria-label="Event log">
+            <h2>Dispatches</h2>
+            <ol id="log-list"></ol>
+          </div>
+        </aside>
+      </section>
+
+      <section class="guide" aria-label="How the game works">
+        <div>
+          <h2>Goal</h2>
+          <p>Keep infected regions below five through 1782. Every closure slows travel but costs public trust.</p>
+        </div>
+        <div>
+          <h2>Choices</h2>
+          <p>Quarantines are powerful, road cordons reduce regional spread, and port closures reduce coastal jumps.</p>
+        </div>
+        <div>
+          <h2>Map Note</h2>
+          <p>This is a stylized educational board based on the Northern and Middle Colonies, not a survey map.</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="result-modal" class="modal" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="result-title">
+        <h2 id="result-title">Result</h2>
+        <p id="result-copy"></p>
+        <button id="modal-reset-btn" class="primary" type="button">Play again</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
