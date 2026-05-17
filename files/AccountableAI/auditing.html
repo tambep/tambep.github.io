@@ -1,159 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditing Fairness for AI-based Court Recommendations</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #2980b9;
-        }
-        .emphasis {
-            background-color: #e8f4f8;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        ul {
-            list-style-type: none;
-        }
-        ul li:before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            border-bottom: 1px dotted #2980b9;
-        }
-        a:hover {
-            color: #3498db;
-            border-bottom: 1px solid #3498db;
-        }
-        .question-block {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-left: 4px solid #3498db;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        code {
-            background-color: #f7f9fb;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #e74c3c;
-        }
-        hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, #3498db, #2ecc71);
-            margin: 30px 0;
-        }
-        .italic {
-            font-style: italic;
-            color: #7f8c8d;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditing Fairness for AI-based Court Recommendations</title>
+  <style>
+    /* ====================================================================
+       Swiss research aesthetic — black on warm white with a single red
+       signal accent. Helvetica for type, Consolas for numerals and code.
+       Hairline rules, no shadows, no rounded corners, no gradients.
+       Matches the AccountableAI_Bias deck.
+       ==================================================================== */
+
+    :root {
+      --ink:        #111111;
+      --gray-d:     #555555;
+      --gray-m:     #8e8e8e;
+      --gray-l:     #c8c8c8;
+      --rule:       #dddddd;
+      --bg:         #ffffff;
+      --red:        #c73848;
+      --red-dim:    #9f2a36;
+      --sans:       Helvetica, Arial, sans-serif;
+      --mono:       Consolas, "Courier New", monospace;
+      --max-w:      880px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    /* ---------- Chrome --------------------------------------------------- */
+    .chrome-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .chrome-top .meta {
+      font-family: var(--mono);
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+    .chrome-foot {
+      margin-top: 64px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--gray-m);
+    }
+
+    /* ---------- Headers -------------------------------------------------- */
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin: 56px 0 8px;
+    }
+
+    h1 {
+      font-family: var(--sans);
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+    h1 + .deck {
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--gray-d);
+      margin: 0 0 24px;
+    }
+
+    .title-rule {
+      width: 96px;
+      height: 2px;
+      background: var(--ink);
+      margin: 18px 0 0;
+    }
+
+    h2.section {
+      font-family: var(--sans);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 0 0 4px;
+      color: var(--ink);
+    }
+    h2.section .num {
+      font-family: var(--mono);
+      color: var(--red);
+      margin-right: 14px;
+    }
+    h2.section + .section-rule {
+      width: 56px;
+      height: 1.5px;
+      background: var(--ink);
+      margin: 14px 0 26px;
+    }
+
+    h3 {
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 24px 0 8px;
+    }
+
+    p { margin: 0 0 14px; }
+    p.lead {
+      font-size: 19px;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    /* ---------- Plan strip ---------------------------------------------- */
+    .plan {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      column-gap: 18px;
+      row-gap: 0;
+      align-items: baseline;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 0;
+      margin: 28px 0 36px;
+    }
+    .plan .timebox {
+      font-family: var(--mono);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+    .plan .timebox sup {
+      font-size: 12px;
+      letter-spacing: 0.27em;
+      font-weight: 700;
+      color: var(--gray-m);
+      display: block;
+      margin-top: 6px;
+      font-family: var(--sans);
+    }
+    .plan .steps {
+      font-size: 17px;
+      color: var(--gray-d);
+    }
+    .plan .steps .step {
+      display: flex;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .plan .steps .step:last-child { border-bottom: none; }
+    .plan .steps .step .mins {
+      font-family: var(--mono);
+      font-weight: 700;
+      color: var(--ink);
+      min-width: 64px;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+    .plan .steps .step .what { flex: 1; }
+    .plan .steps .step .what b { color: var(--ink); }
+
+    /* ---------- Workbook download box ----------------------------------- */
+    .workbook {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      border: 1px solid var(--ink);
+      padding: 22px 24px;
+      margin: 32px 0;
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.12s;
+    }
+    .workbook:hover { background: #fafafa; }
+    .workbook .icon {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--red);
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+    }
+    .workbook .label {
+      flex: 1;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .workbook .label .tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--gray-m);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .workbook .label .name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .workbook .arrow {
+      font-size: 22px;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    /* ---------- Orient panel -------------------------------------------- */
+    .orient {
+      margin: 24px 0 8px;
+    }
+    .orient table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .orient table caption {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-align: left;
+      padding-bottom: 8px;
+    }
+    .orient th, .orient td {
+      text-align: left;
+      padding: 10px 12px;
+      border-top: 1px solid var(--rule);
+    }
+    .orient thead th {
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--gray-m);
+    }
+    .orient tbody tr:last-child td {
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .orient td.what {
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .orient td.note {
+      color: var(--gray-d);
+    }
+    .orient .caption {
+      font-style: italic;
+      color: var(--gray-m);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* ---------- Look-for callout ---------------------------------------- */
+    .look-for {
+      border-left: 2px solid var(--red);
+      padding: 4px 0 4px 18px;
+      margin: 18px 0 26px;
+    }
+    .look-for .head {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .look-for p { margin: 0; color: var(--ink); font-size: 16px; }
+
+    /* ---------- Question blocks ----------------------------------------- */
+    .q ul {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+    }
+    .q ul li {
+      position: relative;
+      padding: 6px 0 6px 22px;
+      color: var(--gray-d);
+    }
+    .q ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+    }
+    .q ul li b { color: var(--ink); }
+    .q ul li ul {
+      margin-top: 4px;
+    }
+    .q ul li ul li {
+      padding-left: 22px;
+      color: var(--gray-d);
+    }
+    .q ul li ul li::before {
+      background: transparent;
+      border: 1px solid var(--red);
+      width: 7px;
+      height: 7px;
+    }
+
+    .q .kicker {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.27em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: inline-block;
+      margin: 0 0 4px;
+    }
+    .q.after-break .kicker {
+      color: var(--red);
+    }
+    .q.after-break {
+      border-top: 1.5px solid var(--ink);
+      padding-top: 36px;
+      margin-top: 56px;
+    }
+
+    /* ---------- Links --------------------------------------------------- */
+    a {
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid var(--red);
+    }
+    a:hover { color: var(--red-dim); border-bottom-color: var(--red-dim); }
+
+    code {
+      font-family: var(--mono);
+      font-size: 15px;
+      color: var(--ink);
+      background: transparent;
+      padding: 0 2px;
+    }
+
+    /* ---------- Mobile -------------------------------------------------- */
+    @media (max-width: 640px) {
+      .wrap { padding: 28px 22px 60px; }
+      h1 { font-size: 30px; }
+      .plan { grid-template-columns: 1fr; row-gap: 14px; }
+      .plan .timebox { font-size: 56px; }
+      .workbook { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+
+    /* ---------- Print --------------------------------------------------- */
+    @media print {
+      body { font-size: 12px; }
+      .workbook { break-inside: avoid; }
+      .q { break-inside: avoid; }
+      a { color: var(--ink); border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Auditing Fairness for AI-based Court Recommendations</h1>
-        <h2>Strategies for Accountable AI</h2>
+<div class="wrap">
 
-        <div class="question-block">
-            <h2>Objective:</h2>
-            <p>Put yourself in the shoes of an <span class="emphasis">AUDITOR</span>, assigned by New York City, whose role it is to evaluate the fairness implications of a machine learning system used in the NYC court systems to recommend whether defendants should be Released on Recognizance (ROR). A <span class="emphasis">Release on Recognizance</span> ruling allows defendants to be released from custody without posting bail, based on their promise to appear at future court proceedings.</p>
-        </div>
+  <!-- Top chrome ------------------------------------------------------- -->
+  <div class="chrome-top">
+    <span>Lab · Accountable AI</span>
+    <span class="meta">30&nbsp;MIN&nbsp;·&nbsp;BREAK</span>
+  </div>
 
-        <p>The Machine Learning (ML)-based AI system, developed by an external technology vendor, generates recommendations, based on historical data provided by the court system, on whether defendants who appear before a judge should be released on recognizance. These recommendations are used by judges to make decisions about whether to grant ROR. Judges may choose to ignore the AI system's recommendations.</p>
+  <!-- Title ------------------------------------------------------------ -->
+  <div class="eyebrow">Hands-on</div>
+  <h1>Auditing fairness for an<br>AI court-recommendation system.</h1>
+  <div class="deck">Strategies for Accountable AI · Wharton Executive Education</div>
+  <div class="title-rule"></div>
 
-        <p>Your task is to audit this AI system for fairness. You are asked to rule on whether the system is delivering equitable outcomes across demographic groups. When you ask the courts for data, they provide you with two sheets of data. The purpose of this exercise is to help surface some of the significant and open conceptual and operational challenges of auditing machine learning systems.</p>
+  <!-- Scenario --------------------------------------------------------- -->
+  <p class="lead" style="margin-top: 28px;">
+    You are an <b>auditor</b>, assigned by New York City, to evaluate a machine-learning system
+    used by NYC courts to recommend whether defendants should be Released on Recognizance
+    (ROR) — released without bail on a promise to appear.
+  </p>
+  <p>
+    The system was built by an outside vendor and trained on historical court data.
+    Judges see its recommendations and may follow or ignore them. Your job: decide
+    whether the system is delivering equitable outcomes across demographic groups,
+    and what should happen if it isn't.
+  </p>
 
-        <p>The provided <a href="Fairness_Assignment_Data.xlsx">Excel workbook</a> has the two sheets the court chooses to share with you:</p>
-        <ul>
-            <li>The <span class="italic">first</span> summarizes the output from the AI system over the past twelve months -- it reports pivot tables that summarize the ROR recommendations (rates) that the algorithm makes by demographic group (Gender, Race, and Ethnicity).</li>
-            <li>The <span class="italic">second</span> illustrates the historical data that was sent to the vendor to train the AI system. It contains records and attributes of defendants who appeared before judges in NYC, as well the judge's ROR ruling.</li>
-        </ul>
-
-        <hr>
-
-        <h2>Please consider how you might answer the following three sets of questions:</h2>
-
-        <div class="question-block">
-            <h3>1. Consider the Baseline Fairness of the System:</h3>
-            <ul>
-                <li>Review the ML-recommended <code>ROR_at_Arraign</code> rates by Gender, Race, and Ethnicity that are summarized in the pivot tables.</li>
-                <li>Answer the following questions:
-                    <ul>
-                        <li>Are these numbers good metrics for evaluating fairness in this context? If not, what might other metrics take into account that these don't?</li>
-                        <li>Beyond just the raw numbers, what contextual factors might need to be considered when evaluating fairness in this high-stakes criminal justice application?</li>
-                        <li>For this assessment, should it matter if the model's recommendations are more or less unequal than the historical judicial decisions (made without the benefit of the AI system)?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="question-block">
-            <h3>2. Identify Additional Data Needs for Determining Fairness:</h3>
-            <ul>
-                <li>Consider what additional data and information you might need to help you decide if this is a truly biased AI system or not.
-                    <ul>
-                        <li>What types of data or information, if any, would you want the COURTS to provide?</li>
-                        <li>What types of data or information, if any, would you want the VENDOR to provide?</li>
-                        <li>Data privacy laws are <a href="https://www.nytimes.com/wirecutter/blog/state-of-privacy-laws-in-us/">implemented at the state level</a>. If the technology vendor is located in another state (e.g. California), how might this complicate your work?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="question-block">
-            <h3>3. Where Should Accountability Lie?</h3>
-            <ul>
-                <li>Assume you deem this system to be unfair, WHO in this chain do you think should be penalized?
-                    <ul>
-                        <li><span class="emphasis">The Vendor?</span> They developed the algorithm and trained it using historical data.</li>
-                        <li><span class="emphasis">The Court System?</span> They selected and implemented the vendor's technology. They also generated the historical data on which the model was trained.</li>
-                        <li><span class="emphasis">The Judges?</span> They use the model's biased recommendations to make decisions.</li>
-                    </ul>
-                </li>
-                <li>Provide an argument for your choice, including:
-                    <ul>
-                        <li>Who has the greatest influence over the fairness of the outcome?</li>
-                        <li>Who should bear the responsibility for how the system is used and why?</li>
-                    </ul>
-                </li>
-                <li>What types of remedies might you recommend, and to which party?</li>
-            </ul>
-        </div>
+  <!-- 30-min plan ------------------------------------------------------ -->
+  <div class="plan">
+    <div class="timebox">30<sup>MINUTES</sup></div>
+    <div class="steps">
+      <div class="step"><span class="mins">02 MIN</span>
+        <span class="what"><b>Look at the data</b> below.</span></div>
+      <div class="step"><span class="mins">12 MIN</span>
+        <span class="what"><b>Question 1.</b> Are these the right fairness metrics?</span></div>
+      <div class="step"><span class="mins">12 MIN</span>
+        <span class="what"><b>Question 2.</b> What additional data would you need?</span></div>
+      <div class="step"><span class="mins">04 MIN</span>
+        <span class="what"><b>Hold Question 3</b> for the group debrief when we return.</span></div>
     </div>
+  </div>
+
+  <!-- The data --------------------------------------------------------- -->
+  <div class="eyebrow">The data</div>
+  <h2 class="section">What the court shared with you.</h2>
+  <div class="section-rule"></div>
+
+  <p>When you asked the court for data, they gave you exactly what's below — the
+  AI system's <code>ROR_at_Arraign</code> recommendation rates over the past
+  twelve months, alongside the historical rate at which judges granted ROR for
+  the same demographic groups (the data used to train the model).</p>
+
+  <div class="orient">
+    <table>
+      <caption>Release-on-Recognizance rates by race · last 12 months</caption>
+      <thead>
+        <tr>
+          <th style="width: 36%;">Race</th>
+          <th>AI recommendation rate</th>
+          <th>Judges' historical rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="what">White</td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--ink);">64%</b></td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--ink);">68%</b></td>
+        </tr>
+        <tr>
+          <td class="what">Asian / Pacific Islander</td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--ink);">62%</b></td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--ink);">65%</b></td>
+        </tr>
+        <tr>
+          <td class="what">Hispanic</td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--ink);">53%</b></td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--ink);">51%</b></td>
+        </tr>
+        <tr>
+          <td class="what">Black</td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--red);">49%</b></td>
+          <td class="note"><b style="font-family: var(--mono); color: var(--red);">44%</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="caption">Illustrative figures patterned on real ROR-disparity findings. Largest
+    gap shown in red.</p>
+  </div>
+
+  <div class="look-for">
+    <div class="head">What to notice</div>
+    <p>The AI recommends ROR for Black defendants at <b>49%</b> vs. <b>64%</b> for
+    White defendants — a <b>15-point gap</b>. The judges' historical gap was
+    larger (24 points). The AI <b>narrowed</b> the disparity, but did not
+    eliminate it. Bring that observation into Question 1.</p>
+  </div>
+
+  <!-- Question 1 ------------------------------------------------------- -->
+  <div class="eyebrow">Pre-break</div>
+  <h2 class="section"><span class="num">01</span>Is this the right way to measure fairness?</h2>
+  <div class="section-rule"></div>
+
+  <div class="q">
+    <span class="kicker">12&nbsp;MIN&nbsp;·&nbsp;INDIVIDUAL OR PAIR</span>
+    <p>Looking at the <code>ROR_at_Arraign</code> rates by Gender, Race, and Ethnicity in
+    the AI recommendations sheet:</p>
+    <ul>
+      <li>Are these rates a <b>good metric</b> for evaluating fairness in this context?
+        If not, what would a better metric account for?</li>
+      <li>What <b>contextual factors</b> beyond the raw numbers should an auditor weigh
+        in a high-stakes criminal-justice setting?</li>
+      <li>Should it matter whether the <b>AI's recommendations are more — or less —
+        unequal than the judges' historical decisions</b> would have been without the
+        AI? Why?</li>
+    </ul>
+  </div>
+
+  <!-- Question 2 ------------------------------------------------------- -->
+  <h2 class="section" style="margin-top: 48px;"><span class="num">02</span>What's missing to make the decision?</h2>
+  <div class="section-rule"></div>
+
+  <div class="q">
+    <span class="kicker">12&nbsp;MIN&nbsp;·&nbsp;INDIVIDUAL OR PAIR</span>
+    <p>The table above isn't enough to render a defensible audit. What more
+    would you ask for, and from whom?</p>
+    <ul>
+      <li><b>From the courts.</b> What do you need on the <i>outcomes</i> after
+        an ROR recommendation — appearance rates, re-arrest, charge severity?
+        What about the cases the AI <i>wasn't</i> used on?</li>
+      <li><b>From the vendor.</b> What would tell you whether the model itself
+        is doing something defensible — training procedure, features used,
+        validation across groups, recent updates?</li>
+      <li><b>What if the vendor can't share what you ask?</b> U.S. data-privacy
+        law is
+        <a href="https://www.nytimes.com/wirecutter/blog/state-of-privacy-laws-in-us/">implemented
+        at the state level</a>. If the vendor is in California (or anywhere
+        else), their state's rules constrain what crosses the line. How does
+        that limit your audit?</li>
+    </ul>
+  </div>
+
+  <!-- Question 3 ------------------------------------------------------- -->
+  <div class="q after-break">
+    <div class="eyebrow" style="color: var(--red);">For the group debrief — after the break</div>
+    <h2 class="section"><span class="num">03</span>Where should accountability lie?</h2>
+    <div class="section-rule"></div>
+
+    <span class="kicker">GROUP DISCUSSION</span>
+    <p>Assume you've judged the system unfair. <b>Who in this chain should be
+    penalized?</b></p>
+    <ul>
+      <li><b>The vendor.</b> They built the algorithm and chose how to train it.</li>
+      <li><b>The court system.</b> They picked the vendor, deployed the system, and
+        generated the historical data the model learned from.</li>
+      <li><b>The judges.</b> They use the recommendations to decide.</li>
+    </ul>
+    <p style="margin-top: 18px;">Make your argument. Consider:</p>
+    <ul>
+      <li>Who has the <b>greatest influence</b> over the fairness of the outcome?</li>
+      <li>Who should bear <b>responsibility</b> for how the system is used — and why?</li>
+      <li>What <b>remedies</b> would you recommend, and to which party?</li>
+    </ul>
+  </div>
+
+  <!-- Optional deeper-dive --------------------------------------------- -->
+  <p style="margin-top: 56px; font-size: 14px; color: var(--gray-m);">
+    Want to dig deeper after class? The full dataset (≈7,000 defendant records
+    with demographics, charges, and rulings) is available as an Excel workbook:
+    <a href="Fairness_Assignment_Data.xlsx" download>Fairness_Assignment_Data.xlsx</a>.
+  </p>
+
+  <!-- Bottom chrome ---------------------------------------------------- -->
+  <div class="chrome-foot">Prasanna Tambe · Wharton · Bias in Machine Learning Systems</div>
+
+</div>
 </body>
 </html>
