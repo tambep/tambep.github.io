@@ -1,19 +1,77 @@
 ---
 layout: default
+title: Home
 ---
 
 <meta name="google-site-verification" content="vSeP2wbNlrDTvL7rgJhaDzr5rmArTiUJtcZiXu0IZnQ" />
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<section class="home-hero" id="intro">
+  <div class="hero-kicker">Wharton School, University of Pennsylvania</div>
+  <h1>How are AI, data, and technical labor markets changing work?</h1>
+  <p class="hero-subtitle">Prasanna Tambe studies AI, digital labor markets, and algorithmic decision-making in organizations.</p>
+  <div class="hero-links">
+    <a href="{{ site.baseurl }}/papers">Research</a>
+    <a href="{{ site.baseurl }}/teaching">Teaching</a>
+    <a href="{{ site.baseurl }}/files/cv.pdf">CV</a>
+    <a href="mailto:tambe@wharton.upenn.edu">Contact</a>
+  </div>
+</section>
 
-<!--      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1> -->
+<section class="profile-section" id="about">
+  <div class="profile-image">
+    <img src="{{ site.avatar }}" alt="Prasanna Tambe" />
+  </div>
+  <div class="profile-copy">
+    <p class="section-label">About</p>
+    <h2>Professor and Faculty Co-Director of Wharton Human-AI Research</h2>
+    <p><strong>Prasanna (Sonny) Tambe</strong> is a Professor in the <a href="http://oid.wharton.upenn.edu">OID group</a> at the <a href="http://www.wharton.upenn.edu">Wharton School</a> at the <a href="http://www.upenn.edu">University of Pennsylvania</a> and Faculty Co-Director of <a href="https://ai.wharton.upenn.edu">Wharton Human-AI Research</a>.</p>
+    <p>His research examines the economics of technical labor markets, how AI affects work and skills, and how algorithms and data signals are used in human resources.</p>
+    <p class="inline-links">
+      <a href="https://oid.wharton.upenn.edu/profile/tambe/">Wharton profile</a>
+      <a href="{{ site.baseurl }}/files/cv.pdf">CV</a>
+      <a href="mailto:tambe@wharton.upenn.edu">tambe@wharton.upenn.edu</a>
+    </p>
+  </div>
+</section>
 
-      <div class="entry">
-        {{ post.content }}
-      </div>
+<section class="featured-section" id="research">
+  <div class="section-heading">
+    <p class="section-label">Featured Publications</p>
+    <h2>Recent work on AI, skills, and digital markets</h2>
+  </div>
 
+  <div class="publication-list">
+    <article class="publication-item">
+      <p class="item-meta">Management Science, 2026</p>
+      <h3><a href="https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value">Reskilling the Workforce for AI: Domain Expertise and Algorithmic Literacy</a></h3>
     </article>
-  {% endfor %}
-</div>
+    <article class="publication-item">
+      <p class="item-meta">NBER Working Paper</p>
+      <h3><a href="https://www.nber.org/papers/w32932?utm_campaign=ntwh&utm_medium=email&utm_source=ntwg26">The Digital Usage Divide: Evidence and New Measures from 40 Million Windows Devices</a></h3>
+    </article>
+    <article class="publication-item">
+      <p class="item-meta">Management Science, 2024</p>
+      <h3><a href="{{ site.baseurl }}/files/RemoteJobApplicants.pdf">Remote Work and Job Applicant Diversity: Evidence from Technology Startups</a></h3>
+    </article>
+  </div>
+
+  <p class="section-action"><a href="{{ site.baseurl }}/papers">View all papers</a></p>
+</section>
+
+<section class="learn-more-section" id="learn-more">
+  <div class="learn-more-card">
+    <p class="section-label">Writing</p>
+    <h3><a href="https://hbr.org/2026/04/managers-and-executives-disagree-on-ai-and-its-costing-companies">Managers and Executives Disagree on AI--and it's Costing Companies</a></h3>
+    <p>Recent writing in <em>Harvard Business Review</em> on organizational adoption of AI.</p>
+  </div>
+  <div class="learn-more-card">
+    <p class="section-label">Teaching</p>
+    <h3><a href="{{ site.baseurl }}/teaching">AI, business, and society</a></h3>
+    <p>A Wharton course on the opportunities and challenges that arise with AI in organizations.</p>
+  </div>
+  <div class="learn-more-card">
+    <p class="section-label">Research Area</p>
+    <h3><a href="{{ site.baseurl }}/papers">Algorithms and HR</a></h3>
+    <p>Research on digital algorithms and data signals in hiring, retention, and workforce decisions.</p>
+  </div>
+</section>
