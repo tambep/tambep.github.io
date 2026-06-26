@@ -42,7 +42,7 @@ When Data Fades: Data Investment, Depreciation, and Firm Market Value\
 Generative AI and Creative Markets: Supply-side Responses to AI Disruption & Data Governance\
 (with [Eric Zhou](https://ericbzhou.github.io), [Dokyun Lee](https://www.leedokyun.com), [Gordon Burtch](https://www.bu.edu/questrom/profiles/gordon-burtch/), and [Daniel Rock](https://www.danielianrock.com))
 
-How Generative AI Diffuses Inside Organizations: Firm-Level Evidence from ChatGPT Enterprise\
+How Organizations Use ChatGPT\
 (with [Aaron Chatterji](https://www.linkedin.com/in/aaron-ronnie-chatterji), [David Deming](https://www.daviddeming.com), [David Holtz](https://www.daveholtz.net), [Neel Rakholia](https://www.linkedin.com/in/neel-rakholia), and [Gawesha Weeratunga](https://www.linkedin.com/in/gaweshaweeratunga))
 
 ## Peer-reviewed papers
