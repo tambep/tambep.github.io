@@ -27,6 +27,9 @@ title: Working papers
 [Skill Gaps Over the Technology Lifecycle](https://www.researchgate.net/publication/403500659_From_Mainframes_to_Machine_Learning_Skill_Gaps_over_the_Technology_Life_Cycle)\
 (with [Ashwini Agrawal](https://www.lse.ac.uk/people/ashwini-agrawal) and [Daniel Kim](https://sites.google.com/view/danielsangkim/home))
 
+[The Shift to Agentic AI: Evidence from Codex](https://arxiv.org/html/2606.26959v1)\
+(with [Drew Johnston](https://drew-johnston.com), [David Holtz](https://www.daveholtz.net), [Alex Martin Richmond](https://www.linkedin.com/in/alex-martin-richmond-a85496a7/), [Christopher Ong](https://www.linkedin.com/in/christopher-ong-2023/), and Aaron Chatterji(https://www.linkedin.com/in/aaron-ronnie-chatterji))
+
 The Uneven Geography of Talent Diffusion\
 (with [Paul Hamilton](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=1378057), [Berry Wang](https://oid.wharton.upenn.edu/profile/zwangcj/), and [David Hsu](https://mgmt.wharton.upenn.edu/profile/dhsu/))
 
