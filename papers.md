@@ -15,8 +15,8 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
-      <h2><a href="https://arxiv.org/abs/2606.26959">The Shift to Agentic AI: Evidence from Codex</a></h2>
-      <p class="paper-authors">With Drew Johnston, <a href="https://www.daveholtz.net">David Holtz</a>, Alex Martin Richmond, Christopher Ong, and Aaron Chatterji.</p>
+      <h2><a href="https://arxiv.org/html/2606.26959v1">The Shift to Agentic AI: Evidence from Codex</a></h2>
+      <p class="paper-authors">With <a href="https://drew-johnston.com">Drew Johnston</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/alex-martin-richmond-a85496a7/">Alex Martin Richmond</a>, <a href="https://www.linkedin.com/in/christopher-ong-2023/">Christopher Ong</a>, and <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>.</p>
     </article>
 
     <article class="paper-item">
@@ -72,7 +72,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2>How Generative AI Diffuses Inside Organizations: Firm-Level Evidence from ChatGPT Enterprise</h2>
+      <h2>How Organizations Use ChatGPT</h2>
       <p class="paper-authors">With <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>, <a href="https://www.daviddeming.com">David Deming</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/neel-rakholia">Neel Rakholia</a>, and <a href="https://www.linkedin.com/in/gaweshaweeratunga">Gawesha Weeratunga</a>.</p>
     </article>
   </div>
