@@ -15,7 +15,7 @@ title: Teaching
   </div>
 
   <div class="course-content">
-    <h2>Understanding AI through business decisions and empirical work</h2>
+    <h2>AI, Business, and Society</h2>
     <p>OIDD 2550 is a 1 CU Wharton course covering the opportunities and challenges that arise when organizations use artificial intelligence.</p>
     <p>Students work through applied labs that build an empirical understanding of how AI algorithms operate, where they create value, and where they introduce organizational and societal risks.</p>
 
@@ -31,6 +31,5 @@ title: Teaching
 </section>
 
 <section class="teaching-note">
-  <p class="section-label">Recognition</p>
   <p>Professor Tambe has taught <a href="https://poetsandquantsforundergrads.com/2020/12/01/2020-best-undergraduate-professors-prasanna-sonny-tambe-university-of-pennsylvania-wharton-school/">award-winning courses</a> on how digitization, data science, and AI are changing business.</p>
 </section>

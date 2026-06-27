@@ -662,12 +662,8 @@ nav {
 }
 
 .teaching-note {
-  align-items: start;
   border-bottom: 1px solid $techLine;
-  display: grid;
-  gap: 56px;
-  grid-template-columns: 260px minmax(0, 1fr);
-  padding: 40px 0;
+  padding: 40px 0 40px 316px;
 
   p:last-child {
     font-size: 18px;
@@ -676,8 +672,7 @@ nav {
   }
 
   @include mobile {
-    gap: 16px;
-    grid-template-columns: 1fr;
+    padding-left: 0;
   }
 }
 
