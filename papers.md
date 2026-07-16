@@ -86,7 +86,7 @@ title: Papers
   <div class="paper-list">
     <article class="paper-item">
       <h2>Artificial Intelligence, Employees, and the Behavioral Consequences</h2>
-      <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/">Peter Cappelli</a> and Brook Jiang.</p>
+      <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/">Peter Cappelli</a> and <a href="https://mgmt.wharton.upenn.edu/profile/brookx/">Brook Jiang</a>.</p>
       <p class="item-meta">Forthcoming in Annual Review of Organizational Psychology and Organizational Behavior</p>
     </article>
 
