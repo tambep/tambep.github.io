@@ -85,6 +85,12 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
+      <h2>Artificial Intelligence, Employees, and the Behavioral Consequences</h2>
+      <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/">Peter Cappelli</a> and Brook Jiang.</p>
+      <p class="item-meta">Forthcoming in Annual Review of Organizational Psychology and Organizational Behavior</p>
+    </article>
+
+    <article class="paper-item">
       <h2><a href="https://www.researchgate.net/publication/388653677_Workforce_Reskilling_for_AI_How_Algorithmic_Bilinguals_Drive_Organizational_Value">Reskilling the Workforce for AI: Domain Expertise and Algorithmic Literacy</a></h2>
       <p class="item-meta">Management Science, 2026</p>
     </article>
