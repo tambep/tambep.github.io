@@ -72,7 +72,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2>How Organizations Use ChatGPT</h2>
+      <h2>How Organizations Use AI: Evidence from ChatGPT</h2>
       <p class="paper-authors">With <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>, <a href="https://www.daviddeming.com">David Deming</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/neel-rakholia">Neel Rakholia</a>, and <a href="https://www.linkedin.com/in/gaweshaweeratunga">Gawesha Weeratunga</a>.</p>
     </article>
   </div>
