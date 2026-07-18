@@ -42,7 +42,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2><a href="https://conference.nber.org/conf_papers/f229312.pdf">Elite Talent and Firm Productivity in the Age of AI</a></h2>
+      <h2><a href="https://conference.nber.org/conf_papers/f229312.pdf">Elite Talent, Invention, and Productivity in the Age of AI</a></h2>
       <p class="paper-authors">With <a href="https://www.heinz.cmu.edu/faculty-research/profiles/baviskar-sagar/">Sagar Baviskar</a>, Liujie Wu, Cameron Drayton, <a href="https://www.heinz.cmu.edu/faculty-research/profiles/branstetter-lee">Lee Branstetter</a>, and <a href="https://www.cs.cmu.edu/~hovy/">Eduard Hovy</a>.</p>
     </article>
 
