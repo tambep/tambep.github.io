@@ -26,12 +26,6 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2><a href="https://www.nber.org/papers/w32932?utm_campaign=ntwh&amp;utm_medium=email&amp;utm_source=ntwg26">The Digital Usage Divide: Evidence and New Measures from 40 Million Windows Devices</a></h2>
-      <p class="paper-authors">With <a href="https://www.mayanapereira.com">Mayana Pereira</a>, <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917">Shane Greenstein</a>, <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712">Raffaella Sadun</a>, <a href="https://www.microsoft.com/en-us/research/people/lronchidarre/">Lucia Ronchi Darre</a>, <a href="https://www.microsoft.com/en-us/research/people/tammyglazer/">Tammy Glazer</a>, <a href="https://www.microsoft.com/en-us/research/people/allkim/">Allen Kim</a>, <a href="https://www.microsoft.com/en-us/research/people/radodhia/">Rahul Dodhia</a>, and <a href="https://www.microsoft.com/en-us/research/people/jlavista/">Juan La Vista Ferres</a>.</p>
-      <p><a href="https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind">HBS Working Knowledge summary</a></p>
-    </article>
-
-    <article class="paper-item">
       <h2><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5477286">Startup Jobs in a Polarized Era: How Dobbs v. Jackson Shifted the Geography of Remote and In-Person Applications</a></h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/elainesp/#research">Elaine Pak</a> and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a>.</p>
     </article>
@@ -88,6 +82,13 @@ title: Papers
       <h2>Artificial Intelligence, Employees, and the Behavioral Consequences</h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/">Peter Cappelli</a> and <a href="https://mgmt.wharton.upenn.edu/profile/brookx/">Brook Jiang</a>.</p>
       <p class="item-meta">ANNUAL REVIEW OF ORGANIZATIONAL PSYCHOLOGY AND ORGANIZATIONAL BEHAVIOR, FORTHCOMING</p>
+    </article>
+
+    <article class="paper-item">
+      <h2><a href="https://www.nber.org/papers/w32932?utm_campaign=ntwh&amp;utm_medium=email&amp;utm_source=ntwg26">The Digital Usage Divide: Evidence and New Measures from 40 Million Windows Devices</a></h2>
+      <p class="paper-authors">With <a href="https://www.mayanapereira.com">Mayana Pereira</a>, <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917">Shane Greenstein</a>, <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712">Raffaella Sadun</a>, <a href="https://www.microsoft.com/en-us/research/people/lronchidarre/">Lucia Ronchi Darre</a>, <a href="https://www.microsoft.com/en-us/research/people/tammyglazer/">Tammy Glazer</a>, <a href="https://www.microsoft.com/en-us/research/people/allkim/">Allen Kim</a>, <a href="https://www.microsoft.com/en-us/research/people/radodhia/">Rahul Dodhia</a>, and <a href="https://www.microsoft.com/en-us/research/people/jlavista/">Juan La Vista Ferres</a>.</p>
+      <p class="item-meta">Nature Communications, Conditionally Accepted</p>
+      <p><a href="https://www.library.hbs.edu/working-knowledge/americas-digital-divide-where-workers-are-falling-behind">HBS Working Knowledge summary</a></p>
     </article>
 
     <article class="paper-item">
