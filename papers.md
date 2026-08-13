@@ -15,11 +15,6 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
-      <h2><a href="https://arxiv.org/html/2606.26959v1">The Shift to Agentic AI: Evidence from Codex</a></h2>
-      <p class="paper-authors">With <a href="https://drew-johnston.com">Drew Johnston</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/alex-martin-richmond-a85496a7/">Alex Martin Richmond</a>, <a href="https://www.linkedin.com/in/christopher-ong-2023/">Christopher Ong</a>, and <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>.</p>
-    </article>
-
-    <article class="paper-item">
       <h2><a href="https://www.nber.org/papers/w28285">Digital Capital and Superstar Firms</a></h2>
       <p class="paper-authors">With <a href="http://www.iecon.net">Lorin Hitt</a>, <a href="https://www.danielianrock.com">Daniel Rock</a>, and <a href="https://www.brynjolfsson.com">Erik Brynjolfsson</a>.</p>
       <p><a href="https://www.brookings.edu/research/digital-capital-and-superstar-firms/">Brookings Institution working paper version</a></p>
@@ -63,6 +58,11 @@ title: Papers
     <article class="paper-item">
       <h2>Generative AI and Creative Markets: Supply-side Responses to AI Disruption &amp; Data Governance</h2>
       <p class="paper-authors">With <a href="https://ericbzhou.github.io">Eric Zhou</a>, <a href="https://www.leedokyun.com">Dokyun Lee</a>, <a href="https://www.bu.edu/questrom/profiles/gordon-burtch/">Gordon Burtch</a>, and <a href="https://www.danielianrock.com">Daniel Rock</a>.</p>
+    </article>
+
+    <article class="paper-item">
+      <h2><a href="https://arxiv.org/html/2606.26959v1">The Shift to Agentic AI: Evidence from Codex</a></h2>
+      <p class="paper-authors">With <a href="https://drew-johnston.com">Drew Johnston</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/alex-martin-richmond-a85496a7/">Alex Martin Richmond</a>, <a href="https://www.linkedin.com/in/christopher-ong-2023/">Christopher Ong</a>, and <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>.</p>
     </article>
 
     <article class="paper-item">
