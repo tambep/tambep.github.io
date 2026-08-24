@@ -56,7 +56,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2>Generative AI and Creative Markets: Supply-side Responses to AI Disruption &amp; Data Governance</h2>
+      <h2>Creative Labor, Generative AI Disruption, &amp; Data Governance</h2>
       <p class="paper-authors">With <a href="https://ericbzhou.github.io">Eric Zhou</a>, <a href="https://www.leedokyun.com">Dokyun Lee</a>, <a href="https://www.bu.edu/questrom/profiles/gordon-burtch/">Gordon Burtch</a>, and <a href="https://www.danielianrock.com">Daniel Rock</a>.</p>
     </article>
 
