@@ -86,7 +86,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2>The Behavioral Consequences of Artificial Intelligence at Work: Rethinking Jobs, Skills, and Organizations</h2>
+      <h2><a href="https://www.annualreviews.org/content/journals/10.1146/annurev-orgpsych-031325-094642">The Behavioral Consequences of Artificial Intelligence at Work: Rethinking Jobs, Skills, and Organizations</a></h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/">Peter Cappelli</a> and <a href="https://mgmt.wharton.upenn.edu/profile/brookx/">Brook Jiang</a>.</p>
       <p class="item-meta">ANNUAL REVIEW OF ORGANIZATIONAL PSYCHOLOGY AND ORGANIZATIONAL BEHAVIOR, 2026</p>
     </article>
