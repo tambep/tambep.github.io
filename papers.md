@@ -15,12 +15,6 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
-      <h2><a href="https://www.nber.org/papers/w28285">Digital Capital and Superstar Firms</a></h2>
-      <p class="paper-authors">With <a href="http://www.iecon.net">Lorin Hitt</a>, <a href="https://www.danielianrock.com">Daniel Rock</a>, and <a href="https://www.brynjolfsson.com">Erik Brynjolfsson</a>.</p>
-      <p><a href="https://www.brookings.edu/research/digital-capital-and-superstar-firms/">Brookings Institution working paper version</a></p>
-    </article>
-
-    <article class="paper-item">
       <h2><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5477286">Startup Jobs in a Polarized Era: How Dobbs v. Jackson Shifted the Geography of Remote and In-Person Applications</a></h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/elainesp/#research">Elaine Pak</a> and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a>.</p>
     </article>
@@ -78,6 +72,14 @@ title: Papers
   </div>
 
   <div class="paper-list">
+    <article class="paper-item">
+      <h2><a href="https://www.nber.org/papers/w28285">The Concentration of Digital Capital: Prices, Quantities, and Productivity in U.S. Firms, 1987&ndash;2016</a></h2>
+      <p class="paper-authors">With <a href="http://www.iecon.net">Lorin Hitt</a>, <a href="https://www.danielianrock.com">Daniel Rock</a>, and <a href="https://www.brynjolfsson.com">Erik Brynjolfsson</a>.</p>
+      <p class="item-meta">Management Science, Forthcoming</p>
+      <p>Previously titled <em>Digital Capital and Superstar Firms</em>.</p>
+      <p><a href="https://www.brookings.edu/research/digital-capital-and-superstar-firms/">Brookings Institution working paper version</a></p>
+    </article>
+
     <article class="paper-item">
       <h2><a href="https://www.nber.org/papers/w32932?utm_campaign=ntwh&amp;utm_medium=email&amp;utm_source=ntwg26">Evidence and Measures of the Digital Usage Divide from 40 Million Windows Devices</a></h2>
       <p class="paper-authors">With <a href="https://www.mayanapereira.com">Mayana Pereira</a>, <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=718917">Shane Greenstein</a>, <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=541712">Raffaella Sadun</a>, <a href="https://www.microsoft.com/en-us/research/people/lronchidarre/">Lucia Ronchi Darre</a>, <a href="https://www.microsoft.com/en-us/research/people/tammyglazer/">Tammy Glazer</a>, <a href="https://www.microsoft.com/en-us/research/people/allkim/">Allen Kim</a>, <a href="https://www.microsoft.com/en-us/research/people/radodhia/">Rahul Dodhia</a>, and <a href="https://www.microsoft.com/en-us/research/people/jlavista/">Juan La Vista Ferres</a>.</p>
