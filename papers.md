@@ -73,7 +73,7 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
-      <h2><a href="https://www.nber.org/papers/w28285">The Concentration of Digital Capital: Prices, Quantities, and Productivity in U.S. Firms, 1987&ndash;2016</a></h2>
+      <h2><a href="https://www.nber.org/papers/w28285">Rise of Digital Capital</a></h2>
       <p class="paper-authors">With <a href="http://www.iecon.net">Lorin Hitt</a>, <a href="https://www.danielianrock.com">Daniel Rock</a>, and <a href="https://www.brynjolfsson.com">Erik Brynjolfsson</a>.</p>
       <p class="item-meta">Management Science, Forthcoming</p>
       <p>Previously titled <em>Digital Capital and Superstar Firms</em>.</p>
