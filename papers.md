@@ -35,7 +35,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2>How Geography Binds Startups: Talent Diffusion and the Lifecycle of Regional Advantage</h2>
+      <h2>The Limits of Regional Advantage: Startups and Talent Scarcity Across the Technology Lifecycle</h2>
       <p class="paper-authors">With <a href="https://www.hbs.edu/faculty/Pages/profile.aspx?facId=1378057">Paul Hamilton</a>, <a href="https://oid.wharton.upenn.edu/profile/zwangcj/">Berry Wang</a>, and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a>.</p>
     </article>
 
