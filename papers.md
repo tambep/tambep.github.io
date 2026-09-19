@@ -60,7 +60,7 @@ title: Papers
     </article>
 
     <article class="paper-item">
-      <h2>How Organizations Use AI: Evidence from ChatGPT</h2>
+      <h2><a href="https://arxiv.org/abs/2608.12236">How Organizations Use AI: Evidence from ChatGPT</a></h2>
       <p class="paper-authors">With <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/neel-rakholia">Neel Rakholia</a>, and <a href="https://www.linkedin.com/in/gaweshaweeratunga">Gawesha Weeratunga</a>.</p>
     </article>
   </div>
@@ -90,7 +90,8 @@ title: Papers
     <article class="paper-item">
       <h2><a href="https://www.annualreviews.org/content/journals/10.1146/annurev-orgpsych-031325-094642">The Behavioral Consequences of Artificial Intelligence at Work: Rethinking Jobs, Skills, and Organizations</a></h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/">Peter Cappelli</a> and <a href="https://mgmt.wharton.upenn.edu/profile/brookx/">Brook Jiang</a>.</p>
-      <p class="item-meta">ANNUAL REVIEW OF ORGANIZATIONAL PSYCHOLOGY AND ORGANIZATIONAL BEHAVIOR, 2026</p>
+      <p class="item-meta">Annual Review of Organizational Psychology and Organizational Behavior, Vol. 14 (2027), In Press</p>
+      <p>First published online August 17, 2026 (Review in Advance).</p>
     </article>
 
     <article class="paper-item">
