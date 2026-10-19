@@ -17,6 +17,7 @@ permalink: /about/
   <div class="about-content">
     <h2>Professor at the Wharton School</h2>
     <p>Prasanna Tambe is a Professor in the <a href="http://oid.wharton.upenn.edu">Operations, Information and Decisions Department</a> at the <a href="http://www.wharton.upenn.edu">Wharton School</a> of the University of Pennsylvania and Faculty Co-Director of <a href="https://ai.wharton.upenn.edu">Wharton Human-AI Research</a>.</p>
+    <p>He has been an Economist in Residence at OpenAI since 2025.</p>
     <p>His research examines technical labor markets, how AI changes work and skills, and how organizations use algorithms and data in hiring, retention, and workforce decisions.</p>
 
     <div class="about-details">
