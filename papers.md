@@ -15,6 +15,11 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
+      <h2>The Evaluation Bottleneck</h2>
+      <p class="paper-authors">With Sharique Hasan (Duke University) and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a> (Wharton).</p>
+    </article>
+
+    <article class="paper-item">
       <h2><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5477286">Startup Jobs in a Polarized Era: How Dobbs v. Jackson Shifted the Geography of Remote and In-Person Applications</a></h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/elainesp/#research">Elaine Pak</a> and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a>.</p>
     </article>
