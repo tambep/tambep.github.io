@@ -16,7 +16,7 @@ title: Papers
   <div class="paper-list">
     <article class="paper-item">
       <h2>The Evaluation Bottleneck</h2>
-      <p class="paper-authors">With Sharique Hasan (Duke University) and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a> (Wharton).</p>
+      <p class="paper-authors">With <a href="https://www.fuqua.duke.edu/faculty/sharique-hasan">Sharique Hasan</a> (Duke University) and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a> (Wharton).</p>
     </article>
 
     <article class="paper-item">
