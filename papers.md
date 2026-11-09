@@ -15,11 +15,6 @@ title: Papers
 
   <div class="paper-list">
     <article class="paper-item">
-      <h2>The Evaluation Bottleneck: Can AI Scale Judgment in Innovation Systems?</h2>
-      <p class="paper-authors">With <a href="https://www.fuqua.duke.edu/faculty/sharique-hasan">Sharique Hasan</a> (Duke University) and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a> (Wharton).</p>
-    </article>
-
-    <article class="paper-item">
       <h2><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5477286">Startup Jobs in a Polarized Era: How Dobbs v. Jackson Shifted the Geography of Remote and In-Person Applications</a></h2>
       <p class="paper-authors">With <a href="https://mgmt.wharton.upenn.edu/profile/elainesp/#research">Elaine Pak</a> and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a>.</p>
     </article>
@@ -67,6 +62,11 @@ title: Papers
     <article class="paper-item">
       <h2><a href="https://arxiv.org/abs/2608.12236">How Organizations Use AI: Evidence from ChatGPT</a></h2>
       <p class="paper-authors">With <a href="https://www.linkedin.com/in/aaron-ronnie-chatterji">Aaron Chatterji</a>, <a href="https://www.daveholtz.net">David Holtz</a>, <a href="https://www.linkedin.com/in/neel-rakholia">Neel Rakholia</a>, and <a href="https://www.linkedin.com/in/gaweshaweeratunga">Gawesha Weeratunga</a>.</p>
+    </article>
+
+    <article class="paper-item">
+      <h2>The Evaluation Bottleneck: Can AI Scale Judgment in Innovation Systems?</h2>
+      <p class="paper-authors">With <a href="https://www.fuqua.duke.edu/faculty/sharique-hasan">Sharique Hasan</a> (Duke University) and <a href="https://mgmt.wharton.upenn.edu/profile/dhsu/">David Hsu</a> (Wharton).</p>
     </article>
   </div>
 </section>
