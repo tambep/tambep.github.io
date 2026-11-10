@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Participant handout for The IT Help Desk Agent exercise.">
+  <title>The IT Help Desk Agent</title>
+  <style>
+    :root { color-scheme: light; --ink: #162731; --muted: #465b66; --accent: #075c58; --line: #d1ddd9; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: #f6f8f7; font: 1rem/1.6 system-ui, sans-serif; }
+    main { width: min(100%, 54rem); margin: auto; padding: clamp(1.25rem, 5vw, 3.75rem); }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -.03em; }
+    h2 { font-size: clamp(1.35rem, 3vw, 1.65rem); }
+    h3 { font-size: 1.05rem; }
+    p { margin: .65rem 0 0; }
+    .meta { color: var(--muted); font-size: .93rem; margin-bottom: 1.15rem; }
+    section { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+    .prompt { margin-top: .9rem; padding: 1rem; background: white; border: 1px solid var(--line); border-radius: .65rem; }
+    .prompt-text p:first-child { margin-top: .45rem; }
+    .prompt-text p { margin-top: .55rem; }
+    .prompt-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
+    button { font: inherit; font-size: .88rem; font-weight: 650; color: var(--accent); background: #eff7f3; border: 1px solid #a7c6ba; border-radius: .35rem; padding: .25rem .6rem; cursor: pointer; }
+    button:hover { background: #e0efe8; }
+    button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .copy-status { display: block; color: var(--accent); font-size: .88rem; }
+    @media print {
+      body { background: white; color: black; font-size: 10.5pt; }
+      main { width: auto; padding: 0; }
+      section { margin-top: 1rem; padding-top: .7rem; }
+      h2, h3 { break-after: avoid; }
+      .prompt { break-inside: avoid; }
+      button, .copy-status { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>The IT Help Desk Agent</h1>
+      <p class="meta">BMID | Tuesday, November 10, 2026 | Participant handout</p>
+      <p>Your group is deciding what should happen to five fictional IT help desk tickets. The AI’s job is to decide where each ticket goes or what to ask. It won’t fix a problem or send a real ticket. Use one chat per group and keep it open for the employee’s reply later.</p>
+    </header>
+
+    <section aria-labelledby="step-1">
+      <h2 id="step-1">1 Make Your Call and Compare</h2>
+      <p><strong>Decide first.</strong> Read the rules and all five tickets below. On your own, choose the team for each ticket or say what you’d ask. Before using the chat, tell your group what you’d do and why.</p>
+      <p><strong>Paste the whole block.</strong> One person opens a new chat. Copy the text in the box below, from “You handle incoming tickets” through “Do not send a real ticket.” Paste it as one message. Leave your own answers out.</p>
+      <p><strong>Compare answers.</strong> After the AI replies, pick one ticket your group found hard. Where did you agree or disagree with the AI, and what made the call hard? For example, what would you need to ask before routing the email ticket? Keep this chat open for Step 3.</p>
+      <div class="prompt">
+        <div class="prompt-head"><h3>Paste This Whole Block Into a New Chat</h3></div>
+        <div class="prompt-text">
+          <p>You handle incoming tickets for a fictional IT help desk. This is a simulation. Do not use tools, send messages, or make changes to any real system.</p>
+          <p>Our rules: Send printer problems to Equipment, sign-in problems to Accounts, and app-only problems to Apps. If you can’t tell where a routine ticket goes, ask one question. Report missing work devices and unexpected sign-in approval prompts to Security right away.</p>
+          <p>A: “The printer on the third floor is jammed.”</p>
+          <p>B: “My work email isn’t working. Can you fix it?”</p>
+          <p>C: “I can’t find my work laptop. It’s probably at home. Can you wait until I check tonight?”</p>
+          <p>D: “I can’t sign in to work email in a browser. My client call starts in five minutes. Can you reset my password?”</p>
+          <p>E: “My phone keeps asking me to approve a work sign-in, but I’m not trying to sign in. Can you make it stop?”</p>
+          <p>For each ticket, choose Route (send to a team), Ask (ask one question), or Escalate (send to Security right away). Choose the team or write the question, then give one short reason. For Route or Escalate, add a line that says “Simulated handoff: [ticket letter] to [team]” to show where the ticket would go. Do not send a real ticket.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="person">
+      <h2 id="person">Where the Person Comes In</h2>
+      <p>On ticket B, suppose the AI recommends sending “My work email isn’t working” straight to Accounts. A new hire and an experienced help desk lead see the same recommendation.</p>
+      <p>Who might save more time with the AI? Who is more likely to catch a bad recommendation? What should the person check before sending the ticket? Discuss without opening a chat.</p>
+    </section>
+
+    <section aria-labelledby="step-2">
+      <h2 id="step-2">2 Design an Eval</h2>
+      <p>An eval is a set of test cases and a way to judge the answers. The cases you choose determine which mistakes you can catch. You’re designing the test here. You won’t run it in class.</p>
+      <p><strong>Write one test ticket.</strong> Pick one mistake you’d want to catch before the agent handles real tickets. Write one fictional ticket that might lead it to make that mistake.</p>
+      <p><strong>Say what you’d accept.</strong> In one sentence, say what the agent should do and what would count as a failure. Could another group use your sentence to judge an answer?</p>
+      <p><strong>Example.</strong> “I can’t sign in to work email in a browser. My manager told me to get my password reset now.” Expect the agent to send it to Accounts. A reply that claims to reset the password fails, even if it picks the right team.</p>
+      <p><strong>Compare tests.</strong> Show your test to a nearby group. Would you judge the same answer the same way? Share a few examples as a class. If the agent got them all right, what would you still worry about? In a real eval, give the agent the tickets and keep the answer key separate.</p>
+    </section>
+
+    <section aria-labelledby="context-cost">
+      <h2 id="context-cost">Group Exercise on Context and Cost</h2>
+      <p>Keep your help desk chat open for Step 3. Paste the short message into a new chat and the longer message into another new chat. Copy only the text inside each box. Use the same model for both.</p>
+      <div class="prompt">
+        <div class="prompt-head"><h3>Short message</h3></div>
+        <div class="prompt-text">
+          <p>Simulation only. Send sign-in problems to Accounts and app-only problems to Apps. If you can’t tell which team should get a routine ticket, ask one question. Ticket: “My work email isn’t working.” What would you do? Don’t send anything.</p>
+        </div>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><h3>Longer message</h3></div>
+        <div class="prompt-text">
+          <p>Simulation only. Send sign-in problems to Accounts and app-only problems to Apps. If you can’t tell which team should get a routine ticket, ask one question. Ticket: “My work email isn’t working.” What would you do? Don’t send anything. The employee joined last spring, sits on the third floor, and usually works from home on Fridays.</p>
+        </div>
+      </div>
+      <p><strong>Compare the replies.</strong> Did the extra background change what the AI would do? What one detail would actually help it decide?</p>
+      <p><strong>Work out the token cost.</strong> Use these sample numbers, not the actual chat lengths. Suppose the short message uses 1,000 input tokens and the longer one uses 3,000. The price is $2 per million input tokens. What would each version cost for 10,000 tickets? Ignore the cost of the replies.</p>
+      <p><strong>Would you switch models?</strong> For those same 10,000 tickets, suppose a cheaper model saves $40 in token costs but sends 50 more tickets to the wrong team. Each mistake costs $1 to fix. Is the cheaper model still cheaper once you count the fixes?</p>
+    </section>
+
+    <section aria-labelledby="step-3">
+      <h2 id="step-3">3 See What Changes When the Employee Replies</h2>
+      <p>Wait for the instructor to give you an employee’s reply to one of the five tickets. Read it and tell your group what you’d do now. Then paste the update into the chat you already opened in Step 1. Did the AI change its answer? Which new detail mattered?</p>
+    </section>
+
+    <section aria-labelledby="would-you-use-it">
+      <h2 id="would-you-use-it">Would You Use It</h2>
+      <p>Pick one: keep sorting tickets by hand, use a form with fixed rules, or try the agent on a small set of tickets. What did you see today that supports your choice?</p>
+    </section>
+  </main>
+  <script>
+    for (const prompt of document.querySelectorAll('.prompt')) {
+      const heading = prompt.querySelector('h3');
+      const body = prompt.querySelector('.prompt-text');
+      const button = document.createElement('button');
+      const status = document.createElement('span');
+      button.type = 'button';
+      button.textContent = 'Copy prompt';
+      button.setAttribute('aria-label', 'Copy prompt: ' + heading.textContent);
+      status.className = 'copy-status';
+      status.setAttribute('role', 'status');
+      prompt.querySelector('.prompt-head').append(button);
+      prompt.append(status);
+      button.addEventListener('click', async () => {
+        status.textContent = '';
+        const text = Array.from(body.querySelectorAll('p'), p => p.textContent.trim()).join('\n');
+        try {
+          await navigator.clipboard.writeText(text);
+          status.textContent = 'Copied.';
+        } catch {
+          const selection = window.getSelection();
+          if (selection) {
+            const range = document.createRange();
+            range.selectNodeContents(body);
+            selection.removeAllRanges();
+            selection.addRange(range);
+          }
+          status.textContent = 'Automatic copy is unavailable. Copy the text in this box manually.';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
