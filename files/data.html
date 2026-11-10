@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Public data sources on unemployment, sales and profit, and online shopping.">
+  <title>Data Sources</title>
+  <style>
+    :root { color-scheme: light; --ink: #162731; --muted: #465b66; --accent: #075c58; --line: #d1ddd9; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f6f8f7; color: var(--ink); font: 1rem/1.55 system-ui, sans-serif; }
+    main { max-width: 72rem; margin: auto; padding: clamp(1.25rem, 5vw, 3.75rem); }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: clamp(2.15rem, 5vw, 3.25rem); line-height: 1.08; letter-spacing: -.035em; }
+    h2 { font-size: 1.25rem; line-height: 1.25; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    article { display: flex; flex-direction: column; gap: .65rem; padding: 1.15rem; background: white; border: 1px solid var(--line); border-radius: .75rem; }
+    article > p { color: var(--muted); }
+    .links { margin-top: auto; padding-top: .35rem; display: grid; gap: .3rem; justify-items: start; }
+    a { color: var(--accent); font-weight: 650; text-underline-offset: .16em; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    @media print { body { background: white; } main { padding: 0; } article { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Data sources</h1>
+    <div class="cards">
+      <article aria-labelledby="labor-heading">
+        <h2 id="labor-heading">U.S. unemployment</h2>
+        <p>Monthly, seasonally adjusted unemployment rates from the U.S. Bureau of Labor Statistics, available through FRED.</p>
+        <div class="links">
+          <a href="https://fred.stlouisfed.org/data/UNRATE">Open the unemployment data table</a>
+          <a href="https://fred.stlouisfed.org/series/UNRATE">View the chart and source notes</a>
+        </div>
+      </article>
+
+      <article aria-labelledby="finance-heading">
+        <h2 id="finance-heading">Sample sales and profit</h2>
+        <p>Microsoft’s sample Excel workbook has sales and profit figures by market segment and country.</p>
+        <div class="links">
+          <a href="https://go.microsoft.com/fwlink/?LinkID=521962">Download the Excel workbook</a>
+          <a href="https://learn.microsoft.com/en-us/power-bi/create-reports/sample-financial-download">View Microsoft’s source page</a>
+        </div>
+      </article>
+
+      <article aria-labelledby="marketing-heading">
+        <h2 id="marketing-heading">Online shopping visits</h2>
+        <p>Shopping sessions from the UCI Machine Learning Repository, including visitor type and whether each visit ended in a purchase.</p>
+        <div class="links">
+          <a href="https://archive.ics.uci.edu/static/public/468/online%2Bshoppers%2Bpurchasing%2Bintention%2Bdataset.zip">Download the ZIP file containing the CSV</a>
+          <a href="https://archive.ics.uci.edu/dataset/468/online%2Bshoppers%2Bpurchasing%2Bintention%2Bdataset">View UCI’s dataset notes</a>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
